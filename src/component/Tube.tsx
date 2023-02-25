@@ -12,11 +12,16 @@ const Tube: React.FC<Bend> = ({
   strokeWidth,
 }) => {
 
-
   return (
     <>
-      <svg height={height} className="ml-1 p-0 border">
-        <path d="M 0 350 l 150 -300" stroke="red" stroke-width="3" />
+      <svg height={height} width={strokeWidth} className="">
+        <path
+          d={`
+            M ${strokeWidth / 2} ${height} 
+            l 0 -${height}
+          `}
+          stroke={color}
+          stroke-width={strokeWidth} />
       </svg>
     </>
   );
