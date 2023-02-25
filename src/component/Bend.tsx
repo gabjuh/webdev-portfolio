@@ -22,10 +22,8 @@ const Bend: React.FC<Bend> = ({
   bend
 }) => {
 
-
-
   return (
-    <svg height={height} width={width} className="border transition-all ease-in duration-500">
+    <svg height={height} width={width} className="">
       <path
         d={`
           M ${startPos - strokeWidth / 2} ${level}
