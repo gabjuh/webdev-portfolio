@@ -23,7 +23,8 @@
       },
       "layout": {
         "jumpToLevel": 0,
-        "length": 3
+        "length": 3,
+        "color": "lightgreen"
       }
     }
   ],
