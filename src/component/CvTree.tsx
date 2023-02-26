@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Branch from './Branch';
+import Tube from './Tube';
 
 
 const CvTree = () => {
@@ -32,22 +33,52 @@ const CvTree = () => {
     q -${size} 0 -${size} -${size}
   `;
 
+  // Stock
+  const [stockHeight, setStockHeight] = useState<number>(600);
+
+  // Svg
+  const [svgHeight, setSvgHeight] = useState<number>(600);
+  const [svgWidth, setSvgWidth] = useState<number>(400);
+
+
   return (
     <>
-      <Branch
-        height={height}
-        width={width}
-        color={color}
-        strokeWidth={strokeWidth}
-        level={level}
-        startPos={startPos}
-        direction={'left'}
-        bend={[bendRight, bendLeft]}
-      />
+
       <svg
-        height={height}
-        width={strokeWidth}
+        height={svgHeight}
+        // width={strokeWidth}
+        width={svgWidth}
+        className={`
+          mx-auto border
+        `}
       >
+
+        {/* Stock */}
+        <Tube
+          height={stockHeight}
+          branchWidth={width}
+          // color={color}
+          color={'lightblue'}
+          strokeWidth={strokeWidth}
+          direction={direction}
+          startPos={svgWidth / 2}
+          isStock={true}
+        />
+
+
+        {/* 
+        <Branch
+          height={height}
+          width={width}
+          color={color}
+          strokeWidth={strokeWidth}
+          level={level}
+          startPos={startPos}
+          direction={'left'}
+          bend={[bendRight, bendLeft]}
+        /> */}
+
+
 
       </svg>
     </>
