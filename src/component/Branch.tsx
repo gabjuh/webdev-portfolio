@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Bend from './Bend';
 import Tube from './Tube';
+import Point from './Point';
 
 interface IBranch {
   height: number,
@@ -11,6 +12,7 @@ interface IBranch {
   startPos: number,
   direction: 'right' | 'left',
   bend: string[];
+  bgColor: string;
 }
 
 const Branch: React.FC<IBranch> = ({
@@ -21,7 +23,8 @@ const Branch: React.FC<IBranch> = ({
   level,
   startPos,
   direction,
-  bend
+  bend,
+  bgColor,
 }) => {
 
   return (
@@ -52,6 +55,11 @@ const Branch: React.FC<IBranch> = ({
         startPos={startPos}
         direction={direction}
         bend={[bend[0], bend[1]]}
+      />
+      <Point
+        color={color}
+        isMajor={true}
+        bgColor={bgColor}
       />
     </>
   );
