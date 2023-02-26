@@ -3,11 +3,17 @@ import './App.css';
 import CvTree from './component/CvTree';
 
 function App() {
-  const [count, setCount] = useState(0);
+
+  const bgColor = '#333';
+  const body = document.querySelector('body') as HTMLElement;
+
+  body.style.backgroundColor = bgColor;
 
   return (
     <div className="App">
-      <CvTree />
+      <CvTree
+        bgColor={bgColor}
+      />
     </div>
   );
 }
