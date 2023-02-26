@@ -30,7 +30,7 @@ const Bend: React.FC<Bend> = ({
           ${direction === 'right' ? bend[0] : bend[1]}
         `}
         stroke={color}
-        stroke-width={strokeWidth}
+        strokeWidth={strokeWidth}
         fill="none"
       />
     </svg>
