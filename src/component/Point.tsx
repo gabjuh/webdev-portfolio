@@ -5,6 +5,8 @@ interface IPoint {
   isMajor?: Boolean;
   bgColor: string;
   pos: number[];
+  size: number;
+  strokeWidth: number;
 }
 
 const Point: React.FC<IPoint> = ({
@@ -12,11 +14,13 @@ const Point: React.FC<IPoint> = ({
   isMajor,
   bgColor,
   pos,
+  size,
+  strokeWidth,
 }) => {
 
   return (
-    <g stroke={color} strokeWidth="3" fill={bgColor} >
-      <circle cx={pos[0]} cy={pos[1]} r="10" />
+    <g stroke={color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
+      <circle cx={pos[0]} cy={pos[1]} r={size} />
     </g>
   );
 };
