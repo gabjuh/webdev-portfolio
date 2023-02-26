@@ -23,17 +23,15 @@ const Bend: React.FC<Bend> = ({
 }) => {
 
   return (
-    <svg height={height} width={width} className="">
-      <path
-        d={`
+    <path
+      d={`
           M ${startPos - strokeWidth / 2} ${level}
           ${direction === 'right' ? bend[0] : bend[1]}
         `}
-        stroke={color}
-        strokeWidth={strokeWidth}
-        fill="none"
-      />
-    </svg>
+      stroke={color}
+      strokeWidth={strokeWidth}
+      fill="none"
+    />
   );
 };
 
