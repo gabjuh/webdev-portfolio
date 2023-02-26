@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Branch from './Branch';
 import Tube from './Tube';
+import Point from './Point';
 
 interface ICvTree {
   bgColor: string;
@@ -39,15 +40,18 @@ const CvTree: React.FC<ICvTree> = ({
   `;
 
   // Stock
-  const [stockHeight, setStockHeight] = useState<number>(600);
+  const [stockHeight, setStockHeight] = useState<number>(250);
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(600);
+  const [svgHeight, setSvgHeight] = useState<number>(stockHeight + 150);
   const [svgWidth, setSvgWidth] = useState<number>(400);
 
 
   return (
     <>
+      {/* <svg className="border h-[300px]" style={{ position: "relative" }} >
+        <path d="M 100 100 L 50 50 0 -50" fill="none" strokeWidth="5" stroke="red" style={{ position: "absolute", bottom: 10 }} />
+      </svg> */}
 
       <svg
         height={svgHeight}
@@ -55,23 +59,39 @@ const CvTree: React.FC<ICvTree> = ({
         width={svgWidth}
         className={`
           mx-auto border
+          py-10
+          relative
         `}
       >
 
         {/* Stock */}
-        <Tube
-          height={stockHeight}
-          branchWidth={width}
-          // color={color}
-          color={'orange'}
-          strokeWidth={strokeWidth}
-          direction={direction}
-          startPos={svgWidth / 2}
-          isStock={true}
-        />
+        <g transform="translate(0, 20)">
+          <Tube
+            height={stockHeight}
+            branchWidth={width}
+            // color={color}
+            color={'orange'}
+            strokeWidth={strokeWidth}
+            direction={direction}
+            startPos={svgWidth / 2}
+            isStock={true}
+          />
+          <Point
+            color={'orange'}
+            isMajor={true}
+            bgColor={bgColor}
+            pos={[200, 11]}
+          />
+          <Point
+            color={'orange'}
+            isMajor={true}
+            bgColor={bgColor}
+            pos={[200, stockHeight]}
+          />
+        </g>
 
 
-
+        {/* 
         <Branch
           height={height}
           width={width}
@@ -82,7 +102,7 @@ const CvTree: React.FC<ICvTree> = ({
           direction={'left'}
           bend={[bendRight, bendLeft]}
           bgColor={bgColor}
-        />
+        /> */}
 
 
 
