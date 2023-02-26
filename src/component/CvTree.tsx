@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import Branch from './Branch';
 import Tube from './Tube';
 
+interface ICvTree {
+  bgColor: string;
+}
 
-const CvTree = () => {
+const CvTree: React.FC<ICvTree> = ({
+  bgColor
+}) => {
 
   const [factor, setFactor] = useState<number>(2); // factor for sizing
   const sizeUnit: number = 15; // smallest unit to calc the size
@@ -58,7 +63,7 @@ const CvTree = () => {
           height={stockHeight}
           branchWidth={width}
           // color={color}
-          color={'lightblue'}
+          color={'orange'}
           strokeWidth={strokeWidth}
           direction={direction}
           startPos={svgWidth / 2}
@@ -66,7 +71,7 @@ const CvTree = () => {
         />
 
 
-        {/* 
+
         <Branch
           height={height}
           width={width}
@@ -76,7 +81,8 @@ const CvTree = () => {
           startPos={startPos}
           direction={'left'}
           bend={[bendRight, bendLeft]}
-        /> */}
+          bgColor={bgColor}
+        />
 
 
 
