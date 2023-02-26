@@ -9,7 +9,6 @@ interface IBranch {
   level: number,
   startPos: number,
   direction: 'right' | 'left',
-  bend: string[];
   bgColor: string;
   pointSize: number;
   pointStrokeWidth: number;
@@ -25,7 +24,6 @@ const Branch: React.FC<IBranch> = ({
   level,
   startPos,
   direction,
-  bend,
   bgColor,
   pointSize,
   pointStrokeWidth,
@@ -34,6 +32,20 @@ const Branch: React.FC<IBranch> = ({
 
   const [branchLength, setBranchLength] = useState<number>(3);
   const isRight = direction === 'right';
+
+  // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
+  const bendRight: string = `
+   q 0 -${size} ${size} -${size}
+   ${jumpToLevel ? `l ${size * jumpToLevel} 0` : ''}
+   q ${size} 0 ${size} -${size}
+ `;
+
+  // Same as above, but with different signs and direction
+  const bendLeft: string = `
+   q 0 -${size} -${size} -${size}
+   ${jumpToLevel ? `l -${size * jumpToLevel} 0` : ''}
+   q -${size} 0 -${size} -${size}
+ `;
 
   return (
     <>
@@ -57,9 +69,9 @@ const Branch: React.FC<IBranch> = ({
         <path
           d={`
             M ${isRight ? strokeWidth / 2 : width - strokeWidth / 2} ${height * branchLength + 55}
-            ${isRight ? bend[0] : bend[1]}
+            ${isRight ? bendRight : bendLeft}
             l 0 -${height * branchLength}
-            ${isRight ? bend[1] : bend[0]}
+            ${isRight ? bendLeft : bendRight}
           `}
           stroke={color}
           strokeWidth={strokeWidth}
