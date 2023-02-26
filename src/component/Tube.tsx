@@ -1,42 +1,37 @@
 import React, { useState } from 'react';
 
-interface Bend {
-  height: number,
+interface ITune {
+  height: number | string,
   branchWidth: number,
   color: string,
   strokeWidth: number;
   direction: 'right' | 'left',
+  startPos?: number,
+  isStock?: Boolean,
 }
 
-const Tube: React.FC<Bend> = ({
+const Tube: React.FC<ITune> = ({
   height,
   branchWidth,
   color,
   strokeWidth,
-  direction
+  direction,
+  startPos,
+  isStock,
 }) => {
 
-  const margin = branchWidth - strokeWidth;
+  const [vertPos, setVertPos] = useState<number>(startPos ? startPos : 0);
 
   return (
     <>
-      <svg
-        height={height}
-        width={strokeWidth}
-        // className={direction === 'right' ? `ml-[${margin}px]` : `mr-[128px]`}
-        style={{
-          marginLeft: direction === 'right' ? `${margin}px` : 0,
-          marginRight: direction === 'left' ? `${margin}px` : 0
-        }}
-      >
-        <path
-          d={`
-            M ${strokeWidth / 2} ${height} 
+      <path
+        d={`
+            M ${!isStock ? vertPos + strokeWidth / 2 : vertPos} ${height} 
             l 0 -${height}
           `}
-          stroke={color}
-          strokeWidth={strokeWidth} />
-      </svg>
+        stroke={color}
+        strokeWidth={strokeWidth}
+      />
     </>
   );
 };
