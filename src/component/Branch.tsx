@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Bend from './Bend';
-import Tube from './Tube';
-import Point from './Point';
 
 interface IBranch {
   height: number,
   width: number,
+  size: number,
   color: string,
   strokeWidth: number,
   level: number,
@@ -13,11 +11,15 @@ interface IBranch {
   direction: 'right' | 'left',
   bend: string[];
   bgColor: string;
+  pointSize: number;
+  pointStrokeWidth: number;
+  jumpToLevel: number;
 }
 
 const Branch: React.FC<IBranch> = ({
   height,
   width,
+  size,
   color,
   strokeWidth,
   level,
@@ -25,43 +27,46 @@ const Branch: React.FC<IBranch> = ({
   direction,
   bend,
   bgColor,
+  pointSize,
+  pointStrokeWidth,
+  jumpToLevel,
 }) => {
+
+  const [branchLength, setBranchLength] = useState<number>(3);
+  const isRight = direction === 'right';
 
   return (
     <>
-      <Bend
-        height={height}
+      <svg
         width={width}
-        color={color}
-        strokeWidth={strokeWidth}
-        level={level}
-        startPos={startPos}
-        direction={'left'}
-        bend={[bend[0], bend[1]]}
-      />
-      <Tube
-        height={300}
-        branchWidth={width}
-        color={color}
-        strokeWidth={strokeWidth}
-        direction={direction}
-      />
-      <Bend
-        height={height}
-        width={width}
-        color={color}
-        strokeWidth={strokeWidth}
-        level={level}
-        startPos={startPos}
-        direction={direction}
-        bend={[bend[0], bend[1]]}
-      />
-      <Point
-        color={color}
-        isMajor={true}
-        bgColor={bgColor}
-        pos={[50, 50]}
-      />
+        height={height * branchLength + 55}
+        className={`
+          mx-auto 
+          border
+          box-content
+          absolute
+          left-0
+          right-0
+          bottom-[180px]
+          translate-x-[16px]
+        `}
+        style={{
+          transform: `${isRight ? 'translateX(16px)' : 'translateX(-12px)'}`
+        }}
+      >
+        <path
+          d={`
+            M ${isRight ? strokeWidth / 2 : width - strokeWidth / 2} ${height * branchLength + 55}
+            ${isRight ? bend[0] : bend[1]}
+            l 0 -${height * branchLength}
+            ${isRight ? bend[1] : bend[0]}
+          `}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          fill="none"
+        />
+
+      </svg>
     </>
   );
 };
