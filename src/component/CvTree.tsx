@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Branch from './Branch';
 import Tube from './Tube';
 import Point from './Point';
+import Item from './Item';
 import * as data from '../cv.json';
 
-// type DataKeys = keyof typeof data;
-// const dataKeys: DataKeys[] = Object.keys(data) as DataKeys[];
+// type DataKeysGeneral = keyof typeof data.general;
+// const dataKeysGeneral: DataKeysGeneral[] = Object.keys(data) as DataKeysGeneral[];
 
 interface ICvTree {
   bgColor: string;
@@ -33,14 +34,21 @@ const CvTree: React.FC<ICvTree> = ({
   const width: number = (level + strokeWidth) + jumpToLevel * size; // width is 2 times the level plus the strokeWidth, and if jumpToLevel !== 0, it will be multiplicated by the size
   const startPos: number = direction === 'right' ? strokeWidth : width; // set the starting position, default it is 0 + strokeWidht, or if direction is left, it is the width
 
+  const step = 50;
+
   // Stock
-  const [stockHeight, setStockHeight] = useState<number>(250);
+  const [stockHeight, setStockHeight] = useState<number>(step * data.rightSide.length);
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(stockHeight + 150);
+  const [svgHeight, setSvgHeight] = useState<number>(stockHeight + 50);
   const [svgWidth, setSvgWidth] = useState<number>(400);
 
   const stockStartPos = svgWidth / 2;
+
+  useEffect(() => {
+    setStockHeight(step * data.rightSide.length);
+  }, []);
+
   return (
     <>
       <div
@@ -49,20 +57,23 @@ const CvTree: React.FC<ICvTree> = ({
           width: `${svgWidth}px`
         }}
       >
-        <Branch
-          height={height}
-          width={width}
-          size={size}
-          color={color}
-          strokeWidth={strokeWidth}
-          level={level}
-          startPos={stockStartPos + strokeWidth / 2}
-          direction={direction}
-          bgColor={bgColor}
-          pointSize={pointSize}
-          pointStrokeWidth={pointStrokeWidth}
-          jumpToLevel={jumpToLevel}
-        />
+        {/* <Item>
+          <Branch
+            height={height}
+            width={width}
+            size={size}
+            color={color}
+            strokeWidth={strokeWidth}
+            level={level}
+            startPos={stockStartPos + strokeWidth / 2}
+            direction={direction}
+            bgColor={bgColor}
+            pointSize={pointSize}
+            pointStrokeWidth={pointStrokeWidth}
+            jumpToLevel={jumpToLevel}
+          />
+          <p>asd</p>
+        </Item> */}
 
         {/* Stock */}
         <svg
@@ -90,18 +101,26 @@ const CvTree: React.FC<ICvTree> = ({
               color={'orange'}
               isMajor={true}
               bgColor={bgColor}
-              pos={[200, 5]}
+              pos={[200, 0]}
               size={pointSize}
               strokeWidth={pointStrokeWidth}
             />
-            <Point
-              color={'orange'}
-              isMajor={true}
-              bgColor={bgColor}
-              pos={[200, stockHeight]}
-              size={pointSize}
-              strokeWidth={pointStrokeWidth}
-            />
+            {[...Array(data.rightSide.length)].map((_, i, a) => {
+              return (
+                <React.Fragment key={i}>
+                  <Point
+                    color={'orange'}
+                    isMajor={true}
+                    bgColor={bgColor}
+                    pos={[200, step * (i + 1)]}
+                    size={pointSize}
+                    strokeWidth={pointStrokeWidth}
+                  />
+                  <text x="20" y={step * (i + 1) + 6} fill="#eee">{data.rightSide[a.length - 1 - i].content.year}</text>
+                  <text x="250" y={step * (i + 1) + 6} fill="#eee">{data.rightSide[a.length - 1 - i].content.name}</text>
+                </React.Fragment>
+              );
+            })}
           </g>
         </svg>
       </div>
