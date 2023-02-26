@@ -4,6 +4,9 @@ import Tube from './Tube';
 import Point from './Point';
 import * as data from '../cv.json';
 
+// type DataKeys = keyof typeof data;
+// const dataKeys: DataKeys[] = Object.keys(data) as DataKeys[];
+
 interface ICvTree {
   bgColor: string;
 }
@@ -12,8 +15,10 @@ const CvTree: React.FC<ICvTree> = ({
   bgColor
 }) => {
 
-  const [factor, setFactor] = useState<number>(7); // factor for sizing
-  const sizeUnit: number = 2; // smallest unit to calc the size
+  const general = (data.general);
+
+  const [factor, setFactor] = useState<number>(general.factor); // factor for sizing
+  const sizeUnit: number = general.sizeUnit; // smallest unit to calc the size
   const size: number = factor * sizeUnit; // size is the sizeUnit multiplied by the factor
   const pointSize: number = 6;
   const pointStrokeWidth: number = 1.5;
@@ -28,20 +33,6 @@ const CvTree: React.FC<ICvTree> = ({
   const width: number = (level + strokeWidth) + jumpToLevel * size; // width is 2 times the level plus the strokeWidth, and if jumpToLevel !== 0, it will be multiplicated by the size
   const startPos: number = direction === 'right' ? strokeWidth : width; // set the starting position, default it is 0 + strokeWidht, or if direction is left, it is the width
 
-  // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
-  const bendRight: string = `
-    q 0 -${size} ${size} -${size}
-    ${jumpToLevel ? `l ${size * jumpToLevel} 0` : ''}
-    q ${size} 0 ${size} -${size}
-  `;
-
-  // Same as above, but with different signs and direction
-  const bendLeft: string = `
-    q 0 -${size} -${size} -${size}
-    ${jumpToLevel ? `l -${size * jumpToLevel} 0` : ''}
-    q -${size} 0 -${size} -${size}
-  `;
-
   // Stock
   const [stockHeight, setStockHeight] = useState<number>(250);
 
@@ -50,7 +41,6 @@ const CvTree: React.FC<ICvTree> = ({
   const [svgWidth, setSvgWidth] = useState<number>(400);
 
   const stockStartPos = svgWidth / 2;
-  console.log(data);
   return (
     <>
       <div
@@ -68,7 +58,6 @@ const CvTree: React.FC<ICvTree> = ({
           level={level}
           startPos={stockStartPos + strokeWidth / 2}
           direction={direction}
-          bend={[bendRight, bendLeft]}
           bgColor={bgColor}
           pointSize={pointSize}
           pointStrokeWidth={pointStrokeWidth}
