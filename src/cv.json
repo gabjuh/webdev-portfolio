@@ -26,6 +26,30 @@
         "length": 3,
         "color": "lightgreen"
       }
+    },
+    {
+      "content": {
+        "name": "Elektrotechnik, Abitur",
+        "year": 2004
+      }
+    },
+    {
+      "content": {
+        "name": "Wirtschaftsinformati",
+        "year": 2005
+      }
+    },
+    {
+      "content": {
+        "name": "Universität Pécs, Künstlerische Fakultät - Klassische Gitarre",
+        "year": 2007
+      }
+    },
+    {
+      "content": {
+        "name": "Musikschuldozent",
+        "year": 2008
+      }
     }
   ],
   "leftSide": [
