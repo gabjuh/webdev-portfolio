@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import Branch from './component/Branch';
+import CvTree from './component/CvTree';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <Branch />
+      <CvTree />
     </div>
   );
 }
