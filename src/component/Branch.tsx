@@ -60,6 +60,7 @@ const Branch: React.FC<IBranch> = ({
         color={color}
         isMajor={true}
         bgColor={bgColor}
+        pos={[50, 50]}
       />
     </>
   );
