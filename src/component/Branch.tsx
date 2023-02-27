@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 interface IBranch {
+  id: string,
   height: number,
   width: number,
   size: number,
-  color: string,
+  side: string | undefined,
+  color: string | undefined,
   strokeWidth: number,
   level: number,
+  pos: number[],
   startPos: number,
-  direction: 'right' | 'left',
+  direction?: 'right' | 'left',
   bgColor: string;
   pointSize: number;
   pointStrokeWidth: number;
@@ -16,12 +19,15 @@ interface IBranch {
 }
 
 const Branch: React.FC<IBranch> = ({
+  id,
   height,
   width,
   size,
+  side,
   color,
   strokeWidth,
   level,
+  pos,
   startPos,
   direction,
   bgColor,
@@ -31,7 +37,7 @@ const Branch: React.FC<IBranch> = ({
 }) => {
 
   const [branchLength, setBranchLength] = useState<number>(3);
-  const isRight = direction === 'right';
+  // const isRight = direction === 'right';
 
   // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
   const bendRight: string = `
@@ -47,38 +53,21 @@ const Branch: React.FC<IBranch> = ({
    q -${size} 0 -${size} -${size}
  `;
 
+  console.log(color);
+
   return (
     <>
-      <svg
-        width={width}
-        height={height * branchLength + 55}
-        className={`
-          mx-auto 
-          border
-          box-content
-          absolute
-          left-0
-          right-0
-          bottom-[180px]
-          translate-x-[16px]
+      <path id={id}
+        d={`
+          M ${pos[0]} ${pos[1]}
+          ${side === 'right' ? bendRight : bendLeft}
+          l 0 -${height * branchLength}
+          ${side === 'right' ? bendLeft : bendRight}
         `}
-        style={{
-          transform: `${isRight ? 'translateX(16px)' : 'translateX(-12px)'}`
-        }}
-      >
-        <path
-          d={`
-            M ${isRight ? strokeWidth / 2 : width - strokeWidth / 2} ${height * branchLength + 55}
-            ${isRight ? bendRight : bendLeft}
-            l 0 -${height * branchLength}
-            ${isRight ? bendLeft : bendRight}
-          `}
-          stroke={color}
-          strokeWidth={strokeWidth}
-          fill="none"
-        />
-
-      </svg>
+        stroke={color ? color : 'lightgray'}
+        strokeWidth={strokeWidth}
+        fill="none"
+      />
     </>
   );
 };
