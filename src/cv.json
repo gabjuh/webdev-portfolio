@@ -15,16 +15,11 @@
     "size": 6,
     "pointStrokeWidth": 1.5
   },
-  "rightSide": [
+  "items": [
     {
       "content": {
-        "name": "Geburt",
+        "name": "Geboren",
         "year": 1986
-      },
-      "layout": {
-        "jumpToLevel": 0,
-        "length": 3,
-        "color": "lightgreen"
       }
     },
     {
@@ -41,21 +36,71 @@
     },
     {
       "content": {
+        "name": "PC/Handy Reparatur",
+        "year": 2005
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "length": 1,
+        "color": "purple",
+        "branch": "stock",
+        "side": "left",
+        "end": 2013
+      }
+    },
+    {
+      "content": {
         "name": "Universität Pécs, Künstlerische Fakultät - Klassische Gitarre",
         "year": 2007
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "length": 2,
+        "color": "lightgreen",
+        "branch": "stock",
+        "side": "right",
+        "end": 2010
       }
     },
     {
       "content": {
         "name": "Musikschuldozent",
         "year": 2008
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "length": 3,
+        "color": "blue",
+        "branch": "stock",
+        "side": "left",
+        "end": 2013
       }
-    }
-  ],
-  "leftSide": [
+    },
     {
-      "name": "Geburt",
-      "year": 1986
+      "content": {
+        "name": "test",
+        "year": 2010
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "length": 4,
+        "color": "yellow",
+        "branch": "stock",
+        "side": "right",
+        "end": 2013
+      }
+    },
+    {
+      "content": {
+        "name": "Wirtschaftsinformati",
+        "year": 2015
+      }
+    },
+    {
+      "content": {
+        "name": "Wirtschaftsinformati",
+        "year": 2020
+      }
     }
   ]
 }
