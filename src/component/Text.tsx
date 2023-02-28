@@ -5,6 +5,7 @@ interface IText {
   content: {
     name: string;
     year: number;
+    showYear: Boolean;
   };
   y: number;
 
@@ -14,10 +15,10 @@ interface IText {
 const Year: React.FC<IText> = ({
   textColor,
   content,
-  y
+  y,
 }) => {
   return (
-    <text x="20" y={y} fill={textColor}>{content.year}</text>
+    <text x="20" y={y} fill={textColor}>{content.showYear && content.year}</text>
   );
 };
 
