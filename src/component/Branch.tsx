@@ -53,8 +53,6 @@ const Branch: React.FC<IBranch> = ({
    q -${size} 0 -${size} -${size}
  `;
 
-  console.log(color);
-
   return (
     <>
       <path id={id}
