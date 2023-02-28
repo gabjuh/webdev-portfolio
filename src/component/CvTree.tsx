@@ -37,7 +37,7 @@ const CvTree: React.FC<ICvTree> = ({
   const width: number = (level + strokeWidth) + jumpToLevel * size; // width is 2 times the level plus the strokeWidth, and if jumpToLevel !== 0, it will be multiplicated by the size
   const startPos: number = direction === 'right' ? strokeWidth : width; // set the starting position, default it is 0 + strokeWidht, or if direction is left, it is the width
 
-  const step = 60;
+  const step = 40;
 
   // Stock
   const [stockHeight, setStockHeight] = useState<number>(step * data.items.length);
@@ -61,35 +61,47 @@ const CvTree: React.FC<ICvTree> = ({
     // console.log(sortedItems);
   }, [sortedItems]);
 
+
+  // Data modification loop:
+  // - add end year if not there
+  // - remove duplicates
   data.items.map((_, i, a) => {
     const item = data.items[a.length - 1 - i];
     const content = item.content;
 
-    const startIndex = sortedItems.findIndex(obj => obj.content.year === content.year);
+    // const startIndex = sortedItems.findIndex(obj => obj.content.year === content.year);
     const endIndex = sortedItems.findIndex(obj => obj.content.year === content.end);
 
-    console.log(startIndex, endIndex);
-
+    // I'm not sure, but it might comes in the other loop
     if (content.end === undefined || content.year > new Date().getFullYear()) {
-      console.log('still active');
-    } else {
-      if (endIndex === -1) {
-        console.log('should be closed');
+      // console.log('still active');
+    } else if (endIndex === -1) {
+      // console.log('should be closed');
 
-        // If the year of the finishing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
-        data.items.push({
-          content: {
-            name: '',
-            year: content.end
-          },
-        });
-      }
+      // If the year of the finishing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
+      data.items.push({
+        content: {
+          name: '',
+          year: content.end,
+          showYear: true
+        },
+      });
     }
 
-    // Remove duplicates (because of the rendering direction, the last one must be kept)
+    // Remove year duplicates (because of the rendering direction, the last one must be kept)
+    // First save all indexes of matches
+    let duplicateIndexes: number[] = [];
+    data.items.forEach((item, i) =>
+      item.content.year === content.year && duplicateIndexes.push(i)
+    );
 
-
-
+    // There will be at least one match (itself) so if there is more, set showYear fo false
+    if (duplicateIndexes.length > 1) {
+      duplicateIndexes.forEach((nr, i) => {
+        console.log(i);
+        if (i) { data.items[nr].content.showYear = false; }
+      });
+    }
   });
 
   return (
