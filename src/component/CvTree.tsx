@@ -3,6 +3,7 @@ import Branch from './Branch';
 import Tube from './Tube';
 import Point from './Point';
 import Item from './Item';
+import { Year, Text } from './Text';
 import * as data from '../cv.json';
 
 // type DataKeysGeneral = keyof typeof data.general;
@@ -51,8 +52,45 @@ const CvTree: React.FC<ICvTree> = ({
     setStockHeight(step * data.items.length);
   }, []);
 
+
   // Sort items
-  data.items.sort((a, b) => a.content.year - b.content.year);
+  const [sortedItems, setSortedItems] = useState(data.items.sort((a, b) => a.content.year - b.content.year));
+
+  useEffect(() => {
+    // console.log('sorted items changed');
+    // console.log(sortedItems);
+  }, [sortedItems]);
+
+  data.items.map((_, i, a) => {
+    const item = data.items[a.length - 1 - i];
+    const content = item.content;
+
+    const startIndex = sortedItems.findIndex(obj => obj.content.year === content.year);
+    const endIndex = sortedItems.findIndex(obj => obj.content.year === content.end);
+
+    console.log(startIndex, endIndex);
+
+    if (content.end === undefined || content.year > new Date().getFullYear()) {
+      console.log('still active');
+    } else {
+      if (endIndex === -1) {
+        console.log('should be closed');
+
+        // If the year of the finishing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
+        data.items.push({
+          content: {
+            name: '',
+            year: content.end
+          },
+        });
+      }
+    }
+
+    // Remove duplicates (because of the rendering direction, the last one must be kept)
+
+
+
+  });
 
   return (
     <>
@@ -76,11 +114,12 @@ const CvTree: React.FC<ICvTree> = ({
 
 
             {/* Loop of items */}
-            {[...Array(data.items.length)].map((_, i, a) => {
+            {data.items.map((_, i, a) => {
               const item = data.items[a.length - 1 - i];
               const content = item.content;
               const layout = item.layout;
               const side = layout?.side;
+              const yPos = step * (i + 1) + 6;
 
               return (
                 <React.Fragment key={i}>
@@ -104,15 +143,27 @@ const CvTree: React.FC<ICvTree> = ({
                       pointSize={pointSize}
                       pointStrokeWidth={pointStrokeWidth}
                       jumpToLevel={jumpToLevel}
+                    // sortedItems={sortedItems}
+                    // setSortedItems={setSortedItems}
                     />
                   }
 
                   {/* TEXTS */}
                   {/* Year */}
-                  <text x="20" y={step * (i + 1) + 6} fill={textColor}>{content.year}</text>
+                  <Year
+                    content={content}
+                    textColor={textColor}
+                    y={yPos}
+                  />
+
 
                   {/* Name */}
-                  <text x="250" y={step * (i + 1) + 6} fill={textColor}>{content.name}</text>
+                  <Text
+                    content={content}
+                    textColor={textColor}
+                    y={yPos}
+                  />
+
                 </React.Fragment>
               );
             })}
@@ -144,7 +195,6 @@ const CvTree: React.FC<ICvTree> = ({
               return (
                 <React.Fragment key={i}>
                   <Point
-                    id={`point_${i}`}
                     color={'orange'}
                     isMajor={true}
                     bgColor={bgColor}
