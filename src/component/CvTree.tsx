@@ -4,6 +4,7 @@ import Tube from './Tube';
 import Point from './Point';
 import { Year, Text } from './Text';
 import * as data from '../cv_gj.json';
+import themes from '../themes.json';
 
 interface ICvTree {
   bgColor: string;
@@ -17,17 +18,14 @@ const CvTree: React.FC<ICvTree> = ({
 
   const general = (data.general);
 
-  const [factor, setFactor] = useState<number>(general.factor); // factor for sizing
-  const sizeUnit: number = general.sizeUnit; // smallest unit to calc the size
-  const size: number = factor * sizeUnit; // size is the sizeUnit multiplied by the factor
+  const size: number = general.size; // size is the sizeUnit multiplied by the factor
   const pointSize: number = 6;
   const pointStrokeWidth: number = 1.5;
   const level: number = 2 * size; // level is actually the bright of the level of the branches
-  const [jumpToLevel, setJumpToLevel] = useState<number>(0); // the number of how many braches will be jumped through
-  const [strokeWidth, setStrokeWidth] = useState<number>(5); // simply the width of the Bend
+  // const [jumpToLevel, setJumpToLevel] = useState<number>(0); // the number of how many braches will be jumped through
+  const [strokeWidth, setStrokeWidth] = useState<number>(general.strokeWidth); // simply the width of the Bend
   // const height: number = level; // height is 2 times the size (hight), always the same.
 
-  const width: number = (level + strokeWidth) + jumpToLevel * size; // width is 2 times the level plus the strokeWidth, and if jumpToLevel !== 0, it will be multiplicated by the size
 
   const step = 60;
 
@@ -69,6 +67,7 @@ const CvTree: React.FC<ICvTree> = ({
       // If the year of the finishing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
       data.items.push({
         content: {
+          slug: `generated_slug_${i}`,
           name: '',
           year: content.end,
           showYear: true
@@ -129,7 +128,7 @@ const CvTree: React.FC<ICvTree> = ({
               // const startEndDiff = index !== endYearIndex && endYearIndex > -1 ? index - endYearIndex : null;
               const startEndDiff = endYearIndex && endYearIndex > -1 ? index - endYearIndex : 1;
 
-              console.log({ year: content.year, end: content.end, name: content.name, index, endYearIndex, startEndDiff });
+              // console.log(themes.themes[selectedTheme]);
 
               return (
                 <React.Fragment key={i}>
@@ -141,10 +140,12 @@ const CvTree: React.FC<ICvTree> = ({
                       step={step}
                       size={size}
                       side={side}
-                      color={layout ? layout.color : 'red'}
+                      // color={layout ? layout.color : 'red'}
+                      color={themes[0]['left'][layout?.jumpToLevel]}
                       strokeWidth={strokeWidth}
                       pos={[200, step * (i + 1) + step / 2.1]}
-                      jumpToLevel={jumpToLevel}
+                      jumpToLevel={layout?.jumpToLevel}
+                    // jumpToLevel={themes[0]['left'][0]}
                     />
                   }
 
@@ -169,7 +170,6 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Stack */}
             <Tube
               height={stockHeight}
-              branchWidth={width}
               color={'orange'}
               strokeWidth={strokeWidth}
               startPos={stockStartPos}
