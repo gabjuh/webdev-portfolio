@@ -1,0 +1,58 @@
+{
+  "general": {
+    "sizeUnit": 2,
+    "factor": 7,
+    "height": 250,
+    "width": 400,
+    "strokeWidth": 5,
+    "bgColor": "#fff"
+  },
+  "stock": {
+    "height": 250,
+    "color": "orange"
+  },
+  "point": {
+    "size": 6,
+    "pointStrokeWidth": 1.5
+  },
+  "items": [
+    {
+      "content": {
+        "slug": "geboren",
+        "name": "Geboren",
+        "year": 1986,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "elektrotechnik_abitur",
+        "name": "Elektrotechnik, Abitur",
+        "year": 2000,
+        "showYear": true,
+        "end": 2004
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "color": "lightgreen",
+        "branch": "stock",
+        "side": "left"
+      }
+    },
+    {
+      "content": {
+        "slug": "wirtschaftsinformatik_technikum",
+        "name": "Wirtschaftsinformatik, Technikum",
+        "year": 2004,
+        "showYear": true,
+        "end": 2005
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "color": "lightgreen",
+        "branch": "stock",
+        "side": "left"
+      }
+    }
+  ]
+}
