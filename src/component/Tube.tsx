@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 interface ITune {
   height: number | string,
-  branchWidth: number,
   color: string,
   strokeWidth: number;
   startPos?: number,
@@ -11,7 +10,6 @@ interface ITune {
 
 const Tube: React.FC<ITune> = ({
   height,
-  branchWidth,
   color,
   strokeWidth,
   startPos,
