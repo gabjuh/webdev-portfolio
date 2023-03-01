@@ -143,7 +143,7 @@ const CvTree: React.FC<ICvTree> = ({
                       // color={layout ? layout.color : 'red'}
                       color={themes[0]['left'][layout?.jumpToLevel]}
                       strokeWidth={strokeWidth}
-                      pos={[200, step * (i + 1) + step / 2.1]}
+                      pos={[200, step * (i + 1)]}
                       jumpToLevel={layout?.jumpToLevel}
                     // jumpToLevel={themes[0]['left'][0]}
                     />
