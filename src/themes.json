@@ -1,17 +1,16 @@
-{
-  "themes": {
-    "greenblue": {
-      "timeline": "#5893b5",
-      "left": [
-        "#6dbc44",
-        "#a3de45",
-        "#ddf152"
-      ],
-      "right": [
-        "#ddc148",
-        "#e4da4c",
-        "#e8ea82"
-      ]
-    }
+[
+  {
+    "name": "greenblue",
+    "timeline": "#5893b5",
+    "left": [
+      "#6dbc44",
+      "#a3de45",
+      "#ddf152"
+    ],
+    "right": [
+      "#ddc148",
+      "#e4da4c",
+      "#e8ea82"
+    ]
   }
-}
+]
