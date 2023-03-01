@@ -1,43 +1,26 @@
 import React, { useState } from 'react';
 
 interface IBranch {
-  id: string,
-  height: number,
-  width: number,
+  height: number | null,
+  step: number,
   size: number,
   side: string | undefined,
   color: string | undefined,
   strokeWidth: number,
-  level: number,
   pos: number[],
-  startPos: number,
-  direction?: 'right' | 'left',
-  bgColor: string;
-  pointSize: number;
-  pointStrokeWidth: number;
   jumpToLevel: number;
 }
 
 const Branch: React.FC<IBranch> = ({
-  id,
   height,
-  width,
+  step,
   size,
   side,
   color,
   strokeWidth,
-  level,
   pos,
-  startPos,
-  direction,
-  bgColor,
-  pointSize,
-  pointStrokeWidth,
   jumpToLevel,
 }) => {
-
-  const [branchLength, setBranchLength] = useState<number>(3);
-  // const isRight = direction === 'right';
 
   // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
   const bendRight: string = `
@@ -55,11 +38,11 @@ const Branch: React.FC<IBranch> = ({
 
   return (
     <>
-      <path id={id}
+      <path
         d={`
           M ${pos[0]} ${pos[1]}
           ${side === 'right' ? bendRight : bendLeft}
-          l 0 -${height * branchLength}
+          l 0 -${height ? height * -1 * step : step}
           ${side === 'right' ? bendLeft : bendRight}
         `}
         stroke={color ? color : 'lightgray'}
