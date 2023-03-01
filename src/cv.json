@@ -18,88 +18,57 @@
   "items": [
     {
       "content": {
+        "slug": "geboren",
         "name": "Geboren",
-        "year": 1986
+        "year": 1986,
+        "showYear": true
       }
     },
     {
       "content": {
+        "slug": "elektrotechnik",
         "name": "Elektrotechnik, Abitur",
-        "year": 2004
+        "year": 2004,
+        "showYear": true
       }
     },
     {
       "content": {
-        "name": "Wirtschaftsinformati",
-        "year": 2005
-      }
-    },
-    {
-      "content": {
-        "name": "PC/Handy Reparatur",
-        "year": 2005
-      },
-      "layout": {
-        "jumpToLevel": 0,
-        "length": 1,
-        "color": "purple",
-        "branch": "stock",
-        "side": "left",
-        "end": 2013
-      }
-    },
-    {
-      "content": {
+        "slug": "universitaet_pecs",
         "name": "Universität Pécs, Künstlerische Fakultät - Klassische Gitarre",
-        "year": 2007
+        "year": 2007,
+        "showYear": true,
+        "end": 2020
       },
       "layout": {
         "jumpToLevel": 0,
         "length": 2,
         "color": "lightgreen",
         "branch": "stock",
-        "side": "right",
-        "end": 2010
+        "side": "right"
       }
     },
     {
       "content": {
+        "slug": "musikschuldozent",
         "name": "Musikschuldozent",
-        "year": 2008
+        "year": 2012,
+        "showYear": true,
+        "end": 2015
       },
       "layout": {
         "jumpToLevel": 0,
         "length": 3,
         "color": "blue",
         "branch": "stock",
-        "side": "left",
-        "end": 2013
-      }
-    },
-    {
-      "content": {
-        "name": "test",
-        "year": 2010
-      },
-      "layout": {
-        "jumpToLevel": 0,
-        "length": 4,
-        "color": "yellow",
-        "branch": "stock",
-        "side": "right",
-        "end": 2013
+        "side": "left"
       }
     },
     {
       "content": {
         "name": "Wirtschaftsinformati",
-        "year": 2015
-      }
-    },
-    {
-      "content": {
-        "name": "Wirtschaftsinformati",
-        "year": 2020
+        "year": 2015,
+        "showYear": true
       }
     }
   ]
