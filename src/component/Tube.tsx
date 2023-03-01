@@ -5,7 +5,6 @@ interface ITune {
   branchWidth: number,
   color: string,
   strokeWidth: number;
-  direction: 'right' | 'left',
   startPos?: number,
   isStock?: Boolean,
 }
@@ -15,7 +14,6 @@ const Tube: React.FC<ITune> = ({
   branchWidth,
   color,
   strokeWidth,
-  direction,
   startPos,
   isStock,
 }) => {
