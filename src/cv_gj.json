@@ -1,10 +1,9 @@
 {
   "general": {
-    "sizeUnit": 2,
-    "factor": 7,
+    "size": 15,
     "height": 250,
     "width": 400,
-    "strokeWidth": 5,
+    "strokeWidth": 4,
     "bgColor": "#fff"
   },
   "stock": {
@@ -33,8 +32,7 @@
         "end": 2004
       },
       "layout": {
-        "jumpToLevel": 0,
-        "color": "lightgreen",
+        "jumpToLevel": 1,
         "branch": "stock",
         "side": "left"
       }
@@ -49,7 +47,20 @@
       },
       "layout": {
         "jumpToLevel": 0,
-        "color": "lightgreen",
+        "branch": "stock",
+        "side": "left"
+      }
+    },
+    {
+      "content": {
+        "slug": "test",
+        "name": "Test",
+        "year": 2002,
+        "showYear": true,
+        "end": 2008
+      },
+      "layout": {
+        "jumpToLevel": 2,
         "branch": "stock",
         "side": "left"
       }
