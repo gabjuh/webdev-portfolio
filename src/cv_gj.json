@@ -4,11 +4,12 @@
     "height": 250,
     "width": 400,
     "strokeWidth": 4,
-    "bgColor": "#fff"
+    "bgColor": "#fff",
+    "step": 50
   },
   "stock": {
     "height": 250,
-    "color": "orange"
+    "color": "#38616d"
   },
   "point": {
     "size": 6,
@@ -32,7 +33,7 @@
         "end": 2004
       },
       "layout": {
-        "jumpToLevel": 1,
+        "jumpToLevel": 0,
         "branch": "stock",
         "side": "left"
       }
@@ -53,14 +54,147 @@
     },
     {
       "content": {
-        "slug": "test",
-        "name": "Test",
-        "year": 2002,
+        "slug": "it_beratung_pc_handy_reparatur",
+        "name": "IT Beratung, PC-Hany Reparatur",
+        "year": 2005,
         "showYear": true,
-        "end": 2008
+        "end": 2013
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "left"
+      }
+    },
+    {
+      "content": {
+        "slug": "it_beratung_pc_handy_reparatur",
+        "name": "Konservarorium Pécs, Klassische Gitarre",
+        "year": 2005,
+        "showYear": true,
+        "end": 2007
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "universitaet_pecs_klassische_gitarre_ba_diplom",
+        "name": "Universität Pécs, Klassische Gitarre, BA Diplom",
+        "year": 2007,
+        "showYear": true,
+        "end": 2010
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "musikschuldozent_als_selbstaendiger",
+        "name": "Musikschuldozent als Selbständiger",
+        "year": 2008,
+        "showYear": true,
+        "end": 2013
+      },
+      "layout": {
+        "jumpToLevel": 1,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "einreisse_nach_deutschland",
+        "name": "Einreise nach Deutschland",
+        "year": 2013,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "studium_an_der_hochschule_fuer_kuenste_bremen_alte_musik",
+        "name": "Studium an der Hochschule für Künste Bremen, Alte Musik, Historische Zupfinstrumente, BA Diplom",
+        "year": 2014,
+        "showYear": true,
+        "end": 2020
+      },
+      "layout": {
+        "jumpToLevel": 1,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "dozent_der_luebecker_musikschule",
+        "name": "Dozent der Lübecker Musikschule",
+        "year": 2015,
+        "showYear": true,
+        "end": 2018
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "dozent_der_ridder_musikschule",
+        "name": "Dozent der Ridder Musikschule",
+        "year": 2018,
+        "showYear": true,
+        "end": 2020
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "konzertierender_musiker",
+        "name": "Konzertierender Musiker",
+        "year": 2017,
+        "showYear": true,
+        "end": 2020
       },
       "layout": {
         "jumpToLevel": 2,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "in_dialogo_cd_layout_design",
+        "name": "In Dialogo - CD Layout Design",
+        "year": 2020,
+        "showYear": true,
+        "end": 2021
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "content_management_luebecker_musikschule",
+        "name": "Content Management - Lübecker Musikschule",
+        "year": 2017,
+        "showYear": true
+      },
+      "layout": {
+        "jumpToLevel": 0,
         "branch": "stock",
         "side": "left"
       }
