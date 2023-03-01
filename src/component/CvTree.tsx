@@ -27,7 +27,7 @@ const CvTree: React.FC<ICvTree> = ({
   // const height: number = level; // height is 2 times the size (hight), always the same.
 
 
-  const step = 60;
+  const step = general.step;
 
   // Timeline
   const [stockHeight, setStockHeight] = useState<number>(step * data.items.length);
@@ -100,7 +100,6 @@ const CvTree: React.FC<ICvTree> = ({
       >
         <svg
           height={svgHeight}
-          // width={strokeWidth}
           width={svgWidth}
           className={`
           mx-auto border
@@ -114,7 +113,6 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Loop of items */}
             {data.items.map((_, i, a) => {
               const index = a.length - 1 - i;
-              // const index = i;
               const item = data.items[index];
               const content = item.content;
               const layout = item.layout;
@@ -125,8 +123,13 @@ const CvTree: React.FC<ICvTree> = ({
               const endYearIndex = sortedItems.findIndex(obj => content.end && content.end === obj.content.year);
 
               // Get the differenz - not in years but in index-numbers!
-              // const startEndDiff = index !== endYearIndex && endYearIndex > -1 ? index - endYearIndex : null;
               const startEndDiff = endYearIndex && endYearIndex > -1 ? index - endYearIndex : 1;
+
+              // Get index, if item has no end point but still has a branch.
+              const indexIfNotEndedYet = layout && !content.end && content.name ? index : null;
+
+              // Extract not ended index from the length of sortedItems
+              const setHeightIfNotEndedYet: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet - 1 : null;
 
               return (
                 <React.Fragment key={i}>
@@ -143,6 +146,7 @@ const CvTree: React.FC<ICvTree> = ({
                       strokeWidth={strokeWidth}
                       pos={[200, step * (i + 1)]}
                       jumpToLevel={layout?.jumpToLevel}
+                      heightIfNotEndedYet={setHeightIfNotEndedYet}
                     />
                   }
 
@@ -151,6 +155,7 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
+                    i={index}
                   />
 
                   {/* Name */}
@@ -167,7 +172,7 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Stack */}
             <Tube
               height={stockHeight}
-              color={'orange'}
+              color={data.stock.color}
               strokeWidth={strokeWidth}
               startPos={stockStartPos}
               isStock={true}
@@ -175,7 +180,7 @@ const CvTree: React.FC<ICvTree> = ({
 
             {/* Point at the very end  */}
             <Point
-              color={'orange'}
+              color={data.stock.color}
               isMajor={true}
               bgColor={bgColor}
               pos={[200, 0]}
@@ -188,7 +193,7 @@ const CvTree: React.FC<ICvTree> = ({
               return (
                 <React.Fragment key={i}>
                   <Point
-                    color={'orange'}
+                    color={data.stock.color}
                     isMajor={true}
                     bgColor={bgColor}
                     pos={[200, step * (i + 1)]}
