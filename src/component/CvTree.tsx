@@ -118,7 +118,7 @@ const CvTree: React.FC<ICvTree> = ({
               const item = data.items[index];
               const content = item.content;
               const layout = item.layout;
-              const side = layout?.side;
+              const side: string = layout ? layout.side : 'left';
               const yPos = step * (i + 1) + 6;
 
               // Find the year object index, where the end year is
@@ -127,8 +127,6 @@ const CvTree: React.FC<ICvTree> = ({
               // Get the differenz - not in years but in index-numbers!
               // const startEndDiff = index !== endYearIndex && endYearIndex > -1 ? index - endYearIndex : null;
               const startEndDiff = endYearIndex && endYearIndex > -1 ? index - endYearIndex : 1;
-
-              // console.log(themes.themes[selectedTheme]);
 
               return (
                 <React.Fragment key={i}>
@@ -140,12 +138,11 @@ const CvTree: React.FC<ICvTree> = ({
                       step={step}
                       size={size}
                       side={side}
-                      // color={layout ? layout.color : 'red'}
-                      color={themes[0]['left'][layout?.jumpToLevel]}
+                      // color={themes[0].right[layout?.jumpToLevel]}
+                      color={side && side === 'left' ? themes[0].left[layout?.jumpToLevel] : side && themes[0].right[layout?.jumpToLevel]}
                       strokeWidth={strokeWidth}
                       pos={[200, step * (i + 1)]}
                       jumpToLevel={layout?.jumpToLevel}
-                    // jumpToLevel={themes[0]['left'][0]}
                     />
                   }
 
