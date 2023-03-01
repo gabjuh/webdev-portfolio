@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface IPoint {
-  color: string;
+  color: string | undefined;
   isMajor?: Boolean;
   bgColor: string;
   pos: number[];
