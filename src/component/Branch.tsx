@@ -25,14 +25,14 @@ const Branch: React.FC<IBranch> = ({
   // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
   const bendRight: string = `
    q 0 -${size} ${size} -${size}
-   ${jumpToLevel ? `l ${size * jumpToLevel} 0` : ''}
+   ${jumpToLevel ? `l ${((1 - (jumpToLevel * .15)) * size + size) * (jumpToLevel)} 0` : ''}
    q ${size} 0 ${size} -${size}
  `;
 
   // Same as above, but with different signs and direction
   const bendLeft: string = `
    q 0 -${size} -${size} -${size}
-   ${jumpToLevel ? `l -${size * jumpToLevel} 0` : ''}
+   ${jumpToLevel ? `l -${((1 - (jumpToLevel * .15)) * size + size) * (jumpToLevel)} 0` : ''}
    q -${size} 0 -${size} -${size}
  `;
 
