@@ -1,9 +1,10 @@
 {
   "general": {
-    "size": 15,
     "height": 250,
-    "width": 400,
-    "strokeWidth": 4,
+    "width": 900,
+    "verticalPosition": 200,
+    "size": 13,
+    "strokeWidth": 2,
     "bgColor": "#fff",
     "step": 50
   },
@@ -35,7 +36,8 @@
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "left"
+        "side": "left",
+        "open": "end"
       }
     },
     {
@@ -49,7 +51,8 @@
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "left"
+        "side": "left",
+        "open": "start"
       }
     },
     {
@@ -77,7 +80,8 @@
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "end"
       }
     },
     {
@@ -91,7 +95,8 @@
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "start"
       }
     },
     {
@@ -122,7 +127,8 @@
         "name": "Studium an der Hochschule für Künste Bremen, Alte Musik, Historische Zupfinstrumente, BA Diplom",
         "year": 2014,
         "showYear": true,
-        "end": 2020
+        "end": 2020,
+        "hidden": true
       },
       "layout": {
         "jumpToLevel": 1,
@@ -136,12 +142,14 @@
         "name": "Dozent der Lübecker Musikschule",
         "year": 2015,
         "showYear": true,
-        "end": 2018
+        "end": 2018,
+        "hidden": true
       },
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "end"
       }
     },
     {
@@ -150,12 +158,14 @@
         "name": "Dozent der Ridder Musikschule",
         "year": 2018,
         "showYear": true,
-        "end": 2020
+        "end": 2020,
+        "hidden": true
       },
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "start"
       }
     },
     {
@@ -164,12 +174,14 @@
         "name": "Konzertierender Musiker",
         "year": 2017,
         "showYear": true,
-        "end": 2020
+        "end": 2020,
+        "hidden": true
       },
       "layout": {
-        "jumpToLevel": 2,
+        "jumpToLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "start"
       }
     },
     {
@@ -178,7 +190,8 @@
         "name": "In Dialogo - CD Layout Design",
         "year": 2020,
         "showYear": true,
-        "end": 2021
+        "end": 2021,
+        "hidden": true
       },
       "layout": {
         "jumpToLevel": 0,
@@ -191,12 +204,75 @@
         "slug": "content_management_luebecker_musikschule",
         "name": "Content Management - Lübecker Musikschule",
         "year": 2017,
-        "showYear": true
+        "showYear": true,
+        "hidden": true
+      },
+      "layout": {
+        "jumpToLevel": 1,
+        "branch": "stock",
+        "side": "left"
+      }
+    },
+    {
+      "content": {
+        "slug": "inline_kurier",
+        "name": "inline",
+        "year": 2017,
+        "showYear": true,
+        "end": 2018,
+        "hidden": true
       },
       "layout": {
         "jumpToLevel": 0,
         "branch": "stock",
-        "side": "left"
+        "side": "left",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "online_portfolios",
+        "name": "Online Portfolios",
+        "year": 2018,
+        "showYear": true,
+        "end": 2021,
+        "hidden": true
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "start"
+      }
+    },
+    {
+      "content": {
+        "slug": "it_beratung_pc_handy_reparatur",
+        "name": "FAKE",
+        "year": 2015,
+        "showYear": true,
+        "end": 2017
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "universitaet_pecs_klassische_gitarre_ba_diplom",
+        "name": "FAKE",
+        "year": 2017,
+        "showYear": true,
+        "end": 2022
+      },
+      "layout": {
+        "jumpToLevel": 0,
+        "branch": "stock",
+        "side": "right",
+        "open": "start"
       }
     }
   ]
