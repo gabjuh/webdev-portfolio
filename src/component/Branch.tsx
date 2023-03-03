@@ -28,6 +28,7 @@ const Branch: React.FC<IBranch> = ({
   open,
 }) => {
 
+
   // The first line of code turns to the branch 90deg to the right, the third one 90deg to the left. The code in the middle makes it longer between, if jumpToLevel > 0
   const bendRight: string = `
    q 0 -${size} ${size} -${size}
