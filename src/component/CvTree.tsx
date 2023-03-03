@@ -3,7 +3,7 @@ import Branch from './Branch';
 import Tube from './Tube';
 import Point from './Point';
 import { Year, Text } from './Text';
-import * as data from '../cv_gj.json';
+import * as data from '../cv_new.json';
 import themes from '../themes.json';
 
 interface ICvTree {
@@ -21,20 +21,16 @@ const CvTree: React.FC<ICvTree> = ({
   const size: number = general.size; // size is the sizeUnit multiplied by the factor
   const pointSize: number = 6;
   const pointStrokeWidth: number = 1.5;
-  const level: number = 2 * size; // level is actually the bright of the level of the branches
-  // const [jumpToLevel, setJumpToLevel] = useState<number>(0); // the number of how many braches will be jumped through
   const [strokeWidth, setStrokeWidth] = useState<number>(general.strokeWidth); // simply the width of the Bend
-  // const height: number = level; // height is 2 times the size (hight), always the same.
-
 
   const step = general.step;
 
   // Timeline
-  const [stockHeight, setStockHeight] = useState<number>(step * data.items.length);
+  const [stockHeight, setStockHeight] = useState<number>(step * data.items.length + 120);
   const [verticalPosition, setVerticalPosition] = useState<number>(general.verticalPosition);
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(stockHeight + 50);
+  const [svgHeight, setSvgHeight] = useState<number>(stockHeight);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const stockStartPos = svgWidth / 2;
@@ -53,14 +49,9 @@ const CvTree: React.FC<ICvTree> = ({
     const item = data.items[a.length - 1 - i];
     const content = item.content;
 
-    // const startIndex = sortedItems.findIndex(obj => obj.content.year === content.year);
     const endIndex = sortedItems.findIndex(obj => obj.content.year === content.end);
 
-    // If end year is not defined or ..
-    if (content.end === undefined) {
-      // console.log('still active');
-    } else if (endIndex === -1) {
-      // console.log('should be closed', content.end);
+    if (content.end && endIndex === -1) {
 
       // If the year of the finishing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
       data.items.push({
@@ -117,17 +108,27 @@ const CvTree: React.FC<ICvTree> = ({
               const side: string = layout ? layout.side : 'left';
               const yPos = step * (i + 1) + 6;
 
+              // LOGIC TO GET THE PROPER HEIGHT OF AN UNFINISHED BRANCH
               // Find the year object index, where the end year is
               const endYearIndex = sortedItems.findIndex(obj => content.end && content.end === obj.content.year);
 
-              // Get the differenz - not in years but in index-numbers!
+              // Get the difference - not in years but in index-numbers!
               const startEndDiff = endYearIndex && endYearIndex > -1 ? index - endYearIndex : 1;
 
               // Get index, if item has no end point but still has a branch.
               const indexIfNotEndedYet = layout && !content.end && content.name ? index : null;
 
               // Extract not ended index from the length of sortedItems
-              const setHeightIfNotEndedYet: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet - 1 : null;
+              const heightTillTop: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet - 1 : null;
+
+              // LOGIC TO GET THE DISTANCE OF AN OPEN ENDED AND OPEN STARTED BRANCH
+              // Get index of open-started branch on same side and level
+              const indexOfOpenStartedBranch = sortedItems.findIndex(obj =>
+                obj.layout?.open === 'start' ||
+                obj.layout?.open === 'both' &&
+                obj.layout?.level === layout?.level &&
+                obj.layout?.side === layout?.side
+              );
 
               return (
                 <React.Fragment key={i}>
@@ -139,11 +140,12 @@ const CvTree: React.FC<ICvTree> = ({
                       step={step}
                       size={size}
                       side={side}
-                      color={side && side === 'left' ? themes[0].left[layout?.jumpToLevel] : side && themes[0].right[layout?.jumpToLevel]}
+                      color={side && side === 'left' ? themes[0].left[layout?.level] : side && themes[0].right[layout?.level]}
                       strokeWidth={strokeWidth}
                       pos={[verticalPosition, step * (i + 1)]}
-                      jumpToLevel={layout?.jumpToLevel}
-                      heightIfNotEndedYet={setHeightIfNotEndedYet}
+                      level={layout?.level}
+                      heightTillTop={heightTillTop}
+                      levelDistanceReduction={general.levelDistanceReduction}
                       open={layout.open}
                     />
                   }
