@@ -31,10 +31,11 @@ const CvTree: React.FC<ICvTree> = ({
 
   // Timeline
   const [stockHeight, setStockHeight] = useState<number>(step * data.items.length);
+  const [verticalPosition, setVerticalPosition] = useState<number>(general.verticalPosition);
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(stockHeight + 50);
-  const [svgWidth, setSvgWidth] = useState<number>(400);
+  const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const stockStartPos = svgWidth / 2;
 
@@ -44,9 +45,6 @@ const CvTree: React.FC<ICvTree> = ({
 
   // Sort items
   const [sortedItems, setSortedItems] = useState(data.items.sort((a, b) => a.content.year - b.content.year));
-
-  // console.log('sorted', sortedItems);
-  // console.log('original', data.items);
 
   // Data modification loop:
   // - add end year if not there
@@ -135,18 +133,18 @@ const CvTree: React.FC<ICvTree> = ({
                 <React.Fragment key={i}>
 
                   {/* Branch */}
-                  {layout &&
+                  {layout && content.hidden === undefined &&
                     <Branch
                       height={startEndDiff}
                       step={step}
                       size={size}
                       side={side}
-                      // color={themes[0].right[layout?.jumpToLevel]}
                       color={side && side === 'left' ? themes[0].left[layout?.jumpToLevel] : side && themes[0].right[layout?.jumpToLevel]}
                       strokeWidth={strokeWidth}
-                      pos={[200, step * (i + 1)]}
+                      pos={[verticalPosition, step * (i + 1)]}
                       jumpToLevel={layout?.jumpToLevel}
                       heightIfNotEndedYet={setHeightIfNotEndedYet}
+                      open={layout.open}
                     />
                   }
 
@@ -155,7 +153,6 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
-                    i={index}
                   />
 
                   {/* Name */}
@@ -163,6 +160,7 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
+                    verticalPosition={verticalPosition}
                   />
 
                 </React.Fragment>
@@ -176,6 +174,7 @@ const CvTree: React.FC<ICvTree> = ({
               strokeWidth={strokeWidth}
               startPos={stockStartPos}
               isStock={true}
+              verticalPosition={verticalPosition}
             />
 
             {/* Point at the very end  */}
@@ -183,13 +182,13 @@ const CvTree: React.FC<ICvTree> = ({
               color={data.stock.color}
               isMajor={true}
               bgColor={bgColor}
-              pos={[200, 0]}
+              pos={[verticalPosition, 0]}
               size={pointSize}
               strokeWidth={pointStrokeWidth}
             />
 
             {/* Points */}
-            {[...Array(data.items.length)].map((_, i, a) => {
+            {/* {[...Array(data.items.length)].map((_, i, a) => {
               return (
                 <React.Fragment key={i}>
                   <Point
@@ -202,7 +201,7 @@ const CvTree: React.FC<ICvTree> = ({
                   />
                 </React.Fragment>
               );
-            })}
+            })} */}
 
           </g>
         </svg>
