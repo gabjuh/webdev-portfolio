@@ -4,10 +4,11 @@ import CvTree from './component/CvTree';
 
 function App() {
 
-  const colors = ['#eee', '#222'];
+  const colors = ['#eee', '#111'];
 
-  const bgColor = colors[0];
-  const textColor = colors[1];
+  const bgColor = colors[1];
+  const textColor = colors[0
+  ];
   const body = document.querySelector('body') as HTMLElement;
 
   body.style.backgroundColor = bgColor;
