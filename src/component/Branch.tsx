@@ -48,10 +48,6 @@ const Branch: React.FC<IBranch> = ({
       `l 0 -${step * .75}` :
       bendString;
 
-  // const startOpenOrFromTimeline = (bendString: string) =>
-  //   open === 'start' ?
-  //     ``
-
   // Turn to the right if side is right,
   // if false, it is the left side, turn to the left
   const bendToDirection = () =>
