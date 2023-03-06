@@ -158,14 +158,16 @@ const CvTree: React.FC<ICvTree> = ({
                       step={step}
                       size={size}
                       side={side}
-                      color={side && side === 'left' ? themes[0].left[layout?.level] : side && themes[0].right[layout?.level]}
+                      color={side === 'left' ? themes[0].left[layout?.level] : side && themes[0].right[layout?.level]}
+                      bgColor={general.bgColor}
                       strokeWidth={strokeWidth}
                       pos={[horisontalPosition, step * (i + 1)]}
-                      level={layout?.level}
                       heightTillTop={heightTillTop}
+                      level={layout?.level}
                       levelDistanceReduction={general.levelDistanceReduction}
                       open={layout.open}
                       openBranchIndexes={openBranchIndexes ? openBranchIndexes : undefined}
+                      newBranchOn={layout.newBranchOn}
                     />
                   }
 
@@ -182,7 +184,7 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
-                    verticalPosition={horisontalPosition}
+                    horisontalPosition={horisontalPosition}
                   />
 
                 </React.Fragment>
@@ -196,30 +198,58 @@ const CvTree: React.FC<ICvTree> = ({
               strokeWidth={strokeWidth}
               startPos={timelineStartPos}
               isTimeline={true}
-              verticalPosition={horisontalPosition}
+              horisontalPosition={horisontalPosition}
             />
 
             {/* Point at the very end  */}
             <Point
-              color={data.timeline.color}
-              isMajor={true}
-              bgColor={bgColor}
               pos={[horisontalPosition, 0]}
               size={pointSize}
               strokeWidth={pointStrokeWidth}
+              color={data.timeline.color}
+              bgColor={bgColor}
+              isMajor={true}
+              levelDistanceReduction={general.levelDistanceReduction}
+              branchWidth={data.general.size}
             />
 
             {/* Points */}
-            {[...Array(data.items.length)].map((_, i, a) => {
+            {data.items.map((item, i, a) => {
+              const index = a.length - 1 - i;
+
+              const getColor = () => {
+                let color = '';
+                if (item.layout && item.layout?.level - 1 < 0) {
+                  color = themes[0].timeline;
+                } else if (item.layout?.side === 'left') {
+                  color = themes[0].left[item.layout?.level - 1];
+                } else if (item.layout?.side === 'right') {
+                  color = themes[0].right[item.layout?.level - 1];
+                } else if (item.layout && item.layout?.level - 1 < 1) {
+                  color = themes[0].timeline;
+                } else {
+                  color = themes[0].timeline;
+                  // color = '#f00';
+                }
+
+                return color;
+                // item.layout?.side
+
+              };
+
               return (
                 <React.Fragment key={i}>
                   <Point
-                    color={data.timeline.color}
-                    isMajor={true}
-                    bgColor={bgColor}
-                    pos={[200, step * (i + 1)]}
+                    pos={[data.general.horisontalPosition, step * (index + 1)]}
                     size={pointSize}
                     strokeWidth={pointStrokeWidth}
+                    color={getColor()}
+                    bgColor={bgColor}
+                    isMajor={item.content.isMajor}
+                    side={item.layout?.side}
+                    level={item.layout?.level}
+                    levelDistanceReduction={general.levelDistanceReduction}
+                    branchWidth={data.general.size}
                   />
                 </React.Fragment>
               );
