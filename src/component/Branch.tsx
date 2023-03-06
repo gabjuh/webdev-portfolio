@@ -8,6 +8,7 @@ interface IBranch {
   side: string,
   // color: string | undefined,
   color: string | undefined,
+  bgColor: string,
   strokeWidth: number,
   pos: number[],
   level: number;
@@ -15,6 +16,7 @@ interface IBranch {
   levelDistanceReduction: number;
   open: string | undefined;
   openBranchIndexes: number[] | undefined;
+  newBranchOn: number | undefined;
 }
 
 const Branch: React.FC<IBranch> = ({
@@ -23,13 +25,15 @@ const Branch: React.FC<IBranch> = ({
   size,
   side,
   color,
+  bgColor,
   strokeWidth,
   pos,
   level,
   heightTillTop,
   levelDistanceReduction,
   open,
-  openBranchIndexes
+  openBranchIndexes,
+  newBranchOn
 }) => {
 
   // DRAWING ELEMENTS
@@ -56,7 +60,7 @@ const Branch: React.FC<IBranch> = ({
   // Horisontal line to the left (sign = '-') or to the right (sign = ''),
   // length between the curves is based on the level value
   const straightLineHorisontal = (sign: string): string => `
-    ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size + size) * (level)} 0` : ''}
+    ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size * 2 - (newBranchOn && sign === '' ? (newBranchOn * size * 2) : 0)) * (level)} 0` : ''}
   `;
 
   // Vertical line from the bottom to the bottom in the given height
@@ -104,7 +108,7 @@ const Branch: React.FC<IBranch> = ({
 
   // If branch has not a finishing point, so it is still active, it goes up to the top based on the remaining place to the top
   const lineIfNotEndedYet: string = `
-    l 0 -${heightTillTop ? heightTillTop * step + size * 1.3 : step}
+    l 0 -${heightTillTop ? heightTillTop * step + size * 1.4 : step}
  `;
 
   //  Original starting point from the timeline
@@ -116,14 +120,20 @@ const Branch: React.FC<IBranch> = ({
   // Changed position for continuing a previous branch on the right side
   const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
 
+  const posStartingOnExistingBranchLeft = `M ${pos[0] + (size * (newBranchOn ? newBranchOn : 1) * 2)} ${pos[1]}`;
+
+  const posStartingOnExistingBranchRight = `M ${pos[0] - (size * (newBranchOn ? newBranchOn : 1) * 2)} ${pos[1]}`;
+
   // If open set to 'start', set position on the right or left side,
   // if open is not start, give the original starting point
   const getPosition = () =>
-    open === 'start' ?
-      side === 'left' ?
-        posContinuingPrevBranchLeft :
-        posContinuingPrevBranchRight :
-      posStartingFromTimeline;
+    !newBranchOn ?
+      open === 'start' ?
+        side === 'left' ?
+          posContinuingPrevBranchLeft :
+          posContinuingPrevBranchRight :
+        posStartingFromTimeline :
+      posStartingOnExistingBranchLeft;
 
   const lineLengthToJoinOpenedBranches = openBranchIndexes ? openBranchIndexes[1] - openBranchIndexes[0] : 0;
   console.log(openBranchIndexes);
@@ -147,10 +157,13 @@ const Branch: React.FC<IBranch> = ({
         <Point
           color={color}
           isMajor={true}
-          bgColor={'#222'}
+          bgColor={bgColor}
           pos={[side === 'right' ? pos[0] + size * 2 : pos[0] - size * 2, 0]}
           size={6}
           strokeWidth={1.5}
+          level={level}
+          levelDistanceReduction={levelDistanceReduction}
+          isStillActive={!open && heightTillTop !== null}
         />
       )}
     </>
