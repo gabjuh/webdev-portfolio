@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
-interface ITune {
+interface ITimeline {
   height: number | string;
   verticalPosition: number;
   color: string;
   strokeWidth: number;
   startPos?: number;
-  isStock?: Boolean;
+  isTimeline?: Boolean;
 }
 
-const Tube: React.FC<ITune> = ({
+const Tube: React.FC<ITimeline> = ({
   height,
   verticalPosition,
   color,
   strokeWidth,
   startPos,
-  isStock,
+  isTimeline,
 }) => {
 
   // const [vertPos, setVertPos] = useState<number>(startPos ? startPos : 0);
