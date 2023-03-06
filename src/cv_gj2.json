@@ -1,0 +1,280 @@
+{
+  "general": {
+    "height": 250,
+    "width": 900,
+    "horisontalPosition": 200,
+    "size": 13,
+    "strokeWidth": 4,
+    "bgColor": "#fff",
+    "step": 50,
+    "levelDistanceReduction": 0
+  },
+  "timeline": {
+    "height": 250,
+    "color": "#38616d"
+  },
+  "point": {
+    "size": 6,
+    "pointStrokeWidth": 1.5
+  },
+  "items": [
+    {
+      "content": {
+        "slug": "geboren",
+        "name": "Geboren",
+        "year": 1986,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "elektrotechnik",
+        "name": "Elektrotechnik, Abitur",
+        "year": 2004,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "wirtschaftsinformatik",
+        "name": "Wirtschaftsinformatik, Technikum",
+        "year": 2004,
+        "showYear": true,
+        "end": 2005
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "it_beratung_pc_handy_reparatur",
+        "name": "It Beratung, PC-Handy Reparatur",
+        "year": 2005,
+        "showYear": true,
+        "end": 2013
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "start"
+      }
+    },
+    {
+      "content": {
+        "slug": "universitaet_pecs_klassische_gitarre",
+        "name": "Universität Pécs, Klassische Gitarre, BA Diplom, Technikum",
+        "year": 2007,
+        "showYear": true,
+        "end": 2010
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "musikschuldozent",
+        "name": "Musikschuldozent in mehreren Musikschulen",
+        "year": 2008,
+        "showYear": true,
+        "end": 2013
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "einreise_nach_deutschland",
+        "name": "Einreise nach Deutschland",
+        "year": 2013,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "hochschule_fur_kuenste_bremen",
+        "name": "Hochschule für Künste Bremen",
+        "year": 2014,
+        "showYear": true,
+        "end": 2020
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "dozent_der_luebecker_musikschule",
+        "name": "Dozent der Lübecker Musikschule",
+        "year": 2014,
+        "showYear": true,
+        "end": 2018
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "right",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "konzertierender_musiker",
+        "name": "Konzertierender Musiker",
+        "year": 2015,
+        "showYear": true,
+        "end": 2020
+      },
+      "layout": {
+        "level": 2,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "dozent_der_ridder_musikschule",
+        "name": "Dozent der Ridder Musikschule Bremen",
+        "year": 2018,
+        "showYear": true,
+        "end": 2020
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "right",
+        "open": "start"
+      }
+    },
+    {
+      "content": {
+        "slug": "covid_19_pandemie",
+        "name": "Covid-19 Pandemie",
+        "year": 2020,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "in_dialogo_cs_layout_design",
+        "name": "In Dialogo - CD Layout Design",
+        "year": 2020,
+        "showYear": true,
+        "end": 2021
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "right"
+      }
+    },
+    {
+      "content": {
+        "slug": "content_management_bei_der_luebecker_musikschule",
+        "name": "Content-Management bei der Lübecker Musikschule",
+        "year": 2017,
+        "showYear": true
+      },
+      "layout": {
+        "level": 0,
+        "branch": "stock",
+        "side": "left"
+      }
+    },
+    {
+      "content": {
+        "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
+        "name": "inline Kuriere Hamburg - Digitales Benutzerhandbuch - HTML5, CSS3, PHP7",
+        "year": 2017,
+        "showYear": true,
+        "end": 2018
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "online_portfolios_fuer_musikerinnnen",
+        "name": "Online Portfolios für MusikerInnen mit Wordpress",
+        "year": 2018,
+        "showYear": true,
+        "end": 2021
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "start"
+      }
+    },
+    {
+      "content": {
+        "slug": "sgd_fernschule_php_mysql",
+        "name": "sgd Fernschule - PHP & MySQL",
+        "year": 2020,
+        "showYear": true,
+        "end": 2021
+      },
+      "layout": {
+        "level": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_webdesign_usability",
+        "name": "Webmasters Fernakademie - Webdesign, Usability",
+        "year": 2021,
+        "showYear": true,
+        "end": 2021
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_javascript_react",
+        "name": "Webmasters Fernakademie - JavaScript & React",
+        "year": 2021,
+        "showYear": true
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_php_mysql",
+        "name": "Webmasters Fernakademie - PHP & MySQL",
+        "year": 2021,
+        "showYear": true,
+        "end": 2022
+      },
+      "layout": {
+        "level": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "start"
+      }
+    }
+  ]
+}
