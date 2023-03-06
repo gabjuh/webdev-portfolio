@@ -27,7 +27,7 @@ const CvTree: React.FC<ICvTree> = ({
 
   // Timeline
   const [stockHeight, setStockHeight] = useState<number>(step * data.items.length + 120);
-  const [verticalPosition, setVerticalPosition] = useState<number>(general.verticalPosition);
+  const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(stockHeight);
@@ -41,6 +41,11 @@ const CvTree: React.FC<ICvTree> = ({
 
   // Sort items
   const [sortedItems, setSortedItems] = useState(data.items.sort((a, b) => a.content.year - b.content.year));
+
+  // Opened branches
+  const [openedBranches, setOpenedBranches] = useState();
+
+
 
   // Data modification loop:
   // - add end year if not there
@@ -122,13 +127,26 @@ const CvTree: React.FC<ICvTree> = ({
               const heightTillTop: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet - 1 : null;
 
               // LOGIC TO GET THE DISTANCE OF AN OPEN ENDED AND OPEN STARTED BRANCH
-              // Get index of open-started branch on same side and level
-              const indexOfOpenStartedBranch = sortedItems.findIndex(obj =>
-                obj.layout?.open === 'start' ||
-                obj.layout?.open === 'both' &&
-                obj.layout?.level === layout?.level &&
-                obj.layout?.side === layout?.side
-              );
+              let openBranchIndexes: number[] | undefined = undefined;
+
+              if (item.content.end && item.layout?.open === 'end') {
+                const arr = [];
+                const indexOpenEnded = sortedItems.findIndex(el => el === item);
+                arr.push(indexOpenEnded);
+
+                const match = sortedItems.filter(el =>
+                  item.layout?.side === el.layout?.side &&
+                  item.layout?.level === el.layout?.level &&
+                  el.layout?.open === 'start'
+                );
+
+                const indexOpenStarted = sortedItems.findIndex(el => el === match[0]);
+
+                indexOpenStarted && arr.push(indexOpenStarted);
+
+                openBranchIndexes = arr;
+              }
+
 
               return (
                 <React.Fragment key={i}>
@@ -142,11 +160,12 @@ const CvTree: React.FC<ICvTree> = ({
                       side={side}
                       color={side && side === 'left' ? themes[0].left[layout?.level] : side && themes[0].right[layout?.level]}
                       strokeWidth={strokeWidth}
-                      pos={[verticalPosition, step * (i + 1)]}
+                      pos={[horisontalPosition, step * (i + 1)]}
                       level={layout?.level}
                       heightTillTop={heightTillTop}
                       levelDistanceReduction={general.levelDistanceReduction}
                       open={layout.open}
+                      openBranchIndexes={openBranchIndexes ? openBranchIndexes : undefined}
                     />
                   }
 
@@ -155,6 +174,7 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
+                    i={index}
                   />
 
                   {/* Name */}
@@ -162,7 +182,7 @@ const CvTree: React.FC<ICvTree> = ({
                     content={content}
                     textColor={textColor}
                     y={yPos}
-                    verticalPosition={verticalPosition}
+                    verticalPosition={horisontalPosition}
                   />
 
                 </React.Fragment>
@@ -176,7 +196,7 @@ const CvTree: React.FC<ICvTree> = ({
               strokeWidth={strokeWidth}
               startPos={stockStartPos}
               isStock={true}
-              verticalPosition={verticalPosition}
+              verticalPosition={horisontalPosition}
             />
 
             {/* Point at the very end  */}
@@ -184,7 +204,7 @@ const CvTree: React.FC<ICvTree> = ({
               color={data.stock.color}
               isMajor={true}
               bgColor={bgColor}
-              pos={[verticalPosition, 0]}
+              pos={[horisontalPosition, 0]}
               size={pointSize}
               strokeWidth={pointStrokeWidth}
             />
