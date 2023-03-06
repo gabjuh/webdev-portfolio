@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Branch from './Branch';
-import Tube from './Tube';
+import Timeline from './Timeline';
 import Point from './Point';
 import { Year, Text } from './Text';
-import * as data from '../cv_new.json';
+import * as data from '../cv_gj2.json';
 import themes from '../themes.json';
 
 interface ICvTree {
@@ -26,17 +26,17 @@ const CvTree: React.FC<ICvTree> = ({
   const step = general.step;
 
   // Timeline
-  const [stockHeight, setStockHeight] = useState<number>(step * data.items.length + 120);
+  const [timelineHeight, setTimelineHeight] = useState<number>(step * data.items.length + 120);
   const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(stockHeight);
+  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
-  const stockStartPos = svgWidth / 2;
+  const timelineStartPos = svgWidth / 2;
 
   useEffect(() => {
-    setStockHeight(step * data.items.length);
+    setTimelineHeight(step * data.items.length);
   }, []);
 
   // Sort items
@@ -152,7 +152,7 @@ const CvTree: React.FC<ICvTree> = ({
                 <React.Fragment key={i}>
 
                   {/* Branch */}
-                  {layout && content.hidden === undefined &&
+                  {layout && //&& !content.hidden === undefined
                     <Branch
                       height={startEndDiff}
                       step={step}
@@ -189,19 +189,19 @@ const CvTree: React.FC<ICvTree> = ({
               );
             })}
 
-            {/* Stack */}
-            <Tube
-              height={stockHeight}
-              color={data.stock.color}
+            {/* Timeline */}
+            <Timeline
+              height={timelineHeight}
+              color={data.timeline.color}
               strokeWidth={strokeWidth}
-              startPos={stockStartPos}
-              isStock={true}
+              startPos={timelineStartPos}
+              isTimeline={true}
               verticalPosition={horisontalPosition}
             />
 
             {/* Point at the very end  */}
             <Point
-              color={data.stock.color}
+              color={data.timeline.color}
               isMajor={true}
               bgColor={bgColor}
               pos={[horisontalPosition, 0]}
@@ -210,11 +210,11 @@ const CvTree: React.FC<ICvTree> = ({
             />
 
             {/* Points */}
-            {/* {[...Array(data.items.length)].map((_, i, a) => {
+            {[...Array(data.items.length)].map((_, i, a) => {
               return (
                 <React.Fragment key={i}>
                   <Point
-                    color={data.stock.color}
+                    color={data.timeline.color}
                     isMajor={true}
                     bgColor={bgColor}
                     pos={[200, step * (i + 1)]}
@@ -223,7 +223,7 @@ const CvTree: React.FC<ICvTree> = ({
                   />
                 </React.Fragment>
               );
-            })} */}
+            })}
 
           </g>
         </svg>
