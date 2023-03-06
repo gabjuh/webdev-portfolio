@@ -111,7 +111,7 @@ const Branch: React.FC<IBranch> = ({
   const posStartingFromTimeline = `M ${pos[0]} ${pos[1]}`;
 
   // Changed position for continuing a previous branch on the left side
-  const posContinuingPrevBranchLeft = `M ${pos[0] - size * 2} ${pos[1] + size}`;
+  const posContinuingPrevBranchLeft = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size}`;
 
   // Changed position for continuing a previous branch on the right side
   const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
@@ -135,7 +135,7 @@ const Branch: React.FC<IBranch> = ({
           ${getPosition()}
           ${side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
           ${heightTillTop ? lineIfNotEndedYet :
-            openBranchIndexes ? `q 0 0 0 -${(step - size) * lineLengthToJoinOpenedBranches}` : ifEnds}
+            openBranchIndexes ? `q 0 0 0 -${(step - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
         `}
         stroke={color ? color : 'lightgray'}
         strokeWidth={strokeWidth}
