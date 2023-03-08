@@ -4,8 +4,8 @@
     "width": 900,
     "horisontalPosition": 200,
     "size": 13,
-    "strokeWidth": 4,
-    "bgColor": "#fff",
+    "strokeWidth": 2,
+    "bgColor": "#eee",
     "step": 50,
     "levelDistanceReduction": 0
   },
@@ -23,13 +23,15 @@
         "slug": "geboren",
         "name": "Geboren",
         "year": 1986,
-        "showYear": true
+        "showYear": true,
+        "isMajor": true
       }
     },
     {
       "content": {
         "slug": "elektrotechnik",
         "name": "Elektrotechnik, Abitur",
+        "institute": "500.sz. Angster J. Fachmittelschule",
         "year": 2004,
         "showYear": true
       }
@@ -38,6 +40,7 @@
       "content": {
         "slug": "wirtschaftsinformatik",
         "name": "Wirtschaftsinformatik, Technikum",
+        "institute": "Czipernovsky Fachmittelschule",
         "year": 2004,
         "showYear": true,
         "end": 2005
@@ -53,6 +56,7 @@
       "content": {
         "slug": "it_beratung_pc_handy_reparatur",
         "name": "It Beratung, PC-Handy Reparatur",
+        "institute": "Selbständiger Tätigkeit",
         "year": 2005,
         "showYear": true,
         "end": 2013
@@ -67,7 +71,8 @@
     {
       "content": {
         "slug": "universitaet_pecs_klassische_gitarre",
-        "name": "Universität Pécs, Klassische Gitarre, BA Diplom, Technikum",
+        "name": "Klassische Gitarre",
+        "institute": "Universität Pécs, BA Dimplom",
         "year": 2007,
         "showYear": true,
         "end": 2010
@@ -81,7 +86,8 @@
     {
       "content": {
         "slug": "musikschuldozent",
-        "name": "Musikschuldozent in mehreren Musikschulen",
+        "name": "Gitarrendozent",
+        "institute": "Mehreren Musikschulen",
         "year": 2008,
         "showYear": true,
         "end": 2013
@@ -89,7 +95,11 @@
       "layout": {
         "level": 1,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "newBranchOn": {
+          "start": 1,
+          "end": 0
+        }
       }
     },
     {
@@ -97,13 +107,15 @@
         "slug": "einreise_nach_deutschland",
         "name": "Einreise nach Deutschland",
         "year": 2013,
-        "showYear": true
+        "showYear": true,
+        "isMajor": true
       }
     },
     {
       "content": {
         "slug": "hochschule_fur_kuenste_bremen",
-        "name": "Hochschule für Künste Bremen",
+        "name": "Historische Zupfinstrumente",
+        "institute": "Hochschule für Künste Bremen,  BA Dimplom",
         "year": 2014,
         "showYear": true,
         "end": 2020
@@ -117,36 +129,48 @@
     {
       "content": {
         "slug": "dozent_der_luebecker_musikschule",
-        "name": "Dozent der Lübecker Musikschule",
+        "name": "Gitarrendozent",
+        "institute": "Lübecker Musikschule",
         "year": 2014,
         "showYear": true,
-        "end": 2018
+        "end": 2018,
+        "hidden": true
       },
       "layout": {
         "level": 1,
         "branch": "stock",
         "side": "right",
-        "open": "end"
+        "open": "end",
+        "newBranchOn": {
+          "start": 1
+        }
       }
     },
     {
       "content": {
         "slug": "konzertierender_musiker",
         "name": "Konzertierender Musiker",
+        "institute": "Selbständige Tätigkeit",
         "year": 2015,
         "showYear": true,
-        "end": 2020
+        "end": 2020,
+        "hidden": true
       },
       "layout": {
         "level": 2,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "newBranchOn": {
+          "start": 2,
+          "end": 0
+        }
       }
     },
     {
       "content": {
         "slug": "dozent_der_ridder_musikschule",
-        "name": "Dozent der Ridder Musikschule Bremen",
+        "name": "Gitarrendozent",
+        "institute": "Ridder Musikschule Bremen",
         "year": 2018,
         "showYear": true,
         "end": 2020
@@ -163,13 +187,15 @@
         "slug": "covid_19_pandemie",
         "name": "Covid-19 Pandemie",
         "year": 2020,
-        "showYear": true
+        "showYear": true,
+        "isMajor": true
       }
     },
     {
       "content": {
         "slug": "in_dialogo_cs_layout_design",
-        "name": "In Dialogo - CD Layout Design",
+        "name": "CD Layout Design: In Dialogo",
+        "institute": "Concerto Foscari",
         "year": 2020,
         "showYear": true,
         "end": 2021
@@ -183,7 +209,8 @@
     {
       "content": {
         "slug": "content_management_bei_der_luebecker_musikschule",
-        "name": "Content-Management bei der Lübecker Musikschule",
+        "name": "Content-Management",
+        "institute": "Lübecker Musikschule",
         "year": 2017,
         "showYear": true
       },
@@ -196,7 +223,8 @@
     {
       "content": {
         "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
-        "name": "inline Kuriere Hamburg - Digitales Benutzerhandbuch - HTML5, CSS3, PHP7",
+        "name": "Digitales Benutzerhandbuch",
+        "institute": "inline Kuriere Hamburg",
         "year": 2017,
         "showYear": true,
         "end": 2018
@@ -205,13 +233,17 @@
         "level": 1,
         "branch": "stock",
         "side": "left",
-        "open": "end"
+        "open": "end",
+        "newBranchOn": {
+          "start": 1
+        }
       }
     },
     {
       "content": {
         "slug": "online_portfolios_fuer_musikerinnnen",
-        "name": "Online Portfolios für MusikerInnen mit Wordpress",
+        "name": "Online Portfolios für MusikerInnen",
+        "institute": "Selbständige Tätigkeit",
         "year": 2018,
         "showYear": true,
         "end": 2021
@@ -226,7 +258,8 @@
     {
       "content": {
         "slug": "sgd_fernschule_php_mysql",
-        "name": "sgd Fernschule - PHP & MySQL",
+        "name": "PHP & MySQL",
+        "institute": "sgd Fernschule",
         "year": 2020,
         "showYear": true,
         "end": 2021
@@ -235,13 +268,17 @@
         "level": 2,
         "branch": "stock",
         "side": "left",
-        "open": "end"
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
       }
     },
     {
       "content": {
         "slug": "webmasters_fernakademie_webdesign_usability",
-        "name": "Webmasters Fernakademie - Webdesign, Usability",
+        "name": "Webdesign, Usability",
+        "institute": "Webmasters Fernakademie",
         "year": 2021,
         "showYear": true,
         "end": 2021
@@ -250,13 +287,17 @@
         "level": 1,
         "branch": "stock",
         "side": "left",
-        "open": "end"
+        "open": "end",
+        "newBranchOn": {
+          "start": 1
+        }
       }
     },
     {
       "content": {
         "slug": "webmasters_fernakademie_javascript_react",
-        "name": "Webmasters Fernakademie - JavaScript & React",
+        "name": "JavaScript & React",
+        "institute": "Webmasters Fernakademie",
         "year": 2021,
         "showYear": true
       }
@@ -264,7 +305,14 @@
     {
       "content": {
         "slug": "webmasters_fernakademie_php_mysql",
-        "name": "Webmasters Fernakademie - PHP & MySQL",
+        "name": "PHP & MySQL",
+        "institute": "Webmasters Fernakademie",
+        "tech": [
+          "PHP8",
+          "SQL",
+          "OOP",
+          "Laravel"
+        ],
         "year": 2021,
         "showYear": true,
         "end": 2022
