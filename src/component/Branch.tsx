@@ -16,7 +16,10 @@ interface IBranch {
   levelDistanceReduction: number;
   open: string | undefined;
   openBranchIndexes: number[] | undefined;
-  newBranchOn: number | undefined;
+  newBranchOn: {
+    start: number;
+    end: number | undefined;
+  } | undefined;
 }
 
 const Branch: React.FC<IBranch> = ({
@@ -59,9 +62,19 @@ const Branch: React.FC<IBranch> = ({
 
   // Horisontal line to the left (sign = '-') or to the right (sign = ''),
   // length between the curves is based on the level value
-  const straightLineHorisontal = (sign: string): string => `
-    ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size * 2 - (newBranchOn && sign === '' ? (newBranchOn * size * 2) : 0)) * (level)} 0` : ''}
+  const straightLineHorisontal = (sign: '' | '-'): string => `
+    ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size * 2 - (newBranchOn && sign === '' ? (newBranchOn.start * size * 2) : newBranchOn && sign === '-' ? (newBranchOn.end ? newBranchOn?.end : 0 * size * 2) : 0)) * (level)} 0` : ''}
   `;
+
+  const straightLineHorisontalRight = () => `
+  ${level ? `l ${0} 0` : ''}
+`;
+
+  const straightLineHorisontalLeft = () => `
+  ${level ? `l -${0} 0` : ''}
+`;
+
+  //  - (newBranchOn && sign === '' ? (newBranchOn * size * 2) : 0)
 
   // Vertical line from the bottom to the bottom in the given height
   const straightLineVertical: string = `
@@ -73,18 +86,20 @@ const Branch: React.FC<IBranch> = ({
   // endinging part of a left-side-branch
   const curveRight: string = `
     ${curveBottomToRight}
-    ${straightLineHorisontal('')}
+    ${straightLineHorisontalRight()}
     ${curveLeftToTop}
-  `;
+    `;
+    // ${straightLineHorisontal('')}
 
   // Draw a curve to the left
   // starting part of a left-side-branch
   // endinging part of a right-side-branch
   const curveLeft: string = `
     ${curveBottomToLeft}
-    ${straightLineHorisontal('-')}
+    ${straightLineHorisontalLeft()}
     ${curveRightToTop}
-  `;
+    `;
+    // ${straightLineHorisontal('-')}
 
   // LOGIC
   // Leave the end open to join it with the next branch, that no not have a start, if open set to 'end'
@@ -120,23 +135,27 @@ const Branch: React.FC<IBranch> = ({
   // Changed position for continuing a previous branch on the right side
   const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
 
-  const posStartingOnExistingBranchLeft = `M ${pos[0] + (size * (newBranchOn ? newBranchOn : 1) * 2)} ${pos[1]}`;
+  const posStartingOnExistingBranchRight = `M ${pos[0] + (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; // + (size * (newBranchOn ? newBranchOn : 1) * 2)
 
-  const posStartingOnExistingBranchRight = `M ${pos[0] - (size * (newBranchOn ? newBranchOn : 1) * 2)} ${pos[1]}`;
+  const posStartingOnExistingBranchLeft = `M ${pos[0] - (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; //  - (size * (newBranchOn ? newBranchOn : 1) * 2)
 
   // If open set to 'start', set position on the right or left side,
   // if open is not start, give the original starting point
-  const getPosition = () =>
-    !newBranchOn ?
-      open === 'start' ?
+  const getPosition = () => {
+    if (!newBranchOn) {
+      return open === 'start' ?
         side === 'left' ?
           posContinuingPrevBranchLeft :
           posContinuingPrevBranchRight :
-        posStartingFromTimeline :
-      posStartingOnExistingBranchLeft;
+        posStartingFromTimeline;
+    } else {
+      return side === 'left' ?
+        posStartingOnExistingBranchLeft :
+        posStartingOnExistingBranchRight;
+    }
+  };
 
   const lineLengthToJoinOpenedBranches = openBranchIndexes ? openBranchIndexes[1] - openBranchIndexes[0] : 0;
-  console.log(openBranchIndexes);
 
   return (
     <>
