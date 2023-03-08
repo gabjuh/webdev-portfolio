@@ -6,7 +6,7 @@ interface IText {
     slug: string;
     name: string;
     institute?: string;
-    tech: string[];
+    tech?: string[];
     year: number;
     showYear: Boolean;
     end?: number | undefined;
@@ -43,7 +43,7 @@ const Text: React.FC<IText> = ({
           content.tech.map((tech: string, i: number) => {
             return (
               <>
-                <tspan flood-color="#f00">{tech} </tspan>
+                <tspan floodColor="#f00">{tech} </tspan>
               </>
             );
           })
