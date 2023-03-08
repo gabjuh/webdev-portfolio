@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Branch from './Branch';
 import Timeline from './Timeline';
 import Point from './Point';
+import Buttons from './Buttons';
 import { Year, Text } from './Text';
 import * as data from '../cv_gj2.json';
 import themes from '../themes.json';
@@ -92,6 +93,9 @@ const CvTree: React.FC<ICvTree> = ({
           width: `${svgWidth}px`
         }}
       >
+        <div className="mx-auto">
+          <Buttons />
+        </div>
         <svg
           height={svgHeight}
           width={svgWidth}
