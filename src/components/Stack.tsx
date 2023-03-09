@@ -22,8 +22,9 @@ const Stack = () => {
 
   const [showIndexes, setShowIndexes] = useState<Boolean>(false);
   const size: number = 60;
+  const bigFieldSize: number = size * 2.3;
   const cols: number = 10;
-  const gap: number = 4;
+  const gap: number = 17;
   const bigFields = [
     {
       "index": 56,
@@ -126,8 +127,11 @@ const Stack = () => {
         <div className="relative h-[800px]" style={{ transform: "perspective(1700px) rotateX(20deg) rotate(5deg)" }}>
           <div className="absolute w-[770px]">
             <div
-              className={`grid grid-cols-10 gap-5`}
-
+              className={`grid gap-5`}
+              style={{
+                gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+                gap: `${gap}px`
+              }}
             >
 
               {fieldArray.map(id => {
@@ -140,7 +144,7 @@ const Stack = () => {
                 const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
                 if (foundBigFieldObj) {
-                  s = size * 2.2;
+                  s = bigFieldSize;
                   isBigger = true;
                   name = foundBigFieldObj.name;
                   img = foundBigFieldObj.img;
