@@ -32,8 +32,8 @@ const Point: React.FC<IPoint> = ({
   const getCx = () => {
     if (!isStillActive) {
       return side === 'left' ?
-        pos[0] - branchWidth ? branchWidth : 0 * (level ? level * 2 : 0) :
-        pos[0] + branchWidth ? branchWidth : 0 * (level ? level * 2 : 0);
+        pos[0] - branchWidth * (level ? level * 2 : 0) :
+        pos[0] + branchWidth * (level ? level * 2 : 0);
     } else {
       return pos[0];
     }
