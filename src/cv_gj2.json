@@ -46,6 +46,7 @@
         "end": 2005
       },
       "layout": {
+        "label": "school",
         "level": 0,
         "branch": "stock",
         "side": "left",
@@ -62,6 +63,7 @@
         "end": 2013
       },
       "layout": {
+        "label": "it",
         "level": 0,
         "branch": "stock",
         "side": "left",
@@ -78,6 +80,7 @@
         "end": 2010
       },
       "layout": {
+        "label": "music",
         "level": 0,
         "branch": "stock",
         "side": "right"
@@ -93,6 +96,7 @@
         "end": 2013
       },
       "layout": {
+        "label": "job",
         "level": 1,
         "branch": "stock",
         "side": "right",
@@ -121,6 +125,7 @@
         "end": 2020
       },
       "layout": {
+        "label": "music",
         "level": 0,
         "branch": "stock",
         "side": "right"
@@ -137,6 +142,7 @@
         "hidden": true
       },
       "layout": {
+        "label": "job",
         "level": 1,
         "branch": "stock",
         "side": "right",
@@ -157,6 +163,7 @@
         "hidden": true
       },
       "layout": {
+        "label": "music",
         "level": 2,
         "branch": "stock",
         "side": "right",
@@ -176,6 +183,7 @@
         "end": 2020
       },
       "layout": {
+        "label": "job",
         "level": 1,
         "branch": "stock",
         "side": "right",
@@ -201,6 +209,7 @@
         "end": 2021
       },
       "layout": {
+        "label": "job",
         "level": 0,
         "branch": "stock",
         "side": "right"
@@ -215,6 +224,7 @@
         "showYear": true
       },
       "layout": {
+        "label": "job",
         "level": 0,
         "branch": "stock",
         "side": "left"
@@ -230,6 +240,7 @@
         "end": 2018
       },
       "layout": {
+        "label": "job",
         "level": 1,
         "branch": "stock",
         "side": "left",
@@ -249,6 +260,7 @@
         "end": 2021
       },
       "layout": {
+        "label": "job",
         "level": 1,
         "branch": "stock",
         "side": "left",
@@ -265,6 +277,7 @@
         "end": 2021
       },
       "layout": {
+        "label": "it",
         "level": 2,
         "branch": "stock",
         "side": "left",
@@ -284,6 +297,7 @@
         "end": 2021
       },
       "layout": {
+        "label": "it",
         "level": 1,
         "branch": "stock",
         "side": "left",
@@ -318,6 +332,7 @@
         "end": 2022
       },
       "layout": {
+        "label": "it",
         "level": 1,
         "branch": "stock",
         "side": "left",
