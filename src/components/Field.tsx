@@ -42,7 +42,7 @@ const Field: React.FC<IField> = ({
   // Get the first digit of the number or return 0 if it is smaller than 10
   const getFirstDigit = (nr: number): number => Math.floor(nr / 10);
 
-  const decreaseNrWithIndex = (nr: number, index: number): number => nr + index;
+  const increaseNrWithIndex = (nr: number, index: number): number => nr + index;
 
   const [hovering, setHovering] = useState(false);
 
@@ -78,17 +78,17 @@ const Field: React.FC<IField> = ({
     left: `${pos[0]}px`,
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
-    boxShadow: `${decreaseNrWithIndex(-5, getLastDigit(i))}px ${decreaseNrWithIndex(-5, getFirstDigit(i))}px 4px rgba(56,97,109,.4)`
+    boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i))}px ${increaseNrWithIndex(-5, getFirstDigit(i))}px 3px rgba(56,97,109,.4)`
   };
 
-  // console.log(`${decreaseNrWithIndex(5, getLastDigit(i))}px ${decreaseNrWithIndex(5, getFirstDigit(i))}px 10px rgba(56,97,109,.4)`);
+  // console.log(`${increaseNrWithIndex(5, getLastDigit(i))}px ${increaseNrWithIndex(5, getFirstDigit(i))}px 10px rgba(56,97,109,.4)`);
   const stylesOnHover: IStylesOnHover = {
     height: `${size}px`,
     width: `${size}px`,
     left: `${pos[0]}px`,
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
-    boxShadow: `${decreaseNrWithIndex(-5, getLastDigit(i)) * 2}px ${decreaseNrWithIndex(-5, getFirstDigit(i)) * 2}px 7px rgba(56,97,109,.4)`
+    boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i)) * 2}px ${increaseNrWithIndex(-5, getFirstDigit(i)) * 2}px 8px rgba(56,97,109,.4)`
   };
 
   // hover:shadow-[${decreaseNrWithIndex(5, i)}px_${decreaseNrWithIndex(5, i)}px_8px_rgba(56,97,109,.4)] 
