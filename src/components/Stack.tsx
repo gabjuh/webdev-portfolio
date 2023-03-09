@@ -26,29 +26,29 @@ const Stack = () => {
   const gap: number = 4;
   const bigFields = [
     {
-      "index": 36,
+      "index": 56,
       "name": "React",
       "img": reactLogo
     },
     {
-      "index": 40,
+      "index": 44,
       "name": 'typescript',
       "img": typescriptLogo
     },
     {
-      "index": 44,
+      "index": 36,
       "name": "TailwindCSS",
       "img": tailwindLogo
     }
   ];
   const smallFields = [
     {
-      "index": 51,
+      "index": 58,
       "name": 'html',
       "img": htmlLogo
     },
     {
-      "index": 59,
+      "index": 68,
       "name": 'css',
       "img": cssLogo
     },
@@ -58,12 +58,12 @@ const Stack = () => {
       "img": jsLogo
     },
     {
-      "index": 58,
+      "index": 65,
       "name": 'bootstrap',
       "img": bootstrapLogo
     },
     {
-      "index": 49,
+      "index": 43,
       "name": 'nodejs',
       "img": nodejsLogo
     },
@@ -98,18 +98,18 @@ const Stack = () => {
       "img": sqliteLogo
     },
     {
-      "index": 27,
+      "index": 26,
       "name": 'git',
       "img": gitLogo
     },
     {
-      "index": 67,
+      "index": 76,
       "name": 'sass',
       "img": sassLogo
     }
   ];
   const hiddenFields = [100,
-    // 0, 1, 3, 4, 5, 71, 61, 53, 39, 30, 31, 21, 10, 77, 78, 79, 80, 76, 75, 74, 73, 65, 54, 32, 7, 14, 15, 25, 55, 48, 47, 69, 70, 60, 8, 17
+    0, 1, 2, 4, 5, 7, 8, 10, 14, 15, 17, 21, 25, 30, 31, 32, 40, 51, 52, 60, 61, 62, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
 
   const skipList: number[] = [];
@@ -118,7 +118,7 @@ const Stack = () => {
     skipList.push(item.index + 1, item.index + 10, item.index + 11);
   });
 
-  const fieldArray = [...Array(80)].map((_, i) => i).filter(id => !skipList.includes(id));
+  const fieldArray = [...Array(90)].map((_, i) => i).filter(id => !skipList.includes(id));
 
   return (
     <>

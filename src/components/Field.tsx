@@ -36,18 +36,13 @@ const Field: React.FC<IField> = ({
     return `rgba(${r},${g},${b},${a})`;
   };
 
-  // Get the number of digits
-  const getNumbersLength = (nr: number) => nr.toString().split('').length;
-
   // Get the last digit of the number or return the number if it is smaller than 10
   const getLastDigit = (nr: number): number => nr % 10;
 
   // Get the first digit of the number or return 0 if it is smaller than 10
   const getFirstDigit = (nr: number): number => Math.floor(nr / 10);
 
-  const decreaseNrWithIndex = (nr: number, index: number): number => nr - index;
-
-  const increaseNrWithIndex = (nr: number, index: number): number => nr + index;
+  const decreaseNrWithIndex = (nr: number, index: number): number => nr + index;
 
   const [hovering, setHovering] = useState(false);
 
@@ -65,6 +60,7 @@ const Field: React.FC<IField> = ({
     left: string,
     right: number,
     background: string;
+    boxShadow: string;
   }
 
   interface IStylesOnHover {
@@ -82,6 +78,7 @@ const Field: React.FC<IField> = ({
     left: `${pos[0]}px`,
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${decreaseNrWithIndex(-5, getLastDigit(i))}px ${decreaseNrWithIndex(-5, getFirstDigit(i))}px 4px rgba(56,97,109,.4)`
   };
 
   // console.log(`${decreaseNrWithIndex(5, getLastDigit(i))}px ${decreaseNrWithIndex(5, getFirstDigit(i))}px 10px rgba(56,97,109,.4)`);
@@ -91,7 +88,7 @@ const Field: React.FC<IField> = ({
     left: `${pos[0]}px`,
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
-    boxShadow: `${decreaseNrWithIndex(5, getLastDigit(i))}px ${decreaseNrWithIndex(5, getFirstDigit(i))}px 10px rgba(56,97,109,.4)`
+    boxShadow: `${decreaseNrWithIndex(-5, getLastDigit(i)) * 2}px ${decreaseNrWithIndex(-5, getFirstDigit(i)) * 2}px 7px rgba(56,97,109,.4)`
   };
 
   // hover:shadow-[${decreaseNrWithIndex(5, i)}px_${decreaseNrWithIndex(5, i)}px_8px_rgba(56,97,109,.4)] 
