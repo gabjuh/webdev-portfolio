@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import CvTree from './component/CvTree';
-import Nav from './component/Nav';
-import Hero from './component/Hero';
-import Stack from './component/Stack';
-import Footer from './component/Footer';
-import Projects from './component/Projects';
+import CvTree from './components/CvTree';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
+import Stack from './components/Stack';
+import Footer from './components/Footer';
+import Projects from './components/Projects';
 
 function App() {
 
