@@ -88,7 +88,7 @@ const CvTree: React.FC<ICvTree> = ({
   return (
     <>
       <div
-        className={`relative border mx-auto`}
+        className={`relative mx-auto`}
         style={{
           width: `${svgWidth}px`
         }}
@@ -100,7 +100,7 @@ const CvTree: React.FC<ICvTree> = ({
           height={svgHeight}
           width={svgWidth}
           className={`
-          mx-auto border
+          mx-auto
           relative
           box-content
         `}

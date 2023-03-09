@@ -20,10 +20,10 @@ import sassLogo from '../assets/logos/sass_mc.svg';
 
 const Stack = () => {
 
-  const [showIndexes, setShowIndexes] = useState<Boolean>(false);
+  const [showIndexes, setShowIndexes] = useState<Boolean>(true);
   const size: number = 60;
   const cols: number = 10;
-  const gap: number = 5;
+  const gap: number = 4;
   const bigFields = [
     {
       "index": 36,
@@ -63,7 +63,7 @@ const Stack = () => {
       "img": bootstrapLogo
     },
     {
-      "index": 42,
+      "index": 49,
       "name": 'nodejs',
       "img": nodejsLogo
     },
@@ -98,7 +98,7 @@ const Stack = () => {
       "img": sqliteLogo
     },
     {
-      "index": 26,
+      "index": 27,
       "name": 'git',
       "img": gitLogo
     },
@@ -109,8 +109,20 @@ const Stack = () => {
     }
   ];
   const hiddenFields = [100,
-    0, 1, 3, 4, 5, 71, 61, 53, 39, 30, 31, 21, 10, 77, 78, 79, 80, 76, 75, 74, 73, 65, 54, 32, 7, 14, 15, 25, 55, 48, 47, 69, 70, 60, 8, 17
+    // 0, 1, 3, 4, 5, 71, 61, 53, 39, 30, 31, 21, 10, 77, 78, 79, 80, 76, 75, 74, 73, 65, 54, 32, 7, 14, 15, 25, 55, 48, 47, 69, 70, 60, 8, 17
   ];
+
+  let fieldArray = [...Array(80)].map((el, i) => el = i);
+
+  fieldArray.map(id => {
+    const foundBigFieldObj = bigFields.find(obj => obj.index === id);
+    if (foundBigFieldObj) {
+      fieldArray.map(item => {
+
+      })
+      // bigFields.filter(item => item.index !== id + 1 || item.index !== id + 10 || item.index !== id * 11);
+    }
+  })
 
   return (
     <>
@@ -119,20 +131,22 @@ const Stack = () => {
           <div className="absolute w-[770px]">
             <div className={`grid grid-cols-${cols} gap-${gap}`}>
 
-              {[...Array(81)].map((_, i) => {
+              {fieldArray.map(id => {
                 let isBigger = false;
-                let isHidden = hiddenFields.includes(i);
+                let isHidden = hiddenFields.includes(id);
                 let name = '';
                 let s = size;
                 let img = '';
-                const foundBigFieldObj = bigFields.find(obj => obj.index === i);
-                const foundSmallFieldObj = smallFields.find(obj => obj.index === i);
+                const foundBigFieldObj = bigFields.find(obj => obj.index === id);
+                const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
                 if (foundBigFieldObj) {
                   s = size * 2.2;
                   isBigger = true;
                   name = foundBigFieldObj.name;
                   img = foundBigFieldObj.img;
+                  // fieldArray.filter(item => item !== id + 1 || item !== id + 10 || item !== id * 11);
+
                 }
 
                 if (foundSmallFieldObj) {
@@ -150,7 +164,7 @@ const Stack = () => {
                         isBigger={isBigger}
                         pos={[0, 0]}
                         color="#464"
-                        i={i}
+                        i={id}
                         showIndexes={showIndexes}
                         cols={cols}
                       />

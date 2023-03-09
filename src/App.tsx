@@ -4,6 +4,8 @@ import CvTree from './component/CvTree';
 import Nav from './component/Nav';
 import Hero from './component/Hero';
 import Stack from './component/Stack';
+import Footer from './component/Footer';
+import Projects from './component/Projects';
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
           bgColor={bgColor}
           textColor={textColor}
         />
+        <Projects />
+        <Footer />
       </div>
     </div>
   );
