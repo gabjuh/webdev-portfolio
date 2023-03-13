@@ -3,7 +3,7 @@ import themes from '../themes.json';
 
 interface IPoint {
   pos: number[];
-  size: number;
+  pointSize: number;
   strokeWidth: number;
   color: string | undefined;
   bgColor: string;
@@ -17,7 +17,7 @@ interface IPoint {
 
 const Point: React.FC<IPoint> = ({
   pos,
-  size,
+  pointSize,
   strokeWidth,
   color,
   bgColor,
@@ -42,7 +42,7 @@ const Point: React.FC<IPoint> = ({
 
   return (
     <g stroke={side ? themes[0].timeline : color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
-      <circle cx={getCx()} cy={pos[1]} r={size} />
+      <circle cx={getCx()} cy={pos[1]} r={pointSize} />
     </g>
   );
 };
