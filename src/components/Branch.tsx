@@ -6,7 +6,6 @@ interface IBranch {
   step: number,
   size: number,
   side: string,
-  // color: string | undefined,
   color?: string,
   bgColor: string,
   strokeWidth: number,
@@ -20,6 +19,9 @@ interface IBranch {
     start: number;
     end?: number;
   };
+  pointStrokeWidth: number;
+  pointSize: number;
+  end?: number;
 }
 
 const Branch: React.FC<IBranch> = ({
@@ -36,7 +38,10 @@ const Branch: React.FC<IBranch> = ({
   levelDistanceReduction,
   open,
   openBranchIndexes,
-  newBranchOn
+  newBranchOn,
+  pointStrokeWidth,
+  pointSize,
+  end
 }) => {
 
   // DRAWING ELEMENTS
@@ -66,17 +71,15 @@ const Branch: React.FC<IBranch> = ({
     ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size * 2 - (newBranchOn && sign === '' ? (newBranchOn.start * size * 2) : newBranchOn && sign === '-' ? (newBranchOn.end ? newBranchOn?.end : 0 * size * 2) : 0)) * (level)} 0` : ''}
   `;
 
-  const straightLineHorisontalRight = () => `
-  ${level ? `l ${0} 0` : ''}
-`;
+  const lineToRight = (value: number = 0): string => `
+    ${level ? `l ${value - 1 * size + size} 0` : ''}
+  `;
+  
+  const lineToLeft = (value: number = 0): string => `
+    ${level ? `l -${value - 1 * size + size} 0` : ''}
+  `;
 
-  const straightLineHorisontalLeft = () => `
-  ${level ? `l -${0} 0` : ''}
-`;
-
-  //  - (newBranchOn && sign === '' ? (newBranchOn * size * 2) : 0)
-
-  // Vertical line from the bottom to the bottom in the given height
+  // Vertical line from the bottom to the top in the given height
   const straightLineVertical: string = `
     l 0 ${height ? (height * step + step) * 1 : step}
   `;
@@ -84,9 +87,11 @@ const Branch: React.FC<IBranch> = ({
   // Draw a curve to the right
   // starting part of a right-side-branch
   // endinging part of a left-side-branch
+  // ${lineToRight(side === 'right' ? newBranchOn?.start && level - newBranchOn.start : newBranchOn?.end && newBranchOn.end - level)}
+  // ${lineToRight(side === 'right' ? -1 : -1)}
   const curveRight: string = `
     ${curveBottomToRight}
-    ${straightLineHorisontalRight()}
+    ${lineToRight(side === 'right' ? 0 : newBranchOn?.end ? newBranchOn.end * size : end ? end * size : 0)}
     ${curveLeftToTop}
     `;
     // ${straightLineHorisontal('')}
@@ -96,9 +101,10 @@ const Branch: React.FC<IBranch> = ({
   // endinging part of a right-side-branch
   const curveLeft: string = `
     ${curveBottomToLeft}
-    ${straightLineHorisontalLeft()}
+    ${lineToLeft(side === 'left' ? 0 : newBranchOn?.end ? newBranchOn.end * size * -1 + size : end ? end * size * -1 : 0)}
     ${curveRightToTop}
     `;
+    // ${lineToLeft(side === 'left' ? newBranchOn?.start && level - newBranchOn.start : newBranchOn?.end && newBranchOn.end - level)}
     // ${straightLineHorisontal('-')}
 
   // LOGIC
@@ -133,7 +139,8 @@ const Branch: React.FC<IBranch> = ({
   const posContinuingPrevBranchLeft = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size}`;
 
   // Changed position for continuing a previous branch on the right side
-  const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
+  // const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
+  const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size - 5}`;
 
   const posStartingOnExistingBranchRight = `M ${pos[0] + (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; // + (size * (newBranchOn ? newBranchOn : 1) * 2)
 
@@ -142,7 +149,7 @@ const Branch: React.FC<IBranch> = ({
   // If open set to 'start', set position on the right or left side,
   // if open is not start, give the original starting point
   const getPosition = () => {
-    if (!newBranchOn) {
+    if (newBranchOn === undefined) {
       return open === 'start' ?
         side === 'left' ?
           posContinuingPrevBranchLeft :
@@ -178,8 +185,8 @@ const Branch: React.FC<IBranch> = ({
           isMajor={true}
           bgColor={bgColor}
           pos={[side === 'right' ? pos[0] + size * 2 : pos[0] - size * 2, 0]}
-          size={6}
-          strokeWidth={1.5}
+          pointSize={pointSize}
+          strokeWidth={pointStrokeWidth}
           level={level}
           levelDistanceReduction={levelDistanceReduction}
           isStillActive={!open && heightTillTop !== null}
