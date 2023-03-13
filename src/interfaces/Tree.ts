@@ -15,7 +15,7 @@ export interface ITimeline {
 }
 
 export interface IPoint {
-  size: number;
+  pointSize: number;
   pointStrokeWidth: number;
 }
 
