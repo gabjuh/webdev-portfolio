@@ -43,6 +43,7 @@ export interface ILayout {
   side: string;
   open?: string;
   newBranchOn?: INewBranchOn;
+  end?: number;
 }
 
 export interface IItem {
