@@ -6,7 +6,7 @@ import Buttons from './Buttons';
 import { Year, Text } from './Text';
 import raw from '../cv_gj2.json';
 import themes from '../themes.json';
-import { ITree, IGeneral, IItem } from '../interfaces/Tree';
+import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
 
 interface ICvTree {
   bgColor: string;
@@ -21,16 +21,18 @@ const CvTree: React.FC<ICvTree> = ({
   const data = raw as ITree;
 
   const general: IGeneral = data.general;
+  const point: IPoint = data.point;
+  const timeline: ITimeline = data.timeline;
+  const items: IItem[] = data.items;
 
-  const size: number = general.size; // size is the sizeUnit multiplied by the factor
-  const pointSize: number = 6;
-  const pointStrokeWidth: number = 1.5;
-  const [strokeWidth, setStrokeWidth] = useState<number>(general.strokeWidth); // simply the width of the Bend
-
-  const step = general.step;
+  const step: number = general.step;
+  const size: number = general.size;
+  const pointSize: number = point.pointSize;
+  const pointStrokeWidth: number = point.pointStrokeWidth;
+  const [strokeWidth, setStrokeWidth] = useState<number>(general.strokeWidth);
 
   // Timeline
-  const [timelineHeight, setTimelineHeight] = useState<number>(step * data.items.length + 120);
+  const [timelineHeight, setTimelineHeight] = useState<number>(step * items.length + 120);
   const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
 
   // Svg
@@ -40,30 +42,27 @@ const CvTree: React.FC<ICvTree> = ({
   const timelineStartPos = svgWidth / 2;
 
   useEffect(() => {
-    setTimelineHeight(step * data.items.length);
+    setTimelineHeight(step * items.length);
   }, []);
 
-  // Sort items
-  const [sortedItems, setSortedItems] = useState(data.items.sort((a, b) => a.content.year - b.content.year));
-
-  // Opened branches
-  const [openedBranches, setOpenedBranches] = useState();
-
-
+  // Sort items to be in the descending order
+  const [sortedItems, setSortedItems] = useState<IItem[]>(items.sort((a, b) => a.content.year - b.content.year));
 
   // Data modification loop:
   // - add end year if not there
   // - remove duplicates
-  data.items.forEach((_, i, a) => {
-    const item = data.items[a.length - 1 - i];
-    const content = item.content;
+  items.forEach((_, i, a) => {
+    // Because items are in the descending order, we need to turn index also around:
+    const descIndex: number = a.length - 1 - i
+    const item: IItem = items[descIndex];
+    const content: IContent = item.content;
 
-    const endIndex = sortedItems.findIndex(obj => obj.content.year === content.end);
+    const endIndex: number = sortedItems.findIndex(obj => obj.content.year === content.end);
 
     if (content.end && endIndex === -1) {
 
       // If the year of the fini^shing of a project is not a starting point of another (so it would not be shown), it will be added without any additional text.
-      data.items.push({
+      items.push({
         content: {
           slug: `generated_slug_${i}`,
           institute: '',
@@ -77,14 +76,15 @@ const CvTree: React.FC<ICvTree> = ({
     // Remove year duplicates (because of the rendering direction, the last one must be kept)
     // First save all indexes of matches
     let duplicateIndexes: number[] = [];
-    data.items.forEach((item, i) =>
+
+    items.forEach((item, i) =>
       item.content.year === content.year && duplicateIndexes.push(i)
     );
 
     // There will be at least one match (itself) so if there is more, set showYear fo false
     if (duplicateIndexes.length > 1) {
       duplicateIndexes.forEach((nr, i) => {
-        if (i) { data.items[nr].content.showYear = false; }
+        if (i) { items[nr].content.showYear = false; }
       });
     }
   });
@@ -92,27 +92,28 @@ const CvTree: React.FC<ICvTree> = ({
   const filter = undefined;
 
   const getColor = (item: IItem, filter?: string) => {
-    console.log(item.layout?.label, filter)
+    
+    // console.log(item.layout?.label, filter)
+
     if (filter && filter !== item.layout?.label) {
-      return '#555';
+      return '#ccc';
     }
+
     let color = '';
-    if (item.layout && item.layout?.level - 1 < 0) {
+
+    if (item.layout && item.layout?.level + 1 < 0) {
       color = themes[0].timeline;
     } else if (item.layout?.side === 'left') {
-      color = themes[0].left[item.layout?.level - 1];
+      color = themes[0].left[item.layout?.level];
     } else if (item.layout?.side === 'right') {
-      color = themes[0].right[item.layout?.level - 1];
+      color = themes[0].right[item.layout?.level];
     } else if (item.layout && item.layout?.level - 1 < 1) {
       color = themes[0].timeline;
     } else {
       color = themes[0].timeline;
-      // color = '#f00';
     }
 
     return color;
-    // item.layout?.side
-
   };
 
   return (
@@ -139,13 +140,14 @@ const CvTree: React.FC<ICvTree> = ({
 
 
             {/* Loop of items */}
-            {data.items.map((_, i, a) => {
+            {items.map((_, i, a) => {
               const index = a.length - 1 - i;
-              const item = data.items[index];
+              const item = items[index];
               const content = item.content;
               const layout = item.layout;
               const side: string = layout ? layout.side : 'left';
               const yPos = step * (i + 1) + 6;
+              const end = layout?.end
 
               // LOGIC TO GET THE PROPER HEIGHT OF AN UNFINISHED BRANCH
               // Find the year object index, where the end year is
@@ -186,14 +188,13 @@ const CvTree: React.FC<ICvTree> = ({
                 <React.Fragment key={i}>
 
                   {/* Branch */}
-                  {layout && //&& !content.hidden === undefined
+                  {layout &&
                     <Branch
                       height={startEndDiff}
                       step={step}
                       size={size}
                       side={side}
                       color={getColor(item, filter)}
-                      // side === 'left' ? themes[0].left[layout?.level] : side && themes[0].right[layout?.level]
                       bgColor={general.bgColor}
                       strokeWidth={strokeWidth}
                       pos={[horisontalPosition, step * (i + 1)]}
@@ -203,6 +204,9 @@ const CvTree: React.FC<ICvTree> = ({
                       open={layout.open}
                       openBranchIndexes={openBranchIndexes ? openBranchIndexes : undefined}
                       newBranchOn={layout.newBranchOn}
+                      pointStrokeWidth={pointStrokeWidth}
+                      pointSize={pointSize}
+                      end={end}
                     />
                   }
 
@@ -229,7 +233,7 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Timeline */}
             <Timeline
               height={timelineHeight}
-              color={data.timeline.color}
+              color={timeline.color}
               strokeWidth={strokeWidth}
               startPos={timelineStartPos}
               isTimeline={true}
@@ -239,17 +243,17 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Point at the very end  */}
             <Point
               pos={[horisontalPosition, 0]}
-              size={pointSize}
+              pointSize={pointSize}
               strokeWidth={pointStrokeWidth}
-              color={data.timeline.color}
+              color={timeline.color}
               bgColor={bgColor}
               isMajor={true}
               levelDistanceReduction={general.levelDistanceReduction}
-              branchWidth={data.general.size}
+              branchWidth={general.size}
             />
 
             {/* Points */}
-            {data.items.map((item, i, a) => {
+            {items.map((item, i, a) => {
               const index = a.length - 1 - i;
 
               
@@ -257,8 +261,8 @@ const CvTree: React.FC<ICvTree> = ({
               return (
                 <React.Fragment key={i}>
                   <Point
-                    pos={[data.general.horisontalPosition, step * (index + 1)]}
-                    size={pointSize}
+                    pos={[general.horisontalPosition, step * (index + 1)]}
+                    pointSize={pointSize}
                     strokeWidth={pointStrokeWidth}
                     color={getColor(item, filter)}
                     bgColor={bgColor}
@@ -266,7 +270,7 @@ const CvTree: React.FC<ICvTree> = ({
                     side={item.layout?.side}
                     level={item.layout?.level}
                     levelDistanceReduction={general.levelDistanceReduction}
-                    branchWidth={data.general.size}
+                    branchWidth={general.size}
                   />
                 </React.Fragment>
               );
