@@ -25,9 +25,11 @@ const Stack = () => {
   const bigFieldSize: number = size * 2.3;
   const cols: number = 10;
   const gap: number = 17;
+  const nrOfFields: number = 90;
+  const maxWidth: number = 770
   const bigFields = [
     {
-      "index": 56,
+      "index": 36,
       "name": "React",
       "img": reactLogo
     },
@@ -37,14 +39,14 @@ const Stack = () => {
       "img": typescriptLogo
     },
     {
-      "index": 36,
+      "index": 56,
       "name": "TailwindCSS",
       "img": tailwindLogo
     }
   ];
   const smallFields = [
     {
-      "index": 58,
+      "index": 40,
       "name": 'html',
       "img": htmlLogo
     },
@@ -109,76 +111,88 @@ const Stack = () => {
       "img": sassLogo
     }
   ];
-  const hiddenFields = [100,
+  const hiddenFields = [200,
     0, 1, 2, 4, 5, 7, 8, 10, 14, 15, 17, 21, 25, 30, 31, 32, 40, 51, 52, 60, 61, 62, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
 
   const skipList: number[] = [];
 
+  // Skip items, that has index:
+  // n + 1, 
+  // n + cols, 
+  // n + cols + 1,
   bigFields.forEach(item => {
-    skipList.push(item.index + 1, item.index + 10, item.index + 11);
+    skipList.push(item.index + 1, item.index + cols, item.index + cols + 1);
   });
 
-  const fieldArray = [...Array(90)].map((_, i) => i).filter(id => !skipList.includes(id));
+  const fieldArray = [...Array(nrOfFields)].map((_, i) => i).filter(id => !skipList.includes(id));
 
   return (
     <>
-      <div className="min-h-[80vh] -translate-x-[300px] lg:translate-x-[100px] translate-y-[1rem] z-0">
-        <div className="relative h-[800px]" style={{ transform: "perspective(1700px) rotateX(20deg) rotate(5deg)" }}>
-          <div className="absolute w-[770px]">
-            <div
-              className={`grid gap-5`}
-              style={{
-                gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-                gap: `${gap}px`
-              }}
-            >
+      <div className="container min-h-[800px] mx-auto py-10">
+        <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
+          <div className="relative mx-auto right-0 left-0">
+            <div className="grid grid-cols-8">
+              <div className={`grid col-span-6 max-w-[770px]`}
+                style={{
+                  gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+                  gap: `${gap}px`
+                }}
+              >
 
-              {fieldArray.map(id => {
-                let isBigger = false;
-                let isHidden = hiddenFields.includes(id);
-                let name = '';
-                let s = size;
-                let img = '';
-                const foundBigFieldObj = bigFields.find(obj => obj.index === id);
-                const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
+                {fieldArray.map(id => {
+                  let isBig = false;
+                  let type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2' = 'normal';
+                  let isHidden = hiddenFields.includes(id);
+                  let name = '';
+                  let width = size;
+                  let height = size;
+                  let img = '';
+                  const foundBigFieldObj = bigFields.find(obj => obj.index === id);
+                  const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
-                if (foundBigFieldObj) {
-                  s = bigFieldSize;
-                  isBigger = true;
-                  name = foundBigFieldObj.name;
-                  img = foundBigFieldObj.img;
-                }
+                  if (foundBigFieldObj) {
+                    width = bigFieldSize;
+                    height = bigFieldSize;
+                    isBig = true;
+                    type = '2x2';
+                    name = foundBigFieldObj.name;
+                    img = foundBigFieldObj.img;
+                  }
 
-                if (foundSmallFieldObj) {
-                  name = foundSmallFieldObj.name;
-                  img = foundSmallFieldObj.img;
-                }
+                  if (foundSmallFieldObj) {
+                    width = size;
+                    height = size;
+                    name = foundSmallFieldObj.name;
+                    img = foundSmallFieldObj.img;
+                  }
 
-                return (
-                  <React.Fragment key={id}>
-                    {!isHidden ? (
-                      <Field
-                        name={name}
-                        img={img}
-                        size={s}
-                        isBigger={isBigger}
-                        pos={[0, 0]}
-                        color="#464"
-                        i={id}
-                        showIndexes={showIndexes}
-                        cols={cols}
-                      />
-                    ) : (
-                      <div style={{ width: `${size}px`, height: `${size}px` }}></div>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+                  return (
+                    <React.Fragment key={id}>
+                      {!isHidden ? (
+                        <Field
+                          name={name}
+                          img={img}
+                          size={[width, height]}
+                          isBig={isBig}
+                          type={type}
+                          pos={[0, 0]}
+                          color="#464"
+                          i={id}
+                          showIndexes={showIndexes}
+                          cols={cols}
+                        />
+                      ) : (
+                        <div style={{ width: `${size}px`, height: `${size}px` }}></div>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </div>
+              <div className="col-span-2">
+                <Hero />
+              </div>
             </div>
-          </div>
-          <div className="relative w-[420px]">
-            <Hero />
           </div>
         </div>
       </div>
