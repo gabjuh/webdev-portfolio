@@ -47,7 +47,8 @@
       },
       "layout": {
         "label": "school",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "left",
         "open": "end"
@@ -64,7 +65,8 @@
       },
       "layout": {
         "label": "it",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "left",
         "open": "start"
@@ -81,7 +83,8 @@
       },
       "layout": {
         "label": "music",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "right"
       }
@@ -97,7 +100,8 @@
       },
       "layout": {
         "label": "job",
-        "level": 1,
+        "level": 2,
+        "startingLevel": 1,
         "branch": "stock",
         "side": "right",
         "newBranchOn": {
@@ -126,7 +130,8 @@
       },
       "layout": {
         "label": "music",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "right"
       }
@@ -142,7 +147,8 @@
       },
       "layout": {
         "label": "job",
-        "level": 1,
+        "level": 2,
+        "startingLevel": 1,
         "branch": "stock",
         "side": "right",
         "open": "end",
@@ -163,7 +169,8 @@
       },
       "layout": {
         "label": "music",
-        "level": 2,
+        "level": 3,
+        "startingLevel": 2,
         "branch": "stock",
         "side": "right",
         "newBranchOn": {
@@ -183,7 +190,8 @@
       },
       "layout": {
         "label": "job",
-        "level": 1,
+        "level": 2,
+        "startingLevel": 1,
         "branch": "stock",
         "side": "right",
         "open": "start",
@@ -210,7 +218,8 @@
       },
       "layout": {
         "label": "job",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "right"
       }
@@ -225,7 +234,8 @@
       },
       "layout": {
         "label": "job",
-        "level": 0,
+        "level": 1,
+        "startingLevel": 0,
         "branch": "stock",
         "side": "left"
       }
@@ -235,13 +245,14 @@
         "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
         "name": "Digitales Benutzerhandbuch",
         "institute": "inline Kuriere Hamburg",
-        "year": 2017,
+        "year": 2018,
         "showYear": true,
         "end": 2018
       },
       "layout": {
         "label": "job",
-        "level": 1,
+        "level": 2,
+        "startingLevel": 1,
         "branch": "stock",
         "side": "left",
         "open": "end",
@@ -258,11 +269,12 @@
         "institute": "Selbständige Tätigkeit",
         "year": 2018,
         "showYear": true,
-        "end": 2021
+        "end": 2022
       },
       "layout": {
         "label": "job",
-        "level": 1,
+        "level": 2,
+        "startingLevel": 1,
         "branch": "stock",
         "side": "left",
         "open": "start"
@@ -275,11 +287,12 @@
         "institute": "sgd Fernschule",
         "year": 2020,
         "showYear": true,
-        "end": 2021
+        "end": 2020
       },
       "layout": {
         "label": "it",
-        "level": 2,
+        "level": 3,
+        "startingLevel": 2,
         "branch": "stock",
         "side": "left",
         "open": "end",
@@ -299,12 +312,13 @@
       },
       "layout": {
         "label": "it",
-        "level": 1,
+        "level": 3,
+        "startingLevel": 2,
         "branch": "stock",
         "side": "left",
         "open": "end",
         "newBranchOn": {
-          "start": 1
+          "start": 2
         }
       }
     },
@@ -315,6 +329,14 @@
         "institute": "Webmasters Fernakademie",
         "year": 2021,
         "showYear": true
+      },
+        "layout": {
+        "label": "job",
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "both"
       }
     },
     {
@@ -334,10 +356,15 @@
       },
       "layout": {
         "label": "it",
-        "level": 1,
+        "level": 3,
+        "startingLevel": 2,
         "branch": "stock",
         "side": "left",
-        "open": "start"
+        "open": "start",
+        "newBranchOn": {
+          "start": 3,
+          "end": 2
+        }
       }
     }
   ]
