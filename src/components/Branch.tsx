@@ -65,12 +65,6 @@ const Branch: React.FC<IBranch> = ({
     q -${size} 0 -${size} -${size}
   `;
 
-  // Horisontal line to the left (sign = '-') or to the right (sign = ''),
-  // length between the curves is based on the level value
-  const straightLineHorisontal = (sign: '' | '-'): string => `
-    ${level ? `l ${sign}${((1 - (level * levelDistanceReduction)) * size * 2 - (newBranchOn && sign === '' ? (newBranchOn.start * size * 2) : newBranchOn && sign === '-' ? (newBranchOn.end ? newBranchOn?.end : 0 * size * 2) : 0)) * (level)} 0` : ''}
-  `;
-
   const lineToRight = (value: number = 0): string => `
     ${level ? `l ${value - 1 * size + size} 0` : ''}
   `;
@@ -81,7 +75,7 @@ const Branch: React.FC<IBranch> = ({
 
   // Vertical line from the bottom to the top in the given height
   const straightLineVertical: string = `
-    l 0 ${height ? (height * step + step) * 1 : step}
+    l 0 ${height ? (height * step + step) : step}
   `;
 
   // Draw a curve to the right
@@ -110,16 +104,15 @@ const Branch: React.FC<IBranch> = ({
   // LOGIC
   // Leave the end open to join it with the next branch, that no not have a start, if open set to 'end'
   const leaveOpenOrClose = (curveString: string) =>
-    open === 'end' ?
-      `l 0 -${step * .75}` :
-      curveString;
+    open === 'end' || open === 'both' ?
+      `l 0 -${step}` :
+      open !== 'both' ? curveString : '';
 
   // Turn to the right if side is right,
   // if false, it is the left side, turn to the left
   const curveToDirection = () =>
-    side === 'right' ?
-      leaveOpenOrClose(open !== 'end' ? curveLeft : '') :
-      leaveOpenOrClose(open !== 'end' ? curveRight : '');
+    side === 'right' && leaveOpenOrClose(open !== 'end' ? curveLeft : '') ||
+    side === 'left' && leaveOpenOrClose(open !== 'end' ? curveRight : '')
 
   // Merge it to the timeline if branch has a finishing point
   const ifEnds: string = `
@@ -129,7 +122,7 @@ const Branch: React.FC<IBranch> = ({
 
   // If branch has not a finishing point, so it is still active, it goes up to the top based on the remaining place to the top
   const lineIfNotEndedYet: string = `
-    l 0 -${heightTillTop ? heightTillTop * step + size * 1.4 : step}
+    l 0 -${heightTillTop ? heightTillTop * step + size * 4 : 0}
  `;
 
   //  Original starting point from the timeline
@@ -146,15 +139,22 @@ const Branch: React.FC<IBranch> = ({
 
   const posStartingOnExistingBranchLeft = `M ${pos[0] - (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; //  - (size * (newBranchOn ? newBranchOn : 1) * 2)
 
+  const posAndLineWithOpenBoth = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size * 1.2} 
+    l 0 -${step + step * .5}`
+
   // If open set to 'start', set position on the right or left side,
   // if open is not start, give the original starting point
   const getPosition = () => {
     if (newBranchOn === undefined) {
-      return open === 'start' ?
-        side === 'left' ?
-          posContinuingPrevBranchLeft :
-          posContinuingPrevBranchRight :
-        posStartingFromTimeline;
+       if (open === 'start') {
+        return side === 'left' ?
+            posContinuingPrevBranchLeft :
+            posContinuingPrevBranchRight 
+        } if (open === 'both') {
+          return posAndLineWithOpenBoth
+        } else {
+          return posStartingFromTimeline;
+        }
     } else {
       return side === 'left' ?
         posStartingOnExistingBranchLeft :
@@ -169,9 +169,9 @@ const Branch: React.FC<IBranch> = ({
       <path
         d={`
           ${getPosition()}
-          ${side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
-          ${heightTillTop ? lineIfNotEndedYet :
-            openBranchIndexes ? `q 0 0 0 -${(step - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
+          ${open === 'both' ? '' : side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
+          ${heightTillTop ? open === 'both' ? '' : lineIfNotEndedYet :
+              openBranchIndexes ? `q 0 0 0 -${(step - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
         `}
         stroke={color ? color : 'lightgray'}
         strokeWidth={strokeWidth}
@@ -179,7 +179,7 @@ const Branch: React.FC<IBranch> = ({
       />
 
       {/* Point at the very end of the line, if branch still active */}
-      {heightTillTop && (
+      {heightTillTop && open !== 'both' && (
         <Point
           color={color}
           isMajor={true}
