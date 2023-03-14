@@ -39,6 +39,7 @@ export interface INewBranchOn {
 export interface ILayout {
   label: string;
   level: number;
+  startingLevel: number;
   branch: string;
   side: string;
   open?: string;
