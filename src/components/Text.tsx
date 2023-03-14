@@ -7,8 +7,11 @@ const Year: React.FC<IText> = ({
   y,
   i
 }) => {
+
+  const showIndex: boolean = false
+  
   return (
-    <text x="20" y={y} fill={content.hidden ? '#777' : textColor}>{content.showYear && content.year}</text>
+    <text x="20" y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
   );
 };
 
