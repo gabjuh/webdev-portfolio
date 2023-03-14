@@ -5,6 +5,7 @@ import Point from './Point';
 import Buttons from './Buttons';
 import { Year, Text } from './Text';
 import raw from '../cv_gj2.json';
+import raw_test from '../cv_test.json';
 import themes from '../themes.json';
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
 
@@ -50,7 +51,7 @@ const CvTree: React.FC<ICvTree> = ({
 
   // Data modification loop:
   // - add end year if not there
-  // - remove duplicates
+  // - remove year duplicates
   items.forEach((_, i, a) => {
     // Because items are in the descending order, we need to turn index also around:
     const descIndex: number = a.length - 1 - i
@@ -101,16 +102,18 @@ const CvTree: React.FC<ICvTree> = ({
 
     let color = '';
 
-    if (item.layout && item.layout?.level + 1 < 0) {
-      color = themes[0].timeline;
-    } else if (item.layout?.side === 'left') {
-      color = themes[0].left[item.layout?.level];
+    if (item.layout?.side === 'left') {
+      // color of the left side
+      color = themes[0].left[item.layout?.startingLevel];
+
     } else if (item.layout?.side === 'right') {
-      color = themes[0].right[item.layout?.level];
-    } else if (item.layout && item.layout?.level - 1 < 1) {
-      color = themes[0].timeline;
+      // color of the right side
+      color = themes[0].right[item.layout?.startingLevel];
+
     } else {
+      // Point colors on the timeline
       color = themes[0].timeline;
+
     }
 
     return color;
@@ -160,7 +163,7 @@ const CvTree: React.FC<ICvTree> = ({
               const indexIfNotEndedYet = layout && !content.end && content.name ? index : null;
 
               // Extract not ended index from the length of sortedItems
-              const heightTillTop: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet - 1 : null;
+              const heightTillTop: number | null = indexIfNotEndedYet && indexIfNotEndedYet > 0 ? sortedItems.length - indexIfNotEndedYet -1 : null;
 
               // LOGIC TO GET THE DISTANCE OF AN OPEN ENDED AND OPEN STARTED BRANCH
               let openBranchIndexes: number[] | undefined = undefined;
@@ -183,23 +186,22 @@ const CvTree: React.FC<ICvTree> = ({
                 openBranchIndexes = arr;
               }
 
-
               return (
                 <React.Fragment key={i}>
 
                   {/* Branch */}
                   {layout &&
                     <Branch
-                      height={startEndDiff}
+                      height={startEndDiff - 0.5}
                       step={step}
                       size={size}
                       side={side}
                       color={getColor(item, filter)}
                       bgColor={general.bgColor}
                       strokeWidth={strokeWidth}
-                      pos={[horisontalPosition, step * (i + 1)]}
+                      pos={[horisontalPosition, step * (i + 1) + step * .58]}
                       heightTillTop={heightTillTop}
-                      level={layout?.level}
+                      level={layout?.startingLevel}
                       levelDistanceReduction={general.levelDistanceReduction}
                       open={layout.open}
                       openBranchIndexes={openBranchIndexes ? openBranchIndexes : undefined}
@@ -255,9 +257,6 @@ const CvTree: React.FC<ICvTree> = ({
             {/* Points */}
             {items.map((item, i, a) => {
               const index = a.length - 1 - i;
-
-              
-
               return (
                 <React.Fragment key={i}>
                   <Point
