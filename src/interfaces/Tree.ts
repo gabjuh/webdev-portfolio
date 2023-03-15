@@ -22,6 +22,7 @@ export interface IPoint {
 export interface IContent {
   slug: string;
   name: string;
+  label: string;
   institute?: string;
   tech?: string[];
   year: number;
@@ -37,7 +38,6 @@ export interface INewBranchOn {
 }
 
 export interface ILayout {
-  label: string;
   level: number;
   startingLevel: number;
   branch: string;
@@ -45,6 +45,7 @@ export interface ILayout {
   open?: string;
   newBranchOn?: INewBranchOn;
   end?: number;
+  canceled?: boolean;
 }
 
 export interface IItem {
