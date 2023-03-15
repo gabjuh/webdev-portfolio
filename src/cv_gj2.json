@@ -31,40 +31,34 @@
       "content": {
         "slug": "elektrotechnik",
         "name": "Elektrotechnik, Abitur",
+        "label": "school",
         "institute": "500.sz. Angster J. Fachmittelschule",
-        "year": 2004,
+        "year": 2000,
+        "end": 2004,
         "showYear": true
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 0
+        }
       }
     },
     {
       "content": {
         "slug": "wirtschaftsinformatik",
         "name": "Wirtschaftsinformatik, Technikum",
+        "label": "school",
         "institute": "Czipernovsky Fachmittelschule",
         "year": 2004,
         "showYear": true,
         "end": 2005
       },
       "layout": {
-        "label": "school",
-        "level": 1,
-        "startingLevel": 0,
-        "branch": "stock",
-        "side": "left",
-        "open": "end"
-      }
-    },
-    {
-      "content": {
-        "slug": "it_beratung_pc_handy_reparatur",
-        "name": "It Beratung, PC-Handy Reparatur",
-        "institute": "Selbständiger Tätigkeit",
-        "year": 2005,
-        "showYear": true,
-        "end": 2013
-      },
-      "layout": {
-        "label": "it",
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
@@ -74,32 +68,90 @@
     },
     {
       "content": {
+        "slug": "it_beratung_pc_handy_reparatur",
+        "name": "It Beratung, PC-Handy Reparatur",
+        "label": "it",
+        "institute": "Selbständiger Tätigkeit",
+        "year": 2004,
+        "showYear": true,
+        "end": 2013
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "newBranchOn": {
+          "start": 1,
+          "end": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "musikschule",
+        "name": "Musiktheorie, Klavier, Jazz-Klavier, Gitarre",
+        "label": "musik",
+        "institute": "Kolinda Musikschule, Pécs",
+        "year": 2002,
+        "showYear": true,
+        "end": 2005
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "right",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
+        "slug": "konservatorium",
+        "name": "Klassische Gitarre",
+        "label": "musik",
+        "institute": "Musikfachmittelschule, Pécs",
+        "year": 2005,
+        "showYear": true,
+        "end": 2007
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "right",
+        "open": "both"
+      }
+    },
+    {
+      "content": {
         "slug": "universitaet_pecs_klassische_gitarre",
         "name": "Klassische Gitarre",
+        "label": "music",
         "institute": "Universität Pécs, BA Dimplom",
         "year": 2007,
         "showYear": true,
         "end": 2010
       },
       "layout": {
-        "label": "music",
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "start"
       }
     },
     {
       "content": {
         "slug": "gitarrendozent",
         "name": "Gitarrendozent",
+        "label": "job",
         "institute": "Mehreren Musikschulen",
         "year": 2008,
         "showYear": true,
         "end": 2013
       },
       "layout": {
-        "label": "job",
         "level": 2,
         "startingLevel": 1,
         "branch": "stock",
@@ -112,8 +164,19 @@
     },
     {
       "content": {
+        "slug": "hochzeit",
+        "name": "Hochzeit",
+        "label": "privat",
+        "year": 2012,
+        "showYear": true,
+        "isMajor": true
+      }
+    },
+    {
+      "content": {
         "slug": "einreise_nach_deutschland",
         "name": "Einreise nach Deutschland",
+        "label": "privat",
         "year": 2013,
         "showYear": true,
         "isMajor": true
@@ -121,32 +184,62 @@
     },
     {
       "content": {
+        "slug": "deutschkurs",
+        "name": "Deutschkurs",
+        "label": "kurs",
+        "institute": "Berlitz Sprachschule, Leipzig",
+        "year": 2013,
+        "showYear": true,
+        "isMajor": true
+      }
+    },
+    {
+      "content": {
+        "slug": "konservatorium_halle_saale",
+        "name": "Theorbe, Basso Continuo",
+        "label": "music",
+        "institute": "Konservatorium Halle Saale, Schulabschluss",
+        "year": 2013,
+        "showYear": true,
+        "end": 2014
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "right",
+        "open": "end"
+      }
+    },
+    {
+      "content": {
         "slug": "hochschule_fur_kuenste_bremen",
         "name": "Historische Zupfinstrumente",
+        "label": "music",
         "institute": "Hochschule für Künste Bremen,  BA Dimplom",
         "year": 2014,
         "showYear": true,
         "end": 2020
       },
       "layout": {
-        "label": "music",
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
-        "side": "right"
+        "side": "right",
+        "open": "start"
       }
     },
     {
       "content": {
         "slug": "dozent_der_luebecker_musikschule",
         "name": "Gitarrendozent",
+        "label": "job",
         "institute": "Lübecker Musikschule",
         "year": 2014,
         "showYear": true,
         "end": 2018
       },
       "layout": {
-        "label": "job",
         "level": 2,
         "startingLevel": 1,
         "branch": "stock",
@@ -160,15 +253,25 @@
     },
     {
       "content": {
+        "slug": "geburt_von_hannah",
+        "name": "Geburt von Hannah",
+        "label": "privat",
+        "year": 2015,
+        "showYear": true,
+        "isMajor": true
+      }
+    },
+    {
+      "content": {
         "slug": "konzertierender_musiker",
         "name": "Konzertierender Musiker",
+        "label": "music",
         "institute": "Selbständige Tätigkeit",
         "year": 2015,
         "showYear": true,
         "end": 2020
       },
       "layout": {
-        "label": "music",
         "level": 3,
         "startingLevel": 2,
         "branch": "stock",
@@ -183,13 +286,13 @@
       "content": {
         "slug": "dozent_der_ridder_musikschule",
         "name": "Gitarrendozent",
+        "label": "job",
         "institute": "Ridder Musikschule Bremen",
         "year": 2018,
         "showYear": true,
         "end": 2020
       },
       "layout": {
-        "label": "job",
         "level": 2,
         "startingLevel": 1,
         "branch": "stock",
@@ -209,15 +312,29 @@
     },
     {
       "content": {
+        "slug": "geburt_von_noel",
+        "name": "Geburt von Noel",
+        "label": "privat",
+        "year": 2021,
+        "showYear": true,
+        "isMajor": true
+      }
+    },
+    {
+      "content": {
         "slug": "in_dialogo_cs_layout_design",
         "name": "CD Layout Design: In Dialogo",
+        "label": "job",
         "institute": "Concerto Foscari",
+        "tech": [
+          "Photoshop",
+          "InDesign"
+        ],
         "year": 2020,
         "showYear": true,
         "end": 2021
       },
       "layout": {
-        "label": "job",
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
@@ -228,12 +345,17 @@
       "content": {
         "slug": "content_management_bei_der_luebecker_musikschule",
         "name": "Content-Management",
+        "label": "job",
         "institute": "Lübecker Musikschule",
+        "tech": [
+          "Joomla",
+          "JavaScript",
+          "Python"
+        ],
         "year": 2017,
         "showYear": true
       },
       "layout": {
-        "label": "job",
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
@@ -244,13 +366,18 @@
       "content": {
         "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
         "name": "Digitales Benutzerhandbuch",
+        "label": "job",
         "institute": "inline Kuriere Hamburg",
+        "tech": [
+          "PHP7",
+          "HTML5",
+          "CSS3"
+        ],
         "year": 2018,
         "showYear": true,
         "end": 2018
       },
       "layout": {
-        "label": "job",
         "level": 2,
         "startingLevel": 1,
         "branch": "stock",
@@ -266,13 +393,18 @@
       "content": {
         "slug": "online_portfolios_fuer_musikerinnnen",
         "name": "Online Portfolios für MusikerInnen",
+        "label": "job",
         "institute": "Selbständige Tätigkeit",
+        "tech": [
+          "Wordpress",
+          "JavaScript",
+          "WebHosting"
+        ],
         "year": 2018,
         "showYear": true,
         "end": 2022
       },
       "layout": {
-        "label": "job",
         "level": 2,
         "startingLevel": 1,
         "branch": "stock",
@@ -284,13 +416,18 @@
       "content": {
         "slug": "sgd_fernschule_php_mysql",
         "name": "PHP & MySQL",
+        "label": "kurs",
         "institute": "sgd Fernschule",
+        "tech": [
+          "PHP8",
+          "SQL",
+          "OOP"
+        ],
         "year": 2020,
         "showYear": true,
         "end": 2020
       },
       "layout": {
-        "label": "it",
         "level": 3,
         "startingLevel": 2,
         "branch": "stock",
@@ -298,20 +435,26 @@
         "open": "end",
         "newBranchOn": {
           "start": 2
-        }
+        },
+        "canceled": 2021
       }
     },
     {
       "content": {
         "slug": "webmasters_fernakademie_webdesign_usability",
         "name": "Webdesign, Usability",
+        "label": "kurs",
         "institute": "Webmasters Fernakademie",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "Bootstrap4"
+        ],
         "year": 2021,
         "showYear": true,
         "end": 2021
       },
       "layout": {
-        "label": "it",
         "level": 3,
         "startingLevel": 2,
         "branch": "stock",
@@ -326,12 +469,16 @@
       "content": {
         "slug": "webmasters_fernakademie_javascript_react",
         "name": "JavaScript & React",
+        "label": "kurs",
         "institute": "Webmasters Fernakademie",
+        "tech": [
+          "JavaScript ES6",
+          "React"
+        ],
         "year": 2021,
         "showYear": true
       },
-        "layout": {
-        "label": "job",
+      "layout": {
         "level": 3,
         "startingLevel": 2,
         "branch": "stock",
@@ -343,6 +490,7 @@
       "content": {
         "slug": "webmasters_fernakademie_php_mysql",
         "name": "PHP & MySQL",
+        "label": "kurs",
         "institute": "Webmasters Fernakademie",
         "tech": [
           "PHP8",
@@ -355,7 +503,6 @@
         "end": 2022
       },
       "layout": {
-        "label": "it",
         "level": 3,
         "startingLevel": 2,
         "branch": "stock",
