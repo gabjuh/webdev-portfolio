@@ -12,5 +12,21 @@
       "#e4da4c",
       "#e8ea82"
     ]
+  },
+  {
+    "name": "greenblue",
+    "timeline": "#2f4858",
+    "left": [
+      "#2ea18c",
+      "#2db6a1",
+      "#28cbb7",
+      "#1ee1cf"
+    ],
+    "right": [
+      "#89ca48",
+      "#a8d138",
+      "#c8d628",
+      "#ead917"
+    ]
   }
 ]
