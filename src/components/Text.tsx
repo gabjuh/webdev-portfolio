@@ -1,7 +1,7 @@
 import React from 'react';
-import { IText } from '../interfaces/Text';
+import { IText, IYear } from '../interfaces/Text';
 
-const Year: React.FC<IText> = ({
+const Year: React.FC<IYear> = ({
   textColor,
   content,
   y,
@@ -19,7 +19,8 @@ const Text: React.FC<IText> = ({
   textColor,
   content,
   y,
-  horisontalPosition
+  horisontalPosition,
+  categoryColor
 }) => {
 
 
@@ -27,9 +28,9 @@ const Text: React.FC<IText> = ({
     return (
       <>
         {
-          content.tech?.map((tech: string, i: number) => {
+          content.tech?.map((tech: string, i: number, a: string[]) => {
             return (
-              <tspan key={`tech_${i}`} floodColor="#f00">{tech} </tspan>
+              <tspan key={`tech_${i}`} fill="#888">{tech} {i < a.length - 1 && ' | '}</tspan>
             );
           })
         }
@@ -37,11 +38,28 @@ const Text: React.FC<IText> = ({
     );
   }
 
+  const Category = () => {
+    return (        
+      <>
+        {/* Background rectsquare */}
+        <rect x={horisontalPosition && horisontalPosition + 150} y={y - 18} width="45" height="24" rx="8" ry="8" fill={categoryColor} />
+
+        {/* Category text */}
+        <text x={horisontalPosition && horisontalPosition + 157} y={y - 2}>
+          <tspan fontSize=".6rem" fill="#fff" >{content.label.toUpperCase()}</tspan>
+        </text>
+      </>
+    )
+  }
+
 
   return (
     <>
+      {/* Category */}
+      {content.label && <Category />}
+
       {/* Name */}
-      <text x={horisontalPosition && horisontalPosition + 150} y={y} fill={content.hidden ? '#777' : textColor}>
+      <text x={horisontalPosition && horisontalPosition + 210} y={y} fill={content.hidden ? '#777' : textColor}>
         <tspan fontWeight="500">{content.name}</tspan>
         {/* Institute */}
         {content.institute && (
@@ -50,7 +68,7 @@ const Text: React.FC<IText> = ({
 
       </text>
       {content.tech && (
-        <text fontSize="12" x={horisontalPosition && horisontalPosition + 150} y={y + 18} fill={content.hidden ? '#777' : textColor}>{<Tech />}</text>
+        <text fontSize="12" x={horisontalPosition && horisontalPosition + 210} y={y + 18} fill={content.hidden ? '#777' : textColor}>{<Tech />}</text>
       )}
     </>
   );
