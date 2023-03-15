@@ -22,6 +22,7 @@ interface IBranch {
   pointStrokeWidth: number;
   pointSize: number;
   end?: number;
+  canceled?: boolean;
 }
 
 const Branch: React.FC<IBranch> = ({
@@ -41,7 +42,8 @@ const Branch: React.FC<IBranch> = ({
   newBranchOn,
   pointStrokeWidth,
   pointSize,
-  end
+  end,
+  canceled
 }) => {
 
   // DRAWING ELEMENTS
@@ -104,7 +106,7 @@ const Branch: React.FC<IBranch> = ({
   // LOGIC
   // Leave the end open to join it with the next branch, that no not have a start, if open set to 'end'
   const leaveOpenOrClose = (curveString: string) =>
-    open === 'end' || open === 'both' ?
+    open === 'end' ?
       `l 0 -${step}` :
       open !== 'both' ? curveString : '';
 
