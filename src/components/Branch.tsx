@@ -83,8 +83,6 @@ const Branch: React.FC<IBranch> = ({
   // Draw a curve to the right
   // starting part of a right-side-branch
   // endinging part of a left-side-branch
-  // ${lineToRight(side === 'right' ? newBranchOn?.start && level - newBranchOn.start : newBranchOn?.end && newBranchOn.end - level)}
-  // ${lineToRight(side === 'right' ? -1 : -1)}
   const curveRight: string = `
     ${curveBottomToRight}
     ${lineToRight(side === 'right' ? 0 : newBranchOn?.end ? newBranchOn.end * size : end ? end * size : 0)}
@@ -127,22 +125,27 @@ const Branch: React.FC<IBranch> = ({
     l 0 -${heightTillTop ? heightTillTop * step + size * 4 : 0}
  `;
 
+  // POSITIONS  
   //  Original starting point from the timeline
   const posStartingFromTimeline = `M ${pos[0]} ${pos[1]}`;
 
   // Changed position for continuing a previous branch on the left side
-  const posContinuingPrevBranchLeft = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size}`;
+  const posContinuingPrevBranchLeft = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size + 7 - level * 6
+    }`;
 
   // Changed position for continuing a previous branch on the right side
   // const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size}`;
-  const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size - 5}`;
+  const posContinuingPrevBranchRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size + 7 - level * 6}`;
 
   const posStartingOnExistingBranchRight = `M ${pos[0] + (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; // + (size * (newBranchOn ? newBranchOn : 1) * 2)
 
   const posStartingOnExistingBranchLeft = `M ${pos[0] - (size * (newBranchOn ? newBranchOn.start : 1) * 2)} ${pos[1]}`; //  - (size * (newBranchOn ? newBranchOn : 1) * 2)
 
-  const posAndLineWithOpenBoth = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size * 1.2} 
-    l 0 -${step + step * .5}`
+  const posAndLineWithOpenBothLeft = `M ${pos[0] - (size * 2) * (level + 1)} ${pos[1] + size * 1.2} 
+  l 0 -${step + step * .5}`;
+
+  const posAndLineWithOpenBothRight = `M ${pos[0] + (size * 2) * (level + 1)} ${pos[1] + size * 1.2} 
+  l 0 -${step + step * .5}`
 
   // If open set to 'start', set position on the right or left side,
   // if open is not start, give the original starting point
@@ -150,10 +153,12 @@ const Branch: React.FC<IBranch> = ({
     if (newBranchOn === undefined) {
        if (open === 'start') {
         return side === 'left' ?
-            posContinuingPrevBranchLeft :
-            posContinuingPrevBranchRight 
+           posContinuingPrevBranchLeft :
+           posContinuingPrevBranchRight 
         } if (open === 'both') {
-          return posAndLineWithOpenBoth
+          return side === 'left' ?
+            posAndLineWithOpenBothLeft :
+            posAndLineWithOpenBothRight
         } else {
           return posStartingFromTimeline;
         }
@@ -172,8 +177,8 @@ const Branch: React.FC<IBranch> = ({
         d={`
           ${getPosition()}
           ${open === 'both' ? '' : side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
-          ${heightTillTop ? open === 'both' ? '' : lineIfNotEndedYet :
-              openBranchIndexes ? `q 0 0 0 -${(step - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
+          ${heightTillTop ? open === 'both' ? '' : !canceled && lineIfNotEndedYet :
+            openBranchIndexes ? `q 0 0 0 -${(step + 5 - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
         `}
         stroke={color ? color : 'lightgray'}
         strokeWidth={strokeWidth}
@@ -181,7 +186,7 @@ const Branch: React.FC<IBranch> = ({
       />
 
       {/* Point at the very end of the line, if branch still active */}
-      {heightTillTop && open !== 'both' && (
+      {heightTillTop && open !== 'both' && !canceled && (
         <Point
           color={color}
           isMajor={true}
