@@ -14,12 +14,18 @@ interface ICvTree {
   textColor: string;
 }
 
+interface IFilter {
+  filter?: 'all' | 'school' | 'university' | 'job' | 'music' | 'it' | 'private';
+}
+
 const CvTree: React.FC<ICvTree> = ({
   bgColor,
   textColor
 }) => {
 
   const data = raw as ITree;
+
+  const theme = themes[1];
 
   const general: IGeneral = data.general;
   const point: IPoint = data.point;
@@ -66,6 +72,7 @@ const CvTree: React.FC<ICvTree> = ({
       items.push({
         content: {
           slug: `generated_slug_${i}`,
+          label: '',
           institute: '',
           name: '',
           year: content.end,
@@ -92,11 +99,12 @@ const CvTree: React.FC<ICvTree> = ({
 
   const filter = undefined;
 
-  const getColor = (item: IItem, filter?: string) => {
-    
-    // console.log(item.layout?.label, filter)
 
-    if (filter && filter !== item.layout?.label) {
+  const getColor = (item: IItem, filter?: IFilter) => {
+
+    // console.log(item.content?.label, filter)
+
+    if (filter && filter !== item.content.label) {
       return '#ccc';
     }
 
@@ -104,15 +112,15 @@ const CvTree: React.FC<ICvTree> = ({
 
     if (item.layout?.side === 'left') {
       // color of the left side
-      color = themes[0].left[item.layout?.startingLevel];
+      color = theme.left[item.layout?.startingLevel];
 
     } else if (item.layout?.side === 'right') {
       // color of the right side
-      color = themes[0].right[item.layout?.startingLevel];
+      color = theme.right[item.layout?.startingLevel];
 
     } else {
       // Point colors on the timeline
-      color = themes[0].timeline;
+      color = theme.timeline;
 
     }
 
@@ -151,6 +159,7 @@ const CvTree: React.FC<ICvTree> = ({
               const side: string = layout ? layout.side : 'left';
               const yPos = step * (i + 1) + 6;
               const end = layout?.end
+              const color = getColor(item, filter)
 
               // LOGIC TO GET THE PROPER HEIGHT OF AN UNFINISHED BRANCH
               // Find the year object index, where the end year is
@@ -196,7 +205,7 @@ const CvTree: React.FC<ICvTree> = ({
                       step={step}
                       size={size}
                       side={side}
-                      color={getColor(item, filter)}
+                    color={color}
                       bgColor={general.bgColor}
                       strokeWidth={strokeWidth}
                       pos={[horisontalPosition, step * (i + 1) + step * .58]}
@@ -209,6 +218,7 @@ const CvTree: React.FC<ICvTree> = ({
                       pointStrokeWidth={pointStrokeWidth}
                       pointSize={pointSize}
                       end={end}
+                    canceled={layout.canceled}
                     />
                   }
 
@@ -226,6 +236,7 @@ const CvTree: React.FC<ICvTree> = ({
                     textColor={textColor}
                     y={yPos}
                     horisontalPosition={horisontalPosition}
+                    categoryColor={color}
                   />
 
                 </React.Fragment>
