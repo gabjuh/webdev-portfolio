@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Alles",
+    "value": "all"
+  },
+  {
+    "label": "Schule",
+    "value": "school"
+  },
+  {
+    "label": "Universität",
+    "value": "uni"
+  },
+  {
+    "label": "Jobs",
+    "value": "jobs"
+  },
+  {
+    "label": "Musik",
+    "value": "music"
+  },
+  {
+    "label": "IT",
+    "value": "it"
+  },
+  {
+    "label": "Privat",
+    "value": "private"
+  }
+]
