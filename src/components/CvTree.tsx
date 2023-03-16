@@ -4,8 +4,9 @@ import Timeline from './Timeline';
 import Point from './Point';
 import Buttons from './Buttons';
 import { Year, Text } from './Text';
-import raw from '../cv_gj2.json';
-import raw_test from '../cv_test.json';
+import raw_data from '../cv_gj2.json';
+import raw_data_test from '../cv_test.json';
+import raw_categories from '../categories.json';
 import themes from '../themes.json';
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
 
@@ -18,14 +19,20 @@ interface IFilter {
   filter?: 'all' | 'school' | 'university' | 'job' | 'music' | 'it' | 'private';
 }
 
+interface ICategories {
+  label: string;
+  value: string;
+}
+
 const CvTree: React.FC<ICvTree> = ({
   bgColor,
   textColor
 }) => {
 
-  const data = raw as ITree;
+  const data = raw_data as ITree;
+  const categories = raw_categories as ICategories[];
 
-  const theme = themes[1];
+  const theme = themes[2];
 
   const general: IGeneral = data.general;
   const point: IPoint = data.point;
@@ -102,8 +109,6 @@ const CvTree: React.FC<ICvTree> = ({
 
   const getColor = (item: IItem, filter?: IFilter) => {
 
-    // console.log(item.content?.label, filter)
-
     if (filter && filter !== item.content.label) {
       return '#ccc';
     }
@@ -136,7 +141,9 @@ const CvTree: React.FC<ICvTree> = ({
         }}
       >
         <div className="mx-auto">
-          <Buttons />
+          <Buttons
+          // categories={categories}
+          />
         </div>
         <svg
           height={svgHeight}
