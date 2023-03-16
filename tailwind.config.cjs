@@ -8,6 +8,8 @@ module.exports = {
     extend: {},
     screens: {
       'lg': '1100px',
+      'md': '860px',
+      'sm': '450px',
     },
   },
   plugins: [require("daisyui")],
