@@ -4,7 +4,7 @@ import profil_img from '../assets/profile2.jpg';
 const Hero = () => {
   return (
     <div className="lg:translate-y-[60px]">
-      <div className="hero-content lg:flex-col flex-row-reverse mb-[0px]">
+      <div className="hero-content lg:flex-col flex-row-reverse mb-[30px]">
         <img src={profil_img} className="max-w-[270px] h-[220px] w-[265px] ml-8 rounded-xl shadow-md" />
         <div className="text-right lg:text-left">
           <h1 className="text-xl font-bold translate-y-1">Gábor Juhász</h1>

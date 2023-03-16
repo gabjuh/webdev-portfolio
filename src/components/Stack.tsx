@@ -20,7 +20,7 @@ import sassLogo from '../assets/logos/sass_mc.svg';
 
 const Stack = () => {
 
-  const [showIndexes, setShowIndexes] = useState<Boolean>(true);
+  const [showIndexes, setShowIndexes] = useState<Boolean>(false);
   const size: number = 60;
   const bigFieldSize: number = size * 2.3;
   const cols: number = 10;
@@ -129,11 +129,11 @@ const Stack = () => {
 
   return (
     <>
-      <div className="container min-h-[1000px] mx-auto lg:py-10">
+      <div className="container lg:h-[800px] md:h-[1000px] mx-auto lg:py-10">
         <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
           <div className="relative mx-auto right-0 left-0">
             <div className="grid grid-cols-8">
-              <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`}
+              <div className={`md:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`}
                 style={{
                   gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
                   gap: `${gap}px`
