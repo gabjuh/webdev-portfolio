@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'lg': '1100px',
+    },
   },
   plugins: [require("daisyui")],
 }
