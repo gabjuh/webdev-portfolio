@@ -20,7 +20,7 @@ import sassLogo from '../assets/logos/sass_mc.svg';
 
 const Stack = () => {
 
-  const [showIndexes, setShowIndexes] = useState<Boolean>(false);
+  const [showIndexes, setShowIndexes] = useState<Boolean>(true);
   const size: number = 60;
   const bigFieldSize: number = size * 2.3;
   const cols: number = 10;
@@ -112,7 +112,7 @@ const Stack = () => {
     }
   ];
   const hiddenFields = [200,
-    0, 1, 2, 4, 5, 7, 8, 10, 14, 15, 17, 21, 25, 30, 31, 32, 40, 51, 52, 60, 61, 62, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
+    0, 1, 2, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
 
   const skipList: number[] = [];
@@ -129,11 +129,11 @@ const Stack = () => {
 
   return (
     <>
-      <div className="container min-h-[800px] mx-auto py-10">
+      <div className="container min-h-[1000px] mx-auto lg:py-10">
         <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
           <div className="relative mx-auto right-0 left-0">
             <div className="grid grid-cols-8">
-              <div className={`grid col-span-6 max-w-[770px]`}
+              <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`}
                 style={{
                   gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
                   gap: `${gap}px`
@@ -189,7 +189,7 @@ const Stack = () => {
                   );
                 })}
               </div>
-              <div className="col-span-2">
+              <div className="lg:col-span-2 col-span-8 lg:order-1 -order-1">
                 <Hero />
               </div>
             </div>
