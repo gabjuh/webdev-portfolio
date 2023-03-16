@@ -2,22 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-group .btn {
+.btn-categories .btn {
   @apply text-red-700;
 }
 
-.btn-group .btn {
+.btn-categories .btn {
   @apply text-xs py-0
 }
 
-.btn-group .btn:hover {
+.btn-categories .btn:hover {
   @apply !text-white !bg-[#6dbc44]
 }
 
-.btn-group .btn:not(.btn-active){
+.btn-categories .btn:not(.btn-active) {
   @apply bg-transparent text-[#000]
 } 
 
-.btn-group .btn-active {
+.btn-categories .btn-active {
   @apply bg-[#6dbc44]
 }
