@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Branch from './Branch';
 import Timeline from './Timeline';
 import Point from './Point';
-import Buttons from './Buttons';
 import { Year, Text } from './Text';
 import raw_data from '../cv_gj2.json';
 import raw_data_test from '../cv_test.json';
@@ -135,21 +134,18 @@ const CvTree: React.FC<ICvTree> = ({
   return (
     <>
       <div
-        className={`relative mx-auto`}
+        className={`relative mx-auto w-[390px] md:-translate-x-[100px]`}
         style={{
-          width: `${svgWidth}px`
+          // width: `${svgWidth}px`
         }}
       >
-        <div className="mx-auto">
-          <Buttons
-          // categories={categories}
-          />
+        <div className="mx-auto w-[100%]">
         </div>
         <svg
           height={svgHeight}
           width={svgWidth}
           className={`
-          mx-auto
+          w-[100vw]
           relative
           box-content
         `}
