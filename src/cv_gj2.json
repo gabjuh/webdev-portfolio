@@ -1,8 +1,8 @@
 {
   "general": {
     "height": 250,
-    "width": 1200,
-    "horisontalPosition": 200,
+    "width": 600,
+    "horisontalPosition": 180,
     "size": 15,
     "strokeWidth": 5,
     "bgColor": "#eee",
@@ -176,7 +176,6 @@
       "content": {
         "slug": "einreise_nach_deutschland",
         "name": "Einreise nach Deutschland",
-        "label": "privat",
         "year": 2013,
         "showYear": true,
         "isMajor": true
