@@ -12,7 +12,7 @@ const Button: React.FC<IButton> = ({
   onClick
 }) => {
   return (
-    <button className={isActive ? 'btn btn-active' : 'btn'} onClick={onClick}>
+    <button className={`btn-sm ${isActive ? 'btn-active' : ''}`} onClick={onClick}>
       {label}
     </button>
   )
@@ -37,7 +37,7 @@ const Buttons: React.FC = () => {
 
   return (
     <>
-      <div className="btn-group">
+      <div className="btn-categories flex flex-wrap sm:w-[450px] mt-24 mx-auto">
         {buttons.map(button => (
           <Button 
             key={button.value}
