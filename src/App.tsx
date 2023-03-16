@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import CvTree from './components/CvTree';
 import Nav from './components/Nav';
-import Buttons from './components/Buttons';
+// import Buttons from './components/Buttons';
 import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
@@ -24,9 +24,9 @@ function App() {
       <div className=" z-0">
         <Stack />
 
-        <Buttons
+        {/* <Buttons
         // categories={categories}
-        />
+        /> */}
         <CvTree
           bgColor={bgColor}
           textColor={textColor}

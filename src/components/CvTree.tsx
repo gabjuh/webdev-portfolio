@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Branch from './Branch';
 import Timeline from './Timeline';
 import Point from './Point';
+import Button from './Button';
 import { Year, Text } from './Text';
 import raw_data from '../cv_gj2.json';
 import raw_data_test from '../cv_test.json';
@@ -131,8 +132,24 @@ const CvTree: React.FC<ICvTree> = ({
     return color;
   };
 
+  const [selectedButton, setSelectedButton] = useState<string>('Jobs');
+
+  const handleButtonClick = (label: string) => {
+    setSelectedButton(label);
+  };
+
   return (
     <>
+      <div className="btn-categories flex flex-wrap sm:w-[450px] mt-24 mx-auto">
+        {categories.map(button => (
+          <Button
+            key={button.value}
+            label={button.label}
+            isActive={selectedButton === button.label}
+            onClick={() => handleButtonClick(button.label)}
+          />
+        ))}
+      </div>
       <div
         className={`relative mx-auto w-[390px] md:-translate-x-[100px]`}
         style={{
