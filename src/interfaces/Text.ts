@@ -14,4 +14,9 @@ export interface IText {
   horisontalPosition?: number;
   i?: number;
   categoryColor: string;
+  onClick: any;
+  showPopup: {
+    showPopup?: string;
+    setShowPopup: any;
+  };
 }
