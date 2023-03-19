@@ -29,6 +29,8 @@ export interface IContent {
   year: number;
   showYear: boolean;
   description?: string;
+  certificate?: string;
+  recommendation?: string;
   end?: number;
   hidden?: boolean;
   isMajor?: boolean;
