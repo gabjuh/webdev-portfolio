@@ -339,6 +339,7 @@ const CvTree: React.FC<ICvTree> = ({
                         horisontalPosition={horisontalPosition}
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
+                        layout={item.layout}
                       />
                     </React.Fragment>
                   </>
