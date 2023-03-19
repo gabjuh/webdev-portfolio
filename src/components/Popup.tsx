@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { IContent, ILayout } from '../interfaces/Tree';
 import { Text } from './Text';
 
@@ -127,21 +127,23 @@ const Popup: React.FC<IPopup> = ({
             {content.link && Link('Mehr...', content.link)}
 
             {/* Tech */}
-            <p className="-mt-1 mb-1">
+            <div className="-mt-1 mb-1">
               <>
                 {content.tech?.map((tech: string, i: number, a: string[]) =>
-                  <p className="whitespace-normal inline-block">
+                  <React.Fragment key={`tech_${tech}_${i}`}>
+                    <p className="whitespace-normal inline-block">
                     <span
                     key={`${content.slug}_tech_${i}`}
                       className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 rounded-md whitespace-nowrap"
                   >
                     {tech}
                     </span>
-                  </p>
+                    </p>
+                  </React.Fragment>
                 )
                 }
               </>
-            </p>
+            </div>
 
             {/* Certificate */}
             {content.certificate && Button('Zertifikat', content.certificate)}
@@ -158,4 +160,3 @@ const Popup: React.FC<IPopup> = ({
 };
 
 export default Popup;
-

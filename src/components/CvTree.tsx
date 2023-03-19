@@ -240,7 +240,7 @@ const CvTree: React.FC<ICvTree> = ({
                 }
 
                 return (
-                  <React.Fragment key={`branch_${i}`}>
+                  <React.Fragment key={`branch_${index}`}>
 
                     {/* Branch */}
                     {layout &&
@@ -316,8 +316,7 @@ const CvTree: React.FC<ICvTree> = ({
                 const index = a.length - 1 - i;
                 const color = getColor(item, filter)
                 return (
-                  <>
-                    <React.Fragment key={`point_${i}`}>
+                  <React.Fragment key={`point_${index}`}>
                       <Point
                         pos={[general.horisontalPosition, step * (index + 1)]}
                         pointSize={pointSize}
@@ -329,9 +328,7 @@ const CvTree: React.FC<ICvTree> = ({
                         level={item.layout?.level}
                         levelDistanceReduction={general.levelDistanceReduction}
                         branchWidth={general.size}
-                      />
-                    </React.Fragment>
-                    <React.Fragment key={`popup_${i}`}>
+                    />
                       <Popup
                         color={color}
                         content={item.content}
@@ -341,8 +338,7 @@ const CvTree: React.FC<ICvTree> = ({
                         setShowPopup={setShowPopup}
                         layout={item.layout}
                       />
-                    </React.Fragment>
-                  </>
+                  </React.Fragment>
                 );
               })}
             </g>
