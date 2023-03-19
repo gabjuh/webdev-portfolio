@@ -31,6 +31,8 @@ export interface IContent {
   description?: string;
   certificate?: string;
   recommendation?: string;
+  img?: string;
+  link?: string;
   end?: number;
   hidden?: boolean;
   isMajor?: boolean;
