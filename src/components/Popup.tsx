@@ -32,10 +32,15 @@ const Popup: React.FC<IPopup> = ({
   const [contentHeight, setContentHeight] = useState<number>(240);
   const showCategories: boolean = true;
 
-  const categories = () =>
+  const Categories = () =>
     <p className="text-xs opacity-30 mb-1">
       {Array.isArray(content.categories) ? content.categories.map((category: string, index: number, array: Array<string>) => `${category.toUpperCase()}${index !== array.length - 1 ? ' | ' : ''}`).join('') : ''}
     </p>;
+
+  const Button = (label: string, url: string) =>
+    <div className="mt-4">
+      <a className="btn btn-xs px-3 py-1 rounded-sm bg-blue-500 hover:bg-blue-600 text-white border-none" style={{ backgroundColor: `${color}` }} href={url} download>{label}</a>
+    </div>
 
   const getContentHeight = (): number => {
     const contentElement = document.querySelector(`#${contentId}`);
@@ -106,7 +111,7 @@ const Popup: React.FC<IPopup> = ({
             <p className="font-[300] my-1 text-xs">{`${content.year}${content.end && content.year !== content.end ? ` - ${content.end}` : ''}`}</p>
 
             {/* Categories */}
-            {showCategories && categories()}
+            {showCategories && <Categories />}
 
             {/* Description */}
             {content.description && <p className="my-4 opacity-70">{content.description}</p>}
@@ -125,16 +130,12 @@ const Popup: React.FC<IPopup> = ({
               </>
             </p>
 
+            {/* Certificate */}
+            {content.certificate && Button('Zertifikat', content.certificate)}
 
+            {/* Recommendation */}
+            {content.recommendation && Button('Empfehlungsbrief', content.recommendation)}
 
-            {/* Projects */}
-
-            {/* Urls */}
-
-            {/* Downloads */}
-            <div className="mt-4">
-              <a className="btn btn-xs px-3 py-1 rounded-sm bg-blue-500 hover:bg-blue-600 text-white border-none" style={{ backgroundColor: `${color}` }} href="#" download>Zertifikat</a>
-            </div>
           </div>
         </foreignObject>
 
@@ -144,3 +145,4 @@ const Popup: React.FC<IPopup> = ({
 };
 
 export default Popup;
+
