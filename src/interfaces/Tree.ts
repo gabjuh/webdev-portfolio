@@ -22,11 +22,13 @@ export interface IPoint {
 export interface IContent {
   slug: string;
   name: string;
-  label: string;
+  typeOfActivity: string;
+  categories: string[] | string;
   institute?: string;
   tech?: string[];
   year: number;
   showYear: boolean;
+  description?: string;
   end?: number;
   hidden?: boolean;
   isMajor?: boolean;
