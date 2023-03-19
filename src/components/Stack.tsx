@@ -17,6 +17,7 @@ import laravelLogo from '../assets/logos/laravel_mc.svg';
 import sqliteLogo from '../assets/logos/sqlite_mc.svg';
 import gitLogo from '../assets/logos/git_mc.svg';
 import sassLogo from '../assets/logos/sass_mc.svg';
+import Prompt from './Prompt';
 
 const Stack = () => {
 
@@ -26,7 +27,9 @@ const Stack = () => {
   const cols: number = 10;
   const gap: number = 17;
   const nrOfFields: number = 90;
-  const maxWidth: number = 770
+
+  const [activeField, setActiveField] = useState<number | null>(null);
+
   const bigFields = [
     {
       "index": 36,
@@ -35,24 +38,24 @@ const Stack = () => {
     },
     {
       "index": 44,
-      "name": 'typescript',
+      "name": 'TypeScript',
       "img": typescriptLogo
     },
     {
       "index": 56,
-      "name": "TailwindCSS",
+      "name": "Tailwind CSS",
       "img": tailwindLogo
     }
   ];
   const smallFields = [
     {
       "index": 40,
-      "name": 'html',
+      "name": 'HTML5',
       "img": htmlLogo
     },
     {
       "index": 68,
-      "name": 'css',
+      "name": 'CSS4',
       "img": cssLogo
     },
     {
@@ -62,58 +65,66 @@ const Stack = () => {
     },
     {
       "index": 65,
-      "name": 'bootstrap',
+      "name": 'Bootstrap 4',
       "img": bootstrapLogo
     },
     {
       "index": 43,
-      "name": 'nodejs',
+      "name": 'Node.JS',
       "img": nodejsLogo
     },
     {
       "index": 34,
-      "name": 'php',
+      "name": 'PHP8',
       "img": phpLogo
     },
     {
       "index": 33,
-      "name": 'mysql',
+      "name": 'MySQL',
       "img": mysqlLogo
     },
     {
       "index": 13,
-      "name": 'wordpress',
+      "name": 'Wordpress',
       "img": wordpressLogo
     },
     {
       "index": 12,
-      "name": 'joomla',
+      "name": 'Joomla',
       "img": joomlaLogo
     },
     {
       "index": 24,
-      "name": 'laravel',
+      "name": 'Laravel 8',
       "img": laravelLogo
     },
     {
       "index": 23,
-      "name": 'sqlite',
+      "name": 'SQLite',
       "img": sqliteLogo
     },
     {
       "index": 26,
-      "name": 'git',
+      "name": 'Git',
       "img": gitLogo
     },
     {
       "index": 76,
-      "name": 'sass',
+      "name": 'SASS',
       "img": sassLogo
     }
   ];
   const hiddenFields = [200,
     0, 1, 2, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
+
+  // If bigFields includes the activeField as its index, return it
+  const getNameOfActiveField = (activeField: number | null) => {
+    let item;
+    item = bigFields.find(item => item.index === activeField);
+    if (!item) item = smallFields.find(item => item.index === activeField);
+    return item ? item.name : '';
+  }
 
   const skipList: number[] = [];
 
@@ -181,6 +192,8 @@ const Stack = () => {
                           i={id}
                           showIndexes={showIndexes}
                           cols={cols}
+                          activeField={activeField}
+                          setActiveField={setActiveField}
                         />
                       ) : (
                         <div style={{ width: `${size}px`, height: `${size}px` }}></div>
@@ -193,6 +206,10 @@ const Stack = () => {
                 <Hero />
               </div>
             </div>
+            <Prompt
+              prompt={getNameOfActiveField(activeField)}
+              activeField={activeField}
+            />
           </div>
         </div>
       </div>
