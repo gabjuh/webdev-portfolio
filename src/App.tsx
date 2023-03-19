@@ -20,7 +20,7 @@ function App() {
   body.style.color = textColor;
 
   return (
-    <div className="App overflow-hidden">
+    <div className="App">
       <div className=" z-0">
         <Stack />
 
