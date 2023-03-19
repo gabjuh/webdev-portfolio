@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IContent } from '../interfaces/Tree';
+import { IContent, ILayout } from '../interfaces/Tree';
 import { Text } from './Text';
 
 // // Icos
@@ -14,6 +14,7 @@ interface IPopup {
   verticalPosition: number;
   showPopup?: string;
   setShowPopup: any;
+  layout?: ILayout;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -22,7 +23,8 @@ const Popup: React.FC<IPopup> = ({
   horisontalPosition,
   verticalPosition,
   showPopup,
-  setShowPopup
+  setShowPopup,
+  layout
 }) => {
 
   const x: number = horisontalPosition && horisontalPosition + 115;
@@ -40,6 +42,11 @@ const Popup: React.FC<IPopup> = ({
   const Button = (label: string, url: string) =>
     <div className="mt-4">
       <a className="btn btn-xs px-3 py-1 rounded-sm bg-blue-500 hover:bg-blue-600 text-white border-none" style={{ backgroundColor: `${color}` }} href={url} download>{label}</a>
+    </div>
+
+  const Link = (label: string, url: string) =>
+    <div className="my-4">
+      <a className="py-1 text-xs" style={{ color: `${color}` }} href={url} target="_blank" rel="noreferrer">{label}</a>
     </div>
 
   const getContentHeight = (): number => {
@@ -108,24 +115,30 @@ const Popup: React.FC<IPopup> = ({
             <p className="text-sm italic">{content.typeOfActivity}</p>
 
             {/* Year-year */}
-            <p className="font-[300] my-1 text-xs">{`${content.year}${content.end && content.year !== content.end ? ` - ${content.end}` : ''}`}</p>
+            <p className="font-[300] my-1 text-xs">{`${''}${content.year}${content.end && content.year !== content.end ? ` - ${content.end}` : ''}`}</p>
 
             {/* Categories */}
             {showCategories && <Categories />}
 
             {/* Description */}
-            {content.description && <p className="my-4 opacity-70">{content.description}</p>}
+            {content.description && content.description.split('|').map((item, index) => <p key={index} className="my-4 opacity-70">{item}</p>)}
+
+            {/* Link */}
+            {content.link && Link('Mehr...', content.link)}
 
             {/* Tech */}
             <p className="-mt-1 mb-1">
               <>
                 {content.tech?.map((tech: string, i: number, a: string[]) =>
-                  <span
+                  <p className="whitespace-normal inline-block">
+                    <span
                     key={`${content.slug}_tech_${i}`}
-                    className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 rounded-md"
+                      className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 rounded-md whitespace-nowrap"
                   >
                     {tech}
-                  </span>)
+                    </span>
+                  </p>
+                )
                 }
               </>
             </p>
