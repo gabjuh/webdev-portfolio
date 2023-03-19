@@ -22,6 +22,7 @@
       "content": {
         "slug": "geboren",
         "name": "Geboren in Pécs, Ungarn",
+        "categories": "private",
         "year": 1986,
         "showYear": true,
         "isMajor": true
@@ -31,6 +32,7 @@
       "content": {
         "slug": "elektrotechnik",
         "name": "Elektrotechnik, Abitur",
+        "typeOfActivity": "Schulische Ausbildung",
         "categories": [
           "school",
           "et",
@@ -39,6 +41,7 @@
         "institute": "500.sz. Angster J. Fachmittelschule",
         "year": 2000,
         "end": 2004,
+        "description": "In dieser Schule lernte ich die Grundlagen der Elektrotechnik und der Informationstechnik kennen. Ich erhielt das Abitur.",
         "showYear": true
       },
       "layout": {
@@ -56,6 +59,7 @@
       "content": {
         "slug": "wirtschaftsinformatik",
         "name": "Wirtschaftsinformatik, Technikum",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "it",
@@ -65,6 +69,8 @@
         "institute": "Czipernovsky Fachmittelschule",
         "year": 2004,
         "showYear": true,
+        "certificate": "#",
+        "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich lernte die Grundlagen der Programmierung, der Datenbanken, der Netzwerke, der Betriebssysteme, der Hardware, der Software, der Wirtschaft und des Marketings. Ich erhielt den Technikum Zertifikat",
         "end": 2005
       },
       "layout": {
@@ -78,15 +84,15 @@
     {
       "content": {
         "slug": "it_beratung_pc_handy_reparatur",
-        "name": "It Beratung, PC-Handy Reparatur",
+        "name": "IT Beratung, PC-Handy Reparatur",
         "categories": [
-          "job",
           "it",
           "et"
         ],
-        "institute": "Selbständiger Tätigkeit",
         "year": 2004,
         "showYear": true,
+        "typeOfActivity": "Ehrenamtliche Tätigkeit",
+        "description": "",
         "end": 2013
       },
       "layout": {
@@ -103,7 +109,8 @@
     {
       "content": {
         "slug": "musikschule",
-        "name": "Musiktheorie, Klavier, Jazz-Klavier, Gitarre",
+        "name": "Klassische Gitarre",
+        "typeOfActivity": "Schulische Ausbildung",
         "categories": [
           "school",
           "music"
@@ -111,6 +118,7 @@
         "institute": "Kolinda Musikschule, Pécs",
         "year": 2002,
         "showYear": true,
+        "description": "Hier lernte ich verschiedene Instrumente, wie Klavier, Gitarre und Gesang kennen und lernte die Grundlagen der Musiktheorie.",
         "end": 2005
       },
       "layout": {
@@ -125,12 +133,14 @@
       "content": {
         "slug": "konservatorium",
         "name": "Klassische Gitarre",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "music"
         ],
         "institute": "Musikfachmittelschule, Pécs",
         "year": 2005,
+        "description": "Die Grundlagen für die klasszische Gitarre lernte ich an der Musikfachmittelschule in Pécs. Ein Jahr vor dem Abitur entschied ich mich für die Aufnahmeprüfung für den Universität, und wurde aufgenommen, deswegen habe ich die fachliche Abitur nicht mehr gemacht.",
         "showYear": true,
         "end": 2007
       },
@@ -146,6 +156,7 @@
       "content": {
         "slug": "universitaet_pecs_klassische_gitarre",
         "name": "Klassische Gitarre",
+        "typeOfActivity": "Studium",
         "categories": [
           "uni",
           "school",
@@ -154,6 +165,8 @@
         "institute": "Universität Pécs, BA Dimplom",
         "year": 2007,
         "showYear": true,
+        "certificate": "#",
+        "description": "Ich studierte an der Universität Pécs, Künstlerische Fakultät die klassische Gitarre. Ich erhielt den BA Dimplom.",
         "end": 2010
       },
       "layout": {
@@ -168,6 +181,7 @@
       "content": {
         "slug": "gitarrendozent",
         "name": "Gitarrendozent",
+        "typeOfActivity": "Festanstellung",
         "categories": [
           "job",
           "music"
@@ -204,6 +218,7 @@
         "name": "Einreise nach Deutschland",
         "year": 2013,
         "showYear": true,
+        "categories": "private",
         "isMajor": true
       }
     },
@@ -217,6 +232,8 @@
         "institute": "Berlitz Sprachschule, Leipzig",
         "year": 2013,
         "showYear": true,
+        "description": "In den täglichen intensiven Deutschkurs habe ich die Grundlagen der deutschen Sprache gelernt, und am Ende des Kurses die B1 Prüfung bestanden.",
+        "certificate": "#",
         "isMajor": true
       }
     },
@@ -224,13 +241,16 @@
       "content": {
         "slug": "konservatorium_halle_saale",
         "name": "Theorbe, Basso Continuo",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "music"
         ],
-        "institute": "Konservatorium Halle Saale, Schulabschluss",
+        "institute": "Konservatorium \"Georg Friedrich Händel\", Halle-Saale",
         "year": 2013,
         "showYear": true,
+        "description": "Hier habe ich die Grundlagen der Theorbe und des Basso Continuo gelernt, und nach dem ersten Schuljahr die höhste Schulabschluss Prüfung mit Auszeichnung bestanden.",
+        "certificate": "#",
         "end": 2014
       },
       "layout": {
@@ -245,14 +265,24 @@
       "content": {
         "slug": "hochschule_fur_kuenste_bremen",
         "name": "Historische Zupfinstrumente",
+        "typeOfActivity": "Studium",
         "categories": [
           "uni",
           "school",
           "music"
         ],
+        "tech": [
+          "Theorbe",
+          "Renaissance Laute",
+          "Barock Laute",
+          "Barock Gitarre",
+          "Basso Continuo"
+        ],
         "institute": "Hochschule für Künste Bremen,  BA Dimplom",
+        "certificate": "#",
         "year": 2014,
         "showYear": true,
+        "description": "Ich studierte an der Hochschule für Künste Bremen verschiedene Zupfinstrumente sowie Musiktheorie, Musikgeschichte, Basso Continuo und Improvisation.",
         "end": 2020
       },
       "layout": {
@@ -267,6 +297,7 @@
       "content": {
         "slug": "dozent_der_luebecker_musikschule",
         "name": "Gitarrendozent",
+        "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
           "music"
@@ -274,6 +305,7 @@
         "institute": "Lübecker Musikschule",
         "year": 2014,
         "showYear": true,
+        "description": "Ich arbeitete als Gitarrendozent in der Lübecker Musikschule. Außer Einzelunterrichten bin ich in der Arbeit von Gitarrenklassen beteiligt gewesen, auserdem in dem Projekt Early Music Birds teilgenommen, die sich aus Schülern der Musikschule und Schülern der Hochschule für Künste Bremen zusammensetzt. Ich war dort für die Renaissance Laute zuständig, und wir haben dort gemeinsam in dem Lübecker Kolosseum Konzerte gegeben.",
         "end": 2018
       },
       "layout": {
@@ -302,13 +334,20 @@
       "content": {
         "slug": "konzertierender_musiker",
         "name": "Konzertierender Musiker",
+        "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
           "music"
         ],
-        "institute": "Selbständige Tätigkeit",
+        "tech": [
+          "Renaissance Laute",
+          "Theorbe",
+          "Folkie Kontrabass",
+          "Gitarre"
+        ],
         "year": 2015,
         "showYear": true,
+        "description": "Als Musiker war ich mehreren Jahren lang in verschiedenen Ensembles und Formationen aktiv, und habe Konzerte in Italien, England, Frankreich, Ungarn, Romänien und natürlich auch in Deutschland gegeben.",
         "end": 2020
       },
       "layout": {
@@ -326,6 +365,7 @@
       "content": {
         "slug": "dozent_der_ridder_musikschule",
         "name": "Gitarrendozent",
+        "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
           "music"
@@ -333,6 +373,7 @@
         "institute": "Ridder Musikschule Bremen",
         "year": 2018,
         "showYear": true,
+        "description": "Ich arbeitete als Gitarrendozent in der Ridder Musikschule Bremen. Ich unterrichtete dort Gitarre, E-Gitarre und die Ukulele.",
         "end": 2020
       },
       "layout": {
@@ -350,6 +391,7 @@
         "name": "Covid-19 Pandemie",
         "year": 2020,
         "showYear": true,
+        "description": "Meine Karierre als Musiker wurde durch die Covid-19 Pandemie stark beeinträchtigt. Die meisten meiner Auftritte wurden abgesagt und die meisten meiner Schüler konnten nicht mehr zu mir kommen. Ich habe mich daher entschieden, mich auf die Ausbildung und Arbeit als ITler und Programmierer zu konzentrieren.",
         "isMajor": true
       }
     },
@@ -367,6 +409,7 @@
       "content": {
         "slug": "in_dialogo_cs_layout_design",
         "name": "CD Layout Design: In Dialogo",
+        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
@@ -379,6 +422,9 @@
         ],
         "year": 2020,
         "showYear": true,
+        "description": "Layout Design für die CD In Dialogo von Concerto Foscari. Die CD wurde im Rahmen des Projekts \"In Dialogo\" von der Hochschule für Künste Bremen und der Hochschule für Musik und Theater Hamburg produziert. Das Projekt wurde von der Europäischen Union im Rahmen des Programms Erasmus+ gefördert.",
+        "img": "in-dialogo.png",
+        "link": "https://www.alon-sariel.com/discography/#cc-m-11491149795",
         "end": 2021
       },
       "layout": {
@@ -392,6 +438,7 @@
       "content": {
         "slug": "content_management_bei_der_luebecker_musikschule",
         "name": "Content-Management",
+        "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
           "cms",
@@ -404,7 +451,8 @@
           "Python"
         ],
         "year": 2017,
-        "showYear": true
+        "showYear": true,
+        "description": "Ich habe in der Lübecker Musikschule die Pflege und Betreuung ihrer Website über den CMS Joomla übernommen. Außerdem habe ich die PCs und Notebooks der Musikschule aufgerüstet, die Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt mir zurzeit weniger als 2 Stunden pro Woche in Anspruch."
       },
       "layout": {
         "level": 1,
@@ -417,6 +465,7 @@
       "content": {
         "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
         "name": "Digitales Benutzerhandbuch",
+        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
@@ -431,6 +480,8 @@
         ],
         "year": 2018,
         "showYear": true,
+        "description": "Digitales Benutzerhandbuch für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Benutzerhandbuch wurde in PHP7, HTML5 und CSS3 programmiert und ist vollständig responsive.",
+        "recommendation": "#",
         "end": 2018
       },
       "layout": {
@@ -449,13 +500,13 @@
       "content": {
         "slug": "online_portfolios_fuer_musikerinnnen",
         "name": "Online Portfolios für MusikerInnen",
+        "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
           "it",
           "cms",
           "coding"
         ],
-        "institute": "Selbständige Tätigkeit",
         "tech": [
           "Wordpress",
           "JavaScript",
@@ -463,6 +514,7 @@
         ],
         "year": 2018,
         "showYear": true,
+        "description": "Ich interessierte mich schon immer Webseiten zu bauen, aber ich hatte nie die Zeit dafür. Als ich dann 2018 meine erste Webseite für einen Kunden gebaut habe, war ich sofort Feuer und Flamme. Seitdem habe ich viele weitere Webseiten für MusikerInnen gebaut. Ich habe mich dabei auf Wordpress spezialisiert, da es sehr einfach zu bedienen ist und viele nützliche Plugins bietet, und die Kunden können ihre Webseite selbst pflegen.",
         "end": 2022
       },
       "layout": {
@@ -477,6 +529,7 @@
       "content": {
         "slug": "sgd_fernschule_php_mysql",
         "name": "PHP & MySQL",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "it",
@@ -488,6 +541,7 @@
           "SQL",
           "OOP"
         ],
+        "description": "Den Kurs habe ich leider nach 6 Monaten wegen finanziellen Gründen abgebrochen. Ich habe aber die Grundlagen gelernt und konnte diese in meinem weiteren Studium anwenden.",
         "year": 2020,
         "showYear": true
       },
@@ -507,6 +561,7 @@
       "content": {
         "slug": "webmasters_fernakademie_webdesign_usability",
         "name": "Webdesign, Usability",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "it",
@@ -521,6 +576,7 @@
         "year": 2021,
         "showYear": true,
         "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen HTML, CSS, SCSS und Bootstrap.",
+        "certificate": "#",
         "end": 2021
       },
       "layout": {
@@ -538,6 +594,7 @@
       "content": {
         "slug": "webmasters_fernakademie_javascript_react",
         "name": "JavaScript & React",
+        "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "it",
@@ -550,7 +607,8 @@
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen JavaScript ES6, DOM und React Framework."
+        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen JavaScript ES6, DOM und React Framework.",
+        "certificate": "#"
       },
       "layout": {
         "level": 3,
@@ -580,6 +638,7 @@
         "year": 2021,
         "showYear": true,
         "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen PHP, MySQL und einstieg zum Laravel Framework.",
+        "certificate": "#",
         "end": 2022
       },
       "layout": {
