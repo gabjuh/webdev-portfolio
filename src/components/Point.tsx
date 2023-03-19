@@ -29,11 +29,13 @@ const Point: React.FC<IPoint> = ({
   isStillActive
 }) => {
 
+  const width = branchWidth ? branchWidth : 0
+
   const getCx = () => {
     if (!isStillActive) {
       return side === 'left' ?
-        pos[0] - branchWidth * (level ? level * 2 : 0) :
-        pos[0] + branchWidth * (level ? level * 2 : 0);
+        pos[0] - width * (level ? level * 2 : 0) :
+        pos[0] + width * (level ? level * 2 : 0);
     } else {
       return pos[0];
     }
@@ -41,7 +43,7 @@ const Point: React.FC<IPoint> = ({
   };
 
   return (
-    <g stroke={side ? themes[0].timeline : color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
+    <g className="transition-all duration-[800ms] ease-in-out" stroke={side ? themes[0].timeline : color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
       <circle cx={getCx()} cy={pos[1]} r={pointSize} />
     </g>
   );
