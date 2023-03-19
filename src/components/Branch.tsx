@@ -174,6 +174,7 @@ const Branch: React.FC<IBranch> = ({
   return (
     <>
       <path
+        className="transition-all duration-[800ms] ease-in-out"
         d={`
           ${getPosition()}
           ${open === 'both' ? '' : side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
