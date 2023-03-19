@@ -11,6 +11,8 @@ interface IField {
   i: number;
   showIndexes: Boolean;
   cols: number;
+  activeField: number | null;
+  setActiveField: (i: number | null) => void;
 }
 
 const Field: React.FC<IField> = ({
@@ -23,7 +25,9 @@ const Field: React.FC<IField> = ({
   color,
   i,
   showIndexes,
-  cols
+  cols,
+  activeField,
+  setActiveField,
 }) => {
 
   const increaseOpacity = (startOp: number, i: number) => startOp + i * 0.001;
@@ -58,10 +62,12 @@ const Field: React.FC<IField> = ({
 
   const handleOnMouseDown = () => {
     setFieldStyle(stylesOnClick)
+    setActiveField(i)
   }
 
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
+    setActiveField(null)
   }
   
   interface IFieldStyles {
