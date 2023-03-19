@@ -21,7 +21,7 @@
     {
       "content": {
         "slug": "geboren",
-        "name": "Geboren",
+        "name": "Geboren in Pécs, Ungarn",
         "year": 1986,
         "showYear": true,
         "isMajor": true
@@ -31,7 +31,11 @@
       "content": {
         "slug": "elektrotechnik",
         "name": "Elektrotechnik, Abitur",
-        "label": "school",
+        "categories": [
+          "school",
+          "et",
+          "it"
+        ],
         "institute": "500.sz. Angster J. Fachmittelschule",
         "year": 2000,
         "end": 2004,
@@ -52,7 +56,12 @@
       "content": {
         "slug": "wirtschaftsinformatik",
         "name": "Wirtschaftsinformatik, Technikum",
-        "label": "school",
+        "categories": [
+          "school",
+          "it",
+          "wirtschaft",
+          "marketing"
+        ],
         "institute": "Czipernovsky Fachmittelschule",
         "year": 2004,
         "showYear": true,
@@ -70,7 +79,11 @@
       "content": {
         "slug": "it_beratung_pc_handy_reparatur",
         "name": "It Beratung, PC-Handy Reparatur",
-        "label": "it",
+        "categories": [
+          "job",
+          "it",
+          "et"
+        ],
         "institute": "Selbständiger Tätigkeit",
         "year": 2004,
         "showYear": true,
@@ -91,7 +104,10 @@
       "content": {
         "slug": "musikschule",
         "name": "Musiktheorie, Klavier, Jazz-Klavier, Gitarre",
-        "label": "musik",
+        "categories": [
+          "school",
+          "music"
+        ],
         "institute": "Kolinda Musikschule, Pécs",
         "year": 2002,
         "showYear": true,
@@ -109,7 +125,10 @@
       "content": {
         "slug": "konservatorium",
         "name": "Klassische Gitarre",
-        "label": "musik",
+        "categories": [
+          "school",
+          "music"
+        ],
         "institute": "Musikfachmittelschule, Pécs",
         "year": 2005,
         "showYear": true,
@@ -127,7 +146,11 @@
       "content": {
         "slug": "universitaet_pecs_klassische_gitarre",
         "name": "Klassische Gitarre",
-        "label": "music",
+        "categories": [
+          "uni",
+          "school",
+          "music"
+        ],
         "institute": "Universität Pécs, BA Dimplom",
         "year": 2007,
         "showYear": true,
@@ -145,7 +168,10 @@
       "content": {
         "slug": "gitarrendozent",
         "name": "Gitarrendozent",
-        "label": "job",
+        "categories": [
+          "job",
+          "music"
+        ],
         "institute": "Mehreren Musikschulen",
         "year": 2008,
         "showYear": true,
@@ -166,7 +192,7 @@
       "content": {
         "slug": "hochzeit",
         "name": "Hochzeit",
-        "label": "privat",
+        "categories": "private",
         "year": 2012,
         "showYear": true,
         "isMajor": true
@@ -185,7 +211,9 @@
       "content": {
         "slug": "deutschkurs",
         "name": "Deutschkurs",
-        "label": "kurs",
+        "categories": [
+          "school"
+        ],
         "institute": "Berlitz Sprachschule, Leipzig",
         "year": 2013,
         "showYear": true,
@@ -196,7 +224,10 @@
       "content": {
         "slug": "konservatorium_halle_saale",
         "name": "Theorbe, Basso Continuo",
-        "label": "music",
+        "categories": [
+          "school",
+          "music"
+        ],
         "institute": "Konservatorium Halle Saale, Schulabschluss",
         "year": 2013,
         "showYear": true,
@@ -214,7 +245,11 @@
       "content": {
         "slug": "hochschule_fur_kuenste_bremen",
         "name": "Historische Zupfinstrumente",
-        "label": "music",
+        "categories": [
+          "uni",
+          "school",
+          "music"
+        ],
         "institute": "Hochschule für Künste Bremen,  BA Dimplom",
         "year": 2014,
         "showYear": true,
@@ -232,7 +267,10 @@
       "content": {
         "slug": "dozent_der_luebecker_musikschule",
         "name": "Gitarrendozent",
-        "label": "job",
+        "categories": [
+          "job",
+          "music"
+        ],
         "institute": "Lübecker Musikschule",
         "year": 2014,
         "showYear": true,
@@ -254,7 +292,7 @@
       "content": {
         "slug": "geburt_von_hannah",
         "name": "Geburt von Hannah",
-        "label": "privat",
+        "categories": "private",
         "year": 2015,
         "showYear": true,
         "isMajor": true
@@ -264,7 +302,10 @@
       "content": {
         "slug": "konzertierender_musiker",
         "name": "Konzertierender Musiker",
-        "label": "music",
+        "categories": [
+          "job",
+          "music"
+        ],
         "institute": "Selbständige Tätigkeit",
         "year": 2015,
         "showYear": true,
@@ -285,7 +326,10 @@
       "content": {
         "slug": "dozent_der_ridder_musikschule",
         "name": "Gitarrendozent",
-        "label": "job",
+        "categories": [
+          "job",
+          "music"
+        ],
         "institute": "Ridder Musikschule Bremen",
         "year": 2018,
         "showYear": true,
@@ -313,7 +357,7 @@
       "content": {
         "slug": "geburt_von_noel",
         "name": "Geburt von Noel",
-        "label": "privat",
+        "categories": "private",
         "year": 2021,
         "showYear": true,
         "isMajor": true
@@ -323,7 +367,11 @@
       "content": {
         "slug": "in_dialogo_cs_layout_design",
         "name": "CD Layout Design: In Dialogo",
-        "label": "job",
+        "categories": [
+          "job",
+          "project",
+          "design"
+        ],
         "institute": "Concerto Foscari",
         "tech": [
           "Photoshop",
@@ -344,7 +392,11 @@
       "content": {
         "slug": "content_management_bei_der_luebecker_musikschule",
         "name": "Content-Management",
-        "label": "job",
+        "categories": [
+          "job",
+          "cms",
+          "it"
+        ],
         "institute": "Lübecker Musikschule",
         "tech": [
           "Joomla",
@@ -365,7 +417,12 @@
       "content": {
         "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
         "name": "Digitales Benutzerhandbuch",
-        "label": "job",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
         "institute": "inline Kuriere Hamburg",
         "tech": [
           "PHP7",
@@ -392,7 +449,12 @@
       "content": {
         "slug": "online_portfolios_fuer_musikerinnnen",
         "name": "Online Portfolios für MusikerInnen",
-        "label": "job",
+        "categories": [
+          "job",
+          "it",
+          "cms",
+          "coding"
+        ],
         "institute": "Selbständige Tätigkeit",
         "tech": [
           "Wordpress",
@@ -415,7 +477,11 @@
       "content": {
         "slug": "sgd_fernschule_php_mysql",
         "name": "PHP & MySQL",
-        "label": "kurs",
+        "categories": [
+          "school",
+          "it",
+          "coding"
+        ],
         "institute": "sgd Fernschule",
         "tech": [
           "PHP8",
@@ -441,7 +507,11 @@
       "content": {
         "slug": "webmasters_fernakademie_webdesign_usability",
         "name": "Webdesign, Usability",
-        "label": "kurs",
+        "categories": [
+          "school",
+          "it",
+          "coding"
+        ],
         "institute": "Webmasters Fernakademie",
         "tech": [
           "HTML5",
@@ -450,6 +520,7 @@
         ],
         "year": 2021,
         "showYear": true,
+        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen HTML, CSS, SCSS und Bootstrap.",
         "end": 2021
       },
       "layout": {
@@ -467,14 +538,19 @@
       "content": {
         "slug": "webmasters_fernakademie_javascript_react",
         "name": "JavaScript & React",
-        "label": "kurs",
+        "categories": [
+          "school",
+          "it",
+          "coding"
+        ],
         "institute": "Webmasters Fernakademie",
         "tech": [
           "JavaScript ES6",
           "React"
         ],
         "year": 2021,
-        "showYear": true
+        "showYear": true,
+        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen JavaScript ES6, DOM und React Framework."
       },
       "layout": {
         "level": 3,
@@ -488,8 +564,13 @@
       "content": {
         "slug": "webmasters_fernakademie_php_mysql",
         "name": "PHP & MySQL",
-        "label": "kurs",
-        "institute": "Webmasters Fernakademie",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "school",
+          "it",
+          "coding"
+        ],
+        "institute": "Webmasters Europe e.V.",
         "tech": [
           "PHP8",
           "SQL",
@@ -498,6 +579,7 @@
         ],
         "year": 2021,
         "showYear": true,
+        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen PHP, MySQL und einstieg zum Laravel Framework.",
         "end": 2022
       },
       "layout": {
