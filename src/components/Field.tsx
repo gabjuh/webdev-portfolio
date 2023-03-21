@@ -13,6 +13,7 @@ interface IField {
   cols: number;
   activeField: number | null;
   setActiveField: (i: number | null) => void;
+  nrOfFields: number;
 }
 
 const Field: React.FC<IField> = ({
@@ -28,17 +29,20 @@ const Field: React.FC<IField> = ({
   cols,
   activeField,
   setActiveField,
+  nrOfFields,
 }) => {
 
   const increaseOpacity = (startOp: number, i: number) => startOp + i * 0.001;
 
+  const setGradientBase = (colorValue: number, index: number): number => (255 - colorValue) / nrOfFields * index + colorValue;
+
   const generateFirstColor = (i: number, cols: number): string => {
-    const [r, g, b, a] = [255 - i * 2, 255 - i, 255 - i * 3, increaseOpacity(0.3, i)];
+    const [r, g, b, a] = [setGradientBase(49, i), setGradientBase(175, i), setGradientBase(117, i), increaseOpacity(0.3, i)];
     return `rgba(${r},${g},${b},${a})`;
   };
 
   const generateSecondColor = (i: number, cols: number): string => {
-    const [r, g, b, a] = [200, 200, 192, increaseOpacity(0.3, i)];
+    const [r, g, b, a] = [setGradientBase(90, i), setGradientBase(192, i), setGradientBase(192, i), increaseOpacity(0.3, i)];
     return `rgba(${r},${g},${b},${a})`;
   };
 
