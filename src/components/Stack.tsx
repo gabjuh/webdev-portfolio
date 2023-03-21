@@ -194,6 +194,7 @@ const Stack = () => {
                           cols={cols}
                           activeField={activeField}
                           setActiveField={setActiveField}
+                          nrOfFields={nrOfFields}
                         />
                       ) : (
                         <div style={{ width: `${size}px`, height: `${size}px` }}></div>
