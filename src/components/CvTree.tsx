@@ -49,7 +49,7 @@ const CvTree: React.FC<ICvTree> = ({
   const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight);
+  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 200);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const timelineStartPos = svgWidth / 2;
@@ -162,7 +162,7 @@ const CvTree: React.FC<ICvTree> = ({
       <div className="overflow-hidden">
         {/* Buttons */}
         <div
-          className="btn-categories flex flex-wrap sm:w-[500px] mt-24 mx-auto"
+          className="btn-categories flex flex-wrap sm:w-[500px] mt-32 mx-auto"
           style={{
             position: "-webkit-sticky",
             top: 0,
