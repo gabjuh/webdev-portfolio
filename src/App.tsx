@@ -31,7 +31,7 @@ function App() {
           bgColor={bgColor}
           textColor={textColor}
         />
-        <Projects />
+        {/* <Projects /> */}
         <Footer />
       </div>
     </div>
