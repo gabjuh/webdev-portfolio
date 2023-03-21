@@ -67,10 +67,10 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
 
   return (
     <>
-      <div className="p-2 font-mono w-[200px] mx-auto text-xl -translate-y-[40px] text-center">
-        <p className="h-[2rem] text-[#49ae46]">
+      <div className="invisible md:visible p-2 font-mono w-[200px] mx-auto text-xl -translate-y-[40px] lg:-translate-x-[130px] text-center">
+        <p className="h-[2rem] text-[#0b7878]">
           {writtenPrompt}
-          {writtenPrompt.length > -1 && <span id="cursor" className="text-[#a0e69e]">_</span>}
+          {writtenPrompt.length > -1 && <span id="cursor">_</span>}
         </p>
       </div>
     </>
