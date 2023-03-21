@@ -11,7 +11,7 @@
 }
 
 .btn-categories .btn:hover {
-  @apply !text-white !bg-[#6dbc44]
+  @apply !text-white !bg-[#2db6a1]
 }
 
 .btn-categories .btn:not(.btn-active) {
@@ -19,5 +19,5 @@
 } 
 
 .btn-categories .btn-active {
-  @apply bg-[#6dbc44]
+  @apply bg-[#2db6a1] text-white
 }
