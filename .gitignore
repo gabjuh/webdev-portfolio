@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
+src/components/Puzzle
+
 portfolio_v2.code-workspace
