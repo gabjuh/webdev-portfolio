@@ -23,7 +23,7 @@ body {
 }
 
 .btn-categories .btn-sm:hover {
-  @apply border border-[3px] border-[#0b7878]
+  @apply border border-[3px] border-[#2db6a1]
 }
 
 .btn-categories .btn:not(.btn-active) {
