@@ -7,6 +7,13 @@ import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
 
+const scrollToId = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 function App() {
 
   const colors = ['#eee', '#000'];
@@ -22,7 +29,9 @@ function App() {
   return (
     <div className="App">
       <div className=" z-0">
-        <Stack />
+        <Stack
+          scrollToId={scrollToId}
+        />
 
         {/* <Buttons
         // categories={categories}
@@ -30,6 +39,7 @@ function App() {
         <CvTree
           bgColor={bgColor}
           textColor={textColor}
+          scrollToId={scrollToId}
         />
         {/* <Projects /> */}
         <Footer />
