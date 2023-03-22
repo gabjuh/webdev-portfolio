@@ -37,6 +37,6 @@ body {
   @apply rounded-l-lg
 }
 
-.btn-categories button:last-of-type {
+.btn-categories button:nth-last-of-type(2) {
   @apply rounded-r-lg
 }
