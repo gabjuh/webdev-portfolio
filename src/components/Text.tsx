@@ -49,6 +49,14 @@ const Text: React.FC<IText> = ({
     }, 800);
   };
 
+  const handleOnClickShake = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
+    const target = e.currentTarget;
+    target.classList.add('animate-shake');
+    setTimeout(() => {
+      target.classList.remove('animate-shake');
+    }, 1000);
+  };
+
   return (
     <g>
 
@@ -58,7 +66,7 @@ const Text: React.FC<IText> = ({
         className={`hidden md:block transition-all duration-[400ms] ease-in-out ${content.categories !== 'private' ? 'cursor-pointer' : 'cursor-default'}`}
         onMouseEnter={e => handleMouseEnter(e)}
         onMouseLeave={e => handleMouseLeave(e)}
-        onClick={e => content.categories !== 'private' && onClick(e)}
+        onClick={e => content.categories !== 'private' ? onClick(e) : handleOnClickShake(e)}
         fill={content.hidden ? '#777' : textColor}
         x={horisontalPosition && horisontalPosition + 140}
         y={y}
