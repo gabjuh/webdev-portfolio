@@ -76,7 +76,9 @@ const Field: React.FC<IField> = ({
 
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
-    setActiveField(null)
+    setTimeout(() => {
+      setActiveField(null)
+    }, 500)
   }
   
   interface IFieldStyles {
