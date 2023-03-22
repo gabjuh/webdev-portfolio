@@ -184,13 +184,14 @@ const CvTree: React.FC<ICvTree> = ({
           ))}
           <button
             onMouseUp={() => { scrollToId('stack'); }}
+            className="cursor-pointer"
           >
             <img src={downArrow} alt="Arrow"
-              className="rotate-180 ml-5 w-3.5 hover:-translate-y-[.3rem] transition-all duration-150"
+              className="rotate-180 ml-5 w-[.85rem] hover:-translate-y-[.3rem] transition-all duration-150"
             />
           </button>
         </div>
-        <div className={`relative mx-auto w-[390px] md:-translate-x-[100px] z-0`} >
+        <div className={`relative mx-auto lg:w-[820px] w-[390px] md:-translate-x-[100px] z-0`} >
           <div className="mx-auto w-[100%]">
           </div>
           <svg
