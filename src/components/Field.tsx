@@ -5,7 +5,7 @@ interface IField {
   img: string;
   size: number[];
   isBig: Boolean;
-  type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2';
+  type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2' | 'button';
   pos: number[];
   color: string;
   i: number;
@@ -14,6 +14,10 @@ interface IField {
   activeField: number | null;
   setActiveField: (i: number | null) => void;
   nrOfFields: number;
+  fn?: {
+    scrollToId: (id: string) => void;
+    id: string;
+  } | null;
 }
 
 const Field: React.FC<IField> = ({
@@ -30,6 +34,7 @@ const Field: React.FC<IField> = ({
   activeField,
   setActiveField,
   nrOfFields,
+  fn
 }) => {
 
   const increaseOpacity = (startOp: number, i: number) => startOp + i * 0.001;
@@ -104,7 +109,6 @@ const Field: React.FC<IField> = ({
     boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i), 1.1)}px ${increaseNrWithIndex(-5, getFirstDigit(i), 1.1)}px 6px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
     transform: `translateY(${-4}px) translateX(${-1}px)`,
     transitionDuration: "150ms",
-    // transform: `translateY(${increaseNrWithIndex(-5, getLastDigit(i), .7)}px) translateX(${increaseNrWithIndex(-5, getFirstDigit(i), .7)}px)`
   };
 
   const stylesOnClick: IFieldStyles = {
@@ -116,28 +120,24 @@ const Field: React.FC<IField> = ({
     boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i), .4)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .4)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
     transform: `translateY(${2}px) translateX(${1}px)`,
     transitionDuration: "100ms",
-    // transform: `translateY(${increaseNrWithIndex(-5, getLastDigit(i), .7)}px) translateX(${increaseNrWithIndex(-5, getFirstDigit(i), .7)}px)`
   };
 
   const [fieldStyle, setFieldStyle] = useState<IFieldStyles>(stylesDefault);
-  // setFieldStyle(hovering ? stylesOnHover : stylesDefault);
 
   return (
     <div
       className={`${isBig && 'col-span-2 row-span-2 '} relative group mx-auto rounded-2xl hover:-translate-y-[4px] hover:-translate-x-[1px] transition-all`}
-      // hover:-translate-y-[4px] hover:-translate-x-[1px] 
       style={fieldStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleOnMouseDown}
-      onMouseUp={handleOnMouseUp}
+      onMouseUp={!fn ? handleOnMouseUp : () => fn.scrollToId(fn.id)}
     >
       <div className="text-center h-[100%]">
         <div className="absolute top-[50%] -translate-y-[56%] left-0 right-0">
           <span className="absolute -top-3 left-1 text-[#999] text-[.6rem]">{showIndexes && i}</span>
-          {/* <span className="text-[#666] text-xl">{name}</span> */}
           <img
-            className="absolute w-[50%] group-hover:!opacity-1)] transition-all duration-200 left-0 right-0 mx-auto top-[50%] -translate-y-[50%]"
+            className="absolute max-w-[50%] group-hover:!opacity-1)] transition-all duration-200 left-0 right-0 mx-auto top-[50%] -translate-y-[50%]"
             style={{
               opacity: isBig ? .85 : increaseOpacity(0.6, i)
             }}
