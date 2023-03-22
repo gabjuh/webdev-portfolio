@@ -223,7 +223,7 @@ const Stack: React.FC<Stack> = ({ scrollToId }) => {
                 })}
               </div>
               <div className="lg:col-span-2 col-span-8 lg:order-1 -order-1">
-                <Hero />
+                <Hero scrollToId={scrollToId} />
               </div>
             </div>
             <Prompt
