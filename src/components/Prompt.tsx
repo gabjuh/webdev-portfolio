@@ -9,6 +9,7 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
 
   const [writtenPrompt, setWrittenPrompt] = useState<string>('');
   const [propmtBuffer, setPromptBuffer] = useState<string | null>('');
+  const [promptIsActive, setPromptIsActive] = useState<boolean>(false);
 
   const generateRandomInterval = () => Math.floor(Math.random() * 30);
 
@@ -48,10 +49,14 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
   useEffect(() => {
     if (activeField !== null) {
       const interval = writePrompt();
+      setPromptIsActive(true);
+      setTimeout(() => {
+        setPromptIsActive(false);
+      }, 2000)
       return () => clearInterval(interval);
     }
     // clear the prompt if selected field is null
-    if (activeField === null) {
+    if (activeField === null && promptIsActive === false) {
       const interval = clearProptBackwards();
       return () => clearInterval(interval);
     }
