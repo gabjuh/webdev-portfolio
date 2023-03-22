@@ -4,6 +4,7 @@ import Timeline from './Timeline';
 import Point from './Point';
 import Button from './Button';
 import Popup from './Popup';
+import downArrow from '../assets/logos/down-arrow.svg';
 import { Year, Text } from './Text';
 import raw_data from '../cv_gj2.json';
 import raw_data_test from '../cv_test.json';
@@ -14,6 +15,7 @@ import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfac
 interface ICvTree {
   bgColor: string;
   textColor: string;
+  scrollToId: (id: string) => void;
 }
 
 type IFilter = 'all' | 'school' | 'uni' | 'job' | 'music' | 'it' | 'private';
@@ -25,7 +27,8 @@ interface ICategories {
 
 const CvTree: React.FC<ICvTree> = ({
   bgColor,
-  textColor
+  textColor,
+  scrollToId
 }) => {
 
   const data = raw_data as ITree;
@@ -159,7 +162,7 @@ const CvTree: React.FC<ICvTree> = ({
 
   return (
     <>
-      <div className="lg:mt-32" id="cv">
+      <div className="" id="cv">
         {/* Buttons */}
         <div
           className="btn-categories flex flex-wrap sm:w-[100%]  mx-auto z-10 bg-[#eee] p-8 backdrop-filter backdrop-blur-sm opacity-90 justify-center"
@@ -179,6 +182,13 @@ const CvTree: React.FC<ICvTree> = ({
               />
             </React.Fragment>
           ))}
+          <button
+            onMouseUp={() => { scrollToId('stack'); }}
+          >
+            <img src={downArrow} alt="Arrow"
+              className="rotate-180 ml-5 w-3.5 hover:-translate-y-[.3rem] transition-all duration-150"
+            />
+          </button>
         </div>
         <div className={`relative mx-auto w-[390px] md:-translate-x-[100px] z-0`} >
           <div className="mx-auto w-[100%]">
