@@ -1,7 +1,12 @@
 import React from 'react';
 import profil_img from '../assets/profile2.jpg';
+import downArrow from '../assets/logos/down-arrow.svg';
 
-const Hero = () => {
+interface IHero {
+  scrollToId: (id: string) => void;
+}
+
+const Hero: React.FC<IHero> = ({ scrollToId }) => {
   return (
     <div className="relative lg:translate-y-[136px] h-[95vh] md:h-[100%]">
       <div className="hero-content flex-col md:flex-row-reverse lg:flex-col">
@@ -13,7 +18,12 @@ const Hero = () => {
         </div>
       </div>
       <div className="visible md:invisible block absolute bottom-5 w-[100%] text-center">
-        <a className="py-2 px-3 rounded-3xl shadow-md bg-[#28cbb7] transition-all duration-[150] hover:text-[#fff]" href="#cv">&#8595;</a>
+        <button
+          className="py-3 px-3 rounded-3xl shadow-md bg-[#28cbb7] transition-all duration-[150] hover:text-[#fff] hover:-translate-y-[.3rem] animate-bounce"
+          onMouseUp={() => scrollToId('cv')}
+        >
+          <img src={downArrow} alt="arrow" />
+        </button>
       </div>
     </div>
   );
