@@ -159,14 +159,15 @@ const CvTree: React.FC<ICvTree> = ({
 
   return (
     <>
-      <div className="overflow-hidden">
+      <div className="lg:mt-32" id="cv">
         {/* Buttons */}
         <div
-          className="btn-categories flex flex-wrap sm:w-[500px] mt-32 mx-auto"
+          className="btn-categories flex flex-wrap sm:w-[100%]  mx-auto z-10 bg-[#eee] p-8 backdrop-filter backdrop-blur-sm opacity-90 justify-center"
           style={{
-            position: "-webkit-sticky",
+            position: "sticky",
             top: 0,
           }}
+          id="buttons"
         >
           {categories.map((category, i) => (
             <React.Fragment key={`button_${i}`}>
@@ -179,7 +180,7 @@ const CvTree: React.FC<ICvTree> = ({
             </React.Fragment>
           ))}
         </div>
-        <div className={`relative mx-auto w-[390px] md:-translate-x-[100px]`} >
+        <div className={`relative mx-auto w-[390px] md:-translate-x-[100px] z-0`} >
           <div className="mx-auto w-[100%]">
           </div>
           <svg
