@@ -27,7 +27,49 @@ const Popup: React.FC<IPopup> = ({
   layout
 }) => {
 
-  const x: number = horisontalPosition && horisontalPosition + 115;
+  const getViewWidth = (): number => {
+    const viewWidth = document.querySelector('body') as HTMLElement;
+    return viewWidth?.offsetWidth;
+  };
+
+  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
+
+  const handleResize = () => {
+    setViewWidth(getViewWidth());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const horisontalPositions = {
+    sm: {
+      vw: 0,
+      pos: horisontalPosition - 115
+    },
+    md: {
+      vw: 0,
+      pos: horisontalPosition - 100
+    },
+    lg: {
+      vw: 0,
+      pos: horisontalPosition + 470
+    }
+  };
+
+  const setHorisiontalPosition = (): number => {
+    if (viewWidth < 450) {
+      return horisontalPositions.sm.pos;
+    } else if (viewWidth < 860) {
+      return horisontalPositions.md.pos;
+    } else {
+      return horisontalPositions.lg.pos;
+    }
+  };
+
+  // const x: number = horisontalPosition && horisontalPosition + 115;
+  const x: number = setHorisiontalPosition();
   const y: number = verticalPosition - 35;
 
   const contentId: string = `content_${content.slug}`;
@@ -102,12 +144,15 @@ const Popup: React.FC<IPopup> = ({
         </text>
         <foreignObject
           className="overflow-auto"
-          x={x + 25} y={y + 50}
+          x={x + 25} y={y + 18}
           fontSize="15" fill="#444"
           width="310"
           height={contentHeight}
         >
           <div id={contentId} className="" >
+            {/* Name */}
+            <p className="text-lg text-[1rem]">{content.name}</p>
+
             {/* Place */}
             <p className="text-md font-[600]">{content.institute}</p>
 
