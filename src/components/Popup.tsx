@@ -69,7 +69,7 @@ const Popup: React.FC<IPopup> = ({
       >
         {/* popup frame */}
         <rect
-          fill="#feffff"
+          fill="#fff"
           stroke={color}
           strokeWidth="1.5"
           x={x}

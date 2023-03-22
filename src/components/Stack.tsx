@@ -17,9 +17,14 @@ import laravelLogo from '../assets/logos/laravel_mc.svg';
 import sqliteLogo from '../assets/logos/sqlite_mc.svg';
 import gitLogo from '../assets/logos/git_mc.svg';
 import sassLogo from '../assets/logos/sass_mc.svg';
+import downArrow from '../assets/logos/down-arrow.svg';
 import Prompt from './Prompt';
 
-const Stack = () => {
+interface Stack {
+  scrollToId: (id: string) => void;
+}
+
+const Stack: React.FC<Stack> = ({ scrollToId }) => {
 
   const [showIndexes, setShowIndexes] = useState<Boolean>(false);
   const size: number = 60;
@@ -117,6 +122,11 @@ const Stack = () => {
   const hiddenFields = [200,
     0, 1, 2, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
+  const downButton = {
+    "index": 81,
+    "name": 'down_arrow',
+    "img": downArrow
+  }
 
   // If bigFields includes the activeField as its index, return it
   const getNameOfActiveField = (activeField: number | null) => {
@@ -140,7 +150,7 @@ const Stack = () => {
 
   return (
     <>
-      <div className="container lg:h-[800px] md:h-[1000px] mx-auto lg:py-10">
+      <div className="container lg:h-[800px] md:h-[1000px] mx-auto lg:py-10" id="stack">
         <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
           <div className="relative mx-auto right-0 left-0">
             <div className="grid grid-cols-8">
@@ -153,12 +163,13 @@ const Stack = () => {
 
                 {fieldArray.map(id => {
                   let isBig = false;
-                  let type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2' = 'normal';
+                  let type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2' | 'button' = 'normal';
                   let isHidden = hiddenFields.includes(id);
                   let name = '';
                   let width = size;
                   let height = size;
                   let img = '';
+                  let fn = null;
                   const foundBigFieldObj = bigFields.find(obj => obj.index === id);
                   const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
@@ -178,6 +189,13 @@ const Stack = () => {
                     img = foundSmallFieldObj.img;
                   }
 
+                  if (id === downButton.index) {
+                    name = 'down_arrow';
+                    type = 'button';
+                    img = downArrow;
+                    fn = { scrollToId, id: 'cv' };
+                  }
+
                   return (
                     <React.Fragment key={id}>
                       {!isHidden ? (
@@ -195,6 +213,7 @@ const Stack = () => {
                           activeField={activeField}
                           setActiveField={setActiveField}
                           nrOfFields={nrOfFields}
+                          fn={fn}
                         />
                       ) : (
                         <div style={{ width: `${size}px`, height: `${size}px` }}></div>
