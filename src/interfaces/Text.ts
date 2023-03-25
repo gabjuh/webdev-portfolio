@@ -9,6 +9,7 @@ export interface IYear {
 
 export interface IText {
   textColor: string;
+  bgColor?: string;
   content: IContent;
   y: number;
   horisontalPosition?: number;
