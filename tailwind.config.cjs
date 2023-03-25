@@ -27,9 +27,10 @@ module.exports = {
       }
     },
     screens: {
+      'xl': '1400px',
       'lg': '1100px',
       'md': '860px',
-      'sm': '450px',
+      'sm': '450px'
     },
   },
   plugins: [require("daisyui")],
