@@ -123,7 +123,7 @@ const Stack: React.FC<Stack> = ({ scrollToId }) => {
     0, 1, 2, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
   ];
   const downButton = {
-    "index": 81,
+    "index": 88,
     "name": 'down_arrow',
     "img": downArrow
   }
@@ -150,9 +150,9 @@ const Stack: React.FC<Stack> = ({ scrollToId }) => {
 
   return (
     <>
-      <div className="container lg:h-[800px] md:h-[1000px] mx-auto lg:py-10" id="stack">
+      <div className="container lg:h-[100vh] min-h-[1000px] mx-auto lg:py-10] lg:mt-10" id="stack">
         <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
-          <div className="relative mx-auto right-0 left-0">
+          <div className="relative">
             <div className="grid grid-cols-8">
               <div className={`md:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`}
                 style={{
