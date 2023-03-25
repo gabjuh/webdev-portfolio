@@ -15,6 +15,8 @@ interface IPopup {
   showPopup?: string;
   setShowPopup: any;
   layout?: ILayout;
+  selectedPopupSlug: string;
+  handleOnClickPopup: Function;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -24,7 +26,9 @@ const Popup: React.FC<IPopup> = ({
   verticalPosition,
   showPopup,
   setShowPopup,
-  layout
+  layout,
+  selectedPopupSlug,
+  handleOnClickPopup
 }) => {
 
   const getViewWidth = (): number => {
@@ -45,26 +49,34 @@ const Popup: React.FC<IPopup> = ({
 
   const horisontalPositions = {
     sm: {
-      vw: 0,
-      pos: horisontalPosition - 115
+      vw: 470,
+      pos: horisontalPosition - 175
     },
     md: {
-      vw: 0,
-      pos: horisontalPosition - 100
+      vw: 860,
+      pos: horisontalPosition + 115
     },
     lg: {
-      vw: 0,
-      pos: horisontalPosition + 470
+      vw: 1100,
+      pos: horisontalPosition + 450
+    },
+    xl: {
+      vw: 1400,
+      pos: horisontalPosition + 570
     }
   };
 
   const setHorisiontalPosition = (): number => {
-    if (viewWidth < 450) {
+    if (viewWidth < 860) {
       return horisontalPositions.sm.pos;
-    } else if (viewWidth < 860) {
+    } else if (viewWidth < 1100) {
       return horisontalPositions.md.pos;
-    } else {
+    } else if (viewWidth < 1400) {
       return horisontalPositions.lg.pos;
+    } else if (viewWidth > 1400) {
+      return horisontalPositions.xl.pos;
+    } else {
+      return horisontalPosition;
     }
   };
 
@@ -77,7 +89,7 @@ const Popup: React.FC<IPopup> = ({
   const showCategories: boolean = true;
 
   const Categories = () =>
-    <p className="text-xs opacity-30 mb-1">
+    <p className="text-xs opacity-70 mb-1" style={{ color: color }}>
       {Array.isArray(content.categories) ? content.categories.map((category: string, index: number, array: Array<string>) => `${category.toUpperCase()}${index !== array.length - 1 ? ' | ' : ''}`).join('') : ''}
     </p>;
 
@@ -124,13 +136,13 @@ const Popup: React.FC<IPopup> = ({
         {/* Title */}
         <Text
           content={content}
-          textColor="#333"
+          textColor="#222"
+          bgColor="#eee"
           y={y + 35}
           horisontalPosition={horisontalPosition}
           categoryColor={color}
-          onClick={() => setShowPopup()}
+          onClick={handleOnClickPopup}
           showPopup={{ showPopup, setShowPopup }}
-
         />
         {/* <image x={x + 155} y={y + 10} href={icoBoy} height="18" width="18" /> */}
 
@@ -138,20 +150,22 @@ const Popup: React.FC<IPopup> = ({
         <text
           className="cursor-pointer"
           x={x + 312} y={y + 35} fontSize="21" fill="#444"
-          onClick={() => setShowPopup()}
+          onClick={handleOnClickPopup}
         >
           &#x2715;
         </text>
+
+        {/* Content */}
         <foreignObject
           className="overflow-auto"
-          x={x + 25} y={y + 18}
+          x={x + 25} y={y + 48}
           fontSize="15" fill="#444"
           width="310"
           height={contentHeight}
         >
           <div id={contentId} className="" >
             {/* Name */}
-            <p className="text-lg text-[1rem]">{content.name}</p>
+            <p className="absolute top-[-1.8rem] md:invisible visible lg:visible text-[12pt] ">{content.name}</p>
 
             {/* Place */}
             <p className="text-md font-[600]">{content.institute}</p>
