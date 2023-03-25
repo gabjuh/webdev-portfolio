@@ -391,7 +391,7 @@
         "name": "Covid-19 Pandemie",
         "year": 2020,
         "showYear": true,
-        "description": "Meine Karierre als Musiker wurde durch die Covid-19 Pandemie stark beeinträchtigt. Die meisten meiner Auftritte wurden abgesagt und die meisten meiner Schüler konnten nicht mehr zu mir kommen. Ich habe mich daher entschieden, mich auf die Ausbildung und Arbeit als ITler und Programmierer zu konzentrieren.",
+        "description": "Meine Karriere als Musiker wurde durch die Covid-19 Pandemie stark beeinträchtigt. Alle meine Auftritte wurden abgesagt und die meisten meiner Schüler konnten nicht mehr zu mir kommen.|Als Vater einer Familie habe ich mich daher dazu entschieden, mich zukünftig auf eine Ausbildung und Arbeit als Web-Entwickler zu konzentrieren.",
         "isMajor": true
       }
     },
@@ -541,7 +541,7 @@
           "SQL",
           "OOP"
         ],
-        "description": "Den Kurs habe ich leider nach 6 Monaten wegen finanziellen Gründen abgebrochen. Ich habe aber die Grundlagen gelernt und konnte diese in meinem weiteren Studium anwenden.",
+        "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
         "year": 2020,
         "showYear": true
       },
@@ -567,15 +567,16 @@
           "it",
           "coding"
         ],
-        "institute": "Webmasters Fernakademie",
+        "institute": "Webmasters Europe e.V.",
         "tech": [
           "HTML5",
           "CSS4",
+          "SCSS",
           "Bootstrap4"
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen HTML, CSS, SCSS und Bootstrap.",
+        "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
         "certificate": "#",
         "end": 2021
       },
@@ -593,21 +594,26 @@
     {
       "content": {
         "slug": "webmasters_fernakademie_javascript_react",
-        "name": "JavaScript & React",
+        "name": "Javascript und React",
         "typeOfActivity": "Ausbildung",
         "categories": [
           "school",
           "it",
           "coding"
         ],
-        "institute": "Webmasters Fernakademie",
+        "institute": "Webmasters Europe e.V.",
         "tech": [
           "JavaScript ES6",
-          "React"
+          "React",
+          "DOM",
+          "TDD",
+          "NodeJS",
+          "ExpressJS",
+          "SocketIO"
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen JavaScript ES6, DOM und React Framework.",
+        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist, vergleich mit anderen Sprachen.",
         "certificate": "#"
       },
       "layout": {
@@ -637,7 +643,7 @@
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Bei Webmasters Fernakademie habe ich die Ausbildung zum Webmaster absolviert. Die Ausbildung umfasst die Themen PHP, MySQL und einstieg zum Laravel Framework.",
+        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
         "certificate": "#",
         "end": 2022
       },
