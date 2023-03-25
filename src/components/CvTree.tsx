@@ -64,6 +64,8 @@ const CvTree: React.FC<ICvTree> = ({
   // Sort items to be in the descending order
   const [sortedItems, setSortedItems] = useState<IItem[]>(items.sort((a, b) => a.content.year - b.content.year));
 
+  const [sortedPopupItems, setSortedPopupItems] = useState<IItem[]>(sortedItems.filter(item => item.content.name.length !== 0 && item.content.categories !== 'private'));
+
   // Data modification loop:
   // - add end year if not there
   // - remove year duplicates
@@ -155,23 +157,63 @@ const CvTree: React.FC<ICvTree> = ({
   };
 
   const [showPopup, setShowPopup] = useState<string | undefined>();
+  const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 1);
+  const [selectedPopupSlug, setSelectedPopupSlug] = useState<string>(sortedPopupItems[selectedPopupIndex].content.slug);
 
-  const handleOnClickPopup = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
+  const handleOnClickPopup = (e: React.MouseEvent<HTMLButtonElement>) => {
     setShowPopup(e.currentTarget.id);
+    const element = document.getElementById(e.currentTarget.id);
+    const yOffSet = 220;
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      const y = rect.top + window.pageYOffset - yOffSet;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    setSelectedPopupSlug(selectedPopupSlug === e.currentTarget.id ? '' : e.currentTarget.id);
+    console.log('asd');
   };
+
+  useEffect(() => {
+    setShowPopup(selectedPopupSlug);
+  }, []);
+
+  const handleDownArrowKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'ArrowDown') {
+      setSelectedPopupIndex(selectedPopupIndex - 1);
+      setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex - 1].content.slug);
+
+      console.log('down arrow');
+    }
+  };
+
+  // useEffect(() => {
+  //   window.addEventListener('keydown', handleDownArrowKeyDown);
+  //   return () => {
+  //     window.removeEventListener('keydown', handleDownArrowKeyDown);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    setShowPopup(selectedPopupSlug);
+  }, [selectedPopupSlug]);
 
   return (
     <>
-      <div className="" id="cv">
+      <div className="relative" id="cv"
+      >
         {/* Buttons */}
-        <div
-          className="btn-categories flex flex-wrap sm:w-[100%]  mx-auto z-10 bg-[#eee] p-8 backdrop-filter backdrop-blur-sm opacity-90 justify-center"
-          style={{
-            position: "sticky",
-            top: 0,
-          }}
-          id="buttons"
+        <div 
+          className="absolute right-0 left-0 -top-[100px]"
+          style={{ height: `${svgHeight - 150}px` }}
         >
+          <div
+            className="btn-categories flex flex-wrap sm:w-[100%]  mx-auto z-10 bg-[#eee] p-8 backdrop-filter backdrop-blur-sm opacity-90 justify-center"
+            style={{
+              position: "sticky",
+              top: 0,
+            }}
+            id="buttons"
+          >
           {categories.map((category, i) => (
             <React.Fragment key={`button_${i}`}>
               <Button
@@ -183,7 +225,7 @@ const CvTree: React.FC<ICvTree> = ({
             </React.Fragment>
           ))}
           <button
-            onMouseUp={() => { scrollToId('stack'); }}
+              onMouseUp={() => { scrollToId('home'); }}
             className="cursor-pointer"
           >
             <img src={downArrow} alt="Arrow"
@@ -191,7 +233,8 @@ const CvTree: React.FC<ICvTree> = ({
             />
           </button>
         </div>
-        <div className={`relative mx-auto lg:w-[820px] w-[390px] md:-translate-x-[100px] z-0`} >
+        </div>
+        <div className={`relative mx-auto xl:w-[920px] lg:w-[820px] md:w-[470px] w-[390px] md:-translate-x-[100px] z-0`} >
           <div className="mx-auto w-[100%]">
           </div>
           <svg
@@ -340,6 +383,8 @@ const CvTree: React.FC<ICvTree> = ({
                         level={item.layout?.level}
                         levelDistanceReduction={general.levelDistanceReduction}
                         branchWidth={general.size}
+                      slug={item.content.slug}
+                      selectedPopupSlug={selectedPopupSlug}
                     />
                       <Popup
                         color={color}
@@ -349,6 +394,8 @@ const CvTree: React.FC<ICvTree> = ({
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
                         layout={item.layout}
+                      selectedPopupSlug={selectedPopupSlug}
+                      handleOnClickPopup={handleOnClickPopup}
                       />
                   </React.Fragment>
                 );

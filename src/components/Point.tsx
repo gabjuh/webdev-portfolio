@@ -1,4 +1,5 @@
 import React from 'react';
+import Ruler from './Ruler';
 import themes from '../themes.json';
 
 interface IPoint {
@@ -13,6 +14,8 @@ interface IPoint {
   branchWidth?: number;
   isMajor?: Boolean;
   isStillActive?: Boolean;
+  slug?: string;
+  selectedPopupSlug?: string;
 }
 
 const Point: React.FC<IPoint> = ({
@@ -26,7 +29,9 @@ const Point: React.FC<IPoint> = ({
   levelDistanceReduction,
   branchWidth,
   isMajor,
-  isStillActive
+  isStillActive,
+  slug,
+  selectedPopupSlug
 }) => {
 
   const width = branchWidth ? branchWidth : 0
@@ -43,9 +48,18 @@ const Point: React.FC<IPoint> = ({
   };
 
   return (
+    <>
+      <g>
+        <Ruler
+          showUp={slug && slug === selectedPopupSlug ? true : false}
+          color={color}
+          startPos={[getCx(), pos[1]]}
+        />
+      </g>
     <g className="transition-all duration-[800ms] ease-in-out" stroke={side ? themes[0].timeline : color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
-      <circle cx={getCx()} cy={pos[1]} r={pointSize} />
-    </g>
+        <circle cx={getCx()} cy={pos[1]} r={pointSize} />
+      </g>
+    </>
   );
 };
 
