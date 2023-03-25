@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
+import Chat from './components/Chat';
 
 const scrollToId = (id: string) => {
   const element = document.getElementById(id);
@@ -21,14 +22,14 @@ function App() {
   const bgColor = colors[0];
   const textColor = colors[1];
 
-  const body = document.querySelector('body') as HTMLElement;
+  const html = document.querySelector('html') as HTMLElement;
 
-  body.style.backgroundColor = bgColor;
-  body.style.color = textColor;
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
 
   return (
     <div className="App">
-      <div className=" z-0">
+      <div className="z-0">
         <Stack
           scrollToId={scrollToId}
         />
@@ -42,6 +43,7 @@ function App() {
           scrollToId={scrollToId}
         />
         {/* <Projects /> */}
+        <Chat />
         <Footer />
       </div>
     </div>
