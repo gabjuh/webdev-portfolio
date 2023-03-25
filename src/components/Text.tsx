@@ -63,10 +63,10 @@ const Text: React.FC<IText> = ({
       {/* Name */}
       <text
         id={content.slug}
-        className={`hidden md:block transition-all duration-[400ms] ease-in-out ${content.categories !== 'private' ? 'cursor-pointer' : 'cursor-default'}`}
-        onMouseEnter={e => handleMouseEnter(e)}
-        onMouseLeave={e => handleMouseLeave(e)}
-        onClick={e => content.categories !== 'private' ? onClick(e) : handleOnClickShake(e)}
+        className={`hidden md:block transition-all duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)]`} ${content.categories !== 'private' ? 'cursor-pointer' : 'cursor-default'}`}
+        onMouseEnter={content.categories !== 'private' ? handleMouseEnter : handleOnClickShake}
+        onMouseLeave={handleMouseLeave}
+        onClick={content.categories !== 'private' ? onClick : handleOnClickShake}
         fill={content.hidden ? '#777' : textColor}
         x={horisontalPosition && horisontalPosition + 140}
         y={y}
