@@ -7,11 +7,17 @@ interface IQuestionButton {
 
 const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
 
+  const [isWriting, setIsWriting] = useState<boolean>(false);
+
   const hideButton = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const buttons = document.querySelectorAll('.question-button');
+    setIsWriting(true);
     buttons.forEach(button => {
+      button.classList.add('opacity-0');
+      setTimeout(() => {
+        button.classList.add('invisible');
+      }, 200);
       if (button === e.currentTarget) {
-        button.classList.add('opacity-0');
         setTimeout(() => {
           button.classList.add('hidden');
         }, 500);
@@ -22,14 +28,26 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
   const giveAnswer = (text: string) => {
     const chat = document.querySelector('#chat');
     const containerElement = document.createElement('div');
-    const answer = <AnswerMessage text={text} />;
+    const answer = <AnswerMessage text={text} setIsWriting={setIsWriting} />;
     chat?.appendChild(containerElement);
     createRoot(containerElement).render(answer);
   };
 
+  const showButtons = () => document.querySelectorAll('.question-button').forEach(button => {
+    button.classList.remove('invisible', 'opacity-0');
+  });
+
+  useEffect(() => {
+    showButtons();
+  }, [!isWriting])
+
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const chat = document.querySelector('#chat');
     const containerElement = document.createElement('div');
+    containerElement.classList.add('opacity-0', 'transition-opacity', 'duration-[.5s]');
+    setTimeout(() => {
+      containerElement.classList.remove('opacity-0');
+    }, 200)
     const question = <QuestionMessage text={text} />;
     chat?.appendChild(containerElement);
     createRoot(containerElement).render(question);
@@ -40,7 +58,7 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
   return (
     <>
       <button
-        className="question-button block bg-warning hover:opacity-100 py-2 px-4 rounded-xl transition-all duration-[.5s] mx-auto my-3"
+        className="question-button block bg-warning py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3"
         onClick={handleOnClick}
       >
         "{text}"
@@ -51,11 +69,14 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
 
 interface IAnswerMessage {
   text: string;
+  setIsWriting: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const AnswerMessage: React.FC<IAnswerMessage> = ({ text }) => {
+const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
 
-  const [message, setMessage] = useState<string>();
+  const [message, setMessage] = useState<string[]>([]);
+
+  const [paragraph, setParagraph] = useState<string>('');
 
   const Avatar = () => {
     return (
@@ -97,12 +118,42 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text }) => {
     );
   };
 
+  const generateRandomNumber = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+  // create an async function to add words to the message
+  const addWord = async (text: string, index: number, words: Array<string>) => {
+    // if the index is less than the length of the words array
+    if (index < words.length && text.length !== message.length) {
+      // add the word to the message
+      setParagraph((message) => `${message} ${words[index]}`);
+      // wait for a random amount of time
+      await new Promise((resolve) => setTimeout(resolve, generateRandomNumber(50, 180)));
+      // call the function again with the next index
+      addWord(text, index + 1, words);
+    }
+    if (index === words.length) {
+      setTimeout(() => {
+        setIsWriting(false);
+      }, 2000);
+    }
+  };
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setMessage(text);
-    }, 2000);
+    setTimeout(() => {
+      addWord(text, 0, text.split(' '));
+    }, generateRandomNumber(1500, 2500));
   }, []);
 
+  const ShowParagraphs: React.FC = () => {
+    return (
+      <React.Fragment>
+        {paragraph.split('|').map((paragraph, index) => (
+          <p className={index > 0 ? 'mt-[1.2rem]' : ''} key={index}>{paragraph}</p>
+        ))}
+      </React.Fragment>
+    );
+  };
 
   return (
     <>
@@ -112,8 +163,8 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text }) => {
             <Avatar />
           </div>
         </div>
-        <div className="chat-bubble chat-bubble-info">
-          {!message ? <WaitingAnimation /> : message}
+        <div className="chat-bubble chat-bubble-info" id="current-bubble">
+          {!paragraph ? <WaitingAnimation /> : <ShowParagraphs />}
         </div>
       </div>
     </>
@@ -172,8 +223,8 @@ const Chat = () => {
         <div id="chat">
           {/* Here come the messages */}
         </div>
-        <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div>
-        <div id="question-buttons" className="transition-all delay-[.2s] duration-[.5s]">
+        {/* <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div> */}
+        <div id="question-buttons" className="transition-all delay-[.2s] duration-[.5s] mt-10">
           <div className="text-center">
             {questions.map((question) => (
               <QuestionButton key={question.id} text={question.text} />
