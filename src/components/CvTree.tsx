@@ -11,12 +11,7 @@ import raw_data_test from '../cv_test.json';
 import raw_categories from '../categories.json';
 import themes from '../themes.json';
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
-
-interface ICvTree {
-  bgColor: string;
-  textColor: string;
-  scrollToId: (id: string) => void;
-}
+import { scrollToId } from '../helpers/pageNavigation';
 
 type IFilter = 'all' | 'school' | 'uni' | 'job' | 'music' | 'it' | 'private';
 
@@ -25,11 +20,7 @@ interface ICategories {
   value: string;
 }
 
-const CvTree: React.FC<ICvTree> = ({
-  bgColor,
-  textColor,
-  scrollToId
-}) => {
+const CvTree: React.FC = ({ }) => {
 
   const data = raw_data as ITree;
   const categories = raw_categories as ICategories[];
@@ -324,7 +315,7 @@ const CvTree: React.FC<ICvTree> = ({
                     {/* Year */}
                     <Year
                       content={content}
-                      textColor={textColor}
+                      textColor={'#0f0'}
                       y={yPos}
                       i={index}
                     />
@@ -360,7 +351,7 @@ const CvTree: React.FC<ICvTree> = ({
                 pointSize={pointSize}
                 strokeWidth={pointStrokeWidth}
                 color={timeline.color}
-                bgColor={bgColor}
+                bgColor={'#00f'}
                 isMajor={true}
                 levelDistanceReduction={general.levelDistanceReduction}
                 branchWidth={general.size}
@@ -377,7 +368,7 @@ const CvTree: React.FC<ICvTree> = ({
                         pointSize={pointSize}
                         strokeWidth={pointStrokeWidth}
                         color={color}
-                        bgColor={bgColor}
+                      bgColor={'#00f'}
                         isMajor={item.content.isMajor}
                         side={item.layout?.side}
                         level={item.layout?.level}
