@@ -1,30 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Field from './Field';
 import Hero from './Hero';
-import jsLogo from '../assets/logos/js_mc.svg';
-import reactLogo from '../assets/logos/react_mc.svg';
-import tailwindLogo from '../assets/logos/tailwind_mc.svg';
-import htmlLogo from '../assets/logos/html_mc.svg';
-import cssLogo from '../assets/logos/css_mc.svg';
-import typescriptLogo from '../assets/logos/typescript_mc.svg';
-import bootstrapLogo from '../assets/logos/bootstrap_mc.svg';
-import nodejsLogo from '../assets/logos/nodejs_mc.svg';
-import phpLogo from '../assets/logos/php_mc.svg';
-import mysqlLogo from '../assets/logos/mysql_mc.svg';
-import wordpressLogo from '../assets/logos/wordpress_mc.svg';
-import joomlaLogo from '../assets/logos/joomla_mc.svg';
-import laravelLogo from '../assets/logos/laravel_mc.svg';
-import sqliteLogo from '../assets/logos/sqlite_mc.svg';
-import gitLogo from '../assets/logos/git_mc.svg';
-import sassLogo from '../assets/logos/sass_mc.svg';
-import downArrow from '../assets/logos/down-arrow.svg';
+import bigFields from '../data/stack/bigFields';
+import smallFields from '../data/stack/smallFields';
+import hiddenFields from '../data/stack/hiddenFields';
+import downButton from '../data/stack/downButton';
+import { scrollToId } from '../helpers/pageNavigation';
 import Prompt from './Prompt';
 
-interface Stack {
-  scrollToId: (id: string) => void;
-}
-
-const Stack: React.FC<Stack> = ({ scrollToId }) => {
+const Stack: React.FC = ({ }) => {
 
   const [showIndexes, setShowIndexes] = useState<Boolean>(false);
   const size: number = 60;
@@ -34,99 +18,6 @@ const Stack: React.FC<Stack> = ({ scrollToId }) => {
   const nrOfFields: number = 90;
 
   const [activeField, setActiveField] = useState<number | null>(null);
-
-  const bigFields = [
-    {
-      "index": 36,
-      "name": "React",
-      "img": reactLogo
-    },
-    {
-      "index": 44,
-      "name": 'TypeScript',
-      "img": typescriptLogo
-    },
-    {
-      "index": 56,
-      "name": "Tailwind CSS",
-      "img": tailwindLogo
-    }
-  ];
-  const smallFields = [
-    {
-      "index": 40,
-      "name": 'HTML5',
-      "img": htmlLogo
-    },
-    {
-      "index": 68,
-      "name": 'CSS4',
-      "img": cssLogo
-    },
-    {
-      "index": 35,
-      "name": "JavaScript",
-      "img": jsLogo
-    },
-    {
-      "index": 65,
-      "name": 'Bootstrap 4',
-      "img": bootstrapLogo
-    },
-    {
-      "index": 43,
-      "name": 'Node.JS',
-      "img": nodejsLogo
-    },
-    {
-      "index": 34,
-      "name": 'PHP8',
-      "img": phpLogo
-    },
-    {
-      "index": 33,
-      "name": 'MySQL',
-      "img": mysqlLogo
-    },
-    {
-      "index": 13,
-      "name": 'Wordpress',
-      "img": wordpressLogo
-    },
-    {
-      "index": 12,
-      "name": 'Joomla',
-      "img": joomlaLogo
-    },
-    {
-      "index": 24,
-      "name": 'Laravel 8',
-      "img": laravelLogo
-    },
-    {
-      "index": 23,
-      "name": 'SQLite',
-      "img": sqliteLogo
-    },
-    {
-      "index": 26,
-      "name": 'Git',
-      "img": gitLogo
-    },
-    {
-      "index": 76,
-      "name": 'SASS',
-      "img": sassLogo
-    }
-  ];
-  const hiddenFields = [200,
-    0, 1, 2, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
-  ];
-  const downButton = {
-    "index": 88,
-    "name": 'down_arrow',
-    "img": downArrow
-  }
 
   // If bigFields includes the activeField as its index, return it
   const getNameOfActiveField = (activeField: number | null) => {
@@ -192,7 +83,7 @@ const Stack: React.FC<Stack> = ({ scrollToId }) => {
                   if (id === downButton.index) {
                     name = 'down_arrow';
                     type = 'button';
-                    img = downArrow;
+                    img = downButton.img;
                     fn = { scrollToId, id: 'cv' };
                   }
 
