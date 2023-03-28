@@ -64,21 +64,26 @@ const Field: React.FC<IField> = ({
   };
 
   const handleMouseLeave = () => {
+    setActiveField(null)
     setTimeout(() => {
       setFieldStyle(stylesDefault)
-    }, 400)
+    }, 700)
   };
 
   const handleOnMouseDown = () => {
     setFieldStyle(stylesOnClick)
-    setActiveField(i)
+    setActiveField(activeField === null ? i : null)
   }
 
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
-    setActiveField(null)
+  };
+
+  const handleOnClick = () => {
+    setFieldStyle(stylesOnClick);
+    // setActiveField(null);
   }
-  
+
   interface IFieldStyles {
     width: string,
     height: string,
@@ -132,6 +137,7 @@ const Field: React.FC<IField> = ({
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleOnMouseDown}
       onMouseUp={!fn ? handleOnMouseUp : () => fn.scrollToId(fn.id)}
+      // onClick={handleOnClick}
     >
       <div className="text-center h-[100%]">
         <div className="absolute top-[50%] -translate-y-[56%] left-0 right-0">
