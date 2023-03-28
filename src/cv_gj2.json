@@ -34,14 +34,14 @@
         "name": "Elektrotechnik, Abitur",
         "typeOfActivity": "Schulische Ausbildung",
         "categories": [
-          "school",
+          "education",
           "et",
           "it"
         ],
         "institute": "500.sz. Angster J. Fachmittelschule",
         "year": 2000,
         "end": 2004,
-        "description": "In dieser Schule lernte ich die Grundlagen der Elektrotechnik und der Informationstechnik kennen. Ich erhielt das Abitur.",
+        "description": "Elektrotechnik und Informationstechnik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
         "showYear": true
       },
       "layout": {
@@ -61,7 +61,7 @@
         "name": "Wirtschaftsinformatik, Technikum",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "it",
           "wirtschaft",
           "marketing"
@@ -70,7 +70,7 @@
         "year": 2004,
         "showYear": true,
         "certificate": "#",
-        "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich lernte die Grundlagen der Programmierung, der Datenbanken, der Netzwerke, der Betriebssysteme, der Hardware, der Software, der Wirtschaft und des Marketings. Ich erhielt den Technikum Zertifikat",
+        "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich erhielt den Technikum Zertifikat.",
         "end": 2005
       },
       "layout": {
@@ -87,12 +87,13 @@
         "name": "IT Beratung, PC-Handy Reparatur",
         "categories": [
           "it",
-          "et"
+          "et",
+          "job"
         ],
         "year": 2004,
         "showYear": true,
         "typeOfActivity": "Ehrenamtliche Tätigkeit",
-        "description": "",
+        "description": "Als eheramtliche Tätigkeit habe ich in der IT Beratung und PC-Handy Reparatur gearbeitet.",
         "end": 2013
       },
       "layout": {
@@ -112,13 +113,13 @@
         "name": "Klassische Gitarre",
         "typeOfActivity": "Schulische Ausbildung",
         "categories": [
-          "school",
+          "education",
           "music"
         ],
         "institute": "Kolinda Musikschule, Pécs",
         "year": 2002,
         "showYear": true,
-        "description": "Hier lernte ich verschiedene Instrumente, wie Klavier, Gitarre und Gesang kennen und lernte die Grundlagen der Musiktheorie.",
+        "description": "Hier lernte ich verschiedene Instrumente, wie Klavier, Gitarre und Gesang kennen.",
         "end": 2005
       },
       "layout": {
@@ -135,12 +136,12 @@
         "name": "Klassische Gitarre",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "music"
         ],
         "institute": "Musikfachmittelschule, Pécs",
         "year": 2005,
-        "description": "Die Grundlagen für die klassische Gitarre lernte ich an der Musikfachmittelschule in Pécs. Ein Jahr vor dem Abitur entschied ich mich für die Aufnahmeprüfung für den Universität, und wurde aufgenommen, deswegen habe ich die fachliche Abitur nicht mehr gemacht.",
+        "description": "Die fundierte Kenntnisse der klassischen Gitarre, die ich in der Musikfachmittelschule erlernte, ermöglichten mir, mich an der Universität Pécs weiterzubilden: ein Jahr vor dem Abschluss durfte ich anfangen zu studieren.",
         "showYear": true,
         "end": 2007
       },
@@ -158,15 +159,14 @@
         "name": "Klassische Gitarre",
         "typeOfActivity": "Studium",
         "categories": [
-          "uni",
-          "school",
+          "education",
           "music"
         ],
-        "institute": "Universität Pécs, BA Dimplom",
+        "institute": "Universität Pécs (BA)",
         "year": 2007,
         "showYear": true,
         "certificate": "#",
-        "description": "Ich studierte an der Universität Pécs, Künstlerische Fakultät die klassische Gitarre. Ich erhielt den BA Dimplom.",
+        "description": "An der Universität Pécs, Künstlerische Fakultät studierte ich die klassische Gitarre. Ich erhielt den BA Dimplom mit Auszeichnung.",
         "end": 2010
       },
       "layout": {
@@ -189,6 +189,7 @@
         "institute": "Mehreren Musikschulen",
         "year": 2008,
         "showYear": true,
+        "description": "Als Gitarrendozent unterrichtete ich mehereren Musikschulen in Pécs und Umgebung, Kinder sowie Erwachsene.",
         "end": 2013
       },
       "layout": {
@@ -227,12 +228,12 @@
         "slug": "deutschkurs",
         "name": "Deutschkurs",
         "categories": [
-          "school"
+          "education"
         ],
         "institute": "Berlitz Sprachschule, Leipzig",
         "year": 2013,
         "showYear": true,
-        "description": "In den täglichen intensiven Deutschkurs habe ich die Grundlagen der deutschen Sprache gelernt, und am Ende des Kurses die B1 Prüfung bestanden.",
+        "description": "Nach diesem intensiven Deutschkurs bestand ich die B1 Prüfung. Die erlernte Grundkenntnisse der deutschen Sprache sind mir sehr nützlich gewesen, was ich seit dem jeden Tag nutze und verbessere.",
         "certificate": "#",
         "isMajor": true
       }
@@ -243,13 +244,17 @@
         "name": "Theorbe, Basso Continuo",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "music"
+        ],
+        "tech": [
+          "Theorbe",
+          "Basso Continuo"
         ],
         "institute": "Konservatorium \"Georg Friedrich Händel\", Halle-Saale",
         "year": 2013,
         "showYear": true,
-        "description": "Hier habe ich die Grundlagen der Theorbe und des Basso Continuo gelernt, und nach dem ersten Schuljahr die höhste Schulabschluss Prüfung mit Auszeichnung bestanden.",
+        "description": "Die Grundlagen der Theorbe und des Basso Continuo erlernte ich hier. Nach dem ersten Schuljahr erhaltete ich die Schulabschluss Prüfung mit Auszeichnung.",
         "certificate": "#",
         "end": 2014
       },
@@ -267,8 +272,7 @@
         "name": "Historische Zupfinstrumente",
         "typeOfActivity": "Studium",
         "categories": [
-          "uni",
-          "school",
+          "education",
           "music"
         ],
         "tech": [
@@ -278,11 +282,11 @@
           "Barock Gitarre",
           "Basso Continuo"
         ],
-        "institute": "Hochschule für Künste Bremen,  BA Dimplom",
+        "institute": "Hochschule für Künste Bremen (BA)",
         "certificate": "#",
         "year": 2014,
         "showYear": true,
-        "description": "Ich studierte an der Hochschule für Künste Bremen verschiedene Zupfinstrumente sowie Musiktheorie, Musikgeschichte, Basso Continuo und Improvisation.",
+        "description": "An der Hochschule für Künste Bremen studierte ich verschiedene Zupfinstrumente sowie Musiktheorie, Musikgeschichte, Basso Continuo und Improvisation.",
         "end": 2020
       },
       "layout": {
@@ -305,7 +309,7 @@
         "institute": "Lübecker Musikschule",
         "year": 2014,
         "showYear": true,
-        "description": "Ich arbeitete als Gitarrendozent in der Lübecker Musikschule. Außer Einzelunterrichten bin ich in der Arbeit von Gitarrenklassen beteiligt gewesen, auserdem in dem Projekt Early Music Birds teilgenommen, die sich aus Schülern der Musikschule und Schülern der Hochschule für Künste Bremen zusammensetzt. Ich war dort für die Renaissance Laute zuständig, und wir haben dort gemeinsam in dem Lübecker Kolosseum Konzerte gegeben.",
+        "description": "Als Gitarrendozent arbeitete ich in der Lübecker Musikschule. Außer Einzelunterrichten leitete ich die Gitarrenklassen sowie das Projekt Early Music Birds mit, wo wir mit sozial benachteiligten Kinder gemeinsam Musik gemacht haben. Dort war ich für die Laute zuständig.",
         "end": 2018
       },
       "layout": {
@@ -373,7 +377,7 @@
         "institute": "Ridder Musikschule Bremen",
         "year": 2018,
         "showYear": true,
-        "description": "Ich arbeitete als Gitarrendozent in der Ridder Musikschule Bremen. Ich unterrichtete dort Gitarre, E-Gitarre und die Ukulele.",
+        "description": "Als Gitarrendozent in der Ridder Musikschule Bremen unterrichtete ich klassische Gitarre, E-Gitarre und die Ukulele.",
         "end": 2020
       },
       "layout": {
@@ -422,7 +426,7 @@
         ],
         "year": 2020,
         "showYear": true,
-        "description": "Layout Design für die CD In Dialogo von Concerto Foscari. Die CD wurde im Rahmen des Projekts \"In Dialogo\" von der Hochschule für Künste Bremen und der Hochschule für Musik und Theater Hamburg produziert. Das Projekt wurde von der Europäischen Union im Rahmen des Programms Erasmus+ gefördert.",
+        "description": "Layout Design für die CD In Dialogo von Concerto Foscari. Die CD wurde im Rahmen des Projekts \"In Dialogo\" produziert.",
         "img": "in-dialogo.png",
         "link": "https://www.alon-sariel.com/discography/#cc-m-11491149795",
         "end": 2021
@@ -452,7 +456,7 @@
         ],
         "year": 2017,
         "showYear": true,
-        "description": "Ich habe in der Lübecker Musikschule die Pflege und Betreuung ihrer Website über den CMS Joomla übernommen. Außerdem habe ich die PCs und Notebooks der Musikschule aufgerüstet, die Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt mir zurzeit weniger als 2 Stunden pro Woche in Anspruch."
+        "description": "Zeitnah übernahm ich in der Lübecker Musikschule die Pflege und Betreuung der Website (Joomla). Außerdem aufrüstete ich die PCs und Notebooks der Musikschule, Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt weniger als 2 Stunden pro Woche in Anspruch."
       },
       "layout": {
         "level": 1,
@@ -480,7 +484,7 @@
         ],
         "year": 2018,
         "showYear": true,
-        "description": "Digitales Benutzerhandbuch für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Benutzerhandbuch wurde in PHP7, HTML5 und CSS3 programmiert und ist vollständig responsive.",
+        "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt wurde in PHP7, HTML5 und CSS3 programmiert und ist vollständig responsive.",
         "recommendation": "#",
         "end": 2018
       },
@@ -499,7 +503,7 @@
     {
       "content": {
         "slug": "online_portfolios_fuer_musikerinnnen",
-        "name": "Online Portfolios für MusikerInnen",
+        "name": "Online Portfolios für Musiker:innen",
         "typeOfActivity": "Selbständige Tätigkeit",
         "categories": [
           "job",
@@ -514,7 +518,7 @@
         ],
         "year": 2018,
         "showYear": true,
-        "description": "Ich interessierte mich schon immer Webseiten zu bauen, aber ich hatte nie die Zeit dafür. Als ich dann 2018 meine erste Webseite für einen Kunden gebaut habe, war ich sofort Feuer und Flamme. Seitdem habe ich viele weitere Webseiten für MusikerInnen gebaut. Ich habe mich dabei auf Wordpress spezialisiert, da es sehr einfach zu bedienen ist und viele nützliche Plugins bietet, und die Kunden können ihre Webseite selbst pflegen.",
+        "description": "Ich interessierte mich schon immer Webseiten zu bauen, aber ich hatte nie die Zeit dafür. Als ich dann 2018 meine erste Webseite für einen Kunden gebaut habe, war ich sofort Feuer und Flamme. Seitdem habe ich viele weitere Webseiten für Musiker:innen gebaut. Ich habe mich dabei auf Wordpress spezialisiert, da es sehr einfach zu bedienen ist und viele nützliche Plugins bietet, und die Kunden können ihre Webseite selbst pflegen.",
         "end": 2022
       },
       "layout": {
@@ -531,7 +535,7 @@
         "name": "PHP & MySQL",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "it",
           "coding"
         ],
@@ -563,7 +567,7 @@
         "name": "Webdesign, Usability",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "it",
           "coding"
         ],
@@ -597,7 +601,7 @@
         "name": "Javascript und React",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "it",
           "coding"
         ],
@@ -630,7 +634,7 @@
         "name": "PHP & MySQL",
         "typeOfActivity": "Ausbildung",
         "categories": [
-          "school",
+          "education",
           "it",
           "coding"
         ],
