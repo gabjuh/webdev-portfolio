@@ -7,7 +7,8 @@
     "strokeWidth": 5,
     "bgColor": "#eee",
     "step": 55,
-    "levelDistanceReduction": 0
+    "levelDistanceReduction": 0,
+    "textColor": "#000"
   },
   "timeline": {
     "height": 250,
@@ -617,7 +618,7 @@
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist, vergleich mit anderen Sprachen.",
+        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
         "certificate": "#"
       },
       "layout": {
