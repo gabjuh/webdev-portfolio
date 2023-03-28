@@ -125,7 +125,7 @@ const Stack: React.FC = () => {
 
   return (
     <>
-      <div className="container lg:h-[100vh] min-h-[1000px] mx-auto lg:py-10] lg:mt-10" id="stack">
+      <div className="container lg:h-[100vh] mx-auto lg:py-10] lg:mt-10" id="stack">
         <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
           <div className="relative">
             <div className="grid grid-cols-8">
