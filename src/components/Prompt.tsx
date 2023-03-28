@@ -16,7 +16,7 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
   // This function will write to the prompt every 50 to 150 milliseconds
   const writePrompt = () =>
     setInterval(() => {
-      // if prompt isn't fully written and promptIsWritten false, add a letter
+      // If prompt isn't fully written and promptIsWritten false, add a letter
       if (prompt && writtenPrompt.length < prompt.length) {
         setWrittenPrompt(prompt.slice(0, writtenPrompt.length + 1));
       }
@@ -45,7 +45,7 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
     }
   }, [activeField]);
 
-  // write the complete prompt if selected field is not null
+  // Write the complete prompt if selected field is not null
   useEffect(() => {
     if (activeField !== null) {
       const interval = writePrompt();
@@ -55,7 +55,7 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
       }, 2000)
       return () => clearInterval(interval);
     }
-    // clear the prompt if selected field is null
+    // Clear the prompt if selected field is null
     if (activeField === null && promptIsActive === false) {
       const interval = clearProptBackwards();
       return () => clearInterval(interval);
