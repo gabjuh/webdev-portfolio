@@ -203,7 +203,7 @@ const CvTree: React.FC = ({ }) => {
       >
         {/* Buttons */}
         <div 
-          className="absolute right-0 left-0 -top-[100px]"
+          className="absolute right-0 left-0"
           style={{ height: `${svgHeight - 150}px` }}
         >
           <div
@@ -234,7 +234,7 @@ const CvTree: React.FC = ({ }) => {
           </button>
         </div>
         </div>
-        <div className={`relative mx-auto xl:w-[920px] lg:w-[820px] md:w-[470px] w-[390px] md:-translate-x-[100px] z-0`} >
+        <div className={`relative mx-auto xl:w-[920px] lg:w-[820px] md:w-[470px] w-[390px] pt-[100px] md:-translate-x-[100px] z-0`} >
           <div className="mx-auto w-[100%]">
           </div>
           <svg
@@ -324,7 +324,7 @@ const CvTree: React.FC = ({ }) => {
                     {/* Year */}
                     <Year
                       content={content}
-                      textColor={'#0f0'}
+                      textColor={general.textColor}
                       y={yPos}
                       i={index}
                     />
@@ -360,7 +360,7 @@ const CvTree: React.FC = ({ }) => {
                 pointSize={pointSize}
                 strokeWidth={pointStrokeWidth}
                 color={timeline.color}
-                bgColor={'#00f'}
+                bgColor={theme.timeline}
                 isMajor={true}
                 levelDistanceReduction={general.levelDistanceReduction}
                 branchWidth={general.size}
@@ -377,7 +377,7 @@ const CvTree: React.FC = ({ }) => {
                         pointSize={pointSize}
                         strokeWidth={pointStrokeWidth}
                         color={color}
-                      bgColor={'#00f'}
+                      bgColor={theme.timeline}
                         isMajor={item.content.isMajor}
                         side={item.layout?.side}
                         level={item.layout?.level}
