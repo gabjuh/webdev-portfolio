@@ -54,9 +54,15 @@ const Point: React.FC<IPoint> = ({
           showUp={slug && slug === selectedPopupSlug ? true : false}
           color={color}
           startPos={[getCx(), pos[1]]}
+          slug={slug}
         />
       </g>
-    <g className="transition-all duration-[800ms] ease-in-out" stroke={side ? themes[0].timeline : color} strokeWidth={isMajor ? strokeWidth : 0} fill={isMajor ? bgColor : color} >
+      <g
+        className="transition-all duration-[800ms] ease-in-out"
+        stroke={side ? themes[0].timeline : color}
+        strokeWidth={isMajor ? strokeWidth : 0}
+        fill={isMajor ? bgColor : color}
+      >
         <circle cx={getCx()} cy={pos[1]} r={pointSize} />
       </g>
     </>
