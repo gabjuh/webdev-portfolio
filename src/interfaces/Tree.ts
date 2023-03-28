@@ -7,6 +7,7 @@ export interface IGeneral {
   bgColor: string;
   step: number;
   levelDistanceReduction: number;
+  textColor: string;
 }
 
 export interface ITimeline {
