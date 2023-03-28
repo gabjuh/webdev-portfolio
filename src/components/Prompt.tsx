@@ -50,13 +50,11 @@ const Prompt: React.FC<IPrompt> = ({ prompt, activeField }) => {
     if (activeField !== null) {
       const interval = writePrompt();
       setPromptIsActive(true);
-      setTimeout(() => {
-        setPromptIsActive(false);
-      }, 2000)
       return () => clearInterval(interval);
     }
-    // Clear the prompt if selected field is null
-    if (activeField === null && promptIsActive === false) {
+
+    // Clear the prompt if active field is null
+    if (activeField === null) { //&& promptIsActive === false
       const interval = clearProptBackwards();
       return () => clearInterval(interval);
     }
