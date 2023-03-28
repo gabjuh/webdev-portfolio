@@ -4,24 +4,20 @@
     "value": "all"
   },
   {
-    "buttonLabel": "Schule",
-    "value": "school"
-  },
-  {
-    "buttonLabel": "Uni",
-    "value": "uni"
+    "buttonLabel": "Education",
+    "value": "education"
   },
   {
     "buttonLabel": "Job",
     "value": "job"
   },
   {
-    "buttonLabel": "Musik",
-    "value": "music"
-  },
-  {
     "buttonLabel": "IT",
     "value": "it"
+  },
+  {
+    "buttonLabel": "Musik",
+    "value": "music"
   },
   {
     "buttonLabel": "Privat",
