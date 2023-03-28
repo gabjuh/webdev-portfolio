@@ -42,12 +42,12 @@ const Field: React.FC<IField> = ({
   const setGradientBase = (colorValue: number, index: number): number => (255 - colorValue) / nrOfFields * index + colorValue;
 
   const generateFirstColor = (i: number, cols: number): string => {
-    const [r, g, b, a] = [setGradientBase(49, i), setGradientBase(175, i), setGradientBase(117, i), increaseOpacity(0.3, i)];
+    const [r, g, b, a] = [setGradientBase(25, i), setGradientBase(175, i), setGradientBase(117, i), increaseOpacity(0.3, i)];
     return `rgba(${r},${g},${b},${a})`;
   };
 
   const generateSecondColor = (i: number, cols: number): string => {
-    const [r, g, b, a] = [setGradientBase(90, i), setGradientBase(192, i), setGradientBase(192, i), increaseOpacity(0.3, i)];
+    const [r, g, b, a] = [setGradientBase(120, i), setGradientBase(192, i), setGradientBase(192, i), increaseOpacity(0.3, i)];
     return `rgba(${r},${g},${b},${a})`;
   };
 
@@ -76,9 +76,7 @@ const Field: React.FC<IField> = ({
 
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
-    setTimeout(() => {
-      setActiveField(null)
-    }, 500)
+    setActiveField(null)
   }
   
   interface IFieldStyles {
