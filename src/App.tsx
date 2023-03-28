@@ -5,10 +5,7 @@ import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Chat from './components/Chat';
 
-
-
 function App() {
-
   return (
     <div className="App">
       <div className="z-0">
