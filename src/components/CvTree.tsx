@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
+
+//  Components
 import Branch from './Branch';
 import Timeline from './Timeline';
 import Point from './Point';
 import Button from './Button';
 import Popup from './Popup';
-import downArrow from '../assets/logos/down-arrow.svg';
 import { Year, Text } from './Text';
+
+//  Assets
+import downArrow from '../assets/logos/down-arrow.svg';
+
+//  Data
 import raw_data from '../cv_gj2.json';
-import raw_data_test from '../cv_test.json';
 import raw_categories from '../categories.json';
 import themes from '../themes.json';
+
+//  Interfaces
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
+
+//  Helpers
 import { scrollToId } from '../helpers/pageNavigation';
 
-type IFilter = 'all' | 'school' | 'uni' | 'job' | 'music' | 'it' | 'private';
+type IFilter = 'all' | 'education' | 'job' | 'music' | 'it' | 'private';
 
 interface ICategories {
   buttonLabel: string;
