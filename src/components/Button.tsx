@@ -1,10 +1,5 @@
 import React from "react";
-
-interface IButton {
-  label: string;
-  isActive: boolean;
-  onClick: () => void;
-}
+import IButton from "../interfaces/Button";
 
 const Button: React.FC<IButton> = ({
   label,
