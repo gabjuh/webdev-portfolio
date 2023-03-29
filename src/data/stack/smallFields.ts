@@ -11,6 +11,7 @@ import laravelLogo from '../../assets/logos/laravel_mc.svg';
 import sqliteLogo from '../../assets/logos/sqlite_mc.svg';
 import gitLogo from '../../assets/logos/git_mc.svg';
 import sassLogo from '../../assets/logos/sass_mc.svg';
+import psLogo from '../../assets/logos/ps_mc.svg';
 
 interface ISmallField {
   index: number;
@@ -82,6 +83,32 @@ const smallFields: ISmallField[] = [
   {
     "index": 76,
     "name": 'SASS',
+    "img": sassLogo
+  },
+  {
+    "index": 27,
+    "name": 'VS Code',
+    "img": sassLogo
+  },
+  {
+    "index": 53,
+    "name": 'Chat-GPT',
+    "img": sassLogo
+  },
+  {
+    "index": 64,
+    "name": 'CoPilot',
+    "img": sassLogo
+  }
+  ,
+  {
+    "index": 41,
+    "name": 'Photoshop CC',
+    "img": psLogo
+  },
+  {
+    "index": 42,
+    "name": 'InDesign CC',
     "img": sassLogo
   }
 ];
