@@ -68,7 +68,7 @@ const Text: React.FC<IText> = ({
         onMouseLeave={handleMouseLeave}
         onClick={content.categories !== 'private' ? onClick : handleOnClickShake}
         fill={content.hidden ? '#777' : textColor}
-        x={horisontalPosition && horisontalPosition + 140}
+        x={horisontalPosition && horisontalPosition + 190}
         y={y}
       >
         <tspan fontWeight="450">{content.name}</tspan>
