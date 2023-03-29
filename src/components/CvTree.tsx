@@ -197,6 +197,23 @@ const CvTree: React.FC = ({ }) => {
     setShowPopup(selectedPopupSlug);
   }, [selectedPopupSlug]);
 
+  const [isMenuSticky, setIsMenuSticky] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const buttons = document.querySelector('#buttons');
+      const yOffSet = buttons ? buttons.getBoundingClientRect().top : 0;
+      setIsMenuSticky(yOffSet <= 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+  }, []);
+
   return (
     <>
       <div className="relative" id="cv"
@@ -207,7 +224,7 @@ const CvTree: React.FC = ({ }) => {
           style={{ height: `${svgHeight - 150}px` }}
         >
           <div
-            className="btn-categories flex flex-wrap sm:w-[100%]  mx-auto z-10 bg-[#eee] p-8 backdrop-filter backdrop-blur-sm opacity-90 justify-center"
+            className={`btn-categories flex flex-wrap sm:w-[100%] mx-auto z-10 p-8 backdrop-filter backdrop-blur-md justify-center ${isMenuSticky && 'shadow-lg'} transition-all duration-200`}
             style={{
               position: "sticky",
               top: 0,
@@ -377,7 +394,7 @@ const CvTree: React.FC = ({ }) => {
                         pointSize={pointSize}
                         strokeWidth={pointStrokeWidth}
                         color={color}
-                      bgColor={theme.timeline}
+                      bgColor={general.bgColor}
                         isMajor={item.content.isMajor}
                         side={item.layout?.side}
                         level={item.layout?.level}
