@@ -2,11 +2,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { IContent, ILayout } from '../interfaces/Tree';
 import { Text } from './Text';
 
-// // Icos
-// import icoRings from '../assets/icos/icons8-eheringe-48.png';
-// import icoGirl from '../assets/icos/icons8-rassel-24.png';
-// import icoBoy from '../assets/icos/icons8-rassel-24b.png';
-
 interface IPopup {
   color: string;
   content: IContent;
