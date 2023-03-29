@@ -14,12 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-#buttons {
-  /* backdrop-filter: blur(10px); */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
 .btn-categories .btn-sm {
   @apply text-xs py-0 border-transparent border-[3px] transition-all duration-150
 }
