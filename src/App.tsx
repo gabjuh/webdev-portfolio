@@ -5,6 +5,7 @@ import CvTree from './components/CvTree';
 import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Chat from './components/Chat';
+import Credits from './components/Credits/Credits';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <Chat />
           </div>
         } />
-        <Route path="/credits" element={<div>Credits</div>} />
+        <Route path="/credits" element={<Credits />} />
       </Routes>
       <Footer />
     </div>
