@@ -15,6 +15,9 @@ import psLogo from '../../assets/logos/ps_mc.svg';
 import vsCodeLogo from '../../assets/logos/vscode_mc.svg';
 import indesignLogo from '../../assets/logos/indesign_mc.svg';
 import copilotLogo from '../../assets/logos/copilot_mc.svg';
+import stackOverflowLogo from '../../assets/logos/stack_overflow_mc.svg';
+import githubLogo from '../../assets/logos/github_mc.svg';
+import chatGptLogo from '../../assets/logos/chatgpt.svg';
 
 interface ISmallField {
   index: number;
@@ -24,12 +27,12 @@ interface ISmallField {
 
 const smallFields: ISmallField[] = [
   {
-    "index": 77,
+    "index": 68,
     "name": 'HTML5',
     "img": htmlLogo
   },
   {
-    "index": 68,
+    "index": 77,
     "name": 'CSS4',
     "img": cssLogo
   },
@@ -89,18 +92,18 @@ const smallFields: ISmallField[] = [
     "img": sassLogo
   },
   {
-    "index": 27,
+    "index": 28,
     "name": 'VSCode',
     "img": vsCodeLogo
   },
-  // {
-  //   "index": 53,
-  //   "name": 'Chat-GPT',
-  //   "img": sassLogo
-  // },
   {
-    "index": 64,
-    "name": 'Copilot',
+    "index": 9,
+    "name": 'ChatGPT',
+    "img": chatGptLogo
+  },
+  {
+    "index": 27,
+    "name": 'Github Copilot',
     "img": copilotLogo
   }
   ,
@@ -113,6 +116,16 @@ const smallFields: ISmallField[] = [
     "index": 42,
     "name": 'InDesign CC',
     "img": indesignLogo
+  },
+  {
+    "index": 18,
+    "name": 'Stack Overflow',
+    "img": stackOverflowLogo
+  },
+  {
+    "index": 16,
+    "name": 'Github',
+    "img": githubLogo
   }
 ];
 
