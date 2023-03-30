@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import data from '../data/credits/credits'
 
 // Components
 import Field from './Field';
@@ -54,6 +55,15 @@ const Stack: React.FC = () => {
   const fieldArray = [...Array(nrOfFields)].map((_, i) => i).filter(id => !skipList.includes(id));
 
   const Fields = () => {
+
+    const [licensedLogos, setLicensedLogos] = useState<string[]>([]);
+
+    const addLicensedLogo = (name: string) => {
+      setLicensedLogos(prev => [...prev, name]);
+    };
+
+    const isLicensedLogo = (name: string): boolean => data.some(item => item.fieldName === name)
+
     return (
       <>
         {fieldArray.map(id => {
@@ -65,6 +75,7 @@ const Stack: React.FC = () => {
           let height = size;
           let img = '';
           let fn = null;
+          let isLicensed: boolean | undefined = false;
           const foundBigFieldObj = bigFields.find(obj => obj.index === id);
           const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
@@ -75,6 +86,7 @@ const Stack: React.FC = () => {
             isBig = true;
             name = foundBigFieldObj.name;
             img = foundBigFieldObj.img;
+            isLicensed = isLicensedLogo(name);
           }
 
           // If the field is small, set the width and height to the size
@@ -83,14 +95,16 @@ const Stack: React.FC = () => {
             height = size;
             name = foundSmallFieldObj.name;
             img = foundSmallFieldObj.img;
+            isLicensed = isLicensedLogo(name);
           }
 
           // If the field is the downButton, set the name, typa, img and fn
           if (id === downButton.index) {
-            name = 'down_arrow';
+            name = 'arrow down';
             type = 'button';
             img = downButton.img;
             fn = { scrollToId, id: 'cv' };
+            isLicensed = isLicensedLogo(name);
           }
 
           return (
@@ -111,6 +125,7 @@ const Stack: React.FC = () => {
                   setActiveField={setActiveField}
                   nrOfFields={nrOfFields}
                   fn={fn} type={'button'}
+                  isLicensed={isLicensed}
                 />
               ) : (
                 // If the field is hidden, render an empty div with the same size as the field
