@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { IQuestionButton, IAnswerMessage, IQuestionMessage, IDot } from '../interfaces/Chat';
 import questions from '../data/chat/questions';
 import themes from '../themes.json';
-import chatgtp from '../assets/logos/chatgtp.svg';
+import chatgtp from '../assets/logos/chatgpt.svg';
 
 const theme = themes[1];
 
@@ -93,7 +93,7 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
   const Avatar = () => {
     return (
       <div
-        className="relative h-[40px] w-[40px] rounded-md flex items-center justify-center p-1"
+        className="relative h-[38px] w-[38px] rounded-md flex items-center justify-center"
         style={{
           backgroundColor: colors.avatarBg,
         }}
