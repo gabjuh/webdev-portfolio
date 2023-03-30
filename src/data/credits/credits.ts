@@ -81,7 +81,7 @@ const credits: ICredits[] = [
     fieldName: 'VSCode'
   },
   {
-    name: 'Js02 SVG Vector',
+    name: 'Js02 (JavaScript) SVG Vector',
     nameLink: 'https://www.svgrepo.com/svg/508924/js02',
     author: 'Pictonic',
     authorLink: 'https://www.svgrepo.com/author/Pictonic/',
@@ -198,7 +198,7 @@ const credits: ICredits[] = [
     license: 'CC0 License',
     licenseLink: 'https://raw.githubusercontent.com/gilbarbara/logos/master/LICENSE.txt',
     changes: 'none',
-    fieldName: 'Copilot'
+    fieldName: 'Github Copilot'
   },
   {
     name: 'Arrow Down Alt SVG',
@@ -209,6 +209,36 @@ const credits: ICredits[] = [
     licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
     changes: 'none',
     fieldName: 'arrow down'
+  },
+  {
+    name: 'Stack Overflow Fill SVG Vektor',
+    nameLink: 'https://www.svgrepo.com/svg/378465/stack-overflow-fill',
+    author: 'artcoholic',
+    authorLink: 'https://www.svgrepo.com/author/artcoholic/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Stack Overflow'
+  },
+  {
+    name: 'Github SVG Vektor',
+    nameLink: 'https://www.svgrepo.com/svg/501576/github',
+    author: 'instructure-ui',
+    authorLink: 'https://www.svgrepo.com/author/instructure-ui/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Github'
+  },
+  {
+    name: 'ChatGPT SVG Vektor',
+    nameLink: 'https://uxwing.com/chatgpt-icon/',
+    author: 'instructure-ui',
+    authorLink: 'https://www.svgrepo.com/author/instructure-ui/',
+    license: 'MIT License',
+    licenseLink: 'https://uxwing.com/license/',
+    changes: 'background color removed, color changed to black',
+    fieldName: 'ChatGPT'
   },
 
 ];
