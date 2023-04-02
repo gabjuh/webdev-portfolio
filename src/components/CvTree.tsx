@@ -234,42 +234,106 @@ const CvTree: React.FC = ({ }) => {
   const horisontalPositions = {
     sm: {
       vw: 470,
-      pos: horisontalPosition - 175
+      titlePos: horisontalPosition,
+      popupPos: horisontalPosition - 175,
+      textPos: horisontalPosition
     },
     md: {
       vw: 860,
-      pos: horisontalPosition + 115
+      titlePos: horisontalPosition - 51,
+      popupPos: horisontalPosition + 115,
+      textPos: horisontalPosition - 51
     },
     lg: {
       vw: 1100,
-      pos: horisontalPosition + 450
+      titlePos: horisontalPosition - 45,
+      popupPos: horisontalPosition + 450,
+      textPos: horisontalPosition - 45
     },
     xl: {
       vw: 1400,
-      pos: horisontalPosition + 570
+      titlePos: horisontalPosition + 30,
+      popupPos: horisontalPosition + 570,
+      textPos: horisontalPosition + 30
     }
   };
 
-  const setHorisiontalPosition = (): number => {
+  const getRulerLength = (side: string | undefined, level: number | undefined): number => {
+
+    // Calculate the position of the points (the starting point of the ruler) based on the side and level from the timeline
+    const getLevelSize = () => level ? (level * size) * 2 : 0;
+    let val = 0;
+
+    // If the side is left, add it to the length of the ruler
+    if (side === 'left') {
+      val += getLevelSize();
+
+      // If the side is right, subtract it from the length of the ruler
+    } else if (side === 'right') {
+      val -= getLevelSize();
+    }
+
+    // If the view width is smaller than 860, return null, because the ruler should not be visible 
     if (viewWidth < 860) {
-      return horisontalPositions.sm.pos;
+      return 0;
     } else if (viewWidth < 1100) {
-      return horisontalPositions.md.pos;
+      return val + horisontalPositions.md.popupPos - 180;
     } else if (viewWidth < 1400) {
-      return horisontalPositions.lg.pos;
+      return val + horisontalPositions.lg.popupPos - 180;
     } else if (viewWidth > 1400) {
-      return horisontalPositions.xl.pos;
+      return val + horisontalPositions.xl.popupPos - 180;
+    } else {
+      return val + horisontalPositions.sm.popupPos;
+    }
+  };
+
+  const getPopupHorisiontalPosition = (): number => {
+    if (viewWidth < 860) {
+      return horisontalPositions.sm.popupPos;
+    } else if (viewWidth < 1100) {
+      return horisontalPositions.md.popupPos;
+    } else if (viewWidth < 1400) {
+      return horisontalPositions.lg.popupPos;
+    } else if (viewWidth > 1400) {
+      return horisontalPositions.xl.popupPos;
     } else {
       return horisontalPosition;
     }
   };
 
+  const getTitleHorisiontalPosition = (): number => {
+    if (viewWidth < 860) {
+      return horisontalPositions.sm.titlePos;
+    } else if (viewWidth < 1100) {
+      return horisontalPositions.md.titlePos;
+    } else if (viewWidth < 1400) {
+      return horisontalPositions.lg.titlePos;
+    } else if (viewWidth > 1400) {
+      return horisontalPositions.xl.titlePos;
+    } else {
+      return horisontalPosition;
+    }
+  };
+
+  const getTextHorisiontalPosition = (): number => {
+    if (viewWidth < 860) {
+      return horisontalPositions.sm.textPos;
+    } else if (viewWidth < 1100) {
+      return horisontalPositions.md.textPos;
+    } else if (viewWidth < 1400) {
+      return horisontalPositions.lg.textPos;
+    } else if (viewWidth > 1400) {
+      return horisontalPositions.xl.textPos;
+    } else {
+      return horisontalPosition;
+    }
+  };
   // const x: number = horisontalPosition && horisontalPosition + 115;
   // const x: number = setHorisiontalPosition();
   // const y: number = verticalPosition - 35;
   // const y: number = step * (index + 1) + 6 - 35;
 
-  const getPopupVerticalPosition = (index: number): number => step * (index + 1) + 6;
+  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29;
   // const y: number = getPopupVerticalPosition(index);
 
 
@@ -411,7 +475,7 @@ const CvTree: React.FC = ({ }) => {
                       content={content}
                       textColor={color}
                       y={yPos}
-                      horisontalPosition={horisontalPosition}
+                      horisontalPosition={getTextHorisiontalPosition()}
                       categoryColor={color}
                       onClick={handleOnClickPopup}
                       showPopup={{ showPopup, setShowPopup }}
@@ -462,12 +526,15 @@ const CvTree: React.FC = ({ }) => {
                         branchWidth={general.size}
                       slug={item.content.slug}
                       selectedPopupSlug={selectedPopupSlug}
+                      rulerLength={getRulerLength(item.layout?.side, item.layout?.level)}
                     />
                       <Popup
                         color={color}
                         content={item.content}
                       verticalPosition={getPopupVerticalPosition(index)}
-                      horisontalPosition={setHorisiontalPosition()}
+                      horisontalPosition={getPopupHorisiontalPosition()}
+                      titleHorisontalPosition={getTitleHorisiontalPosition()}
+                      // horisontalPosition={horisontalPosition}
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
                         layout={item.layout}
