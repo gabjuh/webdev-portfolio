@@ -214,6 +214,66 @@ const CvTree: React.FC = ({ }) => {
 
   }, []);
 
+
+  const getViewWidth = (): number => {
+    const viewWidth = document.querySelector('body') as HTMLElement;
+    return viewWidth?.offsetWidth;
+  };
+
+  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
+
+  const handleResize = () => {
+    setViewWidth(getViewWidth());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const horisontalPositions = {
+    sm: {
+      vw: 470,
+      pos: horisontalPosition - 175
+    },
+    md: {
+      vw: 860,
+      pos: horisontalPosition + 115
+    },
+    lg: {
+      vw: 1100,
+      pos: horisontalPosition + 450
+    },
+    xl: {
+      vw: 1400,
+      pos: horisontalPosition + 570
+    }
+  };
+
+  const setHorisiontalPosition = (): number => {
+    if (viewWidth < 860) {
+      return horisontalPositions.sm.pos;
+    } else if (viewWidth < 1100) {
+      return horisontalPositions.md.pos;
+    } else if (viewWidth < 1400) {
+      return horisontalPositions.lg.pos;
+    } else if (viewWidth > 1400) {
+      return horisontalPositions.xl.pos;
+    } else {
+      return horisontalPosition;
+    }
+  };
+
+  // const x: number = horisontalPosition && horisontalPosition + 115;
+  // const x: number = setHorisiontalPosition();
+  // const y: number = verticalPosition - 35;
+  // const y: number = step * (index + 1) + 6 - 35;
+
+  const getPopupVerticalPosition = (index: number): number => step * (index + 1) + 6;
+  // const y: number = getPopupVerticalPosition(index);
+
+
+
   return (
     <>
       <div className="relative" id="cv"
@@ -406,8 +466,8 @@ const CvTree: React.FC = ({ }) => {
                       <Popup
                         color={color}
                         content={item.content}
-                        verticalPosition={step * (index + 1) + 6}
-                        horisontalPosition={horisontalPosition}
+                      verticalPosition={getPopupVerticalPosition(index)}
+                      horisontalPosition={setHorisiontalPosition()}
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
                         layout={item.layout}
