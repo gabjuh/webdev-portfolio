@@ -231,6 +231,7 @@ const CvTree: React.FC = ({ }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Horizontal position of the title and popup
   const horisontalPositions = {
     sm: {
       vw: 470,
@@ -258,85 +259,54 @@ const CvTree: React.FC = ({ }) => {
     }
   };
 
+  // Breakpoints for the view width
+  const breakpoints = {
+    sm: horisontalPositions.sm.vw,
+    md: horisontalPositions.md.vw,
+    lg: horisontalPositions.lg.vw,
+    xl: horisontalPositions.xl.vw
+  };
+
+  // Get the horizontal position of the rulers starting point
+  const calculateLevelSize = (level: number): number => (level * size) * 2;
+
+  // Get the length of the ruler
   const getRulerLength = (side: string | undefined, level: number | undefined): number => {
+    const levelSize = level ? calculateLevelSize(level) : 0;
 
-    // Calculate the position of the points (the starting point of the ruler) based on the side and level from the timeline
-    const getLevelSize = () => level ? (level * size) * 2 : 0;
-    let val = 0;
-
-    // If the side is left, add it to the length of the ruler
-    if (side === 'left') {
-      val += getLevelSize();
-
-      // If the side is right, subtract it from the length of the ruler
-    } else if (side === 'right') {
-      val -= getLevelSize();
-    }
-
-    // If the view width is smaller than 860, return null, because the ruler should not be visible 
+    // If the view width is smaller than the smallest breakpoint, return 0, so the ruler is not visible
     if (viewWidth < 860) {
       return 0;
-    } else if (viewWidth < 1100) {
-      return val + horisontalPositions.md.popupPos - 180;
-    } else if (viewWidth < 1400) {
-      return val + horisontalPositions.lg.popupPos - 180;
-    } else if (viewWidth > 1400) {
-      return val + horisontalPositions.xl.popupPos - 180;
-    } else {
-      return val + horisontalPositions.sm.popupPos;
     }
+
+    const popupPos = viewWidth < 1100 ? horisontalPositions.md.popupPos :
+      viewWidth < 1400 ? horisontalPositions.lg.popupPos :
+        horisontalPositions.xl.popupPos;
+
+    const val = side === 'left' ? levelSize : side === 'right' ? -levelSize : 0;
+    const length = val + popupPos - 180;
+
+    return length;
   };
 
-  const getPopupHorisiontalPosition = (): number => {
-    if (viewWidth < 860) {
-      return horisontalPositions.sm.popupPos;
-    } else if (viewWidth < 1100) {
-      return horisontalPositions.md.popupPos;
-    } else if (viewWidth < 1400) {
-      return horisontalPositions.lg.popupPos;
-    } else if (viewWidth > 1400) {
-      return horisontalPositions.xl.popupPos;
-    } else {
-      return horisontalPosition;
-    }
+  type PositionType = 'popupPos' | 'titlePos' | 'textPos';
+
+  // Get the horizontal position 
+  const getPosition = (property: PositionType): number => {
+    if (viewWidth >= breakpoints.xl) return horisontalPositions.xl[property];
+    if (viewWidth >= breakpoints.lg) return horisontalPositions.lg[property];
+    if (viewWidth >= breakpoints.md) return horisontalPositions.md[property];
+    if (viewWidth >= breakpoints.sm) return horisontalPositions.sm[property];
+
+    return 0;
   };
 
-  const getTitleHorisiontalPosition = (): number => {
-    if (viewWidth < 860) {
-      return horisontalPositions.sm.titlePos;
-    } else if (viewWidth < 1100) {
-      return horisontalPositions.md.titlePos;
-    } else if (viewWidth < 1400) {
-      return horisontalPositions.lg.titlePos;
-    } else if (viewWidth > 1400) {
-      return horisontalPositions.xl.titlePos;
-    } else {
-      return horisontalPosition;
-    }
-  };
-
-  const getTextHorisiontalPosition = (): number => {
-    if (viewWidth < 860) {
-      return horisontalPositions.sm.textPos;
-    } else if (viewWidth < 1100) {
-      return horisontalPositions.md.textPos;
-    } else if (viewWidth < 1400) {
-      return horisontalPositions.lg.textPos;
-    } else if (viewWidth > 1400) {
-      return horisontalPositions.xl.textPos;
-    } else {
-      return horisontalPosition;
-    }
-  };
-  // const x: number = horisontalPosition && horisontalPosition + 115;
-  // const x: number = setHorisiontalPosition();
-  // const y: number = verticalPosition - 35;
-  // const y: number = step * (index + 1) + 6 - 35;
+  // Get the horizontal position of the popup, title and text
+  const getPopupHorizontalPosition = (): number => getPosition('popupPos');
+  const getTitleHorizontalPosition = (): number => getPosition('titlePos');
+  const getTextHorizontalPosition = (): number => getPosition('textPos');
 
   const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29;
-  // const y: number = getPopupVerticalPosition(index);
-
-
 
   return (
     <>
@@ -475,7 +445,7 @@ const CvTree: React.FC = ({ }) => {
                       content={content}
                       textColor={color}
                       y={yPos}
-                      horisontalPosition={getTextHorisiontalPosition()}
+                      horisontalPosition={getTextHorizontalPosition()}
                       categoryColor={color}
                       onClick={handleOnClickPopup}
                       showPopup={{ showPopup, setShowPopup }}
@@ -532,8 +502,8 @@ const CvTree: React.FC = ({ }) => {
                         color={color}
                         content={item.content}
                       verticalPosition={getPopupVerticalPosition(index)}
-                      horisontalPosition={getPopupHorisiontalPosition()}
-                      titleHorisontalPosition={getTitleHorisiontalPosition()}
+                      horisontalPosition={getPopupHorizontalPosition()}
+                      titleHorisontalPosition={getTitleHorizontalPosition()}
                       // horisontalPosition={horisontalPosition}
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
