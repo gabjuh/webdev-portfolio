@@ -5,13 +5,15 @@ interface IRuler {
   color?: string;
   startPos: number[];
   slug?: string;
+  rulerLength?: number;
 }
 
 const Ruler: React.FC<IRuler> = ({
   showUp,
   color,
   startPos,
-  slug
+  slug,
+  rulerLength
 }) => {
   return (
     <>
@@ -31,12 +33,12 @@ const Ruler: React.FC<IRuler> = ({
         </pattern>
       </defs>
       {/* Draw Ruler */}
-      <g className={`${showUp ? 'visible' : 'invisible'} hidden md:block transition-all duration-300`}>
+      <g className={`${showUp ? 'visible opacity-100' : 'invisible opacity-0'} hidden md:block transition-all duration-300`}>
         {/* Arrows' half part above */}
         <rect
           x={startPos[0]}
           y={startPos[1] + 1}
-          width="700"
+          width={rulerLength}
           height="7"
           fill={`url(#svg-stripes-pattern-11424-${slug}-a)`}
         ></rect>
@@ -44,7 +46,7 @@ const Ruler: React.FC<IRuler> = ({
         <rect
           x={startPos[0]}
           y={startPos[1] - 6}
-          width="700"
+          width={rulerLength}
           height="7"
           fill={`url(#svg-stripes-pattern-11424-${slug}-b)`}
         ></rect>
