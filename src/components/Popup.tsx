@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IContent, ILayout } from '../interfaces/Tree';
 import { Text } from './Text';
 
@@ -11,7 +11,7 @@ interface IPopup {
   setShowPopup: any;
   layout?: ILayout;
   selectedPopupSlug: string;
-  handleOnClickPopup: Function;
+  handleOnClickPopup: any;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -26,62 +26,12 @@ const Popup: React.FC<IPopup> = ({
   handleOnClickPopup
 }) => {
 
-  const getViewWidth = (): number => {
-    const viewWidth = document.querySelector('body') as HTMLElement;
-    return viewWidth?.offsetWidth;
-  };
-
-  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
-
-  const handleResize = () => {
-    setViewWidth(getViewWidth());
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const horisontalPositions = {
-    sm: {
-      vw: 470,
-      pos: horisontalPosition - 175
-    },
-    md: {
-      vw: 860,
-      pos: horisontalPosition + 115
-    },
-    lg: {
-      vw: 1100,
-      pos: horisontalPosition + 450
-    },
-    xl: {
-      vw: 1400,
-      pos: horisontalPosition + 570
-    }
-  };
-
-  const setHorisiontalPosition = (): number => {
-    if (viewWidth < 860) {
-      return horisontalPositions.sm.pos;
-    } else if (viewWidth < 1100) {
-      return horisontalPositions.md.pos;
-    } else if (viewWidth < 1400) {
-      return horisontalPositions.lg.pos;
-    } else if (viewWidth > 1400) {
-      return horisontalPositions.xl.pos;
-    } else {
-      return horisontalPosition;
-    }
-  };
-
-  // const x: number = horisontalPosition && horisontalPosition + 115;
-  const x: number = setHorisiontalPosition();
-  const y: number = verticalPosition - 35;
-
   const contentId: string = `content_${content.slug}`;
   const [contentHeight, setContentHeight] = useState<number>(240);
   const showCategories: boolean = true;
+
+  const x = horisontalPosition;
+  const y = verticalPosition;
 
   const Categories = () =>
     <p className="text-xs opacity-70 mb-1" style={{ color: color }}>
