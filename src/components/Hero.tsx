@@ -20,7 +20,7 @@ const Hero: React.FC<IHero> = ({ scrollToId }) => {
         </div>
         <div className="visible md:invisible block absolute bottom-5 w-[100%] text-center">
           <button
-            className="py-3 px-3 rounded-3xl shadow-md bg-[#28cbb7] transition-all duration-[150] hover:text-[#fff] hover:-translate-y-[.3rem] animate-bounce"
+            className="py-2 px-2 rounded-3xl shadow-md bg-[#28cbb7] transition-all duration-[150] hover:text-[#fff] hover:-translate-y-[.3rem] animate-bounce w-8"
             onMouseUp={() => scrollToId('cv')}
           >
             <img src={downArrow} alt="arrow" />
