@@ -82,7 +82,7 @@ const smallFields: ISmallField[] = [
     "img": sqliteLogo
   },
   {
-    "index": 26,
+    "index": 27,
     "name": 'git',
     "img": gitLogo
   },
@@ -102,7 +102,7 @@ const smallFields: ISmallField[] = [
     "img": chatGptLogo
   },
   {
-    "index": 27,
+    "index": 16,
     "name": 'Github Copilot',
     "img": copilotLogo
   }
@@ -123,7 +123,7 @@ const smallFields: ISmallField[] = [
     "img": stackOverflowLogo
   },
   {
-    "index": 16,
+    "index": 26,
     "name": 'Github',
     "img": githubLogo
   }
