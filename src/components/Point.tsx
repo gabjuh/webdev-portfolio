@@ -16,6 +16,7 @@ interface IPoint {
   isStillActive?: Boolean;
   slug?: string;
   selectedPopupSlug?: string;
+  rulerLength?: number;
 }
 
 const Point: React.FC<IPoint> = ({
@@ -31,7 +32,8 @@ const Point: React.FC<IPoint> = ({
   isMajor,
   isStillActive,
   slug,
-  selectedPopupSlug
+  selectedPopupSlug,
+  rulerLength
 }) => {
 
   const width = branchWidth ? branchWidth : 0
@@ -55,6 +57,7 @@ const Point: React.FC<IPoint> = ({
           color={color}
           startPos={[getCx(), pos[1]]}
           slug={slug}
+          rulerLength={rulerLength}
         />
       </g>
       <g
