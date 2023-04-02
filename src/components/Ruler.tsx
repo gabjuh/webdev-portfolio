@@ -31,7 +31,7 @@ const Ruler: React.FC<IRuler> = ({
         </pattern>
       </defs>
       {/* Draw Ruler */}
-      <g className={`${showUp ? 'visible' : 'invisible'} transition-all duration-300`}>
+      <g className={`${showUp ? 'visible' : 'invisible'} hidden md:block transition-all duration-300`}>
         {/* Arrows' half part above */}
         <rect
           x={startPos[0]}
