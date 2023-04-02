@@ -30,7 +30,7 @@ module.exports = {
       'xl': '1400px',
       'lg': '1100px',
       'md': '860px',
-      'sm': '450px'
+      'sm': '470px'
     },
   },
   plugins: [require("daisyui")],
