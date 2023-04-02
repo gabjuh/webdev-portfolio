@@ -6,6 +6,7 @@ interface IPopup {
   color: string;
   content: IContent;
   horisontalPosition: number;
+  titleHorisontalPosition: number;
   verticalPosition: number;
   showPopup?: string;
   setShowPopup: any;
@@ -18,6 +19,7 @@ const Popup: React.FC<IPopup> = ({
   color,
   content,
   horisontalPosition,
+  titleHorisontalPosition,
   verticalPosition,
   showPopup,
   setShowPopup,
@@ -84,7 +86,8 @@ const Popup: React.FC<IPopup> = ({
           textColor="#222"
           bgColor="#eee"
           y={y + 35}
-          horisontalPosition={horisontalPosition}
+          // horisontalPosition={horisontalPosition - 570}
+          horisontalPosition={titleHorisontalPosition}
           categoryColor={color}
           onClick={handleOnClickPopup}
           showPopup={{ showPopup, setShowPopup }}
