@@ -49,13 +49,13 @@ const Text: React.FC<IText> = ({
     }, 800);
   };
 
-  const handleOnClickShake = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
-    const target = e.currentTarget;
-    target.classList.add('animate-shake');
-    setTimeout(() => {
-      target.classList.remove('animate-shake');
-    }, 1000);
-  };
+  // const handleOnClickShake = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
+  //   const target = e.currentTarget;
+  //   target.classList.add('animate-shake');
+  //   setTimeout(() => {
+  //     target.classList.remove('animate-shake');
+  //   }, 1000);
+  // };
 
   return (
     <g>
@@ -63,10 +63,10 @@ const Text: React.FC<IText> = ({
       {/* Name */}
       <text
         id={content.slug}
-        className={`hidden md:block transition-all duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)]`} ${content.categories !== 'private' ? 'cursor-pointer' : 'cursor-default'}`}
-        onMouseEnter={content.categories !== 'private' ? handleMouseEnter : handleOnClickShake}
+        className={`hidden md:block transition-all duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)] cursor-pointer`}`}
+        onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={content.categories !== 'private' ? onClick : handleOnClickShake}
+        onClick={onClick}
         fill={content.hidden ? '#777' : textColor}
         x={horisontalPosition && horisontalPosition + 190}
         y={y}
