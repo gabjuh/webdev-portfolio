@@ -16,6 +16,8 @@ interface IPopup {
   viewWidth: number;
   nextPopup?: any;
   prevPopup?: any;
+  index: number;
+  arrLength: number;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -31,7 +33,9 @@ const Popup: React.FC<IPopup> = ({
   handleOnClickPopup,
   viewWidth,
   nextPopup,
-  prevPopup
+  prevPopup,
+  index,
+  arrLength
 }) => {
 
   const contentId: string = `content_${content.slug}`;
@@ -67,6 +71,14 @@ const Popup: React.FC<IPopup> = ({
   useEffect(() => {
     setContentHeight(getContentHeight() + 70);
   }, []);
+
+  const isArrowUpClickable = () => !(index <= 1);
+
+  const isArrowDownClickable = () => !(arrLength <= index + 1);
+
+  const handleOnClickArrowUp = () => isArrowUpClickable() && prevPopup();
+
+  const handleOnClickArrowDown = () => isArrowDownClickable() && nextPopup();
 
   return (
     <>
@@ -110,19 +122,27 @@ const Popup: React.FC<IPopup> = ({
         </text>
 
         {/* Up arrow to previous popup */}
-        <text
-          className="cursor-pointer"
-          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 80} fontSize="21" fill="#444"
-          onClick={prevPopup}
+        <g color="#f00">
+          <text
+            className={isArrowUpClickable() ? 'cursor-pointer' : ''}
+            fill={isArrowUpClickable() ? '#666' : '#ddd'}
+            x={x + (viewWidth > 470 ? 364 : 325)}
+            y={y + 80}
+            fontSize="21"
+            onClick={handleOnClickArrowUp}
         >
           &#8593;
         </text>
+        </g>
 
         {/* Down arrow to next popup */}
         <text
-          className="cursor-pointer"
-          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 100} fontSize="21" fill="#444"
-          onClick={nextPopup}
+          className={isArrowDownClickable() ? 'cursor-pointer' : ''}
+          fill={isArrowDownClickable() ? '#666' : '#ddd'}
+          x={x + (viewWidth > 470 ? 364 : 325)}
+          y={y + 100}
+          fontSize="21"
+          onClick={handleOnClickArrowDown}
         >
           &#8595;
         </text>
