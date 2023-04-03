@@ -1,3 +1,5 @@
+
+// Horizontal position of the title and popup
 export const horisontalPositions = {
   sm: {
     breakpoint: 470,
