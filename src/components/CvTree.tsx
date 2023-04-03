@@ -64,7 +64,8 @@ const CvTree: React.FC = ({ }) => {
   // Sort items to be in the descending order
   const [sortedItems, setSortedItems] = useState<IItem[]>(items.sort((a, b) => a.content.year - b.content.year));
 
-  const [sortedPopupItems, setSortedPopupItems] = useState<IItem[]>(sortedItems.filter(item => item.content.name.length !== 0 && item.content.categories !== 'private'));
+  // const [sortedPopupItems, setSortedPopupItems] = useState<IItem[]>(sortedItems.filter(item => item.content.name.length !== 0 && item.content.categories !== 'private'));
+  const [sortedPopupItems, setSortedPopupItems] = useState<IItem[]>(sortedItems.filter(item => item.content.name.length !== 0));
 
   // Data modification loop:
   // - add end year if not there
@@ -170,28 +171,64 @@ const CvTree: React.FC = ({ }) => {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setSelectedPopupSlug(selectedPopupSlug === e.currentTarget.id ? '' : e.currentTarget.id);
-    console.log('asd');
+  };
+
+  const nextPopup = (e: KeyboardEvent): void => {
+    if (selectedPopupIndex > 0) {
+      setSelectedPopupIndex(selectedPopupIndex - 1);
+      setShowPopup(selectedPopupSlug);
+      const element = document.getElementById(selectedPopupSlug);
+      const yOffSet = 220;
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const y = rect.top + window.pageYOffset - yOffSet;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
+    }
+    // setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex - 1].content.slug);
+  };
+
+  const prevPopup = (e: KeyboardEvent): void => {
+    if (selectedPopupIndex < sortedPopupItems.length - 1) {
+      setSelectedPopupIndex(selectedPopupIndex + 1);
+      setShowPopup(selectedPopupSlug);
+      const element = document.getElementById(selectedPopupSlug);
+      const yOffSet = 220;
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const y = rect.top + window.pageYOffset - yOffSet;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
+    }
+    // setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex + 1].content.slug);
   };
 
   useEffect(() => {
     setShowPopup(selectedPopupSlug);
   }, []);
 
-  const handleDownArrowKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === 'ArrowDown') {
-      setSelectedPopupIndex(selectedPopupIndex - 1);
-      setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex - 1].content.slug);
+  useEffect(() => {
+    setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex].content.slug);
+  }, [selectedPopupIndex]);
 
-      console.log('down arrow');
-    }
-  };
+  useEffect(() => {
 
-  // useEffect(() => {
-  //   window.addEventListener('keydown', handleDownArrowKeyDown);
-  //   return () => {
-  //     window.removeEventListener('keydown', handleDownArrowKeyDown);
-  //   };
-  // }, []);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        nextPopup(e);
+      } else if (e.key === 'ArrowUp') {
+        prevPopup(e);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [nextPopup]);
 
   useEffect(() => {
     setShowPopup(selectedPopupSlug);
@@ -514,6 +551,8 @@ const CvTree: React.FC = ({ }) => {
                       selectedPopupSlug={selectedPopupSlug}
                       handleOnClickPopup={handleOnClickPopup}
                       viewWidth={viewWidth}
+                      nextPopup={nextPopup}
+                      prevPopup={prevPopup}
                       />
                   </React.Fragment>
                 );
