@@ -16,12 +16,15 @@ import raw_data from '../cv_gj2.json';
 import raw_categories from '../categories.json';
 import themes from '../themes.json';
 import { horisontalPositions, breakpoints } from '../data/positions/horisontalPositions';
+import images from '../data/tree/images';
 
 //  Interfaces
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
 
 //  Helpers
 import { scrollToId } from '../helpers/pageNavigation';
+import { getViewWidth } from '../helpers/getViewWidth';
+import { getPosition } from '../helpers/getPosition';
 
 type IFilter = 'all' | 'education' | 'job' | 'music' | 'it' | 'private';
 
@@ -48,11 +51,22 @@ const CvTree: React.FC = ({ }) => {
   const pointStrokeWidth: number = point.pointStrokeWidth;
   const [strokeWidth, setStrokeWidth] = useState<number>(general.strokeWidth);
 
+  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
+
+
+  // Get timeline position
+  const getTimelinePosition = (): number => getPosition('timelinePos', viewWidth);
+
   // Timeline
   const [timelineHeight, setTimelineHeight] = useState<number>(step * items.length + 120);
-  // const [timelineHorisontalPosition, setHorisontalPosition] = useState<number>(general.timelineHorisontalPosition);
-  // const [timelineHorisontalPosition, setHorisontalPosition] = useState<number>(horisontalPositions.sm.timeline);
-  const [timelineHorisontalPosition, setTimelineHorisontalPosition] = useState<number>(300);
+  const [timelineHorisontalPosition, setTimelineHorisontalPosition] = useState<number>(getTimelinePosition());
+
+
+  // Get the horizontal position of the popup, title and text
+  const getPopupHorizontalPosition = (): number => getPosition('popupPos', viewWidth) + timelineHorisontalPosition;
+  const getTitleHorizontalPosition = (): number => getPosition('titlePos', viewWidth) + timelineHorisontalPosition;
+  const getTextHorizontalPosition = (): number => getPosition('textPos', viewWidth) + timelineHorisontalPosition;
+
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 200);
@@ -255,12 +269,6 @@ const CvTree: React.FC = ({ }) => {
   }, []);
 
 
-  const getViewWidth = (): number => {
-    const viewWidth = document.querySelector('body') as HTMLElement;
-    return viewWidth?.offsetWidth;
-  };
-
-  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
 
   const handleResize = () => {
     setViewWidth(getViewWidth());
@@ -294,27 +302,11 @@ const CvTree: React.FC = ({ }) => {
         horisontalPositions.xl.popupPos;
 
     const val = side === 'left' ? levelSize : side === 'right' ? -levelSize : 0;
-    const length = val + popupPos - 180;
+    const length = val + popupPos;
 
     return length;
   };
 
-  type PositionType = 'popupPos' | 'titlePos' | 'textPos';
-
-  // Get the horizontal position 
-  const getPosition = (property: PositionType): number => {
-    if (viewWidth >= breakpoints.xl) return horisontalPositions.xl[property];
-    if (viewWidth >= breakpoints.lg) return horisontalPositions.lg[property];
-    if (viewWidth >= breakpoints.md) return horisontalPositions.md[property];
-    if (viewWidth >= breakpoints.sm) return horisontalPositions.sm[property];
-
-    return 0;
-  };
-
-  // Get the horizontal position of the popup, title and text
-  const getPopupHorizontalPosition = (): number => getPosition('popupPos') + timelineHorisontalPosition;
-  const getTitleHorizontalPosition = (): number => getPosition('titlePos') + timelineHorisontalPosition;
-  const getTextHorizontalPosition = (): number => getPosition('textPos') + timelineHorisontalPosition;
 
 
   return (
@@ -354,7 +346,10 @@ const CvTree: React.FC = ({ }) => {
           </button>
         </div>
         </div>
-        <div className={`relative mx-auto xl:w-[920px] lg:w-[820px] md:w-[470px] w-[390px] pt-[100px] md:-translate-x-[100px] z-0`} >
+
+        {/* svg wrapper */}
+        <div className={`relative mx-auto pt-[100px] md:-translate-x-[115px] lg:-translate-x-[100px] xl:-translate-x-[80px] xl:w-[1000px] lg:w-[820px] md:w-[470px] w-[390px] z-0`} >
+
           <div className="mx-auto w-[100%]">
           </div>
           <svg
@@ -525,6 +520,7 @@ const CvTree: React.FC = ({ }) => {
                       prevPopup={prevPopup}
                       index={index}
                       arrLength={a.length}
+                      image={images.filter(img => img.name === item.content.image)[0]}
                       />
                   </React.Fragment>
                 );
