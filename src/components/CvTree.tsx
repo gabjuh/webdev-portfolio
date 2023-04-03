@@ -513,6 +513,7 @@ const CvTree: React.FC = ({ }) => {
                         layout={item.layout}
                       selectedPopupSlug={selectedPopupSlug}
                       handleOnClickPopup={handleOnClickPopup}
+                      viewWidth={viewWidth}
                       />
                   </React.Fragment>
                 );
