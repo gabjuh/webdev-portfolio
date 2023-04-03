@@ -30,3 +30,12 @@ export const horisontalPositions = {
     textPos: 30
   }
 };
+
+// Breakpoints for the view width
+export const breakpoints = {
+  sm: horisontalPositions.sm.breakpoint,
+  md: horisontalPositions.md.breakpoint,
+  lg: horisontalPositions.lg.breakpoint,
+  xl: horisontalPositions.xl.breakpoint
+};
+
