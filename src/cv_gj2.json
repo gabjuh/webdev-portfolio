@@ -26,7 +26,8 @@
         "categories": "private",
         "year": 1986,
         "showYear": true,
-        "isMajor": true
+        "isMajor": true,
+        "image": "baby"
       }
     },
     {
@@ -211,7 +212,8 @@
         "categories": "private",
         "year": 2012,
         "showYear": true,
-        "isMajor": true
+        "isMajor": true,
+        "image": "wedding"
       }
     },
     {
@@ -221,7 +223,8 @@
         "year": 2013,
         "showYear": true,
         "categories": "private",
-        "isMajor": true
+        "isMajor": true,
+        "image": "drive"
       }
     },
     {
