@@ -271,49 +271,16 @@ const CvTree: React.FC = ({ }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Horizontal position of the title and popup
-  const horisontalPositions = {
-    sm: {
-      vw: 470,
-      timeline: 300,
-      titlePos: horisontalPosition,
-      popupPos: horisontalPosition - 175,
-      textPos: horisontalPosition
-    },
-    md: {
-      vw: 860,
-      timeline: 300,
-      titlePos: horisontalPosition - 51,
-      popupPos: horisontalPosition + 115,
-      textPos: horisontalPosition - 51
-    },
-    lg: {
-      vw: 1100,
-      timeline: 300,
-      titlePos: horisontalPosition - 45,
-      popupPos: horisontalPosition + 450,
-      textPos: horisontalPosition - 45
-    },
-    xl: {
-      vw: 1400,
-      timeline: 300,
-      titlePos: horisontalPosition + 30,
-      popupPos: horisontalPosition + 570,
-      textPos: horisontalPosition + 30
-    }
-  };
-
-
   // Get the vertical position of the popup, depending on the index
   // And increase it in mobile view to able to see the point
   const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 860 ? step : 0);
 
   // Breakpoints for the view width
   const breakpoints = {
-    sm: horisontalPositions.sm.vw,
-    md: horisontalPositions.md.vw,
-    lg: horisontalPositions.lg.vw,
-    xl: horisontalPositions.xl.vw
+    sm: horisontalPositions.sm.breakpoint,
+    md: horisontalPositions.md.breakpoint,
+    lg: horisontalPositions.lg.breakpoint,
+    xl: horisontalPositions.xl.breakpoint
   };
 
   // Get the horizontal position of the rulers starting point
@@ -351,9 +318,9 @@ const CvTree: React.FC = ({ }) => {
   };
 
   // Get the horizontal position of the popup, title and text
-  const getPopupHorizontalPosition = (): number => getPosition('popupPos');
-  const getTitleHorizontalPosition = (): number => getPosition('titlePos');
-  const getTextHorizontalPosition = (): number => getPosition('textPos');
+  const getPopupHorizontalPosition = (): number => getPosition('popupPos') + horisontalPosition;
+  const getTitleHorizontalPosition = (): number => getPosition('titlePos') + horisontalPosition;
+  const getTextHorizontalPosition = (): number => getPosition('textPos') + horisontalPosition;
 
 
   return (
