@@ -15,7 +15,7 @@ import downArrow from '../assets/logos/down-arrow.svg';
 import raw_data from '../cv_gj2.json';
 import raw_categories from '../categories.json';
 import themes from '../themes.json';
-import { horisontalPositions } from '../data/positions/horisontalPositions';
+import { horisontalPositions, breakpoints } from '../data/positions/horisontalPositions';
 
 //  Interfaces
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
@@ -50,9 +50,9 @@ const CvTree: React.FC = ({ }) => {
 
   // Timeline
   const [timelineHeight, setTimelineHeight] = useState<number>(step * items.length + 120);
-  // const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
-  // const [horisontalPosition, setHorisontalPosition] = useState<number>(horisontalPositions.sm.timeline);
-  const [horisontalPosition, setHorisontalPosition] = useState<number>(400);
+  // const [timelineHorisontalPosition, setHorisontalPosition] = useState<number>(general.timelineHorisontalPosition);
+  // const [timelineHorisontalPosition, setHorisontalPosition] = useState<number>(horisontalPositions.sm.timeline);
+  const [timelineHorisontalPosition, setTimelineHorisontalPosition] = useState<number>(300);
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 200);
@@ -275,13 +275,7 @@ const CvTree: React.FC = ({ }) => {
   // And increase it in mobile view to able to see the point
   const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 860 ? step : 0);
 
-  // Breakpoints for the view width
-  const breakpoints = {
-    sm: horisontalPositions.sm.breakpoint,
-    md: horisontalPositions.md.breakpoint,
-    lg: horisontalPositions.lg.breakpoint,
-    xl: horisontalPositions.xl.breakpoint
-  };
+
 
   // Get the horizontal position of the rulers starting point
   const calculateLevelSize = (level: number): number => (level * size) * 2;
@@ -318,9 +312,9 @@ const CvTree: React.FC = ({ }) => {
   };
 
   // Get the horizontal position of the popup, title and text
-  const getPopupHorizontalPosition = (): number => getPosition('popupPos') + horisontalPosition;
-  const getTitleHorizontalPosition = (): number => getPosition('titlePos') + horisontalPosition;
-  const getTextHorizontalPosition = (): number => getPosition('textPos') + horisontalPosition;
+  const getPopupHorizontalPosition = (): number => getPosition('popupPos') + timelineHorisontalPosition;
+  const getTitleHorizontalPosition = (): number => getPosition('titlePos') + timelineHorisontalPosition;
+  const getTextHorizontalPosition = (): number => getPosition('textPos') + timelineHorisontalPosition;
 
 
   return (
@@ -433,7 +427,7 @@ const CvTree: React.FC = ({ }) => {
                         color={color}
                         bgColor={general.bgColor}
                         strokeWidth={strokeWidth}
-                        pos={[horisontalPosition, step * (i + 1) + step * .58]}
+                      pos={[timelineHorisontalPosition, step * (i + 1) + step * .58]}
                         heightTillTop={heightTillTop}
                         level={layout?.startingLevel}
                         levelDistanceReduction={general.levelDistanceReduction}
@@ -451,7 +445,7 @@ const CvTree: React.FC = ({ }) => {
                     <Year
                       content={content}
                       textColor={general.textColor}
-                      horisontalPosition={horisontalPosition}
+                      timelineHorisontalPosition={timelineHorisontalPosition}
                       y={yPos}
                       i={index}
                     />
@@ -461,7 +455,7 @@ const CvTree: React.FC = ({ }) => {
                       content={content}
                       textColor={color}
                       y={yPos}
-                      horisontalPosition={getTextHorizontalPosition()}
+                      timelineHorisontalPosition={getTextHorizontalPosition()}
                       categoryColor={color}
                       onClick={handleOnClickPopup}
                       showPopup={{ showPopup, setShowPopup }}
@@ -478,12 +472,12 @@ const CvTree: React.FC = ({ }) => {
                 strokeWidth={strokeWidth}
                 startPos={timelineStartPos}
                 isTimeline={true}
-                horisontalPosition={horisontalPosition}
+                timelineHorisontalPosition={timelineHorisontalPosition}
               />
 
               {/* Point at the very end  */}
               <Point
-                pos={[horisontalPosition, 0]}
+                pos={[timelineHorisontalPosition, 0]}
                 pointSize={pointSize}
                 strokeWidth={pointStrokeWidth}
                 color={timeline.color}
@@ -500,7 +494,7 @@ const CvTree: React.FC = ({ }) => {
                 return (
                   <React.Fragment key={`point_${index}`}>
                       <Point
-                      pos={[horisontalPosition, step * (index + 1)]}
+                      pos={[timelineHorisontalPosition, step * (index + 1)]}
                         pointSize={pointSize}
                         strokeWidth={pointStrokeWidth}
                         color={color}
@@ -518,9 +512,9 @@ const CvTree: React.FC = ({ }) => {
                         color={color}
                         content={item.content}
                       verticalPosition={getPopupVerticalPosition(index)}
-                      horisontalPosition={getPopupHorizontalPosition()}
+                      timelineHorisontalPosition={getPopupHorizontalPosition()}
                       titleHorisontalPosition={getTitleHorizontalPosition()}
-                      // horisontalPosition={horisontalPosition}
+                      // timelineHorisontalPosition={timelineHorisontalPosition}
                         showPopup={showPopup}
                         setShowPopup={setShowPopup}
                         layout={item.layout}
