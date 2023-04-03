@@ -177,8 +177,35 @@ const CvTree: React.FC = ({ }) => {
   const [showPopup, setShowPopup] = useState<string | undefined>();
   const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 1);
   const [selectedPopupSlug, setSelectedPopupSlug] = useState<string>(sortedPopupItems[selectedPopupIndex].content.slug);
+  const [changePopupDirection, setChangePopupDirection] = useState<'next' | 'prev' | undefined>(undefined);
+
+  // const changePopup = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   if (changePopupDirection === 'next') setSelectedPopupIndex(selectedPopupIndex + 1);
+  //   if (changePopupDirection === 'prev') setSelectedPopupIndex(selectedPopupIndex - 1);
+  //   if (changePopupDirection === undefined) { 
+  //     setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
+  //   }
+  //   setShowPopup(e.currentTarget.id);
+
+      
+
+  //   // if (selectedPopupIndex > 0) {
+  //   setSelectedPopupIndex(selectedPopupIndex - 1);
+  //   setShowPopup(selectedPopupSlug);
+  //   const element = document.getElementById(selectedPopupSlug);
+  //   const yOffSet = 220;
+  //   if (element) {
+  //     const rect = element.getBoundingClientRect();
+  //     const y = rect.top + window.pageYOffset - yOffSet;
+  //     window.scrollTo({ top: y, behavior: 'smooth' });
+  //       !changePopupDirection && setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
+  //     }
+  //   setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
+  //   // }
+  // };
 
   const handleOnClickPopup = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // changePopup(e);
     setShowPopup(e.currentTarget.id);
     const element = document.getElementById(e.currentTarget.id);
     const yOffSet = 220;
@@ -186,9 +213,11 @@ const CvTree: React.FC = ({ }) => {
       const rect = element.getBoundingClientRect();
       const y = rect.top + window.pageYOffset - yOffSet;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
     }
     setSelectedPopupSlug(selectedPopupSlug === e.currentTarget.id ? '' : e.currentTarget.id);
   };
+
 
   const nextPopup = (e: KeyboardEvent): void => {
     if (selectedPopupIndex > 0) {
@@ -203,7 +232,6 @@ const CvTree: React.FC = ({ }) => {
       }
       setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
     }
-    // setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex - 1].content.slug);
   };
 
   const prevPopup = (e: KeyboardEvent): void => {
@@ -219,7 +247,6 @@ const CvTree: React.FC = ({ }) => {
       }
       setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
     }
-    // setSelectedPopupSlug(sortedPopupItems[selectedPopupIndex + 1].content.slug);
   };
 
   useEffect(() => {
@@ -234,11 +261,18 @@ const CvTree: React.FC = ({ }) => {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowDown') {
+        // set the way of changing the popup
+        setChangePopupDirection('next');
         nextPopup(e);
       } else if (e.key === 'ArrowUp') {
+        // set the way of changing the popup
+        setChangePopupDirection('prev');
         prevPopup(e);
       }
+      // clear the way of changing the popup
+      setChangePopupDirection(undefined);
     };
+
 
     window.addEventListener('keydown', handleKeyDown);
 
