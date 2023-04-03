@@ -15,6 +15,7 @@ import downArrow from '../assets/logos/down-arrow.svg';
 import raw_data from '../cv_gj2.json';
 import raw_categories from '../categories.json';
 import themes from '../themes.json';
+import { horisontalPositions } from '../data/positions/horisontalPositions';
 
 //  Interfaces
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
@@ -49,7 +50,9 @@ const CvTree: React.FC = ({ }) => {
 
   // Timeline
   const [timelineHeight, setTimelineHeight] = useState<number>(step * items.length + 120);
-  const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
+  // const [horisontalPosition, setHorisontalPosition] = useState<number>(general.horisontalPosition);
+  // const [horisontalPosition, setHorisontalPosition] = useState<number>(horisontalPositions.sm.timeline);
+  const [horisontalPosition, setHorisontalPosition] = useState<number>(400);
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 200);
@@ -272,29 +275,34 @@ const CvTree: React.FC = ({ }) => {
   const horisontalPositions = {
     sm: {
       vw: 470,
+      timeline: 300,
       titlePos: horisontalPosition,
       popupPos: horisontalPosition - 175,
       textPos: horisontalPosition
     },
     md: {
       vw: 860,
+      timeline: 300,
       titlePos: horisontalPosition - 51,
       popupPos: horisontalPosition + 115,
       textPos: horisontalPosition - 51
     },
     lg: {
       vw: 1100,
+      timeline: 300,
       titlePos: horisontalPosition - 45,
       popupPos: horisontalPosition + 450,
       textPos: horisontalPosition - 45
     },
     xl: {
       vw: 1400,
+      timeline: 300,
       titlePos: horisontalPosition + 30,
       popupPos: horisontalPosition + 570,
       textPos: horisontalPosition + 30
     }
   };
+
 
   // Get the vertical position of the popup, depending on the index
   // And increase it in mobile view to able to see the point
@@ -476,6 +484,7 @@ const CvTree: React.FC = ({ }) => {
                     <Year
                       content={content}
                       textColor={general.textColor}
+                      horisontalPosition={horisontalPosition}
                       y={yPos}
                       i={index}
                     />
@@ -524,7 +533,7 @@ const CvTree: React.FC = ({ }) => {
                 return (
                   <React.Fragment key={`point_${index}`}>
                       <Point
-                        pos={[general.horisontalPosition, step * (index + 1)]}
+                      pos={[horisontalPosition, step * (index + 1)]}
                         pointSize={pointSize}
                         strokeWidth={pointStrokeWidth}
                         color={color}
