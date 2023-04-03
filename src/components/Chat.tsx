@@ -5,17 +5,17 @@ import questions from '../data/chat/questions';
 import themes from '../themes.json';
 import chatgtp from '../assets/logos/chatgpt.svg';
 
-const theme = themes[1];
+const theme = themes[2];
 
 const colors = {
   // dot: theme.right[2],
-  dot: '#111',
+  dot: '#eee',
   text: theme.left[0],
   background: theme.left[1],
   question: theme.right[2],
-  questionText: '#000',
-  answer: theme.right[0],
-  answerText: '#000',
+  questionText: '#fff',
+  answer: theme.left[0],
+  answerText: '#fff',
   avatarBg: theme.left[1],
 }
 
@@ -221,7 +221,7 @@ const Chat = () => {
         </div>
         {/* <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div> */}
         <div id="question-buttons" className="transition-all delay-[.2s] duration-[.5s] mt-10">
-          <div className="text-center">
+          <div className="text-center text-[#fff]">
             {questions.map((question) => (
               <QuestionButton key={question.id} text={question.text} />
             ))}
