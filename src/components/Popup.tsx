@@ -5,7 +5,7 @@ import { Text } from './Text';
 interface IPopup {
   color: string;
   content: IContent;
-  horisontalPosition: number;
+  timelineHorisontalPosition: number;
   titleHorisontalPosition: number;
   verticalPosition: number;
   showPopup?: string;
@@ -23,7 +23,7 @@ interface IPopup {
 const Popup: React.FC<IPopup> = ({
   color,
   content,
-  horisontalPosition,
+  timelineHorisontalPosition,
   titleHorisontalPosition,
   verticalPosition,
   showPopup,
@@ -42,7 +42,7 @@ const Popup: React.FC<IPopup> = ({
   const [contentHeight, setContentHeight] = useState<number>(240);
   const showCategories: boolean = true;
 
-  const x = horisontalPosition;
+  const x = timelineHorisontalPosition;
   const y = verticalPosition;
 
   const Categories = () =>
@@ -104,8 +104,8 @@ const Popup: React.FC<IPopup> = ({
           textColor="#222"
           bgColor="#eee"
           y={y + 35}
-          // horisontalPosition={horisontalPosition - 570}
-          horisontalPosition={titleHorisontalPosition}
+          // timelineHorisontalPosition={timelineHorisontalPosition - 570}
+          timelineHorisontalPosition={titleHorisontalPosition}
           categoryColor={color}
           onClick={handleOnClickPopup}
           showPopup={{ showPopup, setShowPopup }}

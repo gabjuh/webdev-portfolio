@@ -5,7 +5,7 @@ export interface IYear {
   content: IContent;
   y: number;
   i?: number;
-  horisontalPosition: number;
+  timelineHorisontalPosition: number;
 }
 
 export interface IText {
@@ -13,7 +13,7 @@ export interface IText {
   bgColor?: string;
   content: IContent;
   y: number;
-  horisontalPosition?: number;
+  timelineHorisontalPosition?: number;
   i?: number;
   categoryColor: string;
   onClick: any;

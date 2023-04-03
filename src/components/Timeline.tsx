@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 interface ITimeline {
   height: number | string;
-  horisontalPosition: number;
+  timelineHorisontalPosition: number;
   color: string;
   strokeWidth: number;
   startPos?: number;
@@ -11,7 +11,7 @@ interface ITimeline {
 
 const Tube: React.FC<ITimeline> = ({
   height,
-  horisontalPosition,
+  timelineHorisontalPosition,
   color,
   strokeWidth,
   startPos,
@@ -26,7 +26,7 @@ const Tube: React.FC<ITimeline> = ({
     <>
       <path
         d={`
-            M ${horisontalPosition} ${height} 
+            M ${timelineHorisontalPosition} ${height} 
             l 0 -${height}
           `}
         stroke={color}

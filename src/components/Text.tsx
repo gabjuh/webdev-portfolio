@@ -6,13 +6,13 @@ const Year: React.FC<IYear> = ({
   content,
   y,
   i,
-  horisontalPosition
+  timelineHorisontalPosition
 }) => {
 
   const showIndex: boolean = false
   
   return (
-    <text x={horisontalPosition - 180} y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
+    <text x={timelineHorisontalPosition - 180} y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
   );
 };
 
@@ -20,7 +20,7 @@ const Text: React.FC<IText> = ({
   textColor,
   content,
   y,
-  horisontalPosition,
+  timelineHorisontalPosition,
   categoryColor,
   onClick,
 }) => {
@@ -69,7 +69,7 @@ const Text: React.FC<IText> = ({
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
         fill={content.hidden ? '#777' : textColor}
-        x={horisontalPosition && horisontalPosition + 190}
+        x={timelineHorisontalPosition && timelineHorisontalPosition + 190}
         y={y}
       >
         <tspan fontWeight="450">{content.name}</tspan>
