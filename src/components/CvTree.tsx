@@ -553,6 +553,8 @@ const CvTree: React.FC = ({ }) => {
                       viewWidth={viewWidth}
                       nextPopup={nextPopup}
                       prevPopup={prevPopup}
+                      index={index}
+                      arrLength={a.length}
                       />
                   </React.Fragment>
                 );
