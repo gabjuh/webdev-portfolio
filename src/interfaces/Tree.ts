@@ -37,6 +37,7 @@ export interface IContent {
   end?: number;
   hidden?: boolean;
   isMajor?: boolean;
+  image?: string;
 }
 
 export interface INewBranchOn {
