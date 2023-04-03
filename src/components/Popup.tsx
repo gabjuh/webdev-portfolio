@@ -18,6 +18,7 @@ interface IPopup {
   prevPopup?: any;
   index: number;
   arrLength: number;
+  image?: { name: string; img: string; };
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -35,7 +36,8 @@ const Popup: React.FC<IPopup> = ({
   nextPopup,
   prevPopup,
   index,
-  arrLength
+  arrLength,
+  image
 }) => {
 
   const contentId: string = `content_${content.slug}`;
@@ -110,7 +112,6 @@ const Popup: React.FC<IPopup> = ({
           onClick={handleOnClickPopup}
           showPopup={{ showPopup, setShowPopup }}
         />
-        {/* <image x={x + 155} y={y + 10} href={icoBoy} height="18" width="18" /> */}
 
         {/* Close button */}
         <text
@@ -173,6 +174,15 @@ const Popup: React.FC<IPopup> = ({
 
             {/* Description */}
             {content.description && content.description.split('|').map((item, index) => <p key={index} className="my-4 opacity-70">{item}</p>)}
+
+            {/* Image */}
+            {image &&
+              <img
+                className="w-[200px] block mx-auto h-[200px] object-cover rounded-md shadow-sm"
+                src={image.img}
+                alt={image.img}
+              />
+            }
 
             {/* Link */}
             {content.link && Link('Mehr...', content.link)}
