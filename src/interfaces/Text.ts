@@ -5,6 +5,7 @@ export interface IYear {
   content: IContent;
   y: number;
   i?: number;
+  horisontalPosition: number;
 }
 
 export interface IText {
