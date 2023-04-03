@@ -13,6 +13,7 @@ interface IPopup {
   layout?: ILayout;
   selectedPopupSlug: string;
   handleOnClickPopup: any;
+  viewWidth: number;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -25,7 +26,8 @@ const Popup: React.FC<IPopup> = ({
   setShowPopup,
   layout,
   selectedPopupSlug,
-  handleOnClickPopup
+  handleOnClickPopup,
+  viewWidth
 }) => {
 
   const contentId: string = `content_${content.slug}`;
@@ -75,7 +77,7 @@ const Popup: React.FC<IPopup> = ({
           strokeWidth="1.5"
           x={x}
           y={y}
-          width="350"
+          width={viewWidth > 470 ? 400 : 360}
           height={contentHeight}
           rx="8" ry="8"
         />
@@ -108,7 +110,7 @@ const Popup: React.FC<IPopup> = ({
           className="overflow-auto"
           x={x + 25} y={y + 48}
           fontSize="15" fill="#444"
-          width="310"
+          width={viewWidth > 470 ? 330 : 290}
           height={contentHeight}
         >
           <div id={contentId} className="" >
