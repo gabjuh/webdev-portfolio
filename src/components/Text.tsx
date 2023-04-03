@@ -5,13 +5,14 @@ const Year: React.FC<IYear> = ({
   textColor,
   content,
   y,
-  i
+  i,
+  horisontalPosition
 }) => {
 
   const showIndex: boolean = false
   
   return (
-    <text x="20" y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
+    <text x={horisontalPosition - 180} y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
   );
 };
 
