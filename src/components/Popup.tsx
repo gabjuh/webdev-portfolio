@@ -14,6 +14,8 @@ interface IPopup {
   selectedPopupSlug: string;
   handleOnClickPopup: any;
   viewWidth: number;
+  nextPopup?: any;
+  prevPopup?: any;
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -27,7 +29,9 @@ const Popup: React.FC<IPopup> = ({
   layout,
   selectedPopupSlug,
   handleOnClickPopup,
-  viewWidth
+  viewWidth,
+  nextPopup,
+  prevPopup
 }) => {
 
   const contentId: string = `content_${content.slug}`;
@@ -99,10 +103,28 @@ const Popup: React.FC<IPopup> = ({
         {/* Close button */}
         <text
           className="cursor-pointer"
-          x={x + 312} y={y + 35} fontSize="21" fill="#444"
+          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 35} fontSize="21" fill="#444"
           onClick={handleOnClickPopup}
         >
           &#x2715;
+        </text>
+
+        {/* Up arrow to previous popup */}
+        <text
+          className="cursor-pointer"
+          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 80} fontSize="21" fill="#444"
+          onClick={prevPopup}
+        >
+          &#8593;
+        </text>
+
+        {/* Down arrow to next popup */}
+        <text
+          className="cursor-pointer"
+          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 100} fontSize="21" fill="#444"
+          onClick={nextPopup}
+        >
+          &#8595;
         </text>
 
         {/* Content */}
