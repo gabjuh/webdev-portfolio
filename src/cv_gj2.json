@@ -1,7 +1,7 @@
 {
   "general": {
     "height": 250,
-    "width": 600,
+    "width": 1000,
     "horisontalPosition": 180,
     "size": 15,
     "strokeWidth": 5,
@@ -332,7 +332,8 @@
         "categories": "private",
         "year": 2015,
         "showYear": true,
-        "isMajor": true
+        "isMajor": true,
+        "image": "girl"
       }
     },
     {
@@ -407,7 +408,8 @@
         "categories": "private",
         "year": 2021,
         "showYear": true,
-        "isMajor": true
+        "isMajor": true,
+        "image": "boy"
       }
     },
     {
