@@ -259,6 +259,10 @@ const CvTree: React.FC = ({ }) => {
     }
   };
 
+  // Get the vertical position of the popup, depending on the index
+  // And increase it in mobile view to able to see the point
+  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 860 ? step : 0);
+
   // Breakpoints for the view width
   const breakpoints = {
     sm: horisontalPositions.sm.vw,
@@ -306,7 +310,6 @@ const CvTree: React.FC = ({ }) => {
   const getTitleHorizontalPosition = (): number => getPosition('titlePos');
   const getTextHorizontalPosition = (): number => getPosition('textPos');
 
-  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29;
 
   return (
     <>
