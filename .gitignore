@@ -26,3 +26,4 @@ dist-ssr
 src/components/Puzzle
 
 portfolio_v2.code-workspace
+upload.sh
