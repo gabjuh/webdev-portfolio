@@ -181,6 +181,22 @@
     },
     {
       "content": {
+        "slug": "universitaet_pecs_klassische_gitarre_diplom_konzert",
+        "name": "Diplomkonzert",
+        "typeOfActivity": "Studium",
+        "categories": [
+          "education",
+          "music"
+        ],
+        "institute": "Universität Pécs (BA)",
+        "year": 2010,
+        "showYear": true,
+        "certificate": "#",
+        "description": ""
+      }
+    },
+    {
+      "content": {
         "slug": "gitarrendozent",
         "name": "Gitarrendozent",
         "typeOfActivity": "Festanstellung",
