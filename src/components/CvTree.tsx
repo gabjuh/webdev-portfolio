@@ -327,12 +327,12 @@ const CvTree: React.FC = ({ }) => {
     const levelSize = level ? calculateLevelSize(level) : 0;
 
     // If the view width is smaller than the smallest breakpoint, return 0, so the ruler is not visible
-    if (viewWidth < 860) {
+    if (viewWidth < breakpoints.md) {
       return 0;
     }
 
-    const popupPos = viewWidth < 1100 ? horisontalPositions.md.popupPos :
-      viewWidth < 1400 ? horisontalPositions.lg.popupPos :
+    const popupPos = viewWidth < breakpoints.lg ? horisontalPositions.md.popupPos :
+      viewWidth < breakpoints.xl ? horisontalPositions.lg.popupPos :
         horisontalPositions.xl.popupPos;
 
     const val = side === 'left' ? levelSize : side === 'right' ? -levelSize : 0;
