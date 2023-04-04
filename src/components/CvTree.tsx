@@ -180,6 +180,9 @@ const CvTree: React.FC = ({ }) => {
   const [selectedPopupSlug, setSelectedPopupSlug] = useState<string>(sortedPopupItems[selectedPopupIndex].content.slug);
   const [changePopupDirection, setChangePopupDirection] = useState<'next' | 'prev' | undefined>(undefined);
 
+  const yOffSet = 220;
+
+
   // const changePopup = (e: React.MouseEvent<HTMLButtonElement>) => {
   //   if (changePopupDirection === 'next') setSelectedPopupIndex(selectedPopupIndex + 1);
   //   if (changePopupDirection === 'prev') setSelectedPopupIndex(selectedPopupIndex - 1);
@@ -209,7 +212,6 @@ const CvTree: React.FC = ({ }) => {
     // changePopup(e);
     setShowPopup(e.currentTarget.id);
     const element = document.getElementById(e.currentTarget.id);
-    const yOffSet = 220;
     if (element) {
       const rect = element.getBoundingClientRect();
       const y = rect.top + window.pageYOffset - yOffSet;
@@ -219,15 +221,13 @@ const CvTree: React.FC = ({ }) => {
     setSelectedPopupSlug(selectedPopupSlug === e.currentTarget.id ? '' : e.currentTarget.id);
   };
 
-
   const nextPopup = (e: KeyboardEvent): void => {
     if (selectedPopupIndex > 0) {
       setSelectedPopupIndex(selectedPopupIndex - 1);
       setShowPopup(selectedPopupSlug);
       const element = document.getElementById(selectedPopupSlug);
-      const yOffSet = 220;
       if (element) {
-        const rect = element.getBoundingClientRect();
+        const rect = element.getBoundingClientRect(); 
         const y = rect.top + window.pageYOffset - yOffSet;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
@@ -240,7 +240,6 @@ const CvTree: React.FC = ({ }) => {
       setSelectedPopupIndex(selectedPopupIndex + 1);
       setShowPopup(selectedPopupSlug);
       const element = document.getElementById(selectedPopupSlug);
-      const yOffSet = 220;
       if (element) {
         const rect = element.getBoundingClientRect();
         const y = rect.top + window.pageYOffset - yOffSet;
