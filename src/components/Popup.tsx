@@ -62,13 +62,11 @@ const Popup: React.FC<IPopup> = ({
       <a className="py-1 text-xs" style={{ color: `${color}` }} href={url} target="_blank" rel="noreferrer">{label}</a>
     </div>
 
+
   const getContentHeight = (): number => {
     const contentElement = document.querySelector(`#${contentId}`);
-    if (contentElement instanceof HTMLElement) {
-      return contentElement.offsetHeight;
-    }
-    return 0;
-  };
+    return contentElement instanceof HTMLElement ? contentElement.offsetHeight : 0;
+  }
 
   useEffect(() => {
     setContentHeight(getContentHeight() + 70);
@@ -85,8 +83,7 @@ const Popup: React.FC<IPopup> = ({
   return (
     <>
       <g
-        className={`${showPopup !== content.slug && 'invisible opacity-0'} transition-all duration-[.5s] relative block drop-shadow-lg`}
-
+        className={`${showPopup !== content.slug ? 'invisible opacity-0' : ''} transition-all duration-[.5s] relative block drop-shadow-lg`}
       >
         {/* popup frame */}
         <rect
@@ -111,6 +108,7 @@ const Popup: React.FC<IPopup> = ({
           categoryColor={color}
           onClick={handleOnClickPopup}
           showPopup={{ showPopup, setShowPopup }}
+          isPopupText={true}
         />
 
         {/* Close button */}
