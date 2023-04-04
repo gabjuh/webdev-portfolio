@@ -66,6 +66,7 @@ const CvTree: React.FC = ({ }) => {
   const getPopupHorizontalPosition = (): number => getPosition('popupPos', viewWidth) + timelineHorisontalPosition;
   const getTitleHorizontalPosition = (): number => getPosition('titlePos', viewWidth) + timelineHorisontalPosition;
   const getTextHorizontalPosition = (): number => getPosition('textPos', viewWidth) + timelineHorisontalPosition;
+  const getYearHorizontalPosition = (): number => getPosition('yearPos', viewWidth) + timelineHorisontalPosition;
 
 
   // Svg
@@ -315,7 +316,7 @@ const CvTree: React.FC = ({ }) => {
 
   // Get the vertical position of the popup, depending on the index
   // And increase it in mobile view to able to see the point
-  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 860 ? step : 0);
+  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 768 ? step : 0);
 
 
 
@@ -382,15 +383,16 @@ const CvTree: React.FC = ({ }) => {
         </div>
 
         {/* svg wrapper */}
-        <div className={`relative mx-auto pt-[100px] md:-translate-x-[115px] lg:-translate-x-[100px] xl:-translate-x-[80px] xl:w-[1000px] lg:w-[820px] md:w-[470px] w-[390px] z-0`} >
+        <div className={`relative container mx-auto pt-[100px] z-0`} >
+          {/* md:-translate-x-[115px] lg:-translate-x-[100px] xl:-translate-x-[80px] xl:w-[100%] lg:w-[820px] md:w-[470px] w-[390px]  */}
 
-          <div className="mx-auto w-[100%]">
-          </div>
           <svg
             height={svgHeight}
             width={svgWidth}
             className={`
-            w-[100vw]
+            w-[100%]
+            xl:w-[1200px]
+            mx-auto
             relative
             box-content
           `}
@@ -474,7 +476,7 @@ const CvTree: React.FC = ({ }) => {
                     <Year
                       content={content}
                       textColor={general.textColor}
-                      timelineHorisontalPosition={timelineHorisontalPosition}
+                      yearPos={getYearHorizontalPosition()}
                       y={yPos}
                       i={index}
                     />
