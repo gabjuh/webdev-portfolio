@@ -6,13 +6,13 @@ const Year: React.FC<IYear> = ({
   content,
   y,
   i,
-  timelineHorisontalPosition
+  yearPos
 }) => {
 
   const showIndex: boolean = false
   
   return (
-    <text x={timelineHorisontalPosition - 180} y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
+    <text x={yearPos} y={y} fill={content.hidden ? '#777' : textColor}>{showIndex && i + ' '}{content.showYear && content.year}</text>
   );
 };
 
@@ -23,6 +23,7 @@ const Text: React.FC<IText> = ({
   timelineHorisontalPosition,
   categoryColor,
   onClick,
+  isPopupText
 }) => {
 
   const Tech = () => {
@@ -64,7 +65,7 @@ const Text: React.FC<IText> = ({
       {/* Name */}
       <text
         id={content.slug}
-        className={`hidden md:block transition-all duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)] cursor-pointer`}`}
+        className={`hidden sm:block transition duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)] cursor-pointer`} ${isPopupText ? 'sm:-translate-y-[55px] md:translate-y-0' : ''}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
