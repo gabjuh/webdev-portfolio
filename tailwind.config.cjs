@@ -27,11 +27,13 @@ module.exports = {
       }
     },
     screens: {
-      'xl': '1400px',
-      'lg': '1100px',
-      'md': '860px',
-      'sm': '470px'
-    },
+      '2xl': '1536px',
+      'xl': '1280px',
+      'lg': '1024px',
+      'md': '768px',
+      'sm': '640px',
+      'xs': '480px',
+    }
   },
   plugins: [require("daisyui")],
 }
