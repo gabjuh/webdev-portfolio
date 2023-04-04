@@ -69,7 +69,7 @@ const Popup: React.FC<IPopup> = ({
   }
 
   useEffect(() => {
-    setContentHeight(getContentHeight() + 70);
+    setContentHeight(getContentHeight() + 45);
   }, []);
 
   const isArrowUpClickable = () => !(index <= 1);
@@ -149,14 +149,14 @@ const Popup: React.FC<IPopup> = ({
         {/* Content */}
         <foreignObject
           className="overflow-auto"
-          x={x + 25} y={y + 48}
+          x={x + 25} y={y + 20}
           fontSize="15" fill="#444"
           width={viewWidth > 470 ? 330 : 290}
           height={contentHeight}
         >
           <div id={contentId} className="" >
             {/* Name */}
-            <p className="absolute top-[-1.8rem] md:invisible visible lg:visible text-[12pt] ">{content.name}</p>
+            <p className="md:invisible visible lg:visible text-[12pt] z-10 mb-[5px]">{content.name}</p>
 
             {/* Place */}
             <p className="text-md font-[600]">{content.institute}</p>
