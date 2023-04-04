@@ -5,7 +5,7 @@ export interface IYear {
   content: IContent;
   y: number;
   i?: number;
-  timelineHorisontalPosition: number;
+  yearPos: number;
 }
 
 export interface IText {
@@ -21,4 +21,5 @@ export interface IText {
     showPopup?: string;
     setShowPopup: any;
   };
+  isPopupText?: boolean;
 }
