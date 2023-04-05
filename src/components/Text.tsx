@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { IText, IYear } from '../interfaces/Text';
 
 const Year: React.FC<IYear> = ({
@@ -21,24 +20,9 @@ const Text: React.FC<IText> = ({
   content,
   y,
   timelineHorisontalPosition,
-  categoryColor,
   onClick,
   isPopupText
 }) => {
-
-  const Tech = () => {
-    return (
-      <>
-        {
-          content.tech?.map((tech: string, i: number, a: string[]) => {
-            return (
-              <tspan key={`tech_${i}`} fill="#888">{tech} {i < a.length - 1 && ' | '}</tspan>
-            );
-          })
-        }
-      </>
-    );
-  }
 
   const handleMouseEnter = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
     e.currentTarget.setAttribute('fill', '#333');
@@ -50,14 +34,6 @@ const Text: React.FC<IText> = ({
       el.setAttribute('fill', content.hidden ? '#777' : textColor);
     }, 800);
   };
-
-  // const handleOnClickShake = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
-  //   const target = e.currentTarget;
-  //   target.classList.add('animate-shake');
-  //   setTimeout(() => {
-  //     target.classList.remove('animate-shake');
-  //   }, 1000);
-  // };
 
   return (
     <g>
