@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import data from '../data/credits/credits'
 
 // Components
@@ -140,11 +140,11 @@ const Stack: React.FC = () => {
 
   return (
     <>
-      <div className="container lg:h-[100vh] mx-auto lg:py-10] lg:mt-10" id="stack">
-        <div className={`relative max-w-[1020px] mx-auto`} style={{ transform: "perspective(2500px) rotateX(20deg)" }}>
+      <div className="container lg:h-[800px] mx-auto lg:py-10] lg:mt-10" id="stack">
+        <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
           <div className="relative">
             <div className="grid grid-cols-8">
-              <div className={`md:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
+              <div className={`lg:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
                 <Fields />
               </div>
               <Hero scrollToId={scrollToId} />
