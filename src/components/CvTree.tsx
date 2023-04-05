@@ -339,6 +339,9 @@ const CvTree: React.FC = ({ }) => {
   };
 
 
+  // Bind Point and Text hover effects
+  // Point
+  const [hoveredElementSlug, setHoveredElementSlug] = useState<string[]>([]);
 
   return (
     <>
@@ -487,7 +490,8 @@ const CvTree: React.FC = ({ }) => {
                       timelineHorisontalPosition={getTextHorizontalPosition()}
                       categoryColor={color}
                       onClick={handleOnClickPopup}
-                      showPopup={{ showPopup, setShowPopup }}
+                      hoveredElementSlug={hoveredElementSlug}
+                      setHoveredElementSlug={setHoveredElementSlug}
                     />
 
                   </React.Fragment>
@@ -522,31 +526,31 @@ const CvTree: React.FC = ({ }) => {
                 const color = getColor(item, filter)
                 return (
                   <React.Fragment key={`point_${index}`}>
-                      <Point
+                    <Point
                       pos={[timelineHorisontalPosition, step * (index + 1)]}
-                        pointSize={pointSize}
-                        strokeWidth={pointStrokeWidth}
-                        color={color}
+                      pointSize={pointSize}
+                      strokeWidth={pointStrokeWidth}
+                      color={color}
                       bgColor={general.bgColor}
-                        isMajor={item.content.isMajor}
-                        side={item.layout?.side}
-                        level={item.layout?.level}
-                        levelDistanceReduction={general.levelDistanceReduction}
-                        branchWidth={general.size}
+                      isMajor={item.content.isMajor}
+                      side={item.layout?.side}
+                      level={item.layout?.level}
+                      levelDistanceReduction={general.levelDistanceReduction}
+                      branchWidth={general.size}
                       slug={item.content.slug}
                       selectedPopupSlug={selectedPopupSlug}
                       rulerLength={getRulerLength(item.layout?.side, item.layout?.level)}
                     />
-                      <Popup
-                        color={color}
-                        content={item.content}
+                    <Popup
+                      color={color}
+                      content={item.content}
                       verticalPosition={getPopupVerticalPosition(index)}
                       timelineHorisontalPosition={getPopupHorizontalPosition()}
                       titleHorisontalPosition={getTitleHorizontalPosition()}
                       // timelineHorisontalPosition={timelineHorisontalPosition}
-                        showPopup={showPopup}
-                        setShowPopup={setShowPopup}
-                        layout={item.layout}
+                      showPopup={showPopup}
+                      setShowPopup={setShowPopup}
+                      layout={item.layout}
                       selectedPopupSlug={selectedPopupSlug}
                       handleOnClickPopup={handleOnClickPopup}
                       viewWidth={viewWidth}
@@ -555,7 +559,7 @@ const CvTree: React.FC = ({ }) => {
                       index={index}
                       arrLength={a.length}
                       image={images.filter(img => img.name === item.content.image)[0]}
-                      />
+                    />
                   </React.Fragment>
                 );
               })}
