@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { IText, IYear } from '../interfaces/Text';
 
 const Year: React.FC<IYear> = ({
@@ -5,7 +6,7 @@ const Year: React.FC<IYear> = ({
   content,
   y,
   i,
-  yearPos
+  yearPos,
 }) => {
 
   const showIndex: boolean = false
@@ -21,18 +22,32 @@ const Text: React.FC<IText> = ({
   y,
   timelineHorisontalPosition,
   onClick,
-  isPopupText
+  isPopupText,
+  hoveredElementSlug,
+  setHoveredElementSlug
 }) => {
 
-  const handleMouseEnter = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
-    e.currentTarget.setAttribute('fill', '#333');
+  const [isOnHover, setIsOnHover] = useState(false);
+  const [currentColor, setCurrentColor] = useState(textColor);
+
+
+  const handleMouseEnter = () => {
+    setIsOnHover(true);
+    setCurrentColor('#333');
+    const arr = hoveredElementSlug;
+    arr?.push(content.slug);
+    setHoveredElementSlug(arr);
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<SVGTextElement, MouseEvent>) => {
-    const el = e.currentTarget;
+  const handleMouseLeave = () => {
+    setIsOnHover(false);
+    const el = document.querySelector(`${content.slug}_id`) as SVGTextElement;
     setTimeout(() => {
-      el.setAttribute('fill', content.hidden ? '#777' : textColor);
-    }, 800);
+      setCurrentColor(textColor);
+      const arr = hoveredElementSlug;
+      arr.splice(arr.indexOf(content.slug), 1);
+      setHoveredElementSlug(arr);
+    }, 500);
   };
 
   return (
@@ -40,12 +55,9 @@ const Text: React.FC<IText> = ({
 
       {/* Name */}
       <text
-        id={content.slug}
-        className={`hidden sm:block transition duration-[400ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)] cursor-pointer`} ${isPopupText ? 'sm:-translate-y-[55px] md:translate-y-0' : ''}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={onClick}
-        fill={content.hidden ? '#777' : textColor}
+        id={`${content.slug}_id`}
+        className={`hidden sm:block transition duration-[300ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)]`} ${isPopupText ? 'sm:-translate-y-[55px] md:translate-y-0' : ''}`}
+        fill={currentColor}
         x={timelineHorisontalPosition && timelineHorisontalPosition + 190}
         y={y}
       >
@@ -53,6 +65,25 @@ const Text: React.FC<IText> = ({
         {/* ico */}
 
       </text>
+
+      {/* Clickable area */}
+      <g
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
+
+        <rect
+          id={content.slug}
+          onClick={onClick}
+          className="cursor-pointer"
+          // x={timelineHorisontalPosition && timelineHorisontalPosition + 170}
+          x={100}
+          y={y - 30}
+          width={700}
+          height="45"
+          fill="#f000"
+
+        />
+      </g>
     </g>
   );
 };
