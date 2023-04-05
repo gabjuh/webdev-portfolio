@@ -98,7 +98,7 @@ const Popup: React.FC<IPopup> = ({
         />
 
         {/* Title */}
-        <Text
+        {/* <Text
           content={content}
           textColor="#222"
           bgColor="#eee"
@@ -107,9 +107,8 @@ const Popup: React.FC<IPopup> = ({
           timelineHorisontalPosition={titleHorisontalPosition}
           categoryColor={color}
           onClick={handleOnClickPopup}
-          showPopup={{ showPopup, setShowPopup }}
           isPopupText={true}
-        />
+        /> */}
 
         {/* Close button */}
         <text
@@ -156,7 +155,8 @@ const Popup: React.FC<IPopup> = ({
         >
           <div id={contentId} className="" >
             {/* Name */}
-            <p className="md:invisible visible lg:visible text-[12pt] z-10 mb-[5px]">{content.name}</p>
+            {/* <p className="md:invisible visible lg:visible text-[12pt] z-10 mb-[5px]">{content.name}</p> */}
+            <p className="text-[11.87pt] font-[500] z-10 mb-[0px] -translate-y-[3px] -translate-x-[1px]">{content.name}</p>
 
             {/* Place */}
             <p className="text-md font-[600]">{content.institute}</p>
