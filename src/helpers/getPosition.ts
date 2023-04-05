@@ -10,6 +10,9 @@ export const getPosition = (property: PositionType, viewWidth: number): number =
   if (viewWidth >= breakpoints.md) return horisontalPositions.md[property];
   if (viewWidth >= breakpoints.sm) return horisontalPositions.sm[property];
   if (viewWidth >= breakpoints.xs) return horisontalPositions.xs[property];
+  if (viewWidth >= breakpoints['2xs']) return horisontalPositions['2xs'][property];
+  if (viewWidth >= breakpoints['3xs']) return horisontalPositions['3xs'][property];
+  if (viewWidth >= breakpoints['4xs']) return horisontalPositions['4xs'][property];
 
   return 190;
 };
