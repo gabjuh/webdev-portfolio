@@ -1,7 +1,7 @@
 import boy from '../../assets/baby-sculptur-boy.png';
 import girl from '../../assets/baby-sculptur-girl.png';
 import wedding from '../../assets/wedding5.png';
-import drive from '../../assets/drive.png';
+import drive from '../../assets/auto_driving.png';
 import baby from '../../assets/baby3.png';
 
 interface IImages {
