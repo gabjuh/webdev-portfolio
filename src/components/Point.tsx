@@ -49,6 +49,27 @@ const Point: React.FC<IPoint> = ({
 
   };
 
+  const [isOnHover, setIsOnHover] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    setIsOnHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setIsOnHover(false);
+    }, 500);
+  };
+
+  const increasePointSize = () => {
+    if (isOnHover) {
+      return pointSize * 1.3;
+    } else {
+      return pointSize;
+    }
+  };
+
+
   return (
     <>
       <g>
@@ -60,13 +81,30 @@ const Point: React.FC<IPoint> = ({
           rulerLength={rulerLength}
         />
       </g>
+      {/* Point */}
       <g
-        className="transition-all duration-[800ms] ease-in-out"
+        className={`transition-all duration-[800ms] ease-in-out`}
         stroke={side ? themes[0].timeline : color}
         strokeWidth={isMajor ? strokeWidth : 0}
         fill={isMajor ? bgColor : color}
       >
-        <circle cx={getCx()} cy={pos[1]} r={pointSize} />
+        {/* Viewable point */}
+        <circle
+          className="transition-all duration-150 ease-in-out"
+          cx={getCx()}
+          cy={pos[1]}
+          r={increasePointSize()}
+        />
+        <g
+          className={`cursor-pointer `}
+          fill={'#0000'}
+          strokeWidth='0'
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Clickable field, bigger than the other */}
+          <circle cx={getCx()} cy={pos[1]} r={pointSize + 10} />
+        </g>
       </g>
     </>
   );
