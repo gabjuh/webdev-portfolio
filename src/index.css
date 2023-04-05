@@ -14,6 +14,11 @@ body {
   overflow-x: hidden;
 }
 
+@media (min-width: 1024px) {
+  .stacks-transform {
+    transform: perspective(2500px) rotateX(20deg);
+  }
+}
 .btn-categories .btn-sm {
   @apply text-xs py-0 border-transparent border-[3px] transition-all duration-150
 }
