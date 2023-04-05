@@ -303,7 +303,6 @@ const CvTree: React.FC = ({ }) => {
   }, []);
 
 
-
   const handleResize = () => {
     setViewWidth(getViewWidth());
   };
@@ -311,13 +310,11 @@ const CvTree: React.FC = ({ }) => {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [viewWidth]);
 
   // Get the vertical position of the popup, depending on the index
   // And increase it in mobile view to able to see the point
   const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 768 ? step : 0);
-
-
 
   // Get the horizontal position of the rulers starting point
   const calculateLevelSize = (level: number): number => (level * size) * 2;
@@ -345,7 +342,7 @@ const CvTree: React.FC = ({ }) => {
 
   return (
     <>
-      <div className="relative" id="cv"
+      <div className="relative hidden 2xs:block" id="cv"
       >
         {/* Buttons */}
         <div 
@@ -353,7 +350,7 @@ const CvTree: React.FC = ({ }) => {
           style={{ height: `${svgHeight - 150}px` }}
         >
           <div
-            className={`btn-categories flex flex-wrap sm:w-[100%] mx-auto z-10 p-8 backdrop-filter backdrop-blur-md justify-center ${isMenuSticky && 'shadow-lg'} transition-all duration-200`}
+            className={`btn-categories flex flex-wrap sm:w-[100%] mx-auto z-10 pt-3 pb-1.5 xs:p-8 backdrop-filter backdrop-blur-md justify-center ${isMenuSticky && 'shadow-lg'} transition-all duration-200`}
             style={{
               position: "sticky",
               top: 0,
@@ -374,15 +371,17 @@ const CvTree: React.FC = ({ }) => {
               onMouseUp={() => { scrollToId('home'); }}
             className="cursor-pointer"
           >
-            <img src={downArrow} alt="Arrow"
-              className="rotate-180 ml-5 w-[.85rem] hover:-translate-y-[.3rem] transition-all duration-150"
-            />
+              <div className="p-3 rounded-2xl group">
+                <img src={downArrow} alt="Arrow"
+                  className="rotate-180 w-[.85rem] -translate-y-[.1rem] group-hover:-translate-y-[.5rem] transition-all duration-150"
+                />
+              </div>
           </button>
         </div>
         </div>
 
         {/* svg wrapper */}
-        <div className={`relative container mx-auto pt-[100px] z-0`} >
+        <div className={`relative xs:container mx-auto pt-[100px] z-0`} >
           {/* md:-translate-x-[115px] lg:-translate-x-[100px] xl:-translate-x-[80px] xl:w-[100%] lg:w-[820px] md:w-[470px] w-[390px]  */}
 
           <svg
@@ -391,8 +390,8 @@ const CvTree: React.FC = ({ }) => {
             className={`
             w-[100%]
             xl:w-[1200px]
-            mx-auto
             relative
+            mx-auto
             box-content
           `}
           >
