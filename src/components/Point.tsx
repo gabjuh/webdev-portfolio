@@ -58,7 +58,7 @@ const Point: React.FC<IPoint> = ({
   const handleMouseLeave = () => {
     setTimeout(() => {
       setIsOnHover(false);
-    }, 500);
+    }, 800);
   };
 
   const increasePointSize = () => {
