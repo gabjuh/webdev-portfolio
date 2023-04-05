@@ -1,7 +1,31 @@
 
 export const horisontalPositions = {
+  '4xs': {
+    breakpoint: 320,
+    timelinePos: 175,
+    yearPos: - 150,
+    titlePos: 150,
+    popupPos: - 185,
+    textPos: 0
+  },
+  '3xs': {
+    breakpoint: 375,
+    timelinePos: 190,
+    yearPos: - 150,
+    titlePos: 150,
+    popupPos: - 175,
+    textPos: 0
+  },
+  '2xs': {
+    breakpoint: 425,
+    timelinePos: 220,
+    yearPos: - 150,
+    titlePos: 150,
+    popupPos: - 185,
+    textPos: 0
+  },
   'xs': {
-    breakpoint: 470,
+    breakpoint: 480,
     timelinePos: 240,
     yearPos: -180,
     titlePos: 150,
@@ -50,71 +74,11 @@ export const horisontalPositions = {
   }
 };
 
-// Horizontal position of the title and popup
-// export const horisontalPositions = {
-//   sm: {
-//     breakpoint: 0,
-//     timelinePos: 0,
-//     titlePos: 0,
-//     popupPos: 0,
-//     textPos: 0
-//   },
-//   md: {
-//     breakpoint: 0,
-//     timelinePos: 0,
-//     titlePos: 0,
-//     popupPos: 0,
-//     textPos: 0
-//   },
-//   lg: {
-//     breakpoint: 0,
-//     timelinePos: 0,
-//     titlePos: 0,
-//     popupPos: 0,
-//     textPos: 0
-//   },
-//   xl: {
-//     breakpoint: 0,
-//     timelinePos: 0,
-//     titlePos: 0,
-//     popupPos: 0,
-//     textPos: 0
-//   }
-// };
-
-// export const horisontalPositions = {
-//   sm: {
-//     breakpoint: 470,
-//     timelinePos: 200,
-//     titlePos: 150,
-//     popupPos: - 175,
-//     textPos: 0
-//   },
-//   md: {
-//     breakpoint: 860,
-//     timelinePos: 180,
-//     titlePos: - 51,
-//     popupPos: 115,
-//     textPos: - 51
-//   },
-//   lg: {
-//     breakpoint: 1100,
-//     timelinePos: 180,
-//     titlePos: - 45,
-//     popupPos: 450,
-//     textPos: - 45
-//   },
-//   xl: {
-//     breakpoint: 1400,
-//     timelinePos: 300,
-//     titlePos: 30,
-//     popupPos: 570,
-//     textPos: 30
-//   }
-// };
-
 // Breakpoints for the view width
 export const breakpoints = {
+  '4xs': horisontalPositions['4xs'].breakpoint,
+  '3xs': horisontalPositions['3xs'].breakpoint,
+  '2xs': horisontalPositions['2xs'].breakpoint,
   'xs': horisontalPositions.xs.breakpoint,
   'sm': horisontalPositions.sm.breakpoint,
   'md': horisontalPositions.md.breakpoint,
