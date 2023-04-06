@@ -221,22 +221,6 @@ const CvTree: React.FC = ({ }) => {
     setSelectedPopupSlug(selectedPopupSlug !== slug ? slug : '');
   };
 
-
-  // const handleOnClickPopup = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   // changePopup(e);
-  //   const id = e.currentTarget.id;
-  //   console.log(id);
-  //   setShowPopup(id);
-  //   const element = document.getElementById(id);
-  //   if (element) {
-  //     const rect = element.getBoundingClientRect();
-  //     const y = rect.top + window.pageYOffset - yOffSet;
-  //     window.scrollTo({ top: y, behavior: 'smooth' });
-  //     setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === id));
-  //   }
-  //   setSelectedPopupSlug(selectedPopupSlug !== id ? id : '');
-  // };
-
   const nextPopup = (e: KeyboardEvent): void => {
     if (selectedPopupIndex > 0) {
       setSelectedPopupIndex(selectedPopupIndex - 1);
@@ -357,7 +341,7 @@ const CvTree: React.FC = ({ }) => {
 
   // Bind Point and Text hover effects
   // Point
-  const [hoveredElementSlug, setHoveredElementSlug] = useState<string[]>([]);
+  const [hoveredElementSlugs, setHoveredElementSlugs] = useState<string[]>([]);
 
   return (
     <>
@@ -506,8 +490,8 @@ const CvTree: React.FC = ({ }) => {
                       timelineHorisontalPosition={getTextHorizontalPosition()}
                       categoryColor={color}
                       onClick={handleOnClickPopup}
-                      hoveredElementSlug={hoveredElementSlug}
-                      setHoveredElementSlug={setHoveredElementSlug}
+                      hoveredElementSlugs={hoveredElementSlugs}
+                      setHoveredElementSlugs={setHoveredElementSlugs}
                       selectedPopupSlug={selectedPopupSlug}
                     />
 
@@ -535,8 +519,6 @@ const CvTree: React.FC = ({ }) => {
                 isMajor={true}
                 levelDistanceReduction={general.levelDistanceReduction}
                 branchWidth={general.size}
-                hoveredElementSlug={hoveredElementSlug}
-                setHoveredElementSlug={setHoveredElementSlug}
               />
 
               {/* Points */}
