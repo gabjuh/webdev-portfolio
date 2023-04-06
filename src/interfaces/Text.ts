@@ -20,4 +20,5 @@ export interface IText {
   isPopupText?: boolean;
   hoveredElementSlug: string[];
   setHoveredElementSlug: any;
+  selectedPopupSlug: string;
 }
