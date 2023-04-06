@@ -492,6 +492,7 @@ const CvTree: React.FC = ({ }) => {
                       onClick={handleOnClickPopup}
                       hoveredElementSlug={hoveredElementSlug}
                       setHoveredElementSlug={setHoveredElementSlug}
+                      selectedPopupSlug={selectedPopupSlug}
                     />
 
                   </React.Fragment>
@@ -518,6 +519,8 @@ const CvTree: React.FC = ({ }) => {
                 isMajor={true}
                 levelDistanceReduction={general.levelDistanceReduction}
                 branchWidth={general.size}
+                hoveredElementSlug={hoveredElementSlug}
+                setHoveredElementSlug={setHoveredElementSlug}
               />
 
               {/* Points */}
