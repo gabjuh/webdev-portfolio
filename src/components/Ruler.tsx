@@ -6,6 +6,7 @@ interface IRuler {
   startPos: number[];
   slug?: string;
   rulerLength?: number;
+  // onClick: () => void;
 }
 
 const Ruler: React.FC<IRuler> = ({
@@ -13,7 +14,8 @@ const Ruler: React.FC<IRuler> = ({
   color,
   startPos,
   slug,
-  rulerLength
+  rulerLength,
+  // onClick
 }) => {
   return (
     <>
@@ -33,7 +35,11 @@ const Ruler: React.FC<IRuler> = ({
         </pattern>
       </defs>
       {/* Draw Ruler */}
-      <g className={`${showUp ? 'visible opacity-100' : 'invisible opacity-0'} hidden md:block transition-all duration-300`}>
+      <g
+        // id={`${slug}`}
+        // onClick={() => onClick(slug)}
+        className={`${showUp ? 'visible opacity-100' : 'invisible opacity-0'} hidden md:block transition-all duration-300 cursor-pointer`}
+      >
         {/* Arrows' half part above */}
         <rect
           x={startPos[0]}

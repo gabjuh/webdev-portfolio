@@ -73,10 +73,8 @@ const Text: React.FC<IText> = ({
         onMouseLeave={handleMouseLeave}>
 
         <rect
-          id={content.slug}
-          onClick={onClick}
+          onClick={() => onClick(content.slug)}
           className="cursor-pointer"
-          // x={timelineHorisontalPosition && timelineHorisontalPosition + 170}
           x={100}
           y={y - 30}
           width={700}
