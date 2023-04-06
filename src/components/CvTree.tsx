@@ -519,6 +519,7 @@ const CvTree: React.FC = ({ }) => {
                 isMajor={true}
                 levelDistanceReduction={general.levelDistanceReduction}
                 branchWidth={general.size}
+                inactive={true}
               />
 
               {/* Points */}
@@ -539,9 +540,12 @@ const CvTree: React.FC = ({ }) => {
                       levelDistanceReduction={general.levelDistanceReduction}
                       branchWidth={general.size}
                       slug={item.content.slug}
+                      end={item.content.end}
+                      open={item.layout?.open}
                       selectedPopupSlug={selectedPopupSlug}
                       rulerLength={getRulerLength(item.layout?.side, item.layout?.level)}
                       onClick={handleOnClickPopup}
+                      canceled={item.layout?.canceled}
                     />
                     <Popup
                       color={color}
