@@ -23,8 +23,8 @@ const Text: React.FC<IText> = ({
   timelineHorisontalPosition,
   onClick,
   isPopupText,
-  hoveredElementSlug,
-  setHoveredElementSlug,
+  hoveredElementSlugs,
+  setHoveredElementSlugs,
   selectedPopupSlug
 }) => {
 
@@ -35,9 +35,9 @@ const Text: React.FC<IText> = ({
   const handleMouseEnter = () => {
     setIsOnHover(true);
     setCurrentColor('#333');
-    const arr = hoveredElementSlug;
+    const arr = [...hoveredElementSlugs];
     arr?.push(content.slug);
-    setHoveredElementSlug(arr);
+    setHoveredElementSlugs(arr);
   };
 
   const handleMouseLeave = () => {
@@ -45,9 +45,9 @@ const Text: React.FC<IText> = ({
     const el = document.querySelector(`${content.slug}_id`) as SVGTextElement;
     setTimeout(() => {
       setCurrentColor(textColor);
-      const arr = hoveredElementSlug;
+      const arr = [...hoveredElementSlugs];
       arr.splice(arr.indexOf(content.slug), 1);
-      setHoveredElementSlug(arr);
+      setHoveredElementSlugs(arr);
     }, 500);
   };
 
