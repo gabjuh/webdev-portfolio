@@ -17,8 +17,6 @@ interface IPoint {
   slug?: string;
   selectedPopupSlug?: string;
   rulerLength?: number;
-  hoveredElementSlug?: string[];
-  setHoveredElementSlug?: any;
   onClick?: any;
 }
 
@@ -37,9 +35,7 @@ const Point: React.FC<IPoint> = ({
   slug,
   selectedPopupSlug,
   rulerLength,
-  hoveredElementSlug,
   onClick
-  // setHoveredElementSlug
 }) => {
 
   const width = branchWidth ? branchWidth : 0
