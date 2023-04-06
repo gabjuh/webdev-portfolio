@@ -548,7 +548,10 @@
         "startingLevel": 1,
         "branch": "stock",
         "side": "left",
-        "open": "start"
+        "open": "start",
+        "newBranchOn": {
+          "start": 2
+        }
       }
     },
     {
