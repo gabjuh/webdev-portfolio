@@ -51,6 +51,8 @@ const Text: React.FC<IText> = ({
     }, 500);
   };
 
+  const isGeneratedSlug = (slug: string) => slug.includes('generated');
+
   return (
     <g>
 
@@ -68,21 +70,23 @@ const Text: React.FC<IText> = ({
       </text>
 
       {/* Clickable area */}
-      <g
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
+      {!isGeneratedSlug(content.slug) && (
+        <g
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
 
-        <rect
-          onClick={() => onClick(content.slug)}
-          className="cursor-pointer"
-          x={100}
-          y={y - 30}
-          width={700}
-          height="45"
-          fill="#f000"
+          <rect
+            onClick={() => onClick(content.slug)}
+            className="cursor-pointer"
+            x={100}
+            y={y - 30}
+            width={700}
+            height="45"
+            fill="#f000"
 
-        />
-      </g>
+          />
+        </g>
+      )}
     </g>
   );
 };
