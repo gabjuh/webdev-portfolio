@@ -8,7 +8,6 @@ import chatgtp from '../assets/logos/chatgpt.svg';
 const theme = themes[2];
 
 const colors = {
-  // dot: theme.right[2],
   dot: '#eee',
   text: theme.left[0],
   background: theme.left[1],
@@ -72,7 +71,7 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
   return (
     <>
       <button
-        className="question-button block py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300"
+        className="question-button text-sm md:text-[12pt] block py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300"
         onClick={handleOnClick}
         style={{
           backgroundColor: colors.question,
@@ -197,7 +196,7 @@ const QuestionMessage: React.FC<IQuestionMessage> = ({ text }) => {
 
   return (
     <>
-      <div className="chat chat-end">
+      <div className="chat chat-end mt-4 mb-2">
         <div
           className="chat-bubble"
           style={{
@@ -214,9 +213,9 @@ const Chat = () => {
 
   return (
     <>
-      <div className="container mx-auto mb-[300px]">
-        <h2 className="text-2xl text-center mb-10">Was hat Chat-GPT über mich zu sagen?</h2>
-        <div id="chat">
+      <div className="md:container md:mx-auto mb-[300px] w-[98%] md:w-auto mx-1">
+        <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2>
+        <div id="chat" className="text-sm md:text-[12pt] max-w-[1000px] mx-auto">
           {/* Here come the messages */}
         </div>
         {/* <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div> */}
