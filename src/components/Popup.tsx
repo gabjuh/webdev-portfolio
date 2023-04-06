@@ -155,8 +155,10 @@ const Popup: React.FC<IPopup> = ({
         >
           <div id={contentId} className="" >
             {/* Name */}
-            {/* <p className="md:invisible visible lg:visible text-[12pt] z-10 mb-[5px]">{content.name}</p> */}
-            <p className="text-[11.87pt] font-[500] z-10 mb-[0px] -translate-y-[3px] -translate-x-[1px]">{content.name}</p>
+            <p
+              className="text-[11.87pt] font-[500] z-10 mb-[0px] -translate-y-[3px] -translate-x-[1px] cursor-pointer"
+              onClick={handleOnClickPopup}
+            >{content.name}</p>
 
             {/* Place */}
             <p className="text-md font-[600]">{content.institute}</p>
