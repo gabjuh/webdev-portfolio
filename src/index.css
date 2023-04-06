@@ -41,3 +41,13 @@ body {
 .btn-categories button:nth-last-of-type(2) {
   @apply rounded-r-lg
 }
+/* 
+@keyframes point {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.animate-point {
+  animation: point 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+} */
