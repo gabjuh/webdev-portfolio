@@ -18,7 +18,7 @@ export interface IText {
   categoryColor: string;
   onClick: any;
   isPopupText?: boolean;
-  hoveredElementSlug: string[];
-  setHoveredElementSlug: any;
+  hoveredElementSlugs: string[];
+  setHoveredElementSlugs: any;
   selectedPopupSlug: string;
 }
