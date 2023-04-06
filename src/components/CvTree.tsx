@@ -70,7 +70,7 @@ const CvTree: React.FC = ({ }) => {
 
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 200);
+  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 250);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const timelineStartPos = svgWidth / 2;
@@ -145,7 +145,6 @@ const CvTree: React.FC = ({ }) => {
       }
     }
 
-
     let color = '';
 
     if (item.layout?.side === 'left') {
@@ -159,7 +158,6 @@ const CvTree: React.FC = ({ }) => {
     } else {
       // Point colors on the timeline
       color = theme.timeline;
-
     }
 
     return color;
@@ -182,34 +180,7 @@ const CvTree: React.FC = ({ }) => {
 
   const yOffSet = 220;
 
-
-  // const changePopup = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   if (changePopupDirection === 'next') setSelectedPopupIndex(selectedPopupIndex + 1);
-  //   if (changePopupDirection === 'prev') setSelectedPopupIndex(selectedPopupIndex - 1);
-  //   if (changePopupDirection === undefined) { 
-  //     setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
-  //   }
-  //   setShowPopup(e.currentTarget.id);
-
-      
-
-  //   // if (selectedPopupIndex > 0) {
-  //   setSelectedPopupIndex(selectedPopupIndex - 1);
-  //   setShowPopup(selectedPopupSlug);
-  //   const element = document.getElementById(selectedPopupSlug);
-  //   const yOffSet = 220;
-  //   if (element) {
-  //     const rect = element.getBoundingClientRect();
-  //     const y = rect.top + window.pageYOffset - yOffSet;
-  //     window.scrollTo({ top: y, behavior: 'smooth' });
-  //       !changePopupDirection && setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
-  //     }
-  //   setSelectedPopupSlug(selectedPopupSlug === selectedPopupSlug ? '' : selectedPopupSlug);
-  //   // }
-  // };
-
   const handleOnClickPopup = (slug: string) => {
-    // changePopup(e);
     setShowPopup(slug);
     const element = document.getElementById(slug);
     if (element) {
