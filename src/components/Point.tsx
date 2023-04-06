@@ -15,9 +15,13 @@ interface IPoint {
   isMajor?: Boolean;
   isStillActive?: Boolean;
   slug?: string;
+  end?: number;
+  open?: string | undefined;
   selectedPopupSlug?: string;
   rulerLength?: number;
   onClick?: any;
+  inactive?: true;
+  canceled?: boolean;
 }
 
 const Point: React.FC<IPoint> = ({
@@ -33,9 +37,13 @@ const Point: React.FC<IPoint> = ({
   isMajor,
   isStillActive,
   slug,
+  end,
+  open,
   selectedPopupSlug,
   rulerLength,
-  onClick
+  onClick,
+  inactive,
+  canceled
 }) => {
 
   const width = branchWidth ? branchWidth : 0
@@ -72,8 +80,16 @@ const Point: React.FC<IPoint> = ({
     }
   };
 
+  const isPointInactive = () =>
+    inactive ||
+    slug?.includes('generated') ||
+    !end &&
+    level &&
+    !canceled &&
+    open === 'start';
+
   const handleOnClick = () => {
-    if (slug) {
+    if (slug && !isPointInactive()) {
       onClick(slug);
       setIsSelected(true);
       increasePointSize();
@@ -107,11 +123,12 @@ const Point: React.FC<IPoint> = ({
           className="transition-all duration-150 ease-in-out"
           cx={getCx()}
           cy={pos[1]}
-          r={increasePointSize()}
+          r={!isPointInactive() ? increasePointSize() : pointSize}
         />
+
         <g
           id={slug}
-          className={`cursor-pointer `}
+          className={`${!isPointInactive() ? 'cursor-pointer' : ''}`}
           fill={'#0000'}
           strokeWidth='0'
           onMouseEnter={handleMouseEnter}
