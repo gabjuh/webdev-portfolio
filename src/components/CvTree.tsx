@@ -208,18 +208,34 @@ const CvTree: React.FC = ({ }) => {
   //   // }
   // };
 
-  const handleOnClickPopup = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOnClickPopup = (slug: string) => {
     // changePopup(e);
-    setShowPopup(e.currentTarget.id);
-    const element = document.getElementById(e.currentTarget.id);
+    setShowPopup(slug);
+    const element = document.getElementById(slug);
     if (element) {
       const rect = element.getBoundingClientRect();
       const y = rect.top + window.pageYOffset - yOffSet;
       window.scrollTo({ top: y, behavior: 'smooth' });
-      setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === e.currentTarget.id));
+      setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === slug));
     }
-    setSelectedPopupSlug(selectedPopupSlug === e.currentTarget.id ? '' : e.currentTarget.id);
+    setSelectedPopupSlug(selectedPopupSlug !== slug ? slug : '');
   };
+
+
+  // const handleOnClickPopup = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   // changePopup(e);
+  //   const id = e.currentTarget.id;
+  //   console.log(id);
+  //   setShowPopup(id);
+  //   const element = document.getElementById(id);
+  //   if (element) {
+  //     const rect = element.getBoundingClientRect();
+  //     const y = rect.top + window.pageYOffset - yOffSet;
+  //     window.scrollTo({ top: y, behavior: 'smooth' });
+  //     setSelectedPopupIndex(sortedPopupItems.findIndex(item => item.content.slug === id));
+  //   }
+  //   setSelectedPopupSlug(selectedPopupSlug !== id ? id : '');
+  // };
 
   const nextPopup = (e: KeyboardEvent): void => {
     if (selectedPopupIndex > 0) {
@@ -543,6 +559,7 @@ const CvTree: React.FC = ({ }) => {
                       slug={item.content.slug}
                       selectedPopupSlug={selectedPopupSlug}
                       rulerLength={getRulerLength(item.layout?.side, item.layout?.level)}
+                      onClick={handleOnClickPopup}
                     />
                     <Popup
                       color={color}
