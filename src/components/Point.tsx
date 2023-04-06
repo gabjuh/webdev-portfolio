@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Ruler from './Ruler';
 import themes from '../themes.json';
 
@@ -17,6 +17,9 @@ interface IPoint {
   slug?: string;
   selectedPopupSlug?: string;
   rulerLength?: number;
+  hoveredElementSlug?: string[];
+  setHoveredElementSlug?: any;
+  onClick?: any;
 }
 
 const Point: React.FC<IPoint> = ({
@@ -33,7 +36,10 @@ const Point: React.FC<IPoint> = ({
   isStillActive,
   slug,
   selectedPopupSlug,
-  rulerLength
+  rulerLength,
+  hoveredElementSlug,
+  onClick
+  // setHoveredElementSlug
 }) => {
 
   const width = branchWidth ? branchWidth : 0
@@ -50,6 +56,7 @@ const Point: React.FC<IPoint> = ({
   };
 
   const [isOnHover, setIsOnHover] = React.useState(false);
+  const [isSelected, setIsSelected] = React.useState(false);
 
   const handleMouseEnter = () => {
     setIsOnHover(true);
@@ -62,17 +69,28 @@ const Point: React.FC<IPoint> = ({
   };
 
   const increasePointSize = () => {
-    if (isOnHover) {
-      return pointSize * 1.3;
+    if (isOnHover || isSelected) {
+      return pointSize * 1.5;
     } else {
       return pointSize;
     }
   };
 
+  const handleOnClick = () => {
+    if (slug) {
+      onClick(slug);
+      setIsSelected(true);
+      increasePointSize();
+    }
+  };
+
+  useEffect(() => {
+    slug && slug !== selectedPopupSlug ? setIsSelected(false) : setIsSelected(true);
+  }, [selectedPopupSlug]);
 
   return (
     <>
-      <g>
+      <g onClick={() => handleOnClick()}>
         <Ruler
           showUp={slug && slug === selectedPopupSlug ? true : false}
           color={color}
@@ -96,14 +114,21 @@ const Point: React.FC<IPoint> = ({
           r={increasePointSize()}
         />
         <g
+          id={slug}
           className={`cursor-pointer `}
           fill={'#0000'}
           strokeWidth='0'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={() => onClick}
         >
           {/* Clickable field, bigger than the other */}
-          <circle cx={getCx()} cy={pos[1]} r={pointSize + 10} />
+          <circle
+            onClick={() => handleOnClick()}
+            cx={getCx()}
+            cy={pos[1]}
+            r={pointSize + 10}
+          />
         </g>
       </g>
     </>
