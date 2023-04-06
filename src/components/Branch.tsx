@@ -175,6 +175,7 @@ const Branch: React.FC<IBranch> = ({
           level={level}
           levelDistanceReduction={levelDistanceReduction}
           isStillActive={!open && heightTillTop !== null}
+          inactive={true}
         />
       )}
     </>
