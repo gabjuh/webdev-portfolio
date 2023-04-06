@@ -175,11 +175,18 @@ const Popup: React.FC<IPopup> = ({
 
             {/* Image */}
             {image &&
-              <img
-                className="w-[200px] block mx-auto h-[200px] object-cover rounded-md shadow-sm"
-                src={image.img}
-                alt={image.img}
-              />
+              <div className="relative flex w-[200px] mx-auto">
+                <img
+                  className="flex-item w-[200px] block mx-auto h-[200px] object-cover rounded-md shadow-sm"
+                  src={image.img}
+                  alt={image.img}
+                />
+                <span
+                  className="flex-item block text-[7pt] rotate-90 h-[1rem] w-[300px] whitespace-nowrap -translate-x-[55px] translate-y-[55px]"
+                >
+                  AI Art Generator - Hotpot©
+                </span>
+              </div>
             }
 
             {/* Link */}
