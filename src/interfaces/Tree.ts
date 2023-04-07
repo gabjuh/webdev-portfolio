@@ -31,7 +31,7 @@ export interface IContent {
   showYear: boolean;
   description?: string;
   certificate?: string;
-  recommendation?: string;
+  recommendations?: string[];
   img?: string;
   link?: string;
   end?: number;
