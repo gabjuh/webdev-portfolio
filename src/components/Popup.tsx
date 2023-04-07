@@ -192,19 +192,19 @@ const Popup: React.FC<IPopup> = ({
             {/* Categories */}
             {showCategories && <Categories />}
 
-            <div className="border-t border-[#0004] my-3"></div>
+            <div className="border-t border-[#0002] my-4"></div>
 
             {/* Image */}
             {image &&
               <>
                 <div className="relative w-[100%] mx-auto">
                   <img
-                  className="block max-w-[200px] object-cover rounded-md shadow-sm"
+                  className="max-w-[200px] object-cover rounded-md shadow-sm mx-auto"
                   src={image.img}
                   alt={image.img}
                 />
                 <div
-                  className="block absolute top-0 right-0 rotate-90 translate-x-[10px] translate-y-[65px] text-[8pt] h-[1rem] whitespace-nowrap"
+                  className="text-[8pt] whitespace-nowrap text-center"
                 >
                   {image.credits}
                 </div>
