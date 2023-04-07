@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IContent, ILayout } from '../interfaces/Tree';
-import { Text } from './Text';
+import pdfs from '../data/pdfs/pdfs';
 
 interface IPopup {
   color: string;
@@ -18,7 +18,7 @@ interface IPopup {
   prevPopup?: any;
   index: number;
   arrLength: number;
-  image?: { name: string; img: string; };
+  image?: { name: string; img: string; credits: string; };
 }
 
 const Popup: React.FC<IPopup> = ({
@@ -47,15 +47,48 @@ const Popup: React.FC<IPopup> = ({
   const x = timelineHorisontalPosition;
   const y = verticalPosition;
 
+  interface IPdf {
+    id: string;
+    name: string;
+    url: string;
+  }
+
+  const [certificate, setCertificate] = useState<IPdf | undefined>(undefined);
+  const [recommendations, setRecommendations] = useState<IPdf[]>([]);
+
+  const getCertificate = (certificateName: string | undefined) => {
+    if (certificateName) {
+      const certificateObj = pdfs.find(pdf => pdf.id === certificateName);
+      certificateObj && setCertificate(certificateObj);
+    }
+  };
+
+  const getRecommendations = (recommendations: Array<string>) => {
+    if (recommendations) {
+      const recommendationsObj = pdfs.filter(pdf => recommendations.includes(pdf.id));
+      setRecommendations(recommendationsObj);
+    }
+  };
+
+  useEffect(() => {
+    getCertificate(content.certificate);
+    content.recommendations && getRecommendations(content.recommendations);
+  }, []);
+
+  const isCertificateUrl = certificate?.url !== '' || certificate?.url === undefined;
+  const isRecommendationUrl = recommendations.length > 0;
+
+  const Button = (label: string, pdfObj: IPdf | undefined, isUrl: boolean) =>
+    <div className={`tooltip tooltip-right mt-2 ${!isUrl ? 'tooltip-warning ' : ''}`} data-tip={isUrl ? pdfObj ? pdfObj.name : '' : 'File nicht vorhanden.'}>
+      <div className="translate-y-[0.5px]">
+        <a className={`btn btn-xs px-3 py-1 rounded-sm bg-blue-500 hover:bg-blue-600 text-white border-none ${!isUrl ? 'btn-disabled !bg-[#bbb]' : ''}`} style={{ backgroundColor: `${color}` }} href={pdfObj?.url} download>{label}</a>
+      </div>
+    </div>;
+
   const Categories = () =>
     <p className="text-xs opacity-70 mb-1" style={{ color: color }}>
       {Array.isArray(content.categories) ? content.categories.map((category: string, index: number, array: Array<string>) => `${category.toUpperCase()}${index !== array.length - 1 ? ' | ' : ''}`).join('') : ''}
     </p>;
-
-  const Button = (label: string, url: string) =>
-    <div className="mt-4">
-      <a className="btn btn-xs px-3 py-1 rounded-sm bg-blue-500 hover:bg-blue-600 text-white border-none" style={{ backgroundColor: `${color}` }} href={url} download>{label}</a>
-    </div>
 
   const Link = (label: string, url: string) =>
     <div className="my-4">
@@ -69,8 +102,8 @@ const Popup: React.FC<IPopup> = ({
   }
 
   useEffect(() => {
-    setContentHeight(getContentHeight() + 45);
-  }, []);
+    setContentHeight(getContentHeight() + 40);
+  });
 
   const isArrowUpClickable = () => !(index <= 1);
 
@@ -96,19 +129,6 @@ const Popup: React.FC<IPopup> = ({
           height={contentHeight}
           rx="8" ry="8"
         />
-
-        {/* Title */}
-        {/* <Text
-          content={content}
-          textColor="#222"
-          bgColor="#eee"
-          y={y + 35}
-          // timelineHorisontalPosition={timelineHorisontalPosition - 570}
-          timelineHorisontalPosition={titleHorisontalPosition}
-          categoryColor={color}
-          onClick={handleOnClickPopup}
-          isPopupText={true}
-        /> */}
 
         {/* Close button */}
         <text
@@ -147,7 +167,7 @@ const Popup: React.FC<IPopup> = ({
 
         {/* Content */}
         <foreignObject
-          className="overflow-auto"
+          className="overflow-hidden"
           x={x + 25} y={y + 20}
           fontSize="15" fill="#444"
           width={viewWidth > 470 ? 330 : 290}
@@ -172,24 +192,28 @@ const Popup: React.FC<IPopup> = ({
             {/* Categories */}
             {showCategories && <Categories />}
 
-            {/* Description */}
-            {content.description && content.description.split('|').map((item, index) => <p key={index} className="my-4 opacity-70">{item}</p>)}
+            <div className="border-t border-[#0004] my-3"></div>
 
             {/* Image */}
             {image &&
-              <div className="relative flex w-[200px] mx-auto">
-                <img
-                  className="flex-item w-[200px] block mx-auto h-[200px] object-cover rounded-md shadow-sm"
+              <>
+                <div className="relative w-[100%] mx-auto">
+                  <img
+                  className="block max-w-[200px] object-cover rounded-md shadow-sm"
                   src={image.img}
                   alt={image.img}
                 />
-                <span
-                  className="flex-item block text-[7pt] rotate-90 h-[1rem] w-[300px] whitespace-nowrap -translate-x-[55px] translate-y-[55px]"
+                <div
+                  className="block absolute top-0 right-0 rotate-90 translate-x-[10px] translate-y-[65px] text-[8pt] h-[1rem] whitespace-nowrap"
                 >
-                  AI Art Generator - Hotpot©
-                </span>
+                  {image.credits}
+                </div>
               </div>
+            </>
             }
+
+            {/* Description */}
+            {content.description && content.description.split('|').map((item, index) => <p key={index} className="my-4 opacity-70">{item}</p>)}
 
             {/* Link */}
             {content.link && Link('Mehr...', content.link)}
@@ -200,10 +224,10 @@ const Popup: React.FC<IPopup> = ({
                 {content.tech?.map((tech: string, i: number, a: string[]) =>
                   <React.Fragment key={`tech_${tech}_${i}`}>
                     <p className="whitespace-normal inline-block">
-                    <span
-                    key={`${content.slug}_tech_${i}`}
-                      className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 rounded-md whitespace-nowrap"
-                  >
+                      <span
+                        key={`${content.slug}_tech_${i}`}
+                        className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 pt-[.7px] pb-[2px] rounded-md whitespace-nowrap"
+                      >
                     {tech}
                     </span>
                     </p>
@@ -214,11 +238,20 @@ const Popup: React.FC<IPopup> = ({
             </div>
 
             {/* Certificate */}
-            {content.certificate && Button('Zertifikat', content.certificate)}
+            {content.certificate && (
+              Button('Zertifikat', certificate, isCertificateUrl)
+            )}
 
             {/* Recommendation */}
-            {content.recommendation && Button('Empfehlungsbrief', content.recommendation)}
-
+            {recommendations.length > 0 && (
+              recommendations.map((recommendation: IPdf, i: number) => {
+                return (
+                  <div>
+                    {Button(`Empfehlung`, recommendation, isRecommendationUrl)}
+                  </div>
+                );
+              })
+            )}
           </div>
         </foreignObject>
 
