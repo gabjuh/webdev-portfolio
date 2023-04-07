@@ -5,6 +5,10 @@ import zertifikatHalle from '../../pdfs/zertifikat-halle.pdf';
 import empfehlungSchueler from '../../pdfs/empfehlung-schueler.pdf';
 import arbeitszeugnisLuebeck from '../../pdfs/arbeitszeugnis-luebeck.pdf';
 import empfehlungHfk from '../../pdfs/empfehlung-hfk.pdf';
+import empfehlungInline from '../../pdfs/empfehlung-inline-kurier.pdf';
+import webdesignZeugnis from '../../pdfs/webdesign-usability-certificate.pdf';
+import javascriptZeugnis from '../../pdfs/moderne-webanwendungen-mit-javascript-certificate.pdf';
+import phpZeugnis from '../../pdfs/moderne-webanwendungen-mit-php-mysql-certificate.pdf';
 
 interface IPdfs {
   id: string;
@@ -51,13 +55,38 @@ const pdfs: IPdfs[] = [
   },
   {
     id: 'arbeitszeugnis-luebeck',
-    name: 'Von Schulleiter - 2018',
+    name: 'Von Schulleiter - 2018 (1.Seite)',
+    url: arbeitszeugnisLuebeck,
+  },
+  {
+    id: 'arbeitszeugnis-luebeck-cms',
+    name: 'Von Schulleiter - 2018 (2.Seite)',
     url: arbeitszeugnisLuebeck,
   },
   {
     id: 'empfehlung-hfk',
     name: 'Von meinem Professor - 2017',
     url: empfehlungHfk,
+  },
+  {
+    id: 'empfehlung-inline-kurier',
+    name: 'iKV Hamburg - 2018',
+    url: empfehlungInline,
+  },
+  {
+    id: 'webdesign-usability-certificate',
+    name: 'Webmasters Europe e.V. - 2021',
+    url: webdesignZeugnis,
+  },
+  {
+    id: 'moderne-webanwendungen-mit-javascript-certificate',
+    name: 'Webmasters Europe e.V. - 2022',
+    url: javascriptZeugnis,
+  },
+  {
+    id: 'moderne-webanwendungen-mit-php-mysql-certificate',
+    name: 'Webmasters Europe e.V. - 2022',
+    url: phpZeugnis,
   },
 ];
 
