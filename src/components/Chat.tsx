@@ -8,7 +8,7 @@ import chatgtp from '../assets/logos/chatgpt.svg';
 const theme = themes[2];
 
 const colors = {
-  dot: '#eee',
+  dot: '#5cbe61',
   text: theme.left[0],
   background: theme.left[1],
   question: theme.right[2],
@@ -70,15 +70,14 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
 
   return (
     <>
-      <button
-        className="question-button text-sm md:text-[12pt] block py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300"
-        onClick={handleOnClick}
-        style={{
-          backgroundColor: colors.question,
-        }}
-      >
-        "{text}"
-      </button>
+      <div className="group">
+        <button
+          className="relative question-button bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] text-sm md:text-[12pt] block py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300 shadow-md group-hover:shadow-xl group-hover:scale-[1.05] group-hover:-translate-y-[.3rem] -translate-y-1.5"
+          onClick={handleOnClick}
+        >
+          "{text}"
+        </button>
+      </div>
     </>
   );
 };
@@ -106,7 +105,7 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
     return (
       <>
         <div
-          className={`w-3 h-3 p-2 inline-block mr-1 rounded-2xl mt-1 transition-all`}
+          className={`w-2 h-2 p-2 inline-block mx-[4px] rounded-2xl mt-[5px] transition-all`}
           style={{
             animationDelay: `${delay}ms`,
             animationDuration: '500ms',
@@ -156,7 +155,7 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
   useEffect(() => {
     setTimeout(() => {
       addWord(text, 0, text.split(' '));
-    }, generateRandomNumber(1500, 2500));
+    }, generateRandomNumber(3000, 4500));
   }, []);
 
   const ShowParagraphs: React.FC = () => {
@@ -178,14 +177,12 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
           </div>
         </div>
         <div
-          className="chat-bubble"
+          className="chat-bubble before:bg-[#5cbe61] bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-[#222] p-1"
           id="current-bubble"
-          style={{
-            backgroundColor: colors.answer,
-            color: colors.answerText,
-          }}
         >
-          {!paragraph ? <WaitingAnimation /> : <ShowParagraphs />}
+          <div className="bg-[#eeeeeee4] rounded-[11px] px-3.5 py-2">
+            {!paragraph ? <WaitingAnimation /> : <ShowParagraphs />}
+          </div>
         </div>
       </div>
     </>
@@ -196,9 +193,9 @@ const QuestionMessage: React.FC<IQuestionMessage> = ({ text }) => {
 
   return (
     <>
-      <div className="chat chat-end mt-4 mb-2">
+      <div className="chat chat-end mt-1 mb-1">
         <div
-          className="chat-bubble"
+          className="chat-bubble before:bg-[#a8c923] chat-end bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-sm md:text-[12pt] block py-2 px-4 rounded-xl my-3 italic font-weight-300"
           style={{
             backgroundColor: colors.question,
             color: colors.questionText,
@@ -215,7 +212,7 @@ const Chat = () => {
     <>
       <div className="md:container md:mx-auto mb-[300px] w-[98%] md:w-auto mx-1">
         <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2>
-        <div id="chat" className="text-sm md:text-[12pt] max-w-[1000px] mx-auto">
+        <div id="chat" className="text-sm md:text-[12pt] max-w-[1000px] mx-auto leading-relaxed">
           {/* Here come the messages */}
         </div>
         {/* <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div> */}
