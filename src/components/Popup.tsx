@@ -197,14 +197,14 @@ const Popup: React.FC<IPopup> = ({
             {/* Image */}
             {image &&
               <>
-                <div className="relative w-[100%] mx-auto">
+              <div className="relative w-[100%] mx-auto">
                   <img
-                  className="max-w-[200px] object-cover rounded-md shadow-sm mx-auto"
+                  className="max-h-[200px] object-cover rounded-md drop-shadow-sm mx-auto"
                   src={image.img}
                   alt={image.img}
                 />
                 <div
-                  className="text-[8pt] whitespace-nowrap text-center"
+                  className="text-[8pt] whitespace-nowrap text-center mt-2"
                 >
                   {image.credits}
                 </div>
