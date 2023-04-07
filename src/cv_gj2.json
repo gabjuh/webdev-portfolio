@@ -442,8 +442,8 @@
         ],
         "year": 2020,
         "showYear": true,
-        "description": "Layout Design für die CD In Dialogo von Concerto Foscari. Die CD wurde im Rahmen des Projekts \"In Dialogo\" produziert.",
-        "img": "in-dialogo.png",
+        "description": "CD Layout Design erstellt für Ensemble Concerto Foscari. Es wurde im Rahmen des Projekts \"In Dialogo\" produziert.",
+        "image": "in_dialogo",
         "link": "https://www.alon-sariel.com/discography/#cc-m-11491149795",
         "end": 2021
       },
@@ -472,7 +472,11 @@
         ],
         "year": 2017,
         "showYear": true,
-        "description": "Zeitnah übernahm ich in der Lübecker Musikschule die Pflege und Betreuung der Website (Joomla). Außerdem aufrüstete ich die PCs und Notebooks der Musikschule, Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt weniger als 2 Stunden pro Woche in Anspruch."
+        "description": "Zeitnah übernahm ich in der Lübecker Musikschule die Pflege und Betreuung der Website (Joomla). Außerdem aufrüstete ich die PCs und Notebooks der Musikschule, Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt weniger als 2 Stunden pro Woche in Anspruch.",
+        "link": "https://luebeckermusikschule.de/",
+        "recommendations": [
+          "arbeitszeugnis-luebeck-cms"
+        ]
       },
       "layout": {
         "level": 1,
@@ -502,7 +506,11 @@
         "showYear": true,
         "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt wurde in PHP7, HTML5 und CSS3 programmiert und ist vollständig responsive.",
         "recommendation": "#",
-        "end": 2018
+        "end": 2018,
+        "image": "inline_preview",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ]
       },
       "layout": {
         "level": 2,
@@ -535,7 +543,8 @@
         "year": 2018,
         "showYear": true,
         "description": "Ich interessierte mich schon immer Webseiten zu bauen, aber ich hatte nie die Zeit dafür. Als ich dann 2018 meine erste Webseite für einen Kunden gebaut habe, war ich sofort Feuer und Flamme. Seitdem habe ich viele weitere Webseiten für Musiker:innen gebaut. Ich habe mich dabei auf Wordpress spezialisiert, da es sehr einfach zu bedienen ist und viele nützliche Plugins bietet, und die Kunden können ihre Webseite selbst pflegen.",
-        "end": 2022
+        "end": 2022,
+        "image": "musiker_portfolio"
       },
       "layout": {
         "level": 2,
@@ -600,8 +609,9 @@
         "year": 2021,
         "showYear": true,
         "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
-        "certificate": "#",
-        "end": 2021
+        "certificate": "webdesign-usability-certificate",
+        "end": 2021,
+        "image": "memory_2"
       },
       "layout": {
         "level": 3,
@@ -637,7 +647,9 @@
         "year": 2021,
         "showYear": true,
         "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
-        "certificate": "#"
+        "certificate": "moderne-webanwendungen-mit-javascript-certificate",
+        "image": "puzzle",
+        "link": "https://puzzle.gaborjuhasz.de/"
       },
       "layout": {
         "level": 3,
@@ -667,8 +679,9 @@
         "year": 2021,
         "showYear": true,
         "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
-        "certificate": "#",
-        "end": 2022
+        "certificate": "moderne-webanwendungen-mit-php-mysql-certificate",
+        "end": 2022,
+        "image": "stablegram"
       },
       "layout": {
         "level": 3,
