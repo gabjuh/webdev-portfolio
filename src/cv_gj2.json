@@ -43,7 +43,8 @@
         "institute": "500.sz. Angster J. Fachmittelschule",
         "year": 2000,
         "end": 2004,
-        "description": "Elektrotechnik und Informationstechnik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
+        "certificate": "elektrotechnik-abitur",
+        "description": "Elektrotechnik und Informatik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
         "showYear": true
       },
       "layout": {
@@ -71,7 +72,7 @@
         "institute": "Czipernovsky Fachmittelschule",
         "year": 2004,
         "showYear": true,
-        "certificate": "#",
+        "certificate": "software_operator_technikum",
         "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich erhielt den Technikum Zertifikat.",
         "end": 2005
       },
@@ -167,7 +168,7 @@
         "institute": "Universität Pécs (BA)",
         "year": 2007,
         "showYear": true,
-        "certificate": "#",
+        "certificate": "diplom-gitarre",
         "description": "An der Universität Pécs, Künstlerische Fakultät studierte ich die klassische Gitarre. Ich erhielt den BA Dimplom mit Auszeichnung.",
         "end": 2010
       },
@@ -177,22 +178,6 @@
         "branch": "stock",
         "side": "right",
         "open": "start"
-      }
-    },
-    {
-      "content": {
-        "slug": "universitaet_pecs_klassische_gitarre_diplom_konzert",
-        "name": "Diplomkonzert",
-        "typeOfActivity": "Studium",
-        "categories": [
-          "education",
-          "music"
-        ],
-        "institute": "Universität Pécs (BA)",
-        "year": 2010,
-        "showYear": true,
-        "certificate": "#",
-        "description": ""
       }
     },
     {
@@ -254,7 +239,7 @@
         "year": 2013,
         "showYear": true,
         "description": "Nach diesem intensiven Deutschkurs bestand ich die B1 Prüfung. Die erlernte Grundkenntnisse der deutschen Sprache sind mir sehr nützlich gewesen, was ich seit dem jeden Tag nutze und verbessere.",
-        "certificate": "#",
+        "certificate": "b1-deutsch",
         "isMajor": true
       }
     },
@@ -275,7 +260,7 @@
         "year": 2013,
         "showYear": true,
         "description": "Die Grundlagen der Theorbe und des Basso Continuo erlernte ich hier. Nach dem ersten Schuljahr erhaltete ich die Schulabschluss Prüfung mit Auszeichnung.",
-        "certificate": "#",
+        "certificate": "zertifikat-halle",
         "end": 2014
       },
       "layout": {
@@ -303,7 +288,10 @@
           "Basso Continuo"
         ],
         "institute": "Hochschule für Künste Bremen (BA)",
-        "certificate": "#",
+        "certificate": "diplom-laute",
+        "recommendations": [
+          "empfehlung-hfk-bremen"
+        ],
         "year": 2014,
         "showYear": true,
         "description": "An der Hochschule für Künste Bremen studierte ich verschiedene Zupfinstrumente sowie Musiktheorie, Musikgeschichte, Basso Continuo und Improvisation.",
@@ -330,6 +318,10 @@
         "year": 2014,
         "showYear": true,
         "description": "Als Gitarrendozent arbeitete ich in der Lübecker Musikschule. Außer Einzelunterrichten leitete ich die Gitarrenklassen sowie das Projekt Early Music Birds mit, wo wir mit sozial benachteiligten Kinder gemeinsam Musik gemacht haben. Dort war ich für die Laute zuständig.",
+        "recommendations": [
+          "empfehlung-schueler",
+          "arbeitszeugnis-luebeck"
+        ],
         "end": 2018
       },
       "layout": {
@@ -372,8 +364,10 @@
         ],
         "year": 2015,
         "showYear": true,
-        "description": "Als Musiker war ich mehreren Jahren lang in verschiedenen Ensembles und Formationen aktiv, und habe Konzerte in Italien, England, Frankreich, Ungarn, Romänien und natürlich auch in Deutschland gegeben.",
-        "end": 2020
+        "description": "Als Musiker war ich mehreren Jahren lang in verschiedenen Ensembles und Formationen aktiv, und habe Konzerte in Italien, England, Frankreich, Ungarn, Romänien und natürlich auch in Deutschland gegeben.|Am wichtigsten war die Zusammenarbeit mit der Ensemble PRISMA. Wir haben gemeinsam ein Programm 'Il Transilvano' entwickelt, welches wir in verschiedenen Konzerten aufgeführt, und in Frankreich sogar aufgenommen haben.",
+        "link": "https://www.amazon.de/transilvano-Prisma/dp/B08N3QYSXS",
+        "end": 2020,
+        "image": "prisma"
       },
       "layout": {
         "level": 3,
