@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import data from '../data/credits/credits'
 
 // Components
-import Field from './Field';
+import Fields from './Fields';
 import Hero from './Hero';
 import Prompt from './Prompt';
 
@@ -17,17 +17,18 @@ import { scrollToId } from '../helpers/pageNavigation';
 
 const Stack: React.FC = () => {
 
-  // States
-  const [showIndexes, setShowIndexes] = useState<Boolean>(false);
+  // Show indexes in order to able to identify and change fields
+  const [showIndexes, setShowIndexes] = useState<boolean>(false);
+
+  // The active field is the field that is hovered or clicked
   const [activeField, setActiveField] = useState<number | null>(null);
 
-  // Consts
-  // Field size
+  // Field settings
   const size: number = 60;
   const bigFieldSize: number = size * 2.3;
   const fieldColor: string = '#464';
 
-  // Grid
+  // Grid settings
   const cols: number = 10;
   const gap: number = 17;
   const nrOfFields: number = 90;
@@ -54,89 +55,89 @@ const Stack: React.FC = () => {
   // Create an array with the given number of fields
   const fieldArray = [...Array(nrOfFields)].map((_, i) => i).filter(id => !skipList.includes(id));
 
-  const Fields = () => {
+  // const Fields = () => {
 
-    const [licensedLogos, setLicensedLogos] = useState<string[]>([]);
+  //   const [licensedLogos, setLicensedLogos] = useState<string[]>([]);
 
-    const addLicensedLogo = (name: string) => {
-      setLicensedLogos(prev => [...prev, name]);
-    };
+  //   const addLicensedLogo = (name: string) => {
+  //     setLicensedLogos(prev => [...prev, name]);
+  //   };
 
-    const isLicensedLogo = (name: string): boolean => data.some(item => item.fieldName === name)
+  //   const isLicensedLogo = (name: string): boolean => data.some(item => item.fieldName === name)
 
-    return (
-      <>
-        {fieldArray.map(id => {
-          let isBig = false;
-          let type: 'button' | undefined;
-          let isHidden = hiddenFields.includes(id);
-          let name = '';
-          let width = size;
-          let height = size;
-          let img = '';
-          let fn = null;
-          let isLicensed: boolean | undefined = false;
-          const foundBigFieldObj = bigFields.find(obj => obj.index === id);
-          const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
+  //   return (
+  //     <>
+  //       {fieldArray.map(id => {
+  //         let isBig = false;
+  //         let type: 'button' | undefined;
+  //         let isHidden = hiddenFields.includes(id);
+  //         let name = '';
+  //         let width = size;
+  //         let height = size;
+  //         let img = '';
+  //         let fn = null;
+  //         let isLicensed: boolean | undefined = false;
+  //         const foundBigFieldObj = bigFields.find(obj => obj.index === id);
+  //         const foundSmallFieldObj = smallFields.find(obj => obj.index === id);
 
-          // If the field is big, set the width and height to the bigFieldSize
-          if (foundBigFieldObj) {
-            width = bigFieldSize;
-            height = bigFieldSize;
-            isBig = true;
-            name = foundBigFieldObj.name;
-            img = foundBigFieldObj.img;
-            isLicensed = isLicensedLogo(name);
-          }
+  //         // If the field is big, set the width and height to the bigFieldSize
+  //         if (foundBigFieldObj) {
+  //           width = bigFieldSize;
+  //           height = bigFieldSize;
+  //           isBig = true;
+  //           name = foundBigFieldObj.name;
+  //           img = foundBigFieldObj.img;
+  //           isLicensed = isLicensedLogo(name);
+  //         }
 
-          // If the field is small, set the width and height to the size
-          if (foundSmallFieldObj) {
-            width = size;
-            height = size;
-            name = foundSmallFieldObj.name;
-            img = foundSmallFieldObj.img;
-            isLicensed = isLicensedLogo(name);
-          }
+  //         // If the field is small, set the width and height to the size
+  //         if (foundSmallFieldObj) {
+  //           width = size;
+  //           height = size;
+  //           name = foundSmallFieldObj.name;
+  //           img = foundSmallFieldObj.img;
+  //           isLicensed = isLicensedLogo(name);
+  //         }
 
-          // If the field is the downButton, set the name, typa, img and fn
-          if (id === downButton.index) {
-            name = 'arrow down';
-            type = 'button';
-            img = downButton.img;
-            fn = { scrollToId, id: 'cv' };
-            isLicensed = isLicensedLogo(name);
-          }
+  //         // If the field is the downButton, set the name, typa, img and fn
+  //         if (id === downButton.index) {
+  //           name = 'arrow down';
+  //           type = 'button';
+  //           img = downButton.img;
+  //           fn = { scrollToId, id: 'cv' };
+  //           isLicensed = isLicensedLogo(name);
+  //         }
 
-          return (
-            <React.Fragment key={id}>
-              {/* If the field is not hidden, render it from the given props */}
-              {!isHidden ? (
-                <Field
-                  name={name}
-                  img={img}
-                  size={[width, height]}
-                  isBig={isBig}
-                  pos={[0, 0]}
-                  color={fieldColor}
-                  i={id}
-                  showIndexes={showIndexes}
-                  cols={cols}
-                  activeField={activeField}
-                  setActiveField={setActiveField}
-                  nrOfFields={nrOfFields}
-                  fn={fn} type={'button'}
-                  isLicensed={isLicensed}
-                />
-              ) : (
-                // If the field is hidden, render an empty div with the same size as the field
-                <div style={{ width: `${size}px`, height: `${size}px` }}></div>
-              )}
-            </React.Fragment>
-          );
-        })}
-      </>
-    );
-  };
+  //         return (
+  //           <React.Fragment key={id}>
+  //             {/* If the field is not hidden, render it from the given props */}
+  //             {!isHidden ? (
+  //               <Field
+  //                 name={name}
+  //                 img={img}
+  //                 size={[width, height]}
+  //                 isBig={isBig}
+  //                 pos={[0, 0]}
+  //                 color={fieldColor}
+  //                 i={id}
+  //                 showIndexes={showIndexes}
+  //                 cols={cols}
+  //                 activeField={activeField}
+  //                 setActiveField={setActiveField}
+  //                 nrOfFields={nrOfFields}
+  //                 fn={fn} type={'button'}
+  //                 isLicensed={isLicensed}
+  //               />
+  //             ) : (
+  //               // If the field is hidden, render an empty div with the same size as the field
+  //               <div style={{ width: `${size}px`, height: `${size}px` }}></div>
+  //             )}
+  //           </React.Fragment>
+  //         );
+  //       })}
+  //     </>
+  //   );
+  // };
 
   return (
     <>
@@ -145,7 +146,22 @@ const Stack: React.FC = () => {
           <div className="relative">
             <div className="grid grid-cols-8">
               <div className={`lg:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
-                <Fields />
+                <Fields
+                  fieldArray={fieldArray}
+                  bigFields={bigFields}
+                  smallFields={smallFields}
+                  downButton={downButton}
+                  hiddenFields={hiddenFields}
+                  size={size}
+                  bigFieldSize={bigFieldSize}
+                  fieldColor={fieldColor}
+                  cols={cols}
+                  nrOfFields={nrOfFields}
+                  showIndexes={showIndexes}
+                  activeField={activeField}
+                  setActiveField={setActiveField}
+                  scrollToId={scrollToId}
+                />
               </div>
               <Hero scrollToId={scrollToId} />
             </div>
