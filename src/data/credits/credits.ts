@@ -1,5 +1,8 @@
 import { ICredits } from '../../interfaces/credits';
 
+// https://www.vectorstock.com/faq/members/standard-license
+
+
 const credits: ICredits[] = [
   {
     name: 'Photoshop SVG Vector',
