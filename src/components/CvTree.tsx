@@ -12,8 +12,8 @@ import { Year, Text } from './Text';
 import downArrow from '../assets/logos/down-arrow.svg';
 
 //  Data
-import raw_data from '../cv_gj2.json';
-import raw_categories from '../categories.json';
+import raw_data from '../data/cv/cv_gj2.json';
+import raw_categories from '../data/cv/categories.json';
 import themes from '../themes.json';
 import { horisontalPositions, breakpoints } from '../data/positions/horisontalPositions';
 import images from '../data/tree/images';
