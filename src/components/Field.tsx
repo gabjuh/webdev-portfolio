@@ -5,9 +5,7 @@ interface IField {
   img: string;
   size: number[];
   isBig: Boolean;
-  type: 'empty' | 'normal' | 'smallWithIco' | '2x1' | '2x2' | 'button';
   pos: number[];
-  color: string;
   i: number;
   showIndexes: Boolean;
   cols: number;
@@ -26,9 +24,7 @@ const Field: React.FC<IField> = ({
   img,
   size,
   isBig,
-  type,
   pos,
-  color,
   i,
   showIndexes,
   cols,
