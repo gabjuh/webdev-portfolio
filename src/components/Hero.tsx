@@ -1,5 +1,5 @@
 import React from 'react';
-import profil_img from '../assets/profile2.jpg';
+import profil_img from '../assets/images/profile2.jpg';
 import downArrow from '../assets/logos/down-arrow.svg';
 
 interface IHero {
