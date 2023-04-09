@@ -6,22 +6,8 @@ import Field from './Field';
 // Data
 import data from '../data/credits/credits';
 
-interface IFields {
-  fieldArray: number[];
-  bigFields: { index: number; name: string; img: string; }[];
-  smallFields: { index: number; name: string; img: string; }[];
-  downButton: { index: number; img: string; };
-  hiddenFields: number[];
-  size: number;
-  bigFieldSize: number;
-  fieldColor: string;
-  showIndexes: boolean;
-  cols: number;
-  activeField: number | null;
-  setActiveField: React.Dispatch<React.SetStateAction<number | null>>;
-  nrOfFields: number;
-  scrollToId: (id: string) => void;
-}
+// Interfaces
+import { IFields } from '../interfaces/Fields';
 
 const Fields: React.FC<IFields> = ({
   fieldArray,
@@ -40,13 +26,13 @@ const Fields: React.FC<IFields> = ({
   scrollToId,
 }) => {
 
+  // Check if the logo is licensed
   const isLicensedLogo = (name: string): boolean => data.some(item => item.fieldName === name);
 
   return (
     <>
       {fieldArray.map(id => {
         let isBig = false;
-        let type: 'button' | undefined;
         let isHidden = hiddenFields.includes(id);
         let name = '';
         let width = size;
@@ -79,7 +65,6 @@ const Fields: React.FC<IFields> = ({
         // If the field is the downButton, set the name, typa, img and fn
         if (id === downButton.index) {
           name = 'arrow down';
-          type = 'button';
           img = downButton.img;
           fn = { scrollToId, id: 'cv' };
           isLicensed = isLicensedLogo(name);
@@ -95,14 +80,13 @@ const Fields: React.FC<IFields> = ({
                 size={[width, height]}
                 isBig={isBig}
                 pos={[0, 0]}
-                color={fieldColor}
                 i={id}
                 showIndexes={showIndexes}
                 cols={cols}
                 activeField={activeField}
                 setActiveField={setActiveField}
                 nrOfFields={nrOfFields}
-                fn={fn} type={'button'}
+                fn={fn}
                 isLicensed={isLicensed}
               />
             ) : (
