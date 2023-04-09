@@ -1,15 +1,15 @@
-import boy from '../../assets/baby-sculptur-boy.png';
-import girl from '../../assets/baby-sculptur-girl.png';
-import wedding from '../../assets/wedding5.png';
-import drive from '../../assets/auto_driving.png';
-import baby from '../../assets/baby3.png';
-import transilvano from '../../assets/prisma_il_transilvano.jpg'
-import inline from '../../assets/inline_preview_2.png';
-import musikerPortfolio from '../../assets/musiker_portfolio_2.png';
-import inDialogo from '../../assets/in_dialogo.png';
-import memory from '../../assets/memory_2.jpg';
-import puzzle from '../../assets/puzzle.png';
-import stablegram from '../../assets/stablegram.png';
+import boy from '../../assets/images/baby-sculptur-boy.png';
+import girl from '../../assets/images/baby-sculptur-girl.png';
+import wedding from '../../assets/images/wedding5.png';
+import drive from '../../assets/images/auto_driving.png';
+import baby from '../../assets/images/baby3.png';
+import transilvano from '../../assets/images/prisma_il_transilvano.jpg';
+import inline from '../../assets/images/inline_preview_2.png';
+import musikerPortfolio from '../../assets/images/musiker_portfolio_2.png';
+import inDialogo from '../../assets/images/in_dialogo.png';
+import memory from '../../assets/images/memory_2.jpg';
+import puzzle from '../../assets/images/puzzle.png';
+import stablegram from '../../assets/images/stablegram.png';
 
 interface IImages {
   name: string;
