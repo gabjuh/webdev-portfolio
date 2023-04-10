@@ -1,4 +1,4 @@
-import { IFieldConfig } from '../interfaces/FieldConfig';
+import IFieldConfig from '../interfaces/FieldConfig';
 
 export const fieldConfig: IFieldConfig = {
   size: 60,
