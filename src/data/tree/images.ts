@@ -8,7 +8,7 @@ import inline from '../../assets/images/inline_preview_2.png';
 import musikerPortfolio from '../../assets/images/musiker_portfolio_2.png';
 import inDialogo from '../../assets/images/in_dialogo.png';
 import memory from '../../assets/images/memory_2.jpg';
-import puzzle from '../../assets/images/puzzle.png';
+import puzzle from '../../assets/images/puzzle_2.png';
 import stablegram from '../../assets/images/stablegram.png';
 
 interface IImages {
