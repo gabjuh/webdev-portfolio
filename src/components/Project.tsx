@@ -1,5 +1,5 @@
 import React from 'react';
-import { images } from './images';
+// import { images } from './images';
 
 interface IProject {
   key: number;
@@ -21,7 +21,7 @@ const Project: React.FC<IProject> = ({
     <>
       {/* img */}
       <div className="md:cols-1">
-        <img className="lg:w-[400px]" src={images[img]} alt="" />
+        {/* <img className="lg:w-[400px]" src={images[img]} alt="" /> */}
       </div>
       <div className="md:cols-1 md:text-left pr-5 my-10">
 
