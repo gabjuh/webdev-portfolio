@@ -53,7 +53,6 @@ const CvTree: React.FC = ({ }) => {
 
   const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
 
-
   // Get timeline position
   const getTimelinePosition = (): number => getPosition('timelinePos', viewWidth);
 
@@ -61,13 +60,11 @@ const CvTree: React.FC = ({ }) => {
   const [timelineHeight, setTimelineHeight] = useState<number>(step * items.length + 120);
   const [timelineHorisontalPosition, setTimelineHorisontalPosition] = useState<number>(getTimelinePosition());
 
-
   // Get the horizontal position of the popup, title and text
   const getPopupHorizontalPosition = (): number => getPosition('popupPos', viewWidth) + timelineHorisontalPosition;
   const getTitleHorizontalPosition = (): number => getPosition('titlePos', viewWidth) + timelineHorisontalPosition;
   const getTextHorizontalPosition = (): number => getPosition('textPos', viewWidth) + timelineHorisontalPosition;
   const getYearHorizontalPosition = (): number => getPosition('yearPos', viewWidth) + timelineHorisontalPosition;
-
 
   // Svg
   const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 250);
@@ -244,7 +241,6 @@ const CvTree: React.FC = ({ }) => {
       setChangePopupDirection(undefined);
     };
 
-
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
@@ -272,7 +268,6 @@ const CvTree: React.FC = ({ }) => {
     };
 
   }, []);
-
 
   const handleResize = () => {
     setViewWidth(getViewWidth());
@@ -308,7 +303,6 @@ const CvTree: React.FC = ({ }) => {
 
     return length;
   };
-
 
   // Bind Point and Text hover effects
   // Point
@@ -356,7 +350,6 @@ const CvTree: React.FC = ({ }) => {
 
         {/* svg wrapper */}
         <div className={`relative xs:container mx-auto pt-[100px] z-0`} >
-          {/* md:-translate-x-[115px] lg:-translate-x-[100px] xl:-translate-x-[80px] xl:w-[100%] lg:w-[820px] md:w-[470px] w-[390px]  */}
 
           <svg
             height={svgHeight}
@@ -370,7 +363,6 @@ const CvTree: React.FC = ({ }) => {
           `}
           >
             <g transform="translate(0, 23)">
-
 
               {/* Loop of items */}
               {items.map((_, i, a) => {
@@ -524,7 +516,6 @@ const CvTree: React.FC = ({ }) => {
                       verticalPosition={getPopupVerticalPosition(index)}
                       timelineHorisontalPosition={getPopupHorizontalPosition()}
                       titleHorisontalPosition={getTitleHorizontalPosition()}
-                      // timelineHorisontalPosition={timelineHorisontalPosition}
                       showPopup={showPopup}
                       setShowPopup={setShowPopup}
                       layout={item.layout}
