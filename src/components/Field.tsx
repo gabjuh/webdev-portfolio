@@ -1,26 +1,11 @@
 import React, { useState } from 'react';
 
+// Components
 import { IFieldStyles } from '../interfaces/FieldStyles';
-import { useFieldStyles } from '../helpers/generateFieldStyle';
+import { IField } from '../interfaces/Field';
 
-interface IField {
-  name: string;
-  img: string;
-  size: number[];
-  isBig: boolean;
-  pos: number[];
-  i: number;
-  showIndexes: boolean;
-  cols: number;
-  activeField: number | null;
-  setActiveField: (i: number | null) => void;
-  nrOfFields: number;
-  fn?: {
-    scrollToId: (id: string) => void;
-    id: string;
-  } | null;
-  isLicensed?: boolean;
-}
+// Hooks
+import { useFieldStyles } from '../helpers/generateFieldStyle';
 
 const Field: React.FC<IField> = ({
   name,
@@ -38,6 +23,7 @@ const Field: React.FC<IField> = ({
   isLicensed
 }) => {
 
+  // Generate the styles for the field and use its helpers
   const { stylesDefault, stylesOnHover, stylesOnClick, increaseOpacity } = useFieldStyles(
     nrOfFields,
     cols,
@@ -46,10 +32,15 @@ const Field: React.FC<IField> = ({
     pos,
   )
 
+  // Set the field style
+  const [fieldStyle, setFieldStyle] = useState<IFieldStyles>(stylesDefault);
+
+  // By hover the field lifts up
   const handleMouseEnter = () => {
     setFieldStyle(stylesOnHover)
   };
 
+  // By leaving the field, it goes back to its default style
   const handleMouseLeave = () => {
     setActiveField(null)
     setTimeout(() => {
@@ -57,21 +48,16 @@ const Field: React.FC<IField> = ({
     }, 700)
   };
 
+  // By clicking the field, it goes down to the clicked style
   const handleOnMouseDown = () => {
     setFieldStyle(stylesOnClick)
     setActiveField(activeField === null ? i : null)
   }
 
+  // By releasing the mouse button, the field goes back to its default style (to the hovered style)
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
   };
-
-  const handleOnClick = () => {
-    setFieldStyle(stylesOnClick);
-    // setActiveField(null);
-  }
-
-  const [fieldStyle, setFieldStyle] = useState<IFieldStyles>(stylesDefault);
 
   return (
     <div
@@ -81,7 +67,6 @@ const Field: React.FC<IField> = ({
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleOnMouseDown}
       onMouseUp={!fn ? handleOnMouseUp : () => fn.scrollToId(fn.id)}
-      // onClick={handleOnClick}
     >
       <div className="text-center h-[100%]">
         <div className="absolute top-[50%] -translate-y-[56%] left-0 right-0">
