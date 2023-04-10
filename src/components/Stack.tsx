@@ -12,10 +12,12 @@ import hiddenFields from '../data/stack/hiddenFields';
 import downButton from '../data/stack/downButton';
 
 // Config
-import { fieldConfig } from '../config/field.conf';
+import fieldConfig from '../config/field.conf';
+import fieldsConfig from '../config/fields.conf';
 
 // Interfaces
 import FieldConfig from '../interfaces/FieldConfig';
+import FieldsConfig from '../interfaces/FieldsConfig';
 
 // Helpers
 import { scrollToId } from '../helpers/pageNavigation';
@@ -32,10 +34,8 @@ const Stack: React.FC = () => {
   const { size, bigFieldSizeFactor, fieldColor }: FieldConfig = fieldConfig;
   const bigFieldSize: number = size * bigFieldSizeFactor;
 
-  // Grid settings
-  const cols: number = 10;
-  const gap: number = 17;
-  const nrOfFields: number = 90;
+  // Fields and Grid settings
+  const { cols, gap, nrOfFields }: FieldsConfig = fieldsConfig;
 
   // The given indeses in the skipList will be skipped from rendering
   const skipList: number[] = [];
