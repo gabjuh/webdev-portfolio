@@ -11,6 +11,12 @@ import smallFields from '../data/stack/smallFields';
 import hiddenFields from '../data/stack/hiddenFields';
 import downButton from '../data/stack/downButton';
 
+// Config
+import { fieldConfig } from '../config/field.conf';
+
+// Interfaces
+import FieldConfig from '../interfaces/FieldConfig';
+
 // Helpers
 import { scrollToId } from '../helpers/pageNavigation';
 
@@ -23,9 +29,8 @@ const Stack: React.FC = () => {
   const [activeField, setActiveField] = useState<number | null>(null);
 
   // Field settings
-  const size: number = 60;
-  const bigFieldSize: number = size * 2.3;
-  const fieldColor: string = '#464';
+  const { size, bigFieldSizeFactor, fieldColor }: FieldConfig = fieldConfig;
+  const bigFieldSize: number = size * bigFieldSizeFactor;
 
   // Grid settings
   const cols: number = 10;
