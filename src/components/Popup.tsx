@@ -246,7 +246,7 @@ const Popup: React.FC<IPopup> = ({
             {recommendations.length > 0 && (
               recommendations.map((recommendation: IPdf, i: number) => {
                 return (
-                  <div>
+                  <div key={`recommendations_${content.slug}_${i}`}>
                     {Button(`Empfehlung`, recommendation, isRecommendationUrl)}
                   </div>
                 );
