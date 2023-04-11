@@ -67,7 +67,7 @@ const CvTree: React.FC = ({ }) => {
   const getYearHorizontalPosition = (): number => getPosition('yearPos', viewWidth) + timelineHorisontalPosition;
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 100);
+  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 220);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const timelineStartPos = svgWidth / 2;
