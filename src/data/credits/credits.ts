@@ -214,7 +214,7 @@ const credits: ICredits[] = [
     fieldName: 'arrow down'
   },
   {
-    name: 'Stack Overflow Fill SVG Vektor',
+    name: 'Stack Overflow Fill SVG Vector',
     nameLink: 'https://www.svgrepo.com/svg/378465/stack-overflow-fill',
     author: 'artcoholic',
     authorLink: 'https://www.svgrepo.com/author/artcoholic/',
@@ -224,7 +224,7 @@ const credits: ICredits[] = [
     fieldName: 'Stack Overflow'
   },
   {
-    name: 'Github SVG Vektor',
+    name: 'Github SVG Vector',
     nameLink: 'https://www.svgrepo.com/svg/501576/github',
     author: 'instructure-ui',
     authorLink: 'https://www.svgrepo.com/author/instructure-ui/',
@@ -234,7 +234,7 @@ const credits: ICredits[] = [
     fieldName: 'Github'
   },
   {
-    name: 'ChatGPT SVG Vektor',
+    name: 'ChatGPT SVG Vector',
     nameLink: 'https://uxwing.com/chatgpt-icon/',
     author: 'instructure-ui',
     authorLink: 'https://www.svgrepo.com/author/instructure-ui/',
@@ -242,6 +242,26 @@ const credits: ICredits[] = [
     licenseLink: 'https://uxwing.com/license/',
     changes: 'background color removed, color changed to black',
     fieldName: 'ChatGPT'
+  },
+  {
+    name: 'Linkedin SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/450202/linkedin',
+    author: 'ShopWare',
+    authorLink: 'https://www.svgrepo.com/author/ShopWare/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'color changed',
+    fieldName: 'LinkedIn'
+  },
+  {
+    name: 'Facebook SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/506656/facebook',
+    author: 'blivesta',
+    authorLink: 'https://www.svgrepo.com/author/blivesta/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'LinkedIn'
   },
 
 ];
