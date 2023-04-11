@@ -67,7 +67,7 @@ const CvTree: React.FC = ({ }) => {
   const getYearHorizontalPosition = (): number => getPosition('yearPos', viewWidth) + timelineHorisontalPosition;
 
   // Svg
-  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 250);
+  const [svgHeight, setSvgHeight] = useState<number>(timelineHeight + 100);
   const [svgWidth, setSvgWidth] = useState<number>(general.width);
 
   const timelineStartPos = svgWidth / 2;
@@ -335,16 +335,30 @@ const CvTree: React.FC = ({ }) => {
               />
             </React.Fragment>
           ))}
+
+            {/* Arrow up */}
           <button
               onMouseUp={() => { scrollToId('home'); }}
             className="cursor-pointer"
           >
               <div className="p-3 rounded-2xl group">
                 <img src={downArrow} alt="Arrow"
-                  className="rotate-180 w-[.85rem] -translate-y-[.1rem] group-hover:-translate-y-[.5rem] transition-all duration-150"
+                  className="rotate-180 w-[.85rem] -translate-y-[.1rem] group-hover:-translate-y-[.4rem] transition-all duration-150"
                 />
               </div>
-          </button>
+            </button>
+
+            {/* Arrow down */}
+            <button
+              onMouseUp={() => { scrollToId('chat'); }}
+              className="cursor-pointer"
+            >
+              <div className="p-3 rounded-2xl group">
+                <img src={downArrow} alt="Arrow"
+                  className="w-[.85rem] -translate-y-[.1rem] group-hover:translate-y-[.2rem] transition-all duration-150"
+                />
+              </div>
+            </button>
         </div>
         </div>
 
@@ -355,12 +369,12 @@ const CvTree: React.FC = ({ }) => {
             height={svgHeight}
             width={svgWidth}
             className={`
-            w-[100%]
-            xl:w-[1200px]
-            relative
-            mx-auto
-            box-content
-          `}
+              w-[100%]
+              xl:w-[1200px]
+              relative
+              mx-auto
+              box-content
+            `}
           >
             <g transform="translate(0, 23)">
 
