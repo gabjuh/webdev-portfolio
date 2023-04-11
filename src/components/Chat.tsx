@@ -39,7 +39,7 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
   };
 
   const giveAnswer = (text: string) => {
-    const chat = document.querySelector('#chat');
+    const chat = document.querySelector('#chat-box');
     const containerElement = document.createElement('div');
     const answer = <AnswerMessage text={text} setIsWriting={setIsWriting} />;
     chat?.appendChild(containerElement);
@@ -55,7 +55,7 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
   }, [!isWriting])
 
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const chat = document.querySelector('#chat');
+    const chat = document.querySelector('#chat-box');
     const containerElement = document.createElement('div');
     containerElement.classList.add('opacity-0', 'transition-opacity', 'duration-[.5s]');
     setTimeout(() => {
@@ -72,7 +72,7 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
     <>
       <div className="group">
         <button
-          className="relative question-button bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] text-sm md:text-[12pt] block py-2 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300 shadow-md group-hover:shadow-xl group-hover:scale-[1.05] group-hover:-translate-y-[.3rem] -translate-y-1.5"
+          className="relative question-button bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300 shadow-md group-hover:shadow-xl group-hover:scale-[1.05] group-hover:-translate-y-[.3rem] -translate-y-1.5"
           onClick={handleOnClick}
         >
           "{text}"
@@ -195,7 +195,7 @@ const QuestionMessage: React.FC<IQuestionMessage> = ({ text }) => {
     <>
       <div className="chat chat-end mt-1 mb-1">
         <div
-          className="chat-bubble before:bg-[#a8c923] chat-end bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-sm md:text-[12pt] block py-2 px-4 rounded-xl my-3 italic font-weight-300"
+          className="chat-bubble before:bg-[#a8c923] chat-end bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl my-3 italic font-weight-300"
           style={{
             backgroundColor: colors.question,
             color: colors.questionText,
@@ -210,14 +210,14 @@ const Chat = () => {
 
   return (
     <>
-      <div className="md:container md:mx-auto mb-[300px] w-[98%] md:w-auto mx-1">
+      <div id="chat" className="relative min-h-[100vh] pt-[200px] md:container md:mx-auto w-[98%] md:w-auto mx-1">
         <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2>
-        <div id="chat" className="text-sm md:text-[12pt] max-w-[1000px] mx-auto leading-relaxed">
+        <div id="chat-box" className="relative text-sm md:text-[12pt] max-w-[1000px] mx-auto leading-relaxed">
           {/* Here come the messages */}
         </div>
         {/* <div className="border-t-[5px] border-t-[#aaa] rounded mt-10"></div> */}
         <div id="question-buttons" className="transition-all delay-[.2s] duration-[.5s] mt-10">
-          <div className="text-center text-[#fff]">
+          <div className="text-center text-[#fff] mb-[200px]">
             {questions.map((question) => (
               <QuestionButton key={question.id} text={question.text} />
             ))}
