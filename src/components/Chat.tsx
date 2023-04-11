@@ -18,6 +18,8 @@ const colors = {
   avatarBg: theme.left[1],
 }
 
+const gradient = `from-[#5cbe61] via-[#009f81] to-[#a8c923]`
+
 const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
 
   const [isWriting, setIsWriting] = useState<boolean>(false);
@@ -68,12 +70,17 @@ const QuestionButton: React.FC<IQuestionButton> = ({ text }) => {
     giveAnswer(questions.find(q => q.text === text)?.answer || 'Sorry, I don\'t know that.');
   };
 
+  const gradientPositions = [70, 100];
+
   return (
     <>
       <div className="group">
         <button
-          className="relative question-button bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300 shadow-md group-hover:shadow-xl group-hover:scale-[1.05] group-hover:-translate-y-[.3rem] -translate-y-1.5"
+          className="relative question-button text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl transition-all duration-[.3s] mx-auto my-3 italic font-weight-300 shadow-md group-hover:shadow-xl group-hover:scale-[1.05] group-hover:-translate-y-[.3rem] -translate-y-1.5"
           onClick={handleOnClick}
+          style={{
+            backgroundImage: `linear-gradient(to right, #009f81 ${gradientPositions[0]}%, #5cbe61 ${gradientPositions[1]}%)`,
+          }}
         >
           "{text}"
         </button>
@@ -177,7 +184,7 @@ const AnswerMessage: React.FC<IAnswerMessage> = ({ text, setIsWriting }) => {
           </div>
         </div>
         <div
-          className="chat-bubble before:bg-[#5cbe61] bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-[#222] p-1"
+          className="chat-bubble before:bg-[#009f81] bg-gradient-to-r from-[#009f81_70%] to-[#5cbe61] shadow-md before:shadow-md text-[#222] p-1"
           id="current-bubble"
         >
           <div className="bg-[#eeeeeee4] rounded-[11px] px-3.5 py-2">
@@ -195,7 +202,7 @@ const QuestionMessage: React.FC<IQuestionMessage> = ({ text }) => {
     <>
       <div className="chat chat-end mt-1 mb-1">
         <div
-          className="chat-bubble before:bg-[#a8c923] chat-end bg-gradient-to-r from-[#5cbe61] via-[#009f81] to-[#a8c923] shadow-md before:shadow-md text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl my-3 italic font-weight-300"
+          className="chat-bubble before:bg-[#5cbe61] chat-end bg-gradient-to-r from-[#009f81_70%] to-[#5cbe61] shadow-md before:shadow-md text-sm md:text-[12pt] block py-2.5 px-4 rounded-xl my-3 italic font-weight-300"
           style={{
             backgroundColor: colors.question,
             color: colors.questionText,
