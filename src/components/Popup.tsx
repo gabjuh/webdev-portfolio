@@ -41,7 +41,9 @@ const Popup: React.FC<IPopup> = ({
 }) => {
 
   const contentId: string = `content_${content.slug}`;
-  const [contentHeight, setContentHeight] = useState<number>(240);
+  const contentMinHeight: number = 120;
+  const [contentHeight, setContentHeight] = useState<number>(contentMinHeight);
+  const marginBottom: number = 40;
   const showCategories: boolean = true;
 
   const x = timelineHorisontalPosition;
@@ -102,7 +104,12 @@ const Popup: React.FC<IPopup> = ({
   }
 
   useEffect(() => {
-    setContentHeight(getContentHeight() + 40);
+    const contentHeight = getContentHeight();
+    if (contentHeight < 100) {
+      setContentHeight(contentMinHeight);
+    } else {
+      setContentHeight(contentHeight + marginBottom);
+    };
   });
 
   const isArrowUpClickable = () => !(index <= 1);
@@ -140,25 +147,23 @@ const Popup: React.FC<IPopup> = ({
         </text>
 
         {/* Up arrow to previous popup */}
-        <g color="#f00">
-          <text
-            className={isArrowUpClickable() ? 'cursor-pointer' : ''}
+        <text
+          className={`${isArrowUpClickable() ? 'cursor-pointer' : ''}`}
             fill={isArrowUpClickable() ? '#666' : '#ddd'}
             x={x + (viewWidth > 470 ? 364 : 325)}
-            y={y + 80}
+          y={y + 70}
             fontSize="21"
             onClick={handleOnClickArrowUp}
         >
           &#8593;
         </text>
-        </g>
 
         {/* Down arrow to next popup */}
         <text
-          className={isArrowDownClickable() ? 'cursor-pointer' : ''}
+          className={`${isArrowUpClickable() ? 'cursor-pointer' : ''}`}
           fill={isArrowDownClickable() ? '#666' : '#ddd'}
           x={x + (viewWidth > 470 ? 364 : 325)}
-          y={y + 100}
+          y={y + 95}
           fontSize="21"
           onClick={handleOnClickArrowDown}
         >
@@ -192,12 +197,10 @@ const Popup: React.FC<IPopup> = ({
             {/* Categories */}
             {showCategories && <Categories />}
 
-            <div className="border-t border-[#0002] my-4"></div>
-
             {/* Image */}
             {image &&
               <>
-              <div className="relative w-[100%] mx-auto">
+              <div className="relative w-[100%] mx-auto mt-6">
                   <img
                   className="max-h-[200px] object-cover rounded-md drop-shadow-sm mx-auto"
                   src={image.img}
