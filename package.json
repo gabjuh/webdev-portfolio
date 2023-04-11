@@ -7,8 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "upload": "bash ./upload.sh",
-    "deploy": "npm run build && npm run upload"
+    "upload": "bash ./uploadDev.sh",
+    "uploadPublic": "bash ./uploadPublic.sh",
+    "deploy": "npm run build && npm run upload",
+    "deployPublic": "npm run build && npm run uploadPublic"
   },
   "dependencies": {
     "daisyui": "^2.51.5",
