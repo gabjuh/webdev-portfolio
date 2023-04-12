@@ -60,7 +60,7 @@ const Text: React.FC<IText> = ({
       <text
         id={`${content.slug}_id`}
         className={`hidden sm:block transition duration-[300ms] ease-in-out ${`drop-shadow-[0_0_2px_rgba(235,235,235,1)]`} ${isPopupText ? 'sm:-translate-y-[55px] md:translate-y-0' : ''}`}
-        fill={selectedPopupSlug === content.slug ? '#000' : currentColor}
+        fill={selectedPopupSlug === content.slug ? '#000' : textColor}
         x={timelineHorisontalPosition && timelineHorisontalPosition + 190}
         y={y}
       >
