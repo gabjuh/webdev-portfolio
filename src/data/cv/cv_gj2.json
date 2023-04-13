@@ -207,6 +207,16 @@
     },
     {
       "content": {
+        "slug": "inactive",
+        "name": "",
+        "categories": "private",
+        "year": 2010,
+        "showYear": true,
+        "isMajor": true
+      }
+    },
+    {
+      "content": {
         "slug": "hochzeit",
         "name": "Hochzeit",
         "categories": "private",
