@@ -56,14 +56,14 @@ const Point: React.FC<IPoint> = ({
     } else {
       return pos[0];
     }
-
   };
 
   const [isOnHover, setIsOnHover] = React.useState(false);
   const [isSelected, setIsSelected] = React.useState(false);
+  const isInactive: boolean = slug !== 'inactive'
 
   const handleMouseEnter = () => {
-    setIsOnHover(true);
+    isInactive && setIsOnHover(true);
   };
 
   const handleMouseLeave = () => {
@@ -89,7 +89,7 @@ const Point: React.FC<IPoint> = ({
     open === 'start';
 
   const handleOnClick = () => {
-    if (slug && !isPointInactive()) {
+    if (slug && isInactive && !isPointInactive()) {
       onClick(slug);
       setIsSelected(true);
       increasePointSize();
