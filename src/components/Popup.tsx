@@ -1,25 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { IContent, ILayout } from '../interfaces/Tree';
 import pdfs from '../data/pdfs/pdfs';
+import IPopup from '../interfaces/Popup';
 
-interface IPopup {
-  color: string;
-  content: IContent;
-  timelineHorisontalPosition: number;
-  titleHorisontalPosition: number;
-  verticalPosition: number;
-  showPopup?: string;
-  setShowPopup: any;
-  layout?: ILayout;
-  selectedPopupSlug: string;
-  handleOnClickPopup: any;
-  viewWidth: number;
-  nextPopup?: any;
-  prevPopup?: any;
-  index: number;
-  arrLength: number;
-  image?: { name: string; img: string; credits: string; };
-}
 
 const Popup: React.FC<IPopup> = ({
   color,
