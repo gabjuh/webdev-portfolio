@@ -7,7 +7,7 @@ const Button: React.FC<IButton> = ({
   onClick
 }) => {
   return (
-    <button className={`btn-sm ${isActive ? 'btn-active' : ''}`} onClick={onClick}>
+    <button className={`btn-sm px-1.5 sm:px-3 ${isActive ? 'btn-active' : ''}`} onClick={onClick}>
       {label}
     </button>
   );
