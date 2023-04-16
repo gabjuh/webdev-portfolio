@@ -280,7 +280,7 @@ const CvTree: React.FC = ({ }) => {
 
   // Get the vertical position of the popup, depending on the index
   // And increase it in mobile view to able to see the point
-  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 29 + (viewWidth < 768 ? step : 0);
+  const getPopupVerticalPosition = (index: number): number => step * (index + 1) - 24 + (viewWidth < 768 ? step : 0);
 
   // Get the horizontal position of the rulers starting point
   const calculateLevelSize = (level: number): number => (level * size) * 2;
@@ -374,6 +374,7 @@ const CvTree: React.FC = ({ }) => {
               relative
               mx-auto
               box-content
+              border border-red-500
             `}
           >
             <g transform="translate(0, 23)">
@@ -541,6 +542,10 @@ const CvTree: React.FC = ({ }) => {
                       index={index}
                       arrLength={a.length}
                       image={images.filter(img => img.name === item.content.image)[0]}
+                      side={item.layout?.side}
+                      pos={[timelineHorisontalPosition, step * (index + 1)]}
+                      level={item.layout?.level}
+                      branchWidth={general.size}
                     />
                   </React.Fragment>
                 );
