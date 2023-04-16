@@ -16,7 +16,7 @@ const Footer = () => {
           {/* LinkedIn */}
           <img src={linkedIn} alt="Linkedin Icon" />
         </a>
-        <a className="w-[45px] p-3" href="https://github.com/gabjuh/" target="_blank">
+        <a className="w-[45px] p-3" href="https://github.com/gabjuh/webdev-portfolio" target="_blank">
           {/* Github */}
           <img src={github} alt="Github Icon" />
         </a>
