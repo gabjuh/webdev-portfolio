@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { IContent, ILayout } from '../interfaces/Tree';
 import pdfs from '../data/pdfs/pdfs';
 import IPopup from '../interfaces/Popup';
-
 
 const Popup: React.FC<IPopup> = ({
   color,
@@ -20,7 +18,11 @@ const Popup: React.FC<IPopup> = ({
   prevPopup,
   index,
   arrLength,
-  image
+  image,
+  side,
+  pos,
+  level,
+  branchWidth
 }) => {
 
   const contentId: string = `content_${content.slug}`;
@@ -31,6 +33,20 @@ const Popup: React.FC<IPopup> = ({
 
   const x = timelineHorisontalPosition;
   const y = verticalPosition;
+
+  const width = branchWidth ? branchWidth : 0;
+
+  const getPointArrowHorisontalPosition = () => {
+    if (side === 'left') {
+      return pos[0] - width * (level ? level * 2 : 0) - 40;
+    } else if (side === 'right') {
+      return pos[0] + width * (level ? level * 2 : 0) - 40;
+    } else {
+      return 150;
+    }
+  };
+
+  const pointArrowHorisontalPosition = getPointArrowHorisontalPosition();
 
   interface IPdf {
     id: string;
@@ -153,6 +169,14 @@ const Popup: React.FC<IPopup> = ({
           &#8595;
         </text>
 
+        {/* Arrow to point */}
+        {/* <polygon
+          fill={`#fff`}
+          stroke={color}
+          strokeWidth="1.5"
+          points={`${x + 20},${y} ${x + 40},${y - 15} ${x + 60},${y}`}
+        /> */}
+
         {/* Content */}
         <foreignObject
           className="overflow-hidden"
@@ -240,6 +264,24 @@ const Popup: React.FC<IPopup> = ({
             )}
           </div>
         </foreignObject>
+
+        {/* Arrow pointing to the selected point */}
+        <polygon
+          fill={`#fff`}
+          stroke={color}
+          strokeWidth="1.5"
+          points={`${pointArrowHorisontalPosition + 20},${y + 2} ${pointArrowHorisontalPosition + 40},${y - 13} ${pointArrowHorisontalPosition + 60},${y + 2}`}
+        />
+        {/* sqare to cover arrows border */}
+        <rect
+          fill={`#fff`}
+          // stroke={color}
+          // strokeWidth="1.5"
+          x={pointArrowHorisontalPosition + 15}
+          y={y + 1}
+          width={50}
+          height={5}
+        />
 
       </g>
     </>
