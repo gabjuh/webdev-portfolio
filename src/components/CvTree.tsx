@@ -349,7 +349,7 @@ const CvTree: React.FC = ({ }) => {
             </button>
 
             {/* Arrow down */}
-            <button
+            {/* <button
               onMouseUp={() => { scrollToId('chat'); }}
               className="cursor-pointer"
             >
@@ -358,7 +358,7 @@ const CvTree: React.FC = ({ }) => {
                   className="w-[.85rem] -translate-y-[.1rem] group-hover:translate-y-[.2rem] transition-all duration-150"
                 />
               </div>
-            </button>
+            </button> */}
         </div>
         </div>
 
