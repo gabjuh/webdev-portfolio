@@ -28,3 +28,5 @@ src/components/Puzzle
 portfolio_v2.code-workspace
 uploadDev.sh
 uploadPublic.sh
+
+backups/
