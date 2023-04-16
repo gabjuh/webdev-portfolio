@@ -169,14 +169,6 @@ const Popup: React.FC<IPopup> = ({
           &#8595;
         </text>
 
-        {/* Arrow to point */}
-        {/* <polygon
-          fill={`#fff`}
-          stroke={color}
-          strokeWidth="1.5"
-          points={`${x + 20},${y} ${x + 40},${y - 15} ${x + 60},${y}`}
-        /> */}
-
         {/* Content */}
         <foreignObject
           className="overflow-hidden"
