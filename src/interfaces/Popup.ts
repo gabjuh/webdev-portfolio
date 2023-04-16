@@ -17,4 +17,8 @@ export default interface IPopup {
   index: number;
   arrLength: number;
   image?: { name: string; img: string; credits: string; };
+  side?: string;
+  pos: any;
+  level?: number;
+  branchWidth: number;
 }
