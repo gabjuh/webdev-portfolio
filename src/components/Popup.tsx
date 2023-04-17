@@ -34,20 +34,6 @@ const Popup: React.FC<IPopup> = ({
   const x = timelineHorisontalPosition;
   const y = verticalPosition;
 
-  const width = branchWidth ? branchWidth : 0;
-
-  const getPointArrowHorisontalPosition = () => {
-    if (side === 'left') {
-      return pos[0] - width * (level ? level * 2 : 0) - 40;
-    } else if (side === 'right') {
-      return pos[0] + width * (level ? level * 2 : 0) - 40;
-    } else {
-      return 150;
-    }
-  };
-
-  const pointArrowHorisontalPosition = getPointArrowHorisontalPosition();
-
   interface IPdf {
     id: string;
     name: string;
@@ -119,10 +105,20 @@ const Popup: React.FC<IPopup> = ({
 
   const handleOnClickArrowDown = () => isArrowDownClickable() && nextPopup();
 
+  const [popupWidth, setPopupWidth] = useState<number>(400);
+
+  useEffect(() => {
+    if (viewWidth > 470) {
+      setPopupWidth(400);
+    } else if (viewWidth > 360) {
+      setPopupWidth(360);
+    }
+  }, [viewWidth]);
+
   return (
     <>
       <g
-        className={`${showPopup !== content.slug ? 'invisible opacity-0' : ''} transition-all duration-[.5s] relative block drop-shadow-lg`}
+        className={`${showPopup !== content.slug ? 'invisible opacity-0' : ''} transition-all duration-[.2s] relative block drop-shadow-lg`}
       >
         {/* popup frame */}
         <rect
@@ -131,7 +127,8 @@ const Popup: React.FC<IPopup> = ({
           strokeWidth="1.5"
           x={x}
           y={y}
-          width={viewWidth > 470 ? 400 : 360}
+          // width={viewWidth > 470 ? 400 : 360}
+          width={popupWidth}
           height={contentHeight}
           rx="8" ry="8"
         />
@@ -256,25 +253,6 @@ const Popup: React.FC<IPopup> = ({
             )}
           </div>
         </foreignObject>
-
-        {/* Arrow pointing to the selected point */}
-        <polygon
-          fill={`#fff`}
-          stroke={color}
-          strokeWidth="1.5"
-          points={`${pointArrowHorisontalPosition + 20},${y + 2} ${pointArrowHorisontalPosition + 40},${y - 13} ${pointArrowHorisontalPosition + 60},${y + 2}`}
-        />
-        {/* sqare to cover arrows border */}
-        <rect
-          fill={`#fff`}
-          // stroke={color}
-          // strokeWidth="1.5"
-          x={pointArrowHorisontalPosition + 15}
-          y={y + 1}
-          width={50}
-          height={5}
-        />
-
       </g>
     </>
   );
