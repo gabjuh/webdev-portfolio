@@ -374,7 +374,6 @@ const CvTree: React.FC = ({ }) => {
               relative
               mx-auto
               box-content
-              border border-red-500
             `}
           >
             <g transform="translate(0, 23)">
