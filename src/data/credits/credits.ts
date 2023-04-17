@@ -214,6 +214,26 @@ const credits: ICredits[] = [
     fieldName: 'arrow down'
   },
   {
+    name: 'Arrow Up Alt SVG',
+    nameLink: 'https://www.svgrepo.com/svg/510301/up-arrow',
+    author: 'zest',
+    authorLink: 'https://www.svgrepo.com/author/zest/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'arrow up'
+  },
+  {
+    name: 'Close SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/500510/close',
+    author: 'element-plus',
+    authorLink: 'https://www.svgrepo.com/author/element-plus/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'arrow up'
+  },
+  {
     name: 'Stack Overflow Fill SVG Vector',
     nameLink: 'https://www.svgrepo.com/svg/378465/stack-overflow-fill',
     author: 'artcoholic',
