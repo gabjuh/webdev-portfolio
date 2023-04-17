@@ -15,7 +15,7 @@ const Hero: React.FC<IHero> = ({ scrollToId }) => {
           <div className="text-center lg:text-left">
             <h1 className="text-xl font-bold translate-y-1">Gábor Juhász</h1>
             <p className="pt-2 text-md translate-y-0">Junior React-Frontend Entwickler</p>
-            <a href="mailto:info@gaborjuhasz.de" className="btn btn-sm bg-[#d5efbd] hover:bg-[#2db6a1] text-[#222] text-xs px-5 hover:text-[#fff] mt-7 shadow-md border-[.5px]">Kontakt</a>
+            <a href="mailto:info@gaborjuhasz.de" className="btn btn-sm bg-[#e7f1df] hover:bg-[#2db6a1] text-[#222] text-xs px-5 hover:text-[#fff] mt-7 shadow-md border-[.5px]">Kontakt</a>
           </div>
         </div>
         <div className="visible lg:invisible block absolute bottom-[10%] w-[100%] text-center">
