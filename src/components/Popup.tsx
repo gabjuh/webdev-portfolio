@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { isSafari } from 'react-device-detect';
 import pdfs from '../data/pdfs/pdfs';
 import IPopup from '../interfaces/Popup';
 import upArrow from '../assets/logos/up-arrow.svg';
@@ -30,7 +31,7 @@ const Popup: React.FC<IPopup> = ({
   const contentId: string = `content_${content.slug}`;
   const contentMinHeight: number = 120;
   const [contentHeight, setContentHeight] = useState<number>(contentMinHeight);
-  const marginBottom: number = 40;
+  const marginBottom: number = isSafari ? 16 : 40;
   const showCategories: boolean = true;
 
   const [popupWidth, setPopupWidth] = useState<number>(400);
@@ -168,7 +169,7 @@ const Popup: React.FC<IPopup> = ({
 
         {/* Content */}
         <foreignObject
-          className="overflow-hidden"
+          className="overflow-hidden relative"
           x={x + 25} y={y + 20}
           fontSize="15" fill="#444"
           width={viewWidth > 470 ? 330 : 290}
@@ -177,21 +178,25 @@ const Popup: React.FC<IPopup> = ({
           <div id={contentId} className="" >
             {/* Name */}
             <p
-              className="text-[11.87pt] font-[500] z-10 mb-[0px] -translate-y-[3px] -translate-x-[1px] cursor-pointer"
+              className={`relative text-[11.87pt] font-[500] z-10 mb-[0px] ${isSafari ? 'pt-[1.1rem]' : '-translate-y-[3px]'} -translate-x-[1px] cursor-pointer`}
               onClick={handleOnClickPopup}
             >{content.name}</p>
 
-            {/* Place */}
-            <p className="text-md font-[600]">{content.institute}</p>
+            <div className={`${isSafari ? 'translate-y-0.5' : ''}`}>
+              {/* Place */}
+              <p className="text-md font-[600]">{content.institute}</p>
 
-            {/* Type of Taetigkeit */}
-            <p className="text-sm italic">{content.typeOfActivity}</p>
+              {/* Type of Taetigkeit */}
+              <p className="text-sm italic">{content.typeOfActivity}</p>
 
-            {/* Year-year */}
-            <p className="font-[300] my-1 text-xs">{`${''}${content.year}${content.end && content.year !== content.end ? ` - ${content.end}` : ''}`}</p>
+              {/* Year-year */}
+              <p className="font-[300] my-1 text-xs">{`${''}${content.year}${content.end && content.year !== content.end ? ` - ${content.end}` : ''}`}</p>
+            </div>
 
             {/* Categories */}
-            {showCategories && <Categories />}
+            <div className={isSafari ? 'mt-3' : 'mt-2'}>
+              {showCategories && <Categories />}
+            </div>
 
             {/* Image */}
             {image &&
@@ -215,10 +220,12 @@ const Popup: React.FC<IPopup> = ({
             {content.description && content.description.split('|').map((item, index) => <p key={index} className="my-4 opacity-70">{item}</p>)}
 
             {/* Link */}
-            {content.link && Link('Mehr...', content.link)}
+            <div className={`${isSafari ? 'translate-y-0' : ''}`}>
+              {content.link && Link('Mehr...', content.link)}
+            </div>
 
             {/* Tech */}
-            <div className="-mt-1 mb-1">
+            <div className={`${isSafari ? 'translate-y-0' : ''} mb-1`}>
               <>
                 {content.tech?.map((tech: string, i: number, a: string[]) =>
                   <React.Fragment key={`tech_${tech}_${i}`}>
