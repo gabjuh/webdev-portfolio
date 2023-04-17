@@ -144,6 +144,16 @@ const Point: React.FC<IPoint> = ({
           />
         </g>
       </g>
+      <g>
+        {/* Arrow pointing to the selected point on Mobile view*/}
+        <polygon
+          className={`${isSelected && slug ? 'opacity-1' : 'opacity-0'} sm:hidden transition-all duration-[.2s]`}
+          fill={color}
+          stroke={color}
+          strokeWidth="1.5"
+          points={`${getCx() - 30},${pos[1] + 33} ${getCx() + 30},${pos[1] + 33} ${getCx()},${pos[1] + 18}`}
+        />
+      </g>
     </>
   );
 };
