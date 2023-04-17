@@ -503,6 +503,7 @@ const CvTree: React.FC = ({ }) => {
               {items.map((item, i, a) => {
                 const index = a.length - 1 - i;
                 const color = getColor(item, filter)
+                if (item.content.slug.includes('generated') || item.content.slug.includes('inactive')) return null;
                 return (
                   <React.Fragment key={`point_${index}`}>
                     <Point
