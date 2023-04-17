@@ -6,6 +6,8 @@ import Stack from './components/Stack';
 import Footer from './components/Footer';
 import Chat from './components/Chat';
 import Credits from './components/Credits/Credits';
+import Impressum from './components/Impressum';
+import BusinessCard from './components/BusinessCard';
 
 function App() {
   return (
@@ -16,10 +18,12 @@ function App() {
             <div className="z-0">
               <Stack />
               <CvTree />
+              {/* <BusinessCard /> */}
               <Chat />
             </div>
           } />
           <Route path="/credits" element={<Credits />} />
+          <Route path="/impressum" element={<Impressum />} />
         </Routes>
         <Footer />
       </div>
