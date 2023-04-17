@@ -122,7 +122,7 @@ const Popup: React.FC<IPopup> = ({
   return (
     <>
       <g
-        className={`${showPopup !== content.slug ? 'invisible opacity-0' : ''} transition-all duration-[.2s] relative block drop-shadow-lg`}
+        className={`${showPopup !== content.slug ? 'invisible opacity-0' : ''} ${!isSafari ? 'transition-all duration-[.2s]' : ''} relative block drop-shadow-lg`}
       >
         {/* popup frame */}
         <rect
