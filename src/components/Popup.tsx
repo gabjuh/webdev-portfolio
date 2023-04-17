@@ -33,7 +33,17 @@ const Popup: React.FC<IPopup> = ({
   const marginBottom: number = 40;
   const showCategories: boolean = true;
 
-  const x = timelineHorisontalPosition;
+  const [popupWidth, setPopupWidth] = useState<number>(400);
+
+  useEffect(() => {
+    if (viewWidth > 470) {
+      setPopupWidth(400);
+    } else if (viewWidth > 360) {
+      setPopupWidth(360);
+    }
+  }, [viewWidth]);
+
+  const x = viewWidth < 480 ? (viewWidth - popupWidth) / 2 : timelineHorisontalPosition;
   const y = verticalPosition;
 
   interface IPdf {
@@ -106,16 +116,6 @@ const Popup: React.FC<IPopup> = ({
   const handleOnClickArrowUp = () => isArrowUpClickable() && prevPopup();
 
   const handleOnClickArrowDown = () => isArrowDownClickable() && nextPopup();
-
-  const [popupWidth, setPopupWidth] = useState<number>(400);
-
-  useEffect(() => {
-    if (viewWidth > 470) {
-      setPopupWidth(400);
-    } else if (viewWidth > 360) {
-      setPopupWidth(360);
-    }
-  }, [viewWidth]);
 
   return (
     <>
