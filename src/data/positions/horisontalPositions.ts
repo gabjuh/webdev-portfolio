@@ -13,7 +13,7 @@ export const horisontalPositions = {
     timelinePos: 190,
     yearPos: - 150,
     titlePos: 150,
-    popupPos: - 175,
+    popupPos: - 185,
     textPos: 0
   },
   '2xs': {
