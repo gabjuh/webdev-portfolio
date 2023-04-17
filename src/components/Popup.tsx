@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isSafari } from 'react-device-detect';
 import pdfs from '../data/pdfs/pdfs';
 import IPopup from '../interfaces/Popup';
+import closeIcon from '../assets/logos/close-x.svg';
 import upArrow from '../assets/logos/up-arrow.svg';
 import downArrow from '../assets/logos/down-arrow.svg';
 
@@ -137,13 +138,14 @@ const Popup: React.FC<IPopup> = ({
         />
 
         {/* Close button */}
-        <text
+        <image
           className="cursor-pointer"
-          x={x + (viewWidth > 470 ? 364 : 325)} y={y + 35} fontSize="21" fill="#444"
+          href={closeIcon}
+          height="26"
+          width="26"
+          x={x + (viewWidth > 470 ? 364 : 319)} y={y + 15} fontSize="21" fill="#444"
           onClick={handleOnClickPopup}
-        >
-          &#x2715;
-        </text>
+        />
 
         {/* Up arrow to previous popup */}
         <image
@@ -232,7 +234,7 @@ const Popup: React.FC<IPopup> = ({
                     <p className="whitespace-normal inline-block">
                       <span
                         key={`${content.slug}_tech_${i}`}
-                        className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 pt-[.7px] pb-[2px] rounded-md whitespace-nowrap"
+                        className="text-[#eee] text-[.65rem] bg-[#444] mr-1 px-2 pt-[.8px] pb-[2px] rounded-md whitespace-nowrap"
                       >
                     {tech}
                     </span>
