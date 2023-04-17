@@ -9,7 +9,7 @@ import stackOverflow from '../assets/logos/stack_overflow_mc.svg'
 const Footer = () => {
   return (
     <footer className="p-10 bg-[#ddd] w-[100%]">
-      <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász 2023 | <Link to="/credits" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Credits</Link> | <a href="mailto:info@gaborjuhasz.de" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Kontakt</a>
+      <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász 2023 | <Link to="/credits" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Credits</Link> | <a href="mailto:info@gaborjuhasz.de" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Kontakt</a> | <Link to="/impressum" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Impressum</Link> 
       </p>
       <div className="flex justify-center mt-3">
         <a className="w-[45px] p-3" href="https://www.linkedin.com/in/g%C3%A1bor-juh%C3%A1sz-5352935a/" target="_blank">
