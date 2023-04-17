@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import pdfs from '../data/pdfs/pdfs';
 import IPopup from '../interfaces/Popup';
+import upArrow from '../assets/logos/up-arrow.svg';
+import downArrow from '../assets/logos/down-arrow.svg';
 
 const Popup: React.FC<IPopup> = ({
   color,
@@ -143,28 +145,26 @@ const Popup: React.FC<IPopup> = ({
         </text>
 
         {/* Up arrow to previous popup */}
-        <text
-          className={`${isArrowUpClickable() ? 'cursor-pointer' : ''}`}
-            fill={isArrowUpClickable() ? '#666' : '#ddd'}
-            x={x + (viewWidth > 470 ? 364 : 325)}
-          y={y + 70}
-            fontSize="21"
-            onClick={handleOnClickArrowUp}
-        >
-          &#8593;
-        </text>
+        <image
+          className={`${isArrowUpClickable() ? 'cursor-pointer' : 'opacity-30'}`}
+          href={upArrow}
+          height="24"
+          width="24"
+          x={x + (viewWidth > 470 ? 364 : 320)}
+          y={y + 55}
+          onClick={handleOnClickArrowUp}
+        />
 
         {/* Down arrow to next popup */}
-        <text
-          className={`${isArrowUpClickable() ? 'cursor-pointer' : ''}`}
-          fill={isArrowDownClickable() ? '#666' : '#ddd'}
-          x={x + (viewWidth > 470 ? 364 : 325)}
-          y={y + 95}
-          fontSize="21"
+        <image
+          className={`${isArrowDownClickable() ? 'cursor-pointer' : 'opacity-30'}`}
+          href={downArrow}
+          height="24"
+          width="24"
+          x={x + (viewWidth > 470 ? 364 : 320)}
+          y={y + 80}
           onClick={handleOnClickArrowDown}
-        >
-          &#8595;
-        </text>
+        />
 
         {/* Content */}
         <foreignObject
