@@ -318,7 +318,7 @@ const CvTree: React.FC = ({ }) => {
           style={{ height: `${svgHeight - 150}px` }}
         >
           <div
-            className={`btn-categories flex flex-wrap sm:w-[100%] mx-auto z-10 pt-3 pb-1.5 md:p-8 backdrop-filter backdrop-blur-md justify-center ${isMenuSticky && 'shadow-lg'} transition-all duration-200`}
+            className={`btn-categories flex flex-wrap sm:w-[100%] mx-auto z-10 pt-3 pb-1.5 lg:p-8 backdrop-filter backdrop-blur-md justify-center ${isMenuSticky && 'shadow-lg'} transition-all duration-200`}
             style={{
               position: "sticky",
               top: 0,
