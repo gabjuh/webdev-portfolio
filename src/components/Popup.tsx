@@ -165,14 +165,14 @@ const Popup: React.FC<IPopup> = ({
           height="24"
           width="24"
           x={x + (viewWidth > 470 ? 364 : 320)}
-          y={y + 80}
+          y={y + 82}
           onClick={handleOnClickArrowDown}
         />
 
         {/* Content */}
         <foreignObject
           className="overflow-hidden relative"
-          x={x + 25} y={y + 20}
+          x={x + 25} y={y + 12}
           fontSize="15" fill="#444"
           width={viewWidth > 470 ? 330 : 290}
           height={contentHeight}
@@ -180,7 +180,7 @@ const Popup: React.FC<IPopup> = ({
           <div id={contentId} className="" >
             {/* Name */}
             <p
-              className={`relative text-[11.87pt] font-[500] z-10 mb-[0px] ${isSafari ? 'pt-[1.1rem]' : '-translate-y-[3px]'} -translate-x-[1px] cursor-pointer`}
+              className={`relative  font-[500] z-10 mb-[0px] ${isSafari ? 'pt-[25px] text-[11.05pt]' : 'mt-[0px] text-[11.87pt]'} -translate-x-[1px] cursor-pointer`}
               onClick={handleOnClickPopup}
             >{content.name}</p>
 
