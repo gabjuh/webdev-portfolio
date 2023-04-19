@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 import linkedIn from '../assets/logos/linkedin_mc.svg';
 import facebook from '../assets/logos/facebook_mc.svg';
 import github from '../assets/logos/github_mc.svg';
-import stackOverflow from '../assets/logos/stack_overflow_mc.svg'
+import stackOverflow from '../assets/logos/stack_overflow_mc.svg';
+import cv from '../assets/pdfs/Lebenslauf_Gabor_Juhasz_19.04.2023.pdf'
 
 const Footer = () => {
   return (
     <footer className="p-10 bg-[#ddd] w-[100%]">
-      <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász 2023 | <Link to="/credits" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Credits</Link> | <a href="mailto:info@gaborjuhasz.de" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Kontakt</a> | <Link to="/impressum" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Impressum</Link> 
+      <p className="text-center">
+        <a href={cv} className="text-[#7a7] hover:text-[#777] transition-all duration-200">CV</a> | <a href="mailto:info@gaborjuhasz.de" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Kontakt</a> | <Link to="/credits" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Credits</Link> | <Link to="/impressum" className="text-[#7a7] hover:text-[#777] transition-all duration-200">Impressum</Link>
       </p>
-      <div className="flex justify-center mt-3">
+      <div className="flex justify-center">
         <a className="w-[45px] p-3" href="https://www.linkedin.com/in/g%C3%A1bor-juh%C3%A1sz-5352935a/" target="_blank">
           {/* LinkedIn */}
           <img src={linkedIn} alt="Linkedin Icon" />
@@ -29,6 +31,7 @@ const Footer = () => {
           <img src={facebook} alt="Facebook Icon" />
         </a>
       </div>
+      <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász 2023</p>
     </footer>
   );
 };
