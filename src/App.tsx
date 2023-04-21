@@ -8,6 +8,7 @@ import Chat from './components/Chat';
 import Credits from './components/Credits/Credits';
 import Impressum from './components/Impressum';
 import BusinessCard from './components/BusinessCard';
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/impressum" element={<Impressum />} />
         </Routes>
         <Footer />
+        <ScrollProgressBar />
       </div>
     </>
   );
