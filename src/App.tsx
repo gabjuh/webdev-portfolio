@@ -9,6 +9,7 @@ import Credits from './components/Credits/Credits';
 import Impressum from './components/Impressum';
 import BusinessCard from './components/BusinessCard';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import Overview from './components/Overview';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={
             <div className="z-0">
               <Stack />
+              <Overview />
               <CvTree />
               {/* <BusinessCard /> */}
               <Chat />
