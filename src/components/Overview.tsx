@@ -21,15 +21,17 @@ const Overview = () => {
 
   return (
     <>
-      <div className="container mx-auto py-5 my-32">
+      <div className="container mx-auto py-5 my-16">
+
+        {/* Projects */}
         <h2 className="text-2xl mb-8">Projekte</h2>
         {itProjectItems.map((item, index) => {
           return (
-            <div key={index} className="flex flex-row">
+            <div key={index} className="flex flex-wrap">
               {/* Texts */}
-              <div className="relative flex-row text-right w-3/5">
-                <div className="absolute top-[50%] right-[3rem] -translate-y-[50%]">
-                  <div className="mb-5 text-[#eee] font-bold bg-gradient-to-r from-[#eee] via-[#eee] to-[#2ea18c] to-90%">
+              <div className="relative xl:text-right text-center xl:w-[50%] mx-auto xl:mx-0 mb-8">
+                <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
+                  <div className="mb-5 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
                     <p className="mr-2">{item.content.year}</p>
                   </div>
                   <div className="text-2xl font-semibold italic">
@@ -48,12 +50,42 @@ const Overview = () => {
               </div>
 
               {/* Image */}
-              <div className="max-w-[500px]">
+              <div className="max-w-[500px] mx-auto">
                 <img src={images.filter(img => img.name === item.content.image)[0].img} alt={item.content.slug} />
               </div>
             </div>
           );
         })}
+
+        {/* Schools */}
+        <div className="my-52">
+          <h2 className="text-2xl">Schulen und Kurse im Bereich IT</h2>
+          <table id="schools-table" className="table w-[100%]">
+            {itSchoolItems.map((item, index) => {
+              return (
+                <>
+                  <tr className="h-[4rem]">
+                    <td className="">
+                      <p className="mx-4">{item.content.year}{item.content.end ? ' - ' + item.content.end : ''}</p>
+                    </td>
+                    <td className="">
+                      <p className="font-semibold">{item.content.name}</p>
+                      <p className="text-[.85rem] italic">{item.content.institute}</p>
+                    </td>
+                    <td className="font-semibold italic">
+                      {item.content.certificate &&
+                        <button className="btn-sm btn-accent rounded-md">Zertifikat</button>
+                      }
+                    </td>
+                  </tr>
+
+                </>
+
+              );
+
+            })}
+          </table>
+        </div>
       </div>
     </>
   );
