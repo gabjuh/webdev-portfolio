@@ -20,6 +20,7 @@ import images from '../data/tree/images';
 
 //  Interfaces
 import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
+import ICategories from '../interfaces/Categories';
 
 //  Helpers
 import { scrollToId } from '../helpers/pageNavigation';
@@ -27,11 +28,6 @@ import { getViewWidth } from '../helpers/getViewWidth';
 import { getPosition } from '../helpers/getPosition';
 
 type IFilter = 'all' | 'education' | 'job' | 'music' | 'it' | 'private';
-
-interface ICategories {
-  buttonLabel: string;
-  value: string;
-}
 
 const CvTree: React.FC = ({ }) => {
 
