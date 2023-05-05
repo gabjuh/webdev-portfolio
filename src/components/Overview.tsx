@@ -3,6 +3,7 @@ import raw_schools_data from '../data/overview/schools.json';
 import raw_projects_data from '../data/overview/projects.json';
 import images from '../data/tree/images';
 import pdfs from '../data/pdfs/pdfs';
+import icons from '../data/overview/icons';
 
 import { ITree, IItem } from '../interfaces/Tree';
 
@@ -76,15 +77,23 @@ const Overview = () => {
                 return (
                   <tr key={`schools-tr-${index}`} className={`border-b ${index % 2 ? 'bg-[#eee]' : 'bg-[#ddd5]'}`}>
                     {/* Years */}
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="whitespace-nowrap px-6 py-4 font-semibold">
                       {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                     </td>
 
                     {/* Icon */}
-                    <td className="whitespace-nowrap px-6 py-4">
-                      <span className="block font-semibold">
-                        icon
-                      </span>
+                    <td className="whitespace-nowrap px-6 py-4 w-[170px]">
+                      {item.content.icons?.map((icon: string, index: number) => {
+                        const ico = icons.filter(i => i.name === icon);
+                        return (
+                          <React.Fragment key={`icon-${index}`}>
+                            {ico ?
+                              <img src={ico[0]?.img} alt={ico[0]?.name} className="inline-block w-8 h-8 pr-1" />
+                              : ''}
+                          </React.Fragment>
+                        );
+                      }
+                      )}
                     </td>
 
                     <td className="whitespace-nowrap px-6 py-4">
@@ -122,13 +131,34 @@ const Overview = () => {
               itSchoolItems.map((item, index) => {
                 return (
                   <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] px-3 py-10">
-                    <p className="">{item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}</p>
-                    <p className="font-semibold">{item.content.name}</p>
+                    {/* Icons */}
+                    <div className="border-b-2 border-accent pb-2 mb-2">
+                      {item.content.icons?.map((icon: string, index: number) => {
+                        const ico = icons.filter(i => i.name === icon);
+                        return (
+                          <React.Fragment key={`icon-mobile-${index}`}>
+                            {ico ?
+                              <img src={ico[0]?.img} alt={ico[0]?.name} className="inline-block w-10 h-10 mx-2" />
+                              : ''}
+                          </React.Fragment>
+                        );
+                      }
+                      )}
+                    </div>
+
+                    {/* Year */}
+                    <p className="text-md font-semibold">{item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}</p>
+
+                    {/* Name */}
+                    <p className="text-2xl font-semibold my-2">{item.content.name}</p>
+
+                    {/* Institute */}
                     <p className="text-[.85rem] italic max-w-[60%] mx-auto">{item.content.institute}</p>
+
+                    {/* Certificate button */}
                     {item.content.certificate &&
-                      <button className="btn-sm btn-accent rounded-md">Zertifikat</button>
+                      <button className="btn-sm btn-accent rounded-md mt-5">Zertifikat</button>
                     }
-                    <hr className="my-4" />
                   </div>
                 );
               })
