@@ -1,0 +1,194 @@
+{
+  "items": [
+    {
+      "content": {
+        "slug": "elektrotechnik",
+        "name": "Elektrotechnik, Abitur",
+        "typeOfActivity": "Schulische Ausbildung",
+        "categories": [
+          "education",
+          "et",
+          "it"
+        ],
+        "institute": "500.sz. Angster J. Fachmittelschule",
+        "year": 2000,
+        "end": 2004,
+        "description": "Elektrotechnik und Informatik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
+        "showYear": true
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 0
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "wirtschaftsinformatik",
+        "name": "Wirtschaftsinformatik, Technikum",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "wirtschaft",
+          "marketing"
+        ],
+        "institute": "Czipernovsky Fachmittelschule",
+        "year": 2004,
+        "showYear": true,
+        "certificate": "software_operator_technikum",
+        "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich erhielt den Technikum Zertifikat.",
+        "end": 2005
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "branch": "stock",
+        "side": "left",
+        "open": "start"
+      }
+    },
+    {
+      "content": {
+        "slug": "sgd_fernschule_php_mysql",
+        "name": "PHP & MySQL",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "sgd Fernschule",
+        "tech": [
+          "PHP8",
+          "SQL",
+          "OOP"
+        ],
+        "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
+        "year": 2020,
+        "showYear": true
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        },
+        "canceled": 2021
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_php_mysql",
+        "name": "PHP & MySQL",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Webmasters Europe e.V.",
+        "tech": [
+          "PHP8",
+          "SQL",
+          "OOP",
+          "Laravel"
+        ],
+        "year": 2021,
+        "showYear": true,
+        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
+        "certificate": "moderne-webanwendungen-mit-php-mysql-certificate",
+        "end": 2022,
+        "image": "stablegram"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "start",
+        "newBranchOn": {
+          "start": 3,
+          "end": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_javascript_react",
+        "name": "JavaScript & React",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Webmasters Europe e.V.",
+        "tech": [
+          "JavaScript ES6",
+          "React",
+          "DOM",
+          "TDD",
+          "NodeJS",
+          "ExpressJS",
+          "SocketIO"
+        ],
+        "year": 2021,
+        "showYear": true,
+        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
+        "certificate": "moderne-webanwendungen-mit-javascript-certificate",
+        "image": "puzzle",
+        "link": "https://puzzle.gaborjuhasz.de/"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "both"
+      }
+    },
+    {
+      "content": {
+        "slug": "webmasters_fernakademie_webdesign_usability",
+        "name": "Webdesign & Usability",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Webmasters Europe e.V.",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "year": 2021,
+        "showYear": true,
+        "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
+        "certificate": "webdesign-usability-certificate",
+        "image": "memory_2"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
+      }
+    }
+  ]
+}
