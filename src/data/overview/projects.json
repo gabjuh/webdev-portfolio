@@ -38,6 +38,307 @@
           "end": 1
         }
       }
+    },
+    {
+      "content": {
+        "slug": "push-puzzle",
+        "name": "Schiebe-Puzzle",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "JavaScript",
+          "React",
+          "CSS3"
+        ],
+        "year": 2021,
+        "showYear": true,
+        "description": "Dieses einfache Spiel war eine wunderbare Möglichkeit, um React sowie den komplexeren Umgang mit Komponenten und Zuständen zu erlernen und das Spielkonzept mithilfe von JavaScript umzusetzen.",
+        "recommendation": "#",
+        "image": "puzzle",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ],
+        "gameLink": "https://puzzle.gaborjuhasz.de/",
+        "githubLink": "https://github.com/gabjuh/puzzle"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "master-logic-game",
+        "name": "Master-Logic Game",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "JavaScript",
+          "React",
+          "CSS3"
+        ],
+        "year": 2022,
+        "showYear": true,
+        "description": "Das Spiel Master-Logik habe ich mithilfe von React, JavaScript und CSS erstellt. React ermöglichte es mir, das Front-End der Anwendung zu erstellen und eine reaktionsfähige Benutzeroberfläche zu entwickeln, während JavaScript die Logik des Spiels implementierte, und mithilfe von CSS versuchte ich das Design möglichst realistisch zu gestalten. In Kombination ermöglichten diese Technologien die Erstellung einer unterhaltsamen und herausfordernden Master-Logik-Anwendung für Spieler jeden Niveaus.",
+        "recommendation": "#",
+        "image": "master_logic",
+        "gameLink": "http://master-logic.gaborjuhasz.de/"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "tommy-chords",
+        "name": "Tommy's Chords",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "TypeScript",
+          "React",
+          "TailwindCss"
+        ],
+        "year": 2023,
+        "end": " ",
+        "showYear": true,
+        "description": "\"Tommy's Chords\" is a new idea for a fun and interactive React game that aims to help players recognize and play guitar chords. With visual and audio representations and interactive exercises, players can practice and master a wide range of chords. The game is intended to be a valuable resource for beginners and intermediate players looking to improve their skills on the guitar. Stay tuned for updates on the development of Tommy's Chords!",
+        "recommendation": "#",
+        "image": "tommy_chords",
+        "githubLink": "https://github.com/gabjuh/tommychords"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "personal-portfolio",
+        "name": "Personal Portfolio v.1",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "TypeScript",
+          "React",
+          "TailwindCss"
+        ],
+        "year": 2022,
+        "showYear": true,
+        "description": "Diese Webseite war mein erstes Portfolio ich veröffentlicht habe.",
+        "recommendation": "#",
+        "image": "portfolio_1",
+        "githubLink": "https://github.com/gabjuh/portfolio"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "adventgemeinde_bremen_mitte",
+        "name": "Online Mediathek",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Beauftragt von der Adventgemeinde Bremen-Mitte",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "Bootstrap4",
+          "PHP7",
+          "MySQL"
+        ],
+        "year": 2020,
+        "end": "2021",
+        "showYear": true,
+        "description": "Für die Adventgemeinde Bremen-Mitte habe ich die Webseite der Mediathek erstellt, und gleich mit eine Admin Seite erweitert, womit sie die Seite selbst pflegen können. Die Webseite ist vollständig responsive und ermöglicht es den Benutzern, die Predigten der Gemeinde zu durchsuchen und anzuhören.",
+        "recommendation": "#",
+        "image": "agbm"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "stablegram",
+        "name": "Stablegram",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "Bootstrap4",
+          "PHP7",
+          "Laravel",
+          "SQLite"
+        ],
+        "year": 2021,
+        "end": "2022",
+        "showYear": true,
+        "description": "Ein kleiner Ausflug in die Welt des Backends war sehr spannend, als ich einen grundlegenden Instagram-Klon erstellt habe. Die Webseite ist vollständig responsiv und ermöglicht den Benutzern das Hochladen, Bearbeiten und Löschen von Bildern sowie das Suchen, Folgen und Liken von Bildern anderer Benutzer.",
+        "recommendation": "#",
+        "image": "stablegram",
+        "link": "https://stablegram.portfolio.web4musicians.eu/",
+        "githubLink": "https://github.com/gabjuh/stablegram"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "portfolio2",
+        "name": "Portfolio v2",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "TypeScript",
+          "React",
+          "TailwindCSS"
+        ],
+        "year": 2023,
+        "showYear": true,
+        "description": "Mein inneres Unbehagen führte mich dazu, mein Portfolio vollständig neu zu gestalten und etwas zu schaffen, das mich wirklich repräsentiert. Da ich in der Vergangenheit viele verschiedene Dinge gemacht habe, war mein Lebenslauf immer unübersichtlich. Ich ließ mich von der Gestaltung der Git-Branches inspirieren und versuchte die Schulen und Projekte in einer Baumstruktur darzustellen. Mit einem einfachen Klick können die Bereiche gefiltert werden, um einen besseren Überblick zu bekommen.",
+        "recommendation": "#",
+        "image": "portfolio_2",
+        "link": "https://gaborjuhasz.de/",
+        "githubLink": "https://github.com/gabjuh/webdev-portfolio"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "hat_rendben",
+        "name": "Hát. Rendben.",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Kundenprojekt",
+        "tech": [
+          "JavaScript",
+          "React",
+          "TailwindCSS"
+        ],
+        "year": 2021,
+        "end": "2022",
+        "showYear": true,
+        "description": "Ein Freund von mir, der Physiotherapeut ist, wollte eine Webseite von mir, womit er sein Geschäft mit online Präsenz erweitern kann.",
+        "recommendation": "#",
+        "image": "hat_rendben"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
     }
   ]
 }
