@@ -189,6 +189,143 @@
           "start": 2
         }
       }
+    },
+    {
+      "content": {
+        "slug": "typescript_react_tailwindcss",
+        "name": "TypeScript, React & TailwindCSS",
+        "typeOfActivity": "",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Intensives Selbststudium und praktische Anwendung in eigenen Projekten",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "year": 2022,
+        "end": " ",
+        "showYear": true,
+        "description": "",
+        "image": "memory_2"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "html_css_php",
+        "name": "HTML5, CSS3, PHP7",
+        "typeOfActivity": "",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Intensives Selbststudium und praktische Anwendung im Projekt für inline Kurier Hamburg.",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "year": 2018,
+        "end": "2019",
+        "showYear": true,
+        "description": "",
+        "image": "memory_2"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "cms",
+        "name": "Content Management (Wordpress, Joomla)",
+        "typeOfActivity": "",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Intensives Selbststudium und praktische Anwendung für die Webseite der Lübecker Musikschule und Portfolios für Künstler.",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "year": 2017,
+        "end": "2019",
+        "showYear": true,
+        "description": "",
+        "image": "memory_2"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "git_github",
+        "name": "Git & GitHub",
+        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Intensives Selbststudium und praktische Anwendung in allen meinen laufenden Projekten.",
+        "tech": [
+          "PHP8",
+          "SQL",
+          "OOP",
+          "Laravel"
+        ],
+        "year": 2021,
+        "showYear": true,
+        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
+        "end": " ",
+        "image": "stablegram"
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "start",
+        "newBranchOn": {
+          "start": 3,
+          "end": 2
+        }
+      }
     }
   ]
 }
