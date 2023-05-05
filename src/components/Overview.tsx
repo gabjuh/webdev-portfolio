@@ -66,26 +66,40 @@ const Overview = () => {
 
         {/* Schools */}
         <div className="my-52">
-          <h2 className="text-2xl mb-8 text-center">Schulen und Ausbildungen im Bereich IT</h2>
-          {/* On Desktop */}
+          <h2 className="text-2xl mb-8 text-center">IT-Ausbildung und Selbstentwicklung</h2>
 
-          <table className="invisible lg:visible min-w-[80%] text-left text-sm font-light mx-auto">
+          {/* On Desktop */}
+          <table className="hidden lg:block w-[80%] text-left text-sm font-light mx-auto">
             <tbody>
               {itSchoolItems.map((item, index) => {
 
                 return (
                   <tr key={`schools-tr-${index}`} className={`border-b ${index % 2 ? 'bg-[#eee]' : 'bg-[#ddd5]'}`}>
+                    {/* Years */}
                     <td className="whitespace-nowrap px-6 py-4">
-                      {item.content.year}{item.content.end ? ' - ' + item.content.end : ''}
+                      {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                     </td>
+
+                    {/* Icon */}
                     <td className="whitespace-nowrap px-6 py-4">
+                      <span className="block font-semibold">
+                        icon
+                      </span>
+                    </td>
+
+                    <td className="whitespace-nowrap px-6 py-4">
+                      {/* Kursname */}
                       <span className="block font-semibold">
                         {item.content.name}
                       </span>
-                      <span className="text-[.85rem] italic">
+
+                      {/* Institute */}
+                      <span className="inline-block text-[.85rem] italic whitespace-pre-wrap lg:max-w-[90%]">
                         {item.content.institute}
                       </span>
                     </td>
+
+                    {/* Certificate button */}
                     <td className="whitespace-nowrap px-6 py-4">
                       {item.content.certificate && !item.content.certificate?.includes('abitur') &&
                         <a
@@ -103,14 +117,14 @@ const Overview = () => {
           </table>
 
           {/* On Mobile */}
-          <div className="flex flex-col md:flex-row sm:flex-wrap lg:hidden" >
+          <div className="flex flex-col md:flex-row sm:flex-wrap lg:hidden text-center " >
             {
               itSchoolItems.map((item, index) => {
                 return (
-                  <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] p-3">
-                    <p className="mx-4">{item.content.year}{item.content.end ? ' - ' + item.content.end : ''}</p>
+                  <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] px-3 py-10">
+                    <p className="">{item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}</p>
                     <p className="font-semibold">{item.content.name}</p>
-                    <p className="text-[.85rem] italic">{item.content.institute}</p>
+                    <p className="text-[.85rem] italic max-w-[60%] mx-auto">{item.content.institute}</p>
                     {item.content.certificate &&
                       <button className="btn-sm btn-accent rounded-md">Zertifikat</button>
                     }
