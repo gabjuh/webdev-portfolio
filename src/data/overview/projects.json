@@ -21,7 +21,7 @@
         "showYear": true,
         "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt ist vollständig responsive.",
         "recommendation": "#",
-        "end": 2018,
+        "end": 2019,
         "image": "inline_preview",
         "recommendations": [
           "empfehlung-inline-kurier"
@@ -171,7 +171,7 @@
         ],
         "year": 2022,
         "showYear": true,
-        "description": "Diese Webseite war mein erstes Portfolio ich veröffentlicht habe.",
+        "description": "Diese Webseite war mein erstes Portfolio ich veröffentlichte. Ich habe es mit React und TailwindCSS erstellt, um meine Fähigkeiten in diesen Technologien zu verbessern. Die Webseite ist vollständig responsive und ermöglicht es den Benutzern, die verschiedenen Projekte zu durchsuchen, die ich in der Vergangenheit gemacht habe.",
         "recommendation": "#",
         "image": "portfolio_1",
         "githubLink": "https://github.com/gabjuh/portfolio"
@@ -289,7 +289,7 @@
         "description": "Mein inneres Unbehagen führte mich dazu, mein Portfolio vollständig neu zu gestalten und etwas zu schaffen, das mich wirklich repräsentiert. Da ich in der Vergangenheit viele verschiedene Dinge gemacht habe, war mein Lebenslauf immer unübersichtlich. Ich ließ mich von der Gestaltung der Git-Branches inspirieren und versuchte die Schulen und Projekte in einer Baumstruktur darzustellen. Mit einem einfachen Klick können die Bereiche gefiltert werden, um einen besseren Überblick zu bekommen.",
         "recommendation": "#",
         "image": "portfolio_2",
-        "link": "https://gaborjuhasz.de/",
+        "link": "https://gaborjuhasz.de/#buttons",
         "githubLink": "https://github.com/gabjuh/webdev-portfolio"
       },
       "layout": {
