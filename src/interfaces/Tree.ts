@@ -38,6 +38,7 @@ export interface IContent {
   hidden?: boolean;
   isMajor?: boolean;
   image?: string;
+  icons?: string[];
 }
 
 export interface INewBranchOn {
