@@ -5,6 +5,7 @@ import IPopup from '../interfaces/Popup';
 import closeIcon from '../assets/logos/close-x.svg';
 import upArrow from '../assets/logos/up-arrow.svg';
 import downArrow from '../assets/logos/down-arrow.svg';
+import IPdf from '../interfaces/Pdf';
 
 const Popup: React.FC<IPopup> = ({
   color,
@@ -47,12 +48,6 @@ const Popup: React.FC<IPopup> = ({
 
   const x = viewWidth < 480 ? (viewWidth - popupWidth) / 2 : timelineHorisontalPosition;
   const y = verticalPosition;
-
-  interface IPdf {
-    id: string;
-    name: string;
-    url: string;
-  }
 
   const [certificate, setCertificate] = useState<IPdf | undefined>(undefined);
   const [recommendations, setRecommendations] = useState<IPdf[]>([]);
