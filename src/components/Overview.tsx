@@ -33,7 +33,7 @@ const Overview = () => {
       <div className="container mx-auto py-5 my-16">
 
         {/* Projects */}
-        <h2 className="text-2xl mb-8 text-center">Projekte</h2>
+        <h2 className="text-4xl mb-16 text-center">Projekte</h2>
         {itProjectItems.map((item, index) => {
           return (
             <div className="mb-32">
@@ -41,7 +41,7 @@ const Overview = () => {
               {/* Texts */}
               <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8">
                 <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
-                  <div className="mb-5 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
+                    <div className="mb-5 w-[370px] mx-auto text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
                       <p className="mr-2">
                         {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                       </p>
@@ -66,16 +66,33 @@ const Overview = () => {
                   <div className="">
                     <span className="">{item.content.tech?.map((tech: string, index: number) => <div key={`project-tech-${index}`} className="inline-block ml-2 text-[#eee] bg-[#555] px-2 rounded-xl text-sm">{tech}</div>)}</span>
                   </div>
+
+                    {/* Buttons on Desktop */}
+                    <div className="text-right mt-7 hidden xl:block">
+                      {/* Play button */}
+                      {item.content.gameLink &&
+                        <a className="btn btn-outline btn-accent ml-2" href={item.content.gameLink} target="_blank">Play</a>
+                      }
+                      {/* Normal link */}
+                      {item.content.link &&
+                        <a className="btn btn-outline btn-accent ml-2" href={item.content.link} target="_blank">Visit</a>
+                      }
+                      {/* Github link */}
+                      {item.content.githubLink &&
+                        <a className="btn btn-outline btn-accent ml-2" href={item.content.githubLink} target="_blank">Github</a>
+                      }
+                    </div>
                 </div>
               </div>
 
               {/* Image */}
-                <div className="max-w-[540px] mx-auto">
+                <div className="max-w-[540px] mx-auto xl:mx-0">
                   <img className="max-h-[500px]" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
                 </div>
               </div>
 
-              <div className="text-center mt-7">
+              {/* Buttons on mobile */}
+              <div className="text-center mt-7 xl:hidden">
                 {/* Play button */}
                 {item.content.gameLink &&
                   <a className="btn btn-outline btn-accent mx-2" href={item.content.gameLink} target="_blank">Play</a>
@@ -95,7 +112,7 @@ const Overview = () => {
 
         {/* Schools */}
         <div className="my-52">
-          <h2 className="text-2xl mb-8 text-center">IT-Ausbildung und Selbstentwicklung</h2>
+          <h2 className="text-4xl mb-16 text-center">IT-Ausbildung und Selbstentwicklung</h2>
 
           {/* On Desktop */}
           <table className="hidden lg:block w-[80%] text-left text-sm font-light mx-auto">
