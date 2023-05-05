@@ -283,6 +283,36 @@ const credits: ICredits[] = [
     changes: 'none',
     fieldName: 'LinkedIn'
   },
+  {
+    name: 'Computer Monitor SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/456199/computer-monitor',
+    author: 'Vectopus',
+    authorLink: 'https://www.svgrepo.com/author/Vectopus/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'IT'
+  },
+  {
+    name: 'Computer Chip SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/456198/computer-chip',
+    author: 'Vectopus',
+    authorLink: 'https://www.svgrepo.com/author/Vectopus/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Chip'
+  },
+  {
+    name: 'Graph Histogram SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/456198/computer-chip',
+    author: 'Esri',
+    authorLink: 'https://www.svgrepo.com/author/Esri/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Graph'
+  },
 
 ];
 
