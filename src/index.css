@@ -45,6 +45,3 @@ body {
   background-color: #f00;
   margin-top: 50px
 }
-#schools-table tr:nth-child(even) {
-  background-color: rgba(216, 215, 215, 0.379) !important;
-}
