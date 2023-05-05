@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "content": {
+        "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
+        "name": "Digitales Benutzerhandbuch",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "inline Kuriere Hamburg",
+        "tech": [
+          "PHP7",
+          "HTML5",
+          "CSS3"
+        ],
+        "year": 2018,
+        "showYear": true,
+        "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt ist vollständig responsive.",
+        "recommendation": "#",
+        "end": 2018,
+        "image": "inline_preview",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ]
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    }
+  ]
+}
