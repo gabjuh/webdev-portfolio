@@ -39,6 +39,8 @@ export interface IContent {
   isMajor?: boolean;
   image?: string;
   icons?: string[];
+  gameLink?: string;
+  githubLink?: string;
 }
 
 export interface INewBranchOn {
