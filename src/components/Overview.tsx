@@ -16,13 +16,14 @@ const Overview = () => {
   const items_projects: IItem[] = projects_data.items;
 
   const sortedSchoolItems: IItem[] = items_schools.sort((a, b) => b.content.year - a.content.year);
+  const sortedProjectItems: IItem[] = items_projects.sort((a, b) => b.content.year - a.content.year);
 
   const itSchoolItems: IItem[] = sortedSchoolItems.filter((item) =>
     item.content.categories?.includes('it') &&
     item.content.categories?.includes('education')
   );
 
-  const itProjectItems: IItem[] = items_projects.filter((item) =>
+  const itProjectItems: IItem[] = sortedProjectItems.filter((item) =>
     item.content.categories?.includes('it') &&
     item.content.categories?.includes('project')
   );
@@ -35,22 +36,33 @@ const Overview = () => {
         <h2 className="text-2xl mb-8 text-center">Projekte</h2>
         {itProjectItems.map((item, index) => {
           return (
-            <div key={`projects-${index}`} className="flex flex-wrap">
+            <div className="mb-32">
+              <div key={`projects-${index}`} className="flex flex-wrap">
               {/* Texts */}
               <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8">
                 <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
                   <div className="mb-5 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
-                    <p className="mr-2">{item.content.year}</p>
+                      <p className="mr-2">
+                        {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
+                      </p>
                   </div>
-                  <div className="text-2xl font-semibold italic">
+
+                    {/* Name */}
+                    <div className="text-2xl font-semibold">
                     <p>{item.content.name}</p>
                   </div>
-                  <div className="text-2xl font-semibold italic">
+
+                    {/* Institute */}
+                    <div className="text-xl mt-2 italic">
                     <p>{item.content.institute}</p>
                   </div>
-                  <div className="my-4 text-[#0009] font-extralight">
+
+                    {/* Description */}
+                    <div className="my-4 text-[#0009] font-extralight max-w-[70%] mx-auto xl:mx-0 xl:max-w-[100%]">
                     <p>{item.content.description}</p>
                   </div>
+
+                    {/* Tech */}
                   <div className="">
                     <span className="">{item.content.tech?.map((tech: string, index: number) => <div key={`project-tech-${index}`} className="inline-block ml-2 text-[#eee] bg-[#555] px-2 rounded-xl text-sm">{tech}</div>)}</span>
                   </div>
@@ -58,8 +70,24 @@ const Overview = () => {
               </div>
 
               {/* Image */}
-              <div className="max-w-[540px] mx-auto">
-                <img src={images.filter(img => img.name === item.content.image)[0].img} alt={item.content.slug} />
+                <div className="max-w-[540px] mx-auto">
+                  <img className="max-h-[500px]" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                </div>
+              </div>
+
+              <div className="text-center mt-7">
+                {/* Play button */}
+                {item.content.gameLink &&
+                  <a className="btn btn-outline btn-accent mx-2" href={item.content.gameLink} target="_blank">Play</a>
+                }
+                {/* Normal link */}
+                {item.content.link &&
+                  <a className="btn btn-outline btn-accent mx-2" href={item.content.link} target="_blank">Visit</a>
+                }
+                {/* Github link */}
+                {item.content.githubLink &&
+                  <a className="btn btn-outline btn-accent mx-2" href={item.content.githubLink} target="_blank">Github</a>
+                }
               </div>
             </div>
           );
@@ -130,7 +158,7 @@ const Overview = () => {
             {
               itSchoolItems.map((item, index) => {
                 return (
-                  <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] px-3 py-10">
+                  <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] px-3 py-10 mb-10">
                     {/* Icons */}
                     <div className="border-b-2 border-accent pb-2 mb-2">
                       {item.content.icons?.map((icon: string, index: number) => {
@@ -153,7 +181,7 @@ const Overview = () => {
                     <p className="text-2xl font-semibold my-2">{item.content.name}</p>
 
                     {/* Institute */}
-                    <p className="text-[.85rem] italic max-w-[60%] mx-auto">{item.content.institute}</p>
+                    <p className="text-[.85rem] font-extralight italic max-w-[60%] mx-auto">{item.content.institute}</p>
 
                     {/* Certificate button */}
                     {item.content.certificate &&
