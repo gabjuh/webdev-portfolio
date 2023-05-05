@@ -1,35 +1,42 @@
-import React from 'react';
-import raw_data from '../data/cv/cv_gj2.json';
-import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
-import ICategories from '../interfaces/Categories';
+import React, { useState } from 'react';
+import raw_schools_data from '../data/overview/schools.json';
+import raw_projects_data from '../data/overview/projects.json';
 import images from '../data/tree/images';
+import pdfs from '../data/pdfs/pdfs';
 
+import { ITree, IItem } from '../interfaces/Tree';
 
 const Overview = () => {
 
-  const data = raw_data as ITree;
+  const schools_data = raw_schools_data as ITree;
+  const projects_data = raw_projects_data as unknown as ITree;
 
-  const items: IItem[] = data.items;
+  const items_schools: IItem[] = schools_data.items;
+  const items_projects: IItem[] = projects_data.items;
 
-  const sortedItems: IItem[] = items.sort((a, b) => b.content.year - a.content.year);
+  const sortedSchoolItems: IItem[] = items_schools.sort((a, b) => b.content.year - a.content.year);
 
-  const itSchoolItems: IItem[] = sortedItems.filter((item) => item.content.categories?.includes('it') && item.content.categories?.includes('education'));
+  const itSchoolItems: IItem[] = sortedSchoolItems.filter((item) =>
+    item.content.categories?.includes('it') &&
+    item.content.categories?.includes('education')
+  );
 
-  const itProjectItems: IItem[] = sortedItems.filter((item) => item.content.categories?.includes('it') && item.content.categories?.includes('project'));
-
-  console.log(itProjectItems);
+  const itProjectItems: IItem[] = items_projects.filter((item) =>
+    item.content.categories?.includes('it') &&
+    item.content.categories?.includes('project')
+  );
 
   return (
     <>
       <div className="container mx-auto py-5 my-16">
 
         {/* Projects */}
-        <h2 className="text-2xl mb-8">Projekte</h2>
+        <h2 className="text-2xl mb-8 text-center">Projekte</h2>
         {itProjectItems.map((item, index) => {
           return (
-            <div key={index} className="flex flex-wrap">
+            <div key={`projects-${index}`} className="flex flex-wrap">
               {/* Texts */}
-              <div className="relative xl:text-right text-center xl:w-[50%] mx-auto xl:mx-0 mb-8">
+              <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8">
                 <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
                   <div className="mb-5 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
                     <p className="mr-2">{item.content.year}</p>
@@ -44,13 +51,13 @@ const Overview = () => {
                     <p>{item.content.description}</p>
                   </div>
                   <div className="">
-                    <span className="">{item.content.tech?.map((tech: string) => <div className="inline-block ml-2 text-[#eee] bg-[#555] px-2 rounded-xl text-sm">{tech}</div>)}</span>
+                    <span className="">{item.content.tech?.map((tech: string, index: number) => <div key={`project-tech-${index}`} className="inline-block ml-2 text-[#eee] bg-[#555] px-2 rounded-xl text-sm">{tech}</div>)}</span>
                   </div>
                 </div>
               </div>
 
               {/* Image */}
-              <div className="max-w-[500px] mx-auto">
+              <div className="max-w-[540px] mx-auto">
                 <img src={images.filter(img => img.name === item.content.image)[0].img} alt={item.content.slug} />
               </div>
             </div>
@@ -59,32 +66,60 @@ const Overview = () => {
 
         {/* Schools */}
         <div className="my-52">
-          <h2 className="text-2xl">Schulen und Kurse im Bereich IT</h2>
-          <table id="schools-table" className="table w-[100%]">
-            {itSchoolItems.map((item, index) => {
-              return (
-                <>
-                  <tr className="h-[4rem]">
-                    <td className="">
-                      <p className="mx-4">{item.content.year}{item.content.end ? ' - ' + item.content.end : ''}</p>
+          <h2 className="text-2xl mb-8 text-center">Schulen und Ausbildungen im Bereich IT</h2>
+          {/* On Desktop */}
+
+          <table className="invisible lg:visible min-w-[80%] text-left text-sm font-light mx-auto">
+            <tbody>
+              {itSchoolItems.map((item, index) => {
+
+                return (
+                  <tr key={`schools-tr-${index}`} className={`border-b ${index % 2 ? 'bg-[#eee]' : 'bg-[#ddd5]'}`}>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      {item.content.year}{item.content.end ? ' - ' + item.content.end : ''}
                     </td>
-                    <td className="">
-                      <p className="font-semibold">{item.content.name}</p>
-                      <p className="text-[.85rem] italic">{item.content.institute}</p>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      <span className="block font-semibold">
+                        {item.content.name}
+                      </span>
+                      <span className="text-[.85rem] italic">
+                        {item.content.institute}
+                      </span>
                     </td>
-                    <td className="font-semibold italic">
-                      {item.content.certificate &&
-                        <button className="btn-sm btn-accent rounded-md">Zertifikat</button>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      {item.content.certificate && !item.content.certificate?.includes('abitur') &&
+                        <a
+                          href={item.content.certificate ? pdfs.find(pdf => pdf.id === item.content.certificate)?.url : ''}
+                          className="btn-sm btn-accent py-1 rounded font-normal transition-all duration-300"
+                          target="_blank"
+                        >Zertifikat</a>
                       }
                     </td>
                   </tr>
+                );
+              })}
 
-                </>
-
-              );
-
-            })}
+            </tbody >
           </table>
+
+          {/* On Mobile */}
+          <div className="flex flex-col md:flex-row sm:flex-wrap lg:hidden" >
+            {
+              itSchoolItems.map((item, index) => {
+                return (
+                  <div key={`schools-mobile-${index}`} className="md:w-[50%] min-w-[250px] p-3">
+                    <p className="mx-4">{item.content.year}{item.content.end ? ' - ' + item.content.end : ''}</p>
+                    <p className="font-semibold">{item.content.name}</p>
+                    <p className="text-[.85rem] italic">{item.content.institute}</p>
+                    {item.content.certificate &&
+                      <button className="btn-sm btn-accent rounded-md">Zertifikat</button>
+                    }
+                    <hr className="my-4" />
+                  </div>
+                );
+              })
+            }
+          </div >
         </div>
       </div>
     </>
