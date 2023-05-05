@@ -14,7 +14,10 @@
         "year": 2000,
         "end": 2004,
         "description": "Elektrotechnik und Informatik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
-        "showYear": true
+        "showYear": true,
+        "icons": [
+          "electrotechnik"
+        ]
       },
       "layout": {
         "level": 1,
@@ -43,7 +46,11 @@
         "showYear": true,
         "certificate": "software_operator_technikum",
         "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich erhielt den Technikum Zertifikat.",
-        "end": 2005
+        "end": 2005,
+        "icons": [
+          "IT",
+          "wirtschaft"
+        ]
       },
       "layout": {
         "level": 1,
@@ -71,7 +78,11 @@
         ],
         "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
         "year": 2020,
-        "showYear": true
+        "showYear": true,
+        "icons": [
+          "PHP8",
+          "MySQL"
+        ]
       },
       "layout": {
         "level": 3,
@@ -107,7 +118,12 @@
         "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
         "certificate": "moderne-webanwendungen-mit-php-mysql-certificate",
         "end": 2022,
-        "image": "stablegram"
+        "image": "stablegram",
+        "icons": [
+          "PHP8",
+          "MySQL",
+          "Laravel 8"
+        ]
       },
       "layout": {
         "level": 3,
@@ -146,7 +162,11 @@
         "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
         "certificate": "moderne-webanwendungen-mit-javascript-certificate",
         "image": "puzzle",
-        "link": "https://puzzle.gaborjuhasz.de/"
+        "link": "https://puzzle.gaborjuhasz.de/",
+        "icons": [
+          "JavaScript",
+          "React"
+        ]
       },
       "layout": {
         "level": 3,
@@ -177,7 +197,13 @@
         "showYear": true,
         "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
         "certificate": "webdesign-usability-certificate",
-        "image": "memory_2"
+        "image": "memory_2",
+        "icons": [
+          "HTML5",
+          "CSS4",
+          "Sass",
+          "Bootstrap 4"
+        ]
       },
       "layout": {
         "level": 3,
@@ -211,7 +237,12 @@
         "end": " ",
         "showYear": true,
         "description": "",
-        "image": "memory_2"
+        "image": "memory_2",
+        "icons": [
+          "TypeScript",
+          "React",
+          "Tailwind CSS"
+        ]
       },
       "layout": {
         "level": 3,
@@ -245,7 +276,12 @@
         "end": "2019",
         "showYear": true,
         "description": "",
-        "image": "memory_2"
+        "image": "memory_2",
+        "icons": [
+          "HTML5",
+          "CSS4",
+          "PHP8"
+        ]
       },
       "layout": {
         "level": 3,
@@ -279,7 +315,11 @@
         "end": "2019",
         "showYear": true,
         "description": "",
-        "image": "memory_2"
+        "image": "memory_2",
+        "icons": [
+          "Wordpress",
+          "Joomla"
+        ]
       },
       "layout": {
         "level": 3,
@@ -313,7 +353,11 @@
         "showYear": true,
         "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
         "end": " ",
-        "image": "stablegram"
+        "image": "stablegram",
+        "icons": [
+          "git",
+          "Github"
+        ]
       },
       "layout": {
         "level": 3,
