@@ -41,11 +41,11 @@ const Overview = () => {
               {/* Texts */}
               <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8">
                 <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
-                    <div className="mb-5 w-[370px] mx-auto text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
+                    <div className="inline-block py-2 mb-5 w-[350px] xl:w-[500px] mx-auto xl:mx-0 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
                       <p className="mr-2">
                         {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                       </p>
-                  </div>
+                    </div>
 
                     {/* Name */}
                     <div className="text-2xl font-semibold">
@@ -87,7 +87,7 @@ const Overview = () => {
 
               {/* Image */}
                 <div className="max-w-[540px] mx-auto xl:mx-0">
-                  <img className="max-h-[500px]" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                  <img className="max-h-[500px] xl:-translate-y-4" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
                 </div>
               </div>
 
