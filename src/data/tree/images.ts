@@ -10,6 +10,12 @@ import inDialogo from '../../assets/images/in_dialogo_2.png';
 import memory from '../../assets/images/memory_2.png';
 import puzzle from '../../assets/images/puzzle_2.png';
 import stablegram from '../../assets/images/stablegram_2.png';
+import masterLogic from '../../assets/images/master_logic.png';
+import tommyChords from '../../assets/images/tommyChords2.png';
+import portfolio1 from '../../assets/images/portfolio_1.png';
+import portfolio2 from '../../assets/images/portfolio_2.png';
+import agbm from '../../assets/images/agbm.png';
+import hatRendben from '../../assets/images/hat_rendben.png';
 
 interface IImages {
   name: string;
@@ -77,6 +83,36 @@ const images: IImages[] = [
     "name": "stablegram",
     "img": stablegram,
     "credits": "Stablegram (Basic Instagram clone with Laravel)"
+  },
+  {
+    "name": "master_logic",
+    "img": masterLogic,
+    "credits": "Master Logic Game (React)"
+  },
+  {
+    "name": "tommy_chords",
+    "img": tommyChords,
+    "credits": "TommyChords (React)"
+  },
+  {
+    "name": "portfolio_1",
+    "img": portfolio1,
+    "credits": "Portfolio 1"
+  },
+  {
+    "name": "agbm",
+    "img": agbm,
+    "credits": "Adventgemeinde Bremen-Mitte"
+  },
+  {
+    "name": "portfolio_2",
+    "img": portfolio2,
+    "credits": "Portfolio v.2"
+  },
+  {
+    "name": "hat_rendben",
+    "img": hatRendben,
+    "credits": "Hát Rendben"
   },
 ];
 
