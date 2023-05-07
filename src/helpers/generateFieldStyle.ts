@@ -16,10 +16,10 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     return `rgba(${r},${g},${b},${a})`;
   };
 
-  // Get the last digit of the number or return the number if it is smaller than 10
+  // Get the last digit of the number or return the number if it is smaller than the number of the cols
   const getLastDigit = (nr: number): number => nr % cols;
 
-  // Get the first digit of the number or return 0 if it is smaller than 10
+  // Get the first digit of the number or return 0 if it is smaller than the number of the cols
   const getFirstDigit = (nr: number): number => Math.floor(nr / cols);
 
   const increaseNrWithIndex = (nr: number, index: number, fineTuning: number = 1): number => (nr + index) * fineTuning;
@@ -31,6 +31,16 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
     boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i), .4)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .3)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transitionDuration: "600ms",
+  };
+
+  const stylesDefaultTablet: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), 3)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .3)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
     transitionDuration: "600ms",
   };
 
@@ -56,7 +66,7 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     transitionDuration: "100ms",
   };
 
-  return { stylesDefault, stylesOnHover, stylesOnClick, increaseOpacity };
+  return { stylesDefault, stylesDefaultTablet, stylesOnHover, stylesOnClick, increaseOpacity };
 };
 
 export { useFieldStyles };
