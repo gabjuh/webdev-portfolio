@@ -14,11 +14,11 @@ body {
   overflow-x: hidden;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) { */
   .stacks-transform {
     transform: perspective(2500px) rotateX(20deg);
   }
-}
+/* } */
 .btn-categories .btn-sm {
   @apply text-xs py-0 border-transparent border-[3px] transition-all duration-150
 }
@@ -44,4 +44,59 @@ body {
 .tooltip button:not() {
   background-color: #f00;
   margin-top: 50px
+}
+
+/* flip card */
+
+
+
+.flip-card {
+  background-color: transparent;
+  /* width: 502px;
+  height: 325px; */
+  perspective: 1400px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform ease-in-out .9s;
+  transform-style: preserve-3d;
+  /* shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+}
+
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(-180deg);
+} */
+/* 
+.flip-card:hover {
+  border-radius: .9rem;
+
+} */
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* border-radius: 1.8rem; */
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #fff;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-transform {
+  transform: perspective(2500px) rotateX(30deg);
 }
