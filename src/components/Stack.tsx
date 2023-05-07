@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Fields from './Fields';
 import Hero from './Hero';
 import Prompt from './Prompt';
+import Title from './Title';
 
 // Data Desktop
 import bigFields from '../data/stack/bigFields';
@@ -16,6 +17,12 @@ import bigFieldsTablet from '../data/stack/bigFieldsTablet';
 import smallFieldsTablet from '../data/stack/smallFieldsTablet';
 import hiddenFieldsTablet from '../data/stack/hiddenFieldsTablet';
 // import downButtonTablet from '../data/stack/downButtonTablet';
+
+// Data Mobile
+import bigFieldsMobile from '../data/stack/bigFieldsMobile';
+import smallFieldsMobile from '../data/stack/smallFieldsMobile';
+import hiddenFieldsMobile from '../data/stack/hiddenFieldsMobile';
+// import downButtonMobile from '../data/stack/downButtonMobile';
 
 // Config
 import fieldConfig from '../configs/field.conf';
@@ -41,7 +48,7 @@ const Stack: React.FC = () => {
   const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
 
   // Show indexes in order to able to identify and change fields
-  const [showIndexes, setShowIndexes] = useState<boolean>(true);
+  const [showIndexes, setShowIndexes] = useState<boolean>(false);
 
   // The active field is the field that is hovered or clicked
   const [activeField, setActiveField] = useState<number | null>(null);
@@ -73,19 +80,30 @@ const Stack: React.FC = () => {
       viewWidth > 480 ? fieldsConfigTablet.cols :
         fieldsConfigMobile.cols);
 
-  const [gap, setGap] = useState<number>(viewWidth > 768 ? fieldsConfig.gap :
-    viewWidth > 480 ? fieldsConfigTablet.gap :
-      fieldsConfigMobile.gap);
+  const [gap, setGap] = useState<number>(
+    viewWidth > 768 ? fieldsConfig.gap :
+      viewWidth > 480 ? fieldsConfigTablet.gap :
+        fieldsConfigMobile.gap);
 
-  const [nrOfFields, setNrOfFields] = useState<number>(viewWidth > 768 ? fieldsConfig.nrOfFields :
-    viewWidth > 480 ? fieldsConfigTablet.nrOfFields :
-      fieldsConfigMobile.nrOfFields);
+  const [nrOfFields, setNrOfFields] = useState<number>(
+    viewWidth > 768 ? fieldsConfig.nrOfFields :
+      viewWidth > 480 ? fieldsConfigTablet.nrOfFields :
+        fieldsConfigMobile.nrOfFields);
 
-  const [bigFieldsLayout, setBigFieldsLayout] = useState<IBigField[]>(viewWidth > 768 ? bigFields : bigFieldsTablet);
+  const [bigFieldsLayout, setBigFieldsLayout] = useState<IBigField[]>(
+    viewWidth > 768 ? bigFields :
+      viewWidth > 480 ? bigFieldsTablet :
+        bigFieldsMobile);
 
-  const [smallFieldsLayout, setSmallFieldsLayout] = useState<IBigField[]>(viewWidth > 768 ? smallFields : smallFieldsTablet);
+  const [smallFieldsLayout, setSmallFieldsLayout] = useState<IBigField[]>(
+    viewWidth > 768 ? smallFields :
+      viewWidth > 480 ? smallFieldsTablet :
+        smallFieldsMobile);
 
-  const [hiddenFieldsLayout, setHiddenFieldsLayout] = useState<number[]>(viewWidth > 768 ? hiddenFields : hiddenFieldsTablet);
+  const [hiddenFieldsLayout, setHiddenFieldsLayout] = useState<number[]>(
+    viewWidth > 768 ? hiddenFields :
+      viewWidth > 480 ? hiddenFieldsTablet :
+        hiddenFieldsMobile);
 
   // Resize event listener
   const handleResize = () => {
@@ -134,9 +152,9 @@ const Stack: React.FC = () => {
       setHiddenFieldsLayout(hiddenFieldsTablet);
 
     } else {
-      // setBigFieldsLayout(bigFieldsTablet);
-      // setSmallFieldsLayout(smallFieldsTablet);
-      // setHiddenFieldsLayout(hiddenFieldsTablet);
+      setBigFieldsLayout(bigFieldsMobile);
+      setSmallFieldsLayout(smallFieldsMobile);
+      setHiddenFieldsLayout(hiddenFieldsMobile);
     }
   }, [viewWidth]);
 
@@ -146,9 +164,18 @@ const Stack: React.FC = () => {
 
   // If bigFields includes the activeField as its index, return it
   const getNameOfActiveField = (activeField: number | null) => {
+
+    const bigFieldsObj =
+      viewWidth > 768 ? bigFields :
+        viewWidth > 480 ? bigFieldsTablet :
+          bigFieldsMobile;
+
+    const smallFieldsObj =
+      viewWidth > 768 ? smallFields :
+        viewWidth > 480 ? smallFieldsTablet :
+          smallFieldsMobile;
+
     let item;
-    const bigFieldsObj = viewWidth > 768 ? bigFields : bigFieldsTablet;
-    const smallFieldsObj = viewWidth > 768 ? smallFields : smallFieldsTablet;
     item = bigFieldsObj.find(item => item.index === activeField);
     if (!item) item = smallFieldsObj.find(item => item.index === activeField);
     return item ? item.name : '';
@@ -177,15 +204,23 @@ const Stack: React.FC = () => {
         setSkipList(list);
         console.log(skipList);
       });
-    };
-    if (viewWidth <= 768) {
+    } else if (viewWidth > 480) {
       const list: number[] = [];
       bigFieldsTablet.forEach(item => {
         list.push(item.index + 1, item.index + cols, item.index + cols + 1);
         setSkipList(list);
         console.log(skipList);
       });
-    };
+    } else {
+      const list: number[] = [];
+      bigFieldsMobile.forEach(item => {
+        list.push(item.index + 1, item.index + cols, item.index + cols + 1);
+        setSkipList(list);
+        console.log(skipList);
+      }
+      );
+    }
+
   }, [viewWidth]);
 
   // Create an array with the given number of fields
@@ -193,7 +228,11 @@ const Stack: React.FC = () => {
 
   return (
     <>
-      <div className="container lg:h-[800px] mx-auto lg:py-10] lg:mt-10" id="stack">
+      <div className="container lg:h-[800px] mx-auto lg:py-10] lg:mt-32" id="stack">
+        {viewWidth < 1024 &&
+          <Hero scrollToId={scrollToId} />
+        }
+        {viewWidth < 1024 && <Title text="Stack" level={3} />}
         <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
           <div className="relative">
             <div className="grid grid-cols-8">
@@ -215,7 +254,7 @@ const Stack: React.FC = () => {
                   scrollToId={scrollToId}
                 />
               </div>
-              <Hero scrollToId={scrollToId} />
+              {viewWidth > 1024 && <Hero scrollToId={scrollToId} />}
             </div>
             <Prompt
               prompt={getNameOfActiveField(activeField)}
