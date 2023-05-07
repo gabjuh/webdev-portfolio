@@ -24,6 +24,7 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
 
   const increaseNrWithIndex = (nr: number, index: number, fineTuning: number = 1): number => (nr + index) * fineTuning;
 
+  // Default Styles
   const stylesDefault: IFieldStyles = {
     width: `${size[0]}px`,
     height: `${size[1]}px`,
@@ -40,10 +41,21 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     left: `${pos[0]}px`,
     right: 0,
     background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
-    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), 3)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .3)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), .4)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .3)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
     transitionDuration: "600ms",
   };
 
+  const stylesDefaultMobile: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), .3)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .3)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transitionDuration: "600ms",
+  };
+
+  // Syles on hover
   const stylesOnHover: IFieldStyles = {
     width: `${size[0]}px`,
     height: `${size[1]}px`,
@@ -55,6 +67,29 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     transitionDuration: "150ms",
   };
 
+  const stylesOnHoverTablet: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), 1.1)}px ${increaseNrWithIndex(-5, getFirstDigit(i), 1.1)}px 6px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transform: `translateY(${-4}px) translateX(${-1}px)`,
+    transitionDuration: "150ms",
+  };
+
+  const stylesOnHoverMobile: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-3, getLastDigit(i), 1.1)}px ${increaseNrWithIndex(-5, getFirstDigit(i), 1.1)}px 6px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transform: `translateY(${-2}px) translateX(${-1}px)`,
+    transitionDuration: "150ms",
+  };
+
+  // Styles on click
   const stylesOnClick: IFieldStyles = {
     width: `${size[0]}px`,
     height: `${size[1]}px`,
@@ -66,7 +101,34 @@ const useFieldStyles = (nrOfFields: number, cols: number, i: number, size: numbe
     transitionDuration: "100ms",
   };
 
-  return { stylesDefault, stylesDefaultTablet, stylesOnHover, stylesOnClick, increaseOpacity };
+  const stylesOnClickTablet: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i), .4)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .4)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transform: `translateY(${2}px) translateX(${1}px)`,
+    transitionDuration: "100ms",
+  };
+
+  const stylesOnClickMobile: IFieldStyles = {
+    width: `${size[0]}px`,
+    height: `${size[1]}px`,
+    left: `${pos[0]}px`,
+    right: 0,
+    background: `linear-gradient(120deg, ${generateFirstColor(i, cols)}, ${generateSecondColor(i, cols)})`,
+    boxShadow: `${increaseNrWithIndex(-5, getLastDigit(i), .4)}px ${increaseNrWithIndex(-5, getFirstDigit(i), .4)}px 4px rgba(56,97,109,${increaseOpacity(0.45, i)})`,
+    transform: `translateY(${2}px) translateX(${1}px)`,
+    transitionDuration: "100ms",
+  };
+
+  return {
+    stylesDefault, stylesDefaultTablet, stylesDefaultMobile,
+    stylesOnHover, stylesOnHoverTablet, stylesOnHoverMobile,
+    stylesOnClick, stylesOnClickTablet, stylesOnClickMobile,
+    increaseOpacity
+  };
 };
 
 export { useFieldStyles };
