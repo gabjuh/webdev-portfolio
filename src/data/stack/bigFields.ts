@@ -1,12 +1,7 @@
 import reactLogo from '../../assets/logos/react_mc.svg';
 import typescriptLogo from '../../assets/logos/typescript_mc.svg';
 import tailwindLogo from '../../assets/logos/tailwind_mc.svg';
-
-interface IBigField {
-  index: number;
-  name: string;
-  img: string;
-}
+import IBigField from '../../interfaces/BigField';
 
 const bigFields: IBigField[] = [
   {
