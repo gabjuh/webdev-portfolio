@@ -1,9 +1,9 @@
 import IFieldConfig from '../interfaces/FieldConfig';
 
-const fieldConfig: IFieldConfig = {
-  size: 52,
+const fieldConfigTablet: IFieldConfig = {
+  size: 55,
   bigFieldSizeFactor: 2.3,
   fieldColor: '#464'
 };
 
-export default fieldConfig;
+export default fieldConfigTablet;
