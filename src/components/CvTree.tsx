@@ -7,6 +7,7 @@ import Point from './Point';
 import Button from './Button';
 import Popup from './Popup';
 import { Year, Text } from './Text';
+import Title from './Title';
 
 //  Assets
 import downArrow from '../assets/logos/down-arrow.svg';
@@ -306,6 +307,7 @@ const CvTree: React.FC = ({ }) => {
 
   return (
     <>
+      <Title text="Mein CV Tree" level={3} />
       <div className="relative hidden 2xs:block" id="cv"
       >
         {/* Buttons */}
