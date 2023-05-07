@@ -81,11 +81,11 @@ const Stack: React.FC = () => {
     viewWidth > 480 ? fieldsConfigTablet.nrOfFields :
       fieldsConfigMobile.nrOfFields);
 
-  const [bigFieldsLayout, setBigFieldsLayout] = useState<IBigField[]>(viewWidth > 640 ? bigFields : bigFieldsTablet);
+  const [bigFieldsLayout, setBigFieldsLayout] = useState<IBigField[]>(viewWidth > 768 ? bigFields : bigFieldsTablet);
 
-  const [smallFieldsLayout, setSmallFieldsLayout] = useState<IBigField[]>(viewWidth > 640 ? smallFields : smallFieldsTablet);
+  const [smallFieldsLayout, setSmallFieldsLayout] = useState<IBigField[]>(viewWidth > 768 ? smallFields : smallFieldsTablet);
 
-  const [hiddenFieldsLayout, setHiddenFieldsLayout] = useState<number[]>(viewWidth > 640 ? hiddenFields : hiddenFieldsTablet);
+  const [hiddenFieldsLayout, setHiddenFieldsLayout] = useState<number[]>(viewWidth > 768 ? hiddenFields : hiddenFieldsTablet);
 
   // Resize event listener
   const handleResize = () => {
@@ -105,6 +105,7 @@ const Stack: React.FC = () => {
       setCols(fieldsConfig.cols);
       setGap(fieldsConfig.gap);
       setNrOfFields(fieldsConfig.nrOfFields);
+
     } else if (viewWidth > 480) {
       setSize(fieldConfigTablet.size);
       setBigFieldSizeFactor(fieldConfigTablet.bigFieldSizeFactor);
@@ -112,6 +113,7 @@ const Stack: React.FC = () => {
       setCols(fieldsConfigTablet.cols);
       setGap(fieldsConfigTablet.gap);
       setNrOfFields(fieldsConfigTablet.nrOfFields);
+
     } else {
       setSize(fieldConfigMobile.size);
       setBigFieldSizeFactor(fieldConfigMobile.bigFieldSizeFactor);
@@ -121,14 +123,16 @@ const Stack: React.FC = () => {
       setNrOfFields(fieldsConfigMobile.nrOfFields);
     }
 
-    if (viewWidth > 640) {
+    if (viewWidth > 768) {
       setBigFieldsLayout(bigFields);
       setSmallFieldsLayout(smallFields);
       setHiddenFieldsLayout(hiddenFields);
+
     } else if (viewWidth > 480) {
       setBigFieldsLayout(bigFieldsTablet);
       setSmallFieldsLayout(smallFieldsTablet);
       setHiddenFieldsLayout(hiddenFieldsTablet);
+
     } else {
       // setBigFieldsLayout(bigFieldsTablet);
       // setSmallFieldsLayout(smallFieldsTablet);
@@ -137,13 +141,16 @@ const Stack: React.FC = () => {
   }, [viewWidth]);
 
   // The given indeses in the skipList will be skipped from rendering
-  const skipList: number[] = [];
+  // const skipList: number[] = [];
+  const [skipList, setSkipList] = useState<number[]>([]);
 
   // If bigFields includes the activeField as its index, return it
   const getNameOfActiveField = (activeField: number | null) => {
     let item;
-    item = bigFields.find(item => item.index === activeField);
-    if (!item) item = smallFields.find(item => item.index === activeField);
+    const bigFieldsObj = viewWidth > 768 ? bigFields : bigFieldsTablet;
+    const smallFieldsObj = viewWidth > 768 ? smallFields : smallFieldsTablet;
+    item = bigFieldsObj.find(item => item.index === activeField);
+    if (!item) item = smallFieldsObj.find(item => item.index === activeField);
     return item ? item.name : '';
   }
 
@@ -151,9 +158,35 @@ const Stack: React.FC = () => {
   // on the right sode:           n + 1,
   // below:                       n + cols,
   // below and one to the right:  n + cols + 1,
-  bigFields.forEach(item => {
+  bigFieldsLayout.forEach(item => {
     skipList.push(item.index + 1, item.index + cols, item.index + cols + 1);
+    console.log(skipList);
   });
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    setSkipList([]);
+    if (viewWidth > 768) {
+      const list: number[] = [];
+      bigFields.forEach(item => {
+        list.push(item.index + 1, item.index + cols, item.index + cols + 1);
+        setSkipList(list);
+        console.log(skipList);
+      });
+    };
+    if (viewWidth <= 768) {
+      const list: number[] = [];
+      bigFieldsTablet.forEach(item => {
+        list.push(item.index + 1, item.index + cols, item.index + cols + 1);
+        setSkipList(list);
+        console.log(skipList);
+      });
+    };
+  }, [viewWidth]);
 
   // Create an array with the given number of fields
   const fieldArray = [...Array(nrOfFields)].map((_, i) => i).filter(id => !skipList.includes(id));
