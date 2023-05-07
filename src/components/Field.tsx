@@ -27,7 +27,12 @@ const Field: React.FC<IField> = ({
 }) => {
 
   // Generate the styles for the field and use its helpers
-  const { stylesDefault, stylesOnHover, stylesOnClick, increaseOpacity } = useFieldStyles(
+  const {
+    stylesDefault, stylesDefaultTablet, stylesDefaultMobile,
+    stylesOnHover, stylesOnHoverTablet, stylesOnClickMobile,
+    stylesOnClick, stylesOnClickTablet, stylesOnHoverMobile,
+    increaseOpacity
+  } = useFieldStyles(
     nrOfFields,
     cols,
     i,
@@ -37,30 +42,89 @@ const Field: React.FC<IField> = ({
 
   // Set the field style
   const [fieldStyle, setFieldStyle] = useState<IFieldStyles>(stylesDefault);
+  const [touchedActiveField, setTouchedActiveField] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (touchedActiveField) {
+      setTimeout(() => {
+        setTouchedActiveField(false);
+        setActiveField(null);
+      }, 3000);
+    }
+  }, [touchedActiveField])
 
   // By hover the field lifts up
   const handleMouseEnter = () => {
-    setFieldStyle(stylesOnHover)
+    if (viewWidth > 768) {
+      setFieldStyle(stylesOnHover)
+    } else if (viewWidth > 480) {
+      setFieldStyle(stylesOnHoverTablet);
+    } else {
+      setFieldStyle(stylesOnHoverMobile);
+    }
   };
 
   // By leaving the field, it goes back to its default style
   const handleMouseLeave = () => {
     setActiveField(null)
     setTimeout(() => {
-      setFieldStyle(stylesDefault)
+      if (viewWidth > 768) {
+        setFieldStyle(stylesDefault)
+      } else if (viewWidth > 480) {
+        setFieldStyle(stylesDefaultTablet);
+      } else {
+        setFieldStyle(stylesDefaultMobile);
+      }
     }, 700)
   };
 
   // By clicking the field, it goes down to the clicked style
   const handleOnMouseDown = () => {
-    setFieldStyle(stylesOnClick)
+    if (viewWidth > 768) {
+      setFieldStyle(stylesOnClick)  
+    } else if (viewWidth > 480) {
+      setFieldStyle(stylesOnClickTablet);
+    } else {
+      setFieldStyle(stylesOnClickMobile);
+    }
     setActiveField(activeField === null ? i : null)
   }
 
   // By releasing the mouse button, the field goes back to its default style (to the hovered style)
   const handleOnMouseUp = () => {
-    setFieldStyle(stylesOnHover)
+    if (viewWidth > 768) {
+      setFieldStyle(stylesOnHover)
+    } else if (viewWidth > 480) {
+      setFieldStyle(stylesOnHoverTablet);
+    } else {
+      setFieldStyle(stylesOnHoverMobile);
+    }
   };
+
+  const handleOnTouchStart = () => {
+    if (viewWidth > 768) {
+      setFieldStyle(stylesOnClick);
+    } else if (viewWidth > 480) {
+      setFieldStyle(stylesOnClickTablet);
+    } else {
+      setFieldStyle(stylesOnClickMobile);
+    }
+    setActiveField(activeField === null ? i : null);
+    setTouchedActiveField(true);
+  };
+
+  const handleOnTouchEnd = () => {
+    setTimeout(() => {
+      if (viewWidth > 768) {
+        setFieldStyle(stylesDefault);
+      } else if (viewWidth > 480) {
+        setFieldStyle(stylesDefaultTablet);
+      } else {
+        setFieldStyle(stylesDefaultMobile);
+      }
+
+    }, 700);
+  }
 
   // View width
   const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
@@ -78,16 +142,26 @@ const Field: React.FC<IField> = ({
   useEffect(() => {
     setFieldStyle(stylesDefault);
     setViewWidth(getViewWidth());
-  }, [viewWidth]);
+    if (viewWidth > 768) {
+      setFieldStyle(stylesDefault);
+    } else if (viewWidth > 480) {
+      setFieldStyle(stylesDefaultTablet);
+    } else {
+      setFieldStyle(stylesDefaultMobile);
+    }
+  }, [viewWidth])
 
   return (
     <div
-      className={`${isBig ? 'col-span-2 row-span-2 ' : ''}${!isLicensed && img ? 'border-red-500 border-[3px] ' : ''}relative group mx-auto rounded-2xl hover:-translate-y-[4px] hover:-translate-x-[1px] transition-all group`}
+      className={`${isBig ? 'col-span-2 row-span-2 ' : ''}${!isLicensed && img ? 'border-red-500 border-[3px] ' : ''}relative group mx-auto md:rounded-[1rem] xs:rounded-[.95rem] rounded-[.65rem]  hover:-translate-y-[4px] hover:-translate-x-[1px] transition-all group`}
       style={fieldStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleOnMouseDown}
+      onTouchStart={handleOnTouchStart}
+      onTouchEnd={handleOnTouchEnd}
       onMouseUp={!fn ? handleOnMouseUp : () => fn.scrollToId(fn.id)}
+
     >
       <div className="text-center h-[100%]">
         <div className="absolute top-[50%] -translate-y-[56%] left-0 right-0">
