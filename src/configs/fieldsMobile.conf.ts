@@ -1,9 +1,9 @@
 import IFieldsConfig from '../interfaces/FieldsConfig';
 
 const fieldsConfigMobile: IFieldsConfig = {
-  cols: 10,
+  cols: 6,
   gap: 12,
-  nrOfFields: 90
+  nrOfFields: 54
 };
 
 export default fieldsConfigMobile;
