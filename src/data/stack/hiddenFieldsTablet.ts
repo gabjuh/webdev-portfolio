@@ -1,6 +1,15 @@
+const hiddenFieldsTablet = [
+  0, 2, 5,
+  9, 10, 13,
+  14, 17,
+  21,
 
-const hiddenFields = [
-  0, 1, 2, 3, 4, 7, 8, 10, 14, 15, 17, 19, 21, 25, 30, 31, 32, 39, 40, 49, 51, 52, 60, 61, 62, 69, 70, 74, 78, 79, 80, 82, 83, 84, 85, 86, 87, 89
+  36,
+  42, 43,
+  52, 55,
+
+  57, 58, 59, 60, 61,
+  63, 64, 65, 66, 67, 68, 69,
 ];
 
-export default hiddenFields;
+export default hiddenFieldsTablet;
