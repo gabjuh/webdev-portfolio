@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Components
 import { IFieldStyles } from '../interfaces/FieldStyles';
@@ -6,6 +6,9 @@ import { IField } from '../interfaces/Field';
 
 // Hooks
 import { useFieldStyles } from '../helpers/generateFieldStyle';
+
+// Helpers
+import { getViewWidth } from '../helpers/getViewWidth';
 
 const Field: React.FC<IField> = ({
   name,
@@ -58,6 +61,24 @@ const Field: React.FC<IField> = ({
   const handleOnMouseUp = () => {
     setFieldStyle(stylesOnHover)
   };
+
+  // View width
+  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
+
+  // Resize event listener
+  const handleResize = () => {
+    setViewWidth(getViewWidth());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    setFieldStyle(stylesDefault);
+    setViewWidth(getViewWidth());
+  }, [viewWidth]);
 
   return (
     <div
