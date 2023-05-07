@@ -1,41 +1,140 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Components
 import Fields from './Fields';
 import Hero from './Hero';
 import Prompt from './Prompt';
 
-// Data
+// Data Desktop
 import bigFields from '../data/stack/bigFields';
 import smallFields from '../data/stack/smallFields';
 import hiddenFields from '../data/stack/hiddenFields';
 import downButton from '../data/stack/downButton';
 
+// Data Tablet
+import bigFieldsTablet from '../data/stack/bigFieldsTablet';
+import smallFieldsTablet from '../data/stack/smallFieldsTablet';
+import hiddenFieldsTablet from '../data/stack/hiddenFieldsTablet';
+// import downButtonTablet from '../data/stack/downButtonTablet';
+
 // Config
-import fieldConfig from '../config/field.conf';
-import fieldsConfig from '../config/fields.conf';
+import fieldConfig from '../configs/field.conf';
+import fieldConfigTablet from '../configs/fieldTablet.conf';
+import fieldConfigMobile from '../configs/fieldMobile.conf';
+import fieldsConfig from '../configs/fields.conf';
+import fieldsConfigTablet from '../configs/fieldsTablet.conf';
+import fieldsConfigMobile from '../configs/fieldsMobile.conf'
 
 // Interfaces
-import FieldConfig from '../interfaces/FieldConfig';
-import FieldsConfig from '../interfaces/FieldsConfig';
+// import FieldConfig from '../interfaces/FieldConfig';
+// import FieldsConfig from '../interfaces/FieldsConfig';
+import IBigField from '../interfaces/BigField';
+
 
 // Helpers
 import { scrollToId } from '../helpers/pageNavigation';
+import { getViewWidth } from '../helpers/getViewWidth';
 
 const Stack: React.FC = () => {
 
+  // View width
+  const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
+
   // Show indexes in order to able to identify and change fields
-  const [showIndexes, setShowIndexes] = useState<boolean>(false);
+  const [showIndexes, setShowIndexes] = useState<boolean>(true);
 
   // The active field is the field that is hovered or clicked
   const [activeField, setActiveField] = useState<number | null>(null);
 
   // Field settings
-  const { size, bigFieldSizeFactor, fieldColor }: FieldConfig = fieldConfig;
+  // const { size, bigFieldSizeFactor, fieldColor }: FieldConfig = fieldConfig;
+  const [size, setSize] = useState<number>(
+    viewWidth > 768 ? fieldConfig.size :
+      viewWidth > 480 ? fieldConfigTablet.size :
+        fieldConfigMobile.size);
+
+  const [bigFieldSizeFactor, setBigFieldSizeFactor] = useState<number>(
+    viewWidth > 768 ? fieldConfig.bigFieldSizeFactor :
+      viewWidth > 480 ? fieldConfigTablet.bigFieldSizeFactor :
+        fieldConfigMobile.bigFieldSizeFactor);
+
+  const [fieldColor, setFieldColor] = useState<string>(
+    viewWidth > 768 ? fieldConfig.fieldColor :
+      viewWidth > 480 ? fieldConfigTablet.fieldColor :
+        fieldConfigMobile.fieldColor);
+
+  // Set the size of the big fields
   const bigFieldSize: number = size * bigFieldSizeFactor;
 
   // Fields and Grid settings
-  const { cols, gap, nrOfFields }: FieldsConfig = fieldsConfig;
+  // const { cols, gap, nrOfFields }: FieldsConfig = fieldsConfig;
+  const [cols, setCols] = useState<number>(
+    viewWidth > 768 ? fieldsConfig.cols :
+      viewWidth > 480 ? fieldsConfigTablet.cols :
+        fieldsConfigMobile.cols);
+
+  const [gap, setGap] = useState<number>(viewWidth > 768 ? fieldsConfig.gap :
+    viewWidth > 480 ? fieldsConfigTablet.gap :
+      fieldsConfigMobile.gap);
+
+  const [nrOfFields, setNrOfFields] = useState<number>(viewWidth > 768 ? fieldsConfig.nrOfFields :
+    viewWidth > 480 ? fieldsConfigTablet.nrOfFields :
+      fieldsConfigMobile.nrOfFields);
+
+  const [bigFieldsLayout, setBigFieldsLayout] = useState<IBigField[]>(viewWidth > 640 ? bigFields : bigFieldsTablet);
+
+  const [smallFieldsLayout, setSmallFieldsLayout] = useState<IBigField[]>(viewWidth > 640 ? smallFields : smallFieldsTablet);
+
+  const [hiddenFieldsLayout, setHiddenFieldsLayout] = useState<number[]>(viewWidth > 640 ? hiddenFields : hiddenFieldsTablet);
+
+  // Resize event listener
+  const handleResize = () => {
+    setViewWidth(getViewWidth());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (viewWidth > 768) {
+      setSize(fieldConfig.size);
+      setBigFieldSizeFactor(fieldConfig.bigFieldSizeFactor);
+      setFieldColor(fieldConfig.fieldColor);
+      setCols(fieldsConfig.cols);
+      setGap(fieldsConfig.gap);
+      setNrOfFields(fieldsConfig.nrOfFields);
+    } else if (viewWidth > 480) {
+      setSize(fieldConfigTablet.size);
+      setBigFieldSizeFactor(fieldConfigTablet.bigFieldSizeFactor);
+      setFieldColor(fieldConfigTablet.fieldColor);
+      setCols(fieldsConfigTablet.cols);
+      setGap(fieldsConfigTablet.gap);
+      setNrOfFields(fieldsConfigTablet.nrOfFields);
+    } else {
+      setSize(fieldConfigMobile.size);
+      setBigFieldSizeFactor(fieldConfigMobile.bigFieldSizeFactor);
+      setFieldColor(fieldConfigMobile.fieldColor);
+      setCols(fieldsConfigMobile.cols);
+      setGap(fieldsConfigMobile.gap);
+      setNrOfFields(fieldsConfigMobile.nrOfFields);
+    }
+
+    if (viewWidth > 640) {
+      setBigFieldsLayout(bigFields);
+      setSmallFieldsLayout(smallFields);
+      setHiddenFieldsLayout(hiddenFields);
+    } else if (viewWidth > 480) {
+      setBigFieldsLayout(bigFieldsTablet);
+      setSmallFieldsLayout(smallFieldsTablet);
+      setHiddenFieldsLayout(hiddenFieldsTablet);
+    } else {
+      // setBigFieldsLayout(bigFieldsTablet);
+      // setSmallFieldsLayout(smallFieldsTablet);
+      // setHiddenFieldsLayout(hiddenFieldsTablet);
+    }
+  }, [viewWidth]);
 
   // The given indeses in the skipList will be skipped from rendering
   const skipList: number[] = [];
@@ -65,13 +164,13 @@ const Stack: React.FC = () => {
         <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
           <div className="relative">
             <div className="grid grid-cols-8">
-              <div className={`lg:grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto hidden`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
+              <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
                 <Fields
                   fieldArray={fieldArray}
-                  bigFields={bigFields}
-                  smallFields={smallFields}
+                  bigFields={bigFieldsLayout}
+                  smallFields={smallFieldsLayout}
                   downButton={downButton}
-                  hiddenFields={hiddenFields}
+                  hiddenFields={hiddenFieldsLayout}
                   size={size}
                   bigFieldSize={bigFieldSize}
                   fieldColor={fieldColor}
