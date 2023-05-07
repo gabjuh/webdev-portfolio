@@ -217,7 +217,7 @@ const Chat = () => {
 
   return (
     <>
-      <div id="chat" className="relative min-h-[100vh] pt-[200px] md:container md:mx-auto w-[98%] md:w-auto mx-1">
+      <div id="chat" className="relative pt-[200px] md:container md:mx-auto w-[98%] md:w-auto mx-1">
         <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2>
         <div id="chat-box" className="relative text-sm md:text-[12pt] max-w-[1000px] mx-auto leading-relaxed">
           {/* Here come the messages */}
