@@ -4,6 +4,7 @@ import raw_projects_data from '../data/overview/projects.json';
 import images from '../data/tree/images';
 import pdfs from '../data/pdfs/pdfs';
 import icons from '../data/overview/icons';
+import Title from './Title';
 
 import { ITree, IItem } from '../interfaces/Tree';
 
@@ -30,10 +31,10 @@ const Overview = () => {
 
   return (
     <>
-      <div className="container mx-auto py-5 my-16">
+      <div className="container mx-auto py-5 my-16" id="overview">
 
         {/* Projects */}
-        <h2 className="text-4xl mb-16 text-center">Projekte</h2>
+        <Title text="Projekte" level={3} />
         {itProjectItems.map((item, index) => {
           return (
             <div className="mb-32">
@@ -112,7 +113,7 @@ const Overview = () => {
 
         {/* Schools */}
         <div className="my-52">
-          <h2 className="text-4xl mb-16 text-center">IT-Ausbildung und Selbstentwicklung</h2>
+          <Title text="IT-Ausbildung und Selbstentwicklung" level={3} />
 
           {/* On Desktop */}
           <table className="hidden lg:block w-[80%] text-left text-sm font-light mx-auto">
