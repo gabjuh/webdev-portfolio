@@ -5,17 +5,17 @@ import IBigField from '../../interfaces/BigField';
 
 const bigFields: IBigField[] = [
   {
-    "index": 36,
+    "index": 25,
     "name": "React",
     "img": reactLogo
   },
   {
-    "index": 53,
+    "index": 30,
     "name": 'TypeScript',
     "img": typescriptLogo
   },
   {
-    "index": 56,
+    "index": 39,
     "name": "Tailwind CSS",
     "img": tailwindLogo
   }
