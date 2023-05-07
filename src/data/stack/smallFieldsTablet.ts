@@ -27,103 +27,102 @@ interface ISmallField {
 
 const smallFields: ISmallField[] = [
   {
-    "index": 68,
+    "index": 48,
     "name": 'HTML5',
     "img": htmlLogo
   },
   {
-    "index": 77,
+    "index": 54,
     "name": 'CSS4',
     "img": cssLogo
   },
   {
-    "index": 35,
+    "index": 24,
     "name": "JavaScript",
     "img": jsLogo
   },
   {
-    "index": 65,
+    "index": 45,
     "name": 'Bootstrap 4',
     "img": bootstrapLogo
   },
   {
-    "index": 43,
+    "index": 29,
     "name": 'Node.JS',
     "img": nodejsLogo
   },
   {
-    "index": 34,
+    "index": 23,
     "name": 'PHP8',
     "img": phpLogo
   },
   {
-    "index": 33,
+    "index": 22,
     "name": 'MySQL',
     "img": mysqlLogo
   },
   {
-    "index": 13,
+    "index": 8,
     "name": 'Wordpress',
     "img": wordpressLogo
   },
   {
-    "index": 11,
+    "index": 7,
     "name": 'Joomla',
     "img": joomlaLogo
   },
   {
-    "index": 24,
+    "index": 16,
     "name": 'Laravel 8',
     "img": laravelLogo
   },
   {
-    "index": 23,
+    "index": 15,
     "name": 'SQLite',
     "img": sqliteLogo
   },
   {
-    "index": 27,
+    "index": 19,
     "name": 'git',
     "img": gitLogo
   },
   {
-    "index": 76,
+    "index": 53,
     "name": 'Sass',
     "img": sassLogo
   },
   {
-    "index": 28,
+    "index": 20,
     "name": 'VSCode',
     "img": vsCodeLogo
   },
   {
-    "index": 9,
+    "index": 6,
     "name": 'ChatGPT',
     "img": chatGptLogo
   },
   {
-    "index": 16,
+    "index": 11,
     "name": 'Github Copilot',
     "img": copilotLogo
-  }
-  ,
+  },
   {
-    "index": 41,
+    "index": 28,
     "name": 'Photoshop CC',
     "img": psLogo
   },
   {
-    "index": 42,
+    "index": 35,
     "name": 'InDesign CC',
     "img": indesignLogo
   },
   {
-    "index": 18,
+    "index": 12,
     "name": 'Stack Overflow',
     "img": stackOverflowLogo
   },
   {
-    "index": 26,
+    "index": 18,
     "name": 'Github',
     "img": githubLogo
   }
