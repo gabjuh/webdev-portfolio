@@ -21,7 +21,7 @@ function App() {
               <Stack />
               <Overview />
               <CvTree />
-              {/* <BusinessCard /> */}
+              <BusinessCard />
               <Chat />
             </div>
           } />
