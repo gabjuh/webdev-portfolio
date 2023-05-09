@@ -168,7 +168,7 @@ const CvTree: React.FC = ({ }) => {
   };
 
   const [showPopup, setShowPopup] = useState<string | undefined>();
-  const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 1);
+  const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 2);
   const [selectedPopupSlug, setSelectedPopupSlug] = useState<string>(sortedPopupItems[selectedPopupIndex].content.slug);
   const [changePopupDirection, setChangePopupDirection] = useState<'next' | 'prev' | undefined>(undefined);
 
@@ -306,7 +306,7 @@ const CvTree: React.FC = ({ }) => {
   const [hoveredElementSlugs, setHoveredElementSlugs] = useState<string[]>([]);
 
   return (
-    <>
+    <div className="pt-5" id="cvtree">
       <Title text="Mein CV Tree" level={3} />
       <div className="relative hidden 2xs:block" id="cv"
       >
@@ -552,7 +552,7 @@ const CvTree: React.FC = ({ }) => {
           </svg>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
