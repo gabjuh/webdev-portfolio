@@ -4,6 +4,7 @@ import { IQuestionButton, IAnswerMessage, IQuestionMessage, IDot } from '../inte
 import questions from '../data/chat/questions';
 import themes from '../themes.json';
 import chatgtp from '../assets/logos/chatgpt.svg';
+import Title from './Title';
 
 const theme = themes[2];
 
@@ -217,8 +218,9 @@ const Chat = () => {
 
   return (
     <>
-      <div id="chat" className="relative pt-[200px] md:container md:mx-auto w-[98%] md:w-auto mx-1">
-        <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2>
+      <div id="chat" className="relative pt-5 md:container md:mx-auto w-[98%] md:w-auto mx-1">
+        {/* <h2 className="text-xl md:text-2xl text-center mb-10">Was hat die Künstliche Intelligenz über mich zu sagen?</h2> */}
+        <Title text="Was hat die Künstliche Intelligenz über mich zu sagen?" level={3} />
         <div id="chat-box" className="relative text-sm md:text-[12pt] max-w-[1000px] mx-auto leading-relaxed">
           {/* Here come the messages */}
         </div>
