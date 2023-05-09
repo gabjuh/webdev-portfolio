@@ -17,7 +17,8 @@ const BusinessCard = () => {
 
   return (
     <div 
-      className={`h-[300px] `}
+      className={`h-[550px] mb-[250px] -translate-y-[300px] pt-[300px]`}
+      id="businesscard"
     >
       <div 
       // className={`w-[430px] h-[300px] mx-auto p-32 ease-in-out transiton-all duration-[300ms] ${!isCardHovered ? 'stacks-transform border border-red-500' : ''}`}
@@ -25,7 +26,7 @@ const BusinessCard = () => {
       // onMouseLeave={handleMouseLeave}
       >
         <div
-          className={`flip-card mx-auto -rotate-[28deg] w-[256px] h-[167.5px] hover:w-[502px] hover:h-[325px] ease-in-out hover:rotate-[0deg] transiton-all duration-[300ms]`}
+          className={`mt-[100px] flip-card mx-auto md:-rotate-[28deg] w-[350px] h-[232px] md:hover:w-[502px] md:hover:h-[325px] ease-in-out md:hover:rotate-[0deg] md:hover:-translate-y-[90px] transiton-all duration-[1200ms]`}
 
 
           //  className={`flip-card mx-auto -rotate-[28deg] w-[256px] h-[167.5px] hover:w-[502px] hover:h-[325px] ease-in-out hover:rotate-[0deg] transiton-all duration-[300ms] hover:-translate-y-[22%] border border-blue-500 ${isCardHovered ? 'card-transform border border-red-500' : ''}`}
@@ -43,17 +44,18 @@ const BusinessCard = () => {
           <div 
             className="flip-card-inner"
           style={{
-            transform: `rotateY(${isCardFlipped ? '-180deg' : 0})`
+            transform: `rotateX(${!isCardHovered ? !isCardFlipped ? '25deg' : '20deg' : 0}) rotateY(${isCardFlipped ? '-180deg' : 0}) `,
+            // transformStyle: 'preserve-3d',
           }}
         >
             <div
-              className="flip-card-front drop-shadow-xl hover:rounded-[1.8rem] rounded-[.9rem] transition-all duration-[300ms] ease-in-out"
+              className={`flip-card-front ${isCardHovered ? 'drop-shadow-xl' : 'drop-shadow-sm'} md:hover:rounded-[1.8rem] rounded-[.9rem] transition-all duration-[1500ms] ease-in-out`}
               onClick={() => setIsCardFlipped(!isCardFlipped)}
             >
               <img src={visitcardA} alt="Visitenkarte A" />
             </div>
             <div 
-              className="flip-card-back drop-shadow-xl rounded-[1.8rem] transition-all duration-[300ms] ease-in-out"
+              className={`flip-card-back ${isCardHovered ? 'drop-shadow-xl' : 'drop-shadow-sm'} rounded-[.9rem] transition-all duration-[1500ms] ease-in-out`}
               onClick={() => setIsCardFlipped(!isCardFlipped)}
             >
               <img src={visitcardB} alt="Visitenkarte B" />
