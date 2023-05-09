@@ -16,7 +16,6 @@ const Project: React.FC<IProject> = ({
   stack,
   img
 }) => {
-  console.log(img);
   return (
     <>
       {/* img */}
