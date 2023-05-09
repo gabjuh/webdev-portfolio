@@ -8,7 +8,7 @@ interface IHero {
 
 const Hero: React.FC<IHero> = ({ scrollToId }) => {
   return (
-    <div className="lg:col-span-2 col-span-8 lg:order-1 -order-1 mt-[10%] lg:mt-0">
+    <div className="lg:col-span-2 col-span-8 lg:order-1 -order-1 pt-[10%] lg:mt-0" id="profile">
       <div className="relative lg:translate-y-[136px] h-[500px] lg:h-[100%]">
         <div className="hero-content flex-col lg:flex-col">
           <img src={profil_img} className="max-w-[270px] lg:h-[228px] lg:ml-11 rounded-xl shadow-md brightness-[1.2]" />
@@ -21,7 +21,7 @@ const Hero: React.FC<IHero> = ({ scrollToId }) => {
             >@</a>
 
             <a
-              href="https://github.com/gabjuh/webdev-portfolio"
+              href="https://github.com/gabjuh"
               target="_blank"
               className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mx-3"
             >Github</a>
