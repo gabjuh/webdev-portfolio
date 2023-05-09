@@ -10,6 +10,7 @@ import Impressum from './components/Impressum';
 import BusinessCard from './components/BusinessCard';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import Overview from './components/Overview';
+import StickyMenu from './components/StickyMenu';
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={
-            <div className="z-0">
+            <div className="z-0 relative">
+              <StickyMenu />
               <Stack />
               <Overview />
-              <CvTree />
               <BusinessCard />
+              <CvTree />
               <Chat />
             </div>
           } />
