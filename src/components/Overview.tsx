@@ -31,18 +31,18 @@ const Overview = () => {
 
   return (
     <>
-      <div className="container mx-auto py-5 my-16" id="overview">
+      <div className="container mx-auto py-5 mt-16" id="projects">
 
         {/* Projects */}
         <Title text="Projekte" level={3} />
         {itProjectItems.map((item, index) => {
           return (
-            <div className="mb-32">
-              <div key={`projects-${index}`} className="flex flex-wrap">
+            <div className="mb-32" key={`projects-${index}`} >
+              <div className="flex flex-wrap">
               {/* Texts */}
-              <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8">
+                <div className="relative xl:text-right text-center xl:w-[55%] mx-auto xl:mx-0 mb-8 max-w-[100%]">
                 <div className="xl:absolute xl:top-[50%] xl:right-[3rem] xl:-translate-y-[50%] max-w-[800px]">
-                    <div className="inline-block py-2 mb-5 w-[350px] xl:w-[500px] mx-auto xl:mx-0 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
+                    <div className="inline-block py-2 mb-5 w-[350px] xl:w-[500px] mx-auto max-w-[100%] xl:mx-0 text-[#eee] font-bold bg-gradient-to-r from-[#eee] xl:via-[#eee] xl:to-[#2ea18c] via-[#2ea18c] to-[#eee]">
                       <p className="mr-2">
                         {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                       </p>
@@ -59,7 +59,7 @@ const Overview = () => {
                   </div>
 
                     {/* Description */}
-                    <div className="my-4 text-[#0009] font-extralight max-w-[70%] mx-auto xl:mx-0 xl:max-w-[100%]">
+                    <div className="my-4 text-[#0009] font-extralight md:max-w-[70%] mx-auto xl:mx-0 xl:max-w-[100%]">
                     <p>{item.content.description}</p>
                   </div>
 
@@ -112,7 +112,7 @@ const Overview = () => {
         })}
 
         {/* Schools */}
-        <div className="my-52">
+        <div className="my-52 pt-5" id="schools">
           <Title text="IT-Ausbildung und Selbstentwicklung" level={3} />
 
           {/* On Desktop */}
