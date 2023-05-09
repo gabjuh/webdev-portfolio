@@ -187,7 +187,6 @@ const Stack: React.FC = () => {
   // below and one to the right:  n + cols + 1,
   bigFieldsLayout.forEach(item => {
     skipList.push(item.index + 1, item.index + cols, item.index + cols + 1);
-    console.log(skipList);
   });
 
   useEffect(() => {
@@ -202,21 +201,18 @@ const Stack: React.FC = () => {
       bigFields.forEach(item => {
         list.push(item.index + 1, item.index + cols, item.index + cols + 1);
         setSkipList(list);
-        console.log(skipList);
       });
     } else if (viewWidth > 480) {
       const list: number[] = [];
       bigFieldsTablet.forEach(item => {
         list.push(item.index + 1, item.index + cols, item.index + cols + 1);
         setSkipList(list);
-        console.log(skipList);
       });
     } else {
       const list: number[] = [];
       bigFieldsMobile.forEach(item => {
         list.push(item.index + 1, item.index + cols, item.index + cols + 1);
         setSkipList(list);
-        console.log(skipList);
       }
       );
     }
@@ -228,38 +224,40 @@ const Stack: React.FC = () => {
 
   return (
     <>
-      <div className="container lg:h-[800px] mx-auto lg:py-10] lg:mt-32" id="stack">
+      <div className="container lg:h-[800px] mx-auto lg:py-16]">
         {viewWidth < 1024 &&
           <Hero scrollToId={scrollToId} />
         }
+        <div className="lg:pt-16" id="stack">
         {viewWidth < 1024 && <Title text="Stack" level={3} />}
-        <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
-          <div className="relative">
-            <div className="grid grid-cols-8">
-              <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
-                <Fields
-                  fieldArray={fieldArray}
-                  bigFields={bigFieldsLayout}
-                  smallFields={smallFieldsLayout}
-                  downButton={downButton}
-                  hiddenFields={hiddenFieldsLayout}
-                  size={size}
-                  bigFieldSize={bigFieldSize}
-                  fieldColor={fieldColor}
-                  cols={cols}
-                  nrOfFields={nrOfFields}
-                  showIndexes={showIndexes}
-                  activeField={activeField}
-                  setActiveField={setActiveField}
-                  scrollToId={scrollToId}
-                />
+          <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
+            <div className="relative">
+              <div className="grid grid-cols-8">
+                <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
+                  <Fields
+                    fieldArray={fieldArray}
+                    bigFields={bigFieldsLayout}
+                    smallFields={smallFieldsLayout}
+                    downButton={downButton}
+                    hiddenFields={hiddenFieldsLayout}
+                    size={size}
+                    bigFieldSize={bigFieldSize}
+                    fieldColor={fieldColor}
+                    cols={cols}
+                    nrOfFields={nrOfFields}
+                    showIndexes={showIndexes}
+                    activeField={activeField}
+                    setActiveField={setActiveField}
+                    scrollToId={scrollToId}
+                  />
+                </div>
+                {viewWidth > 1024 && <Hero scrollToId={scrollToId} />}
               </div>
-              {viewWidth > 1024 && <Hero scrollToId={scrollToId} />}
+              <Prompt
+                prompt={getNameOfActiveField(activeField)}
+                activeField={activeField}
+              />
             </div>
-            <Prompt
-              prompt={getNameOfActiveField(activeField)}
-              activeField={activeField}
-            />
           </div>
         </div>
       </div>
