@@ -24,6 +24,7 @@ import chatGptLogo from '../../assets/logos/chatgpt.svg';
 import computer from '../../assets/logos/computer_mc.svg';
 import graph from '../../assets/logos/graph_mc.svg';
 import chip from '../../assets/logos/chip_mc.svg';
+import menuArrow from '../../assets/logos/menu_arrow_mc.svg'
 
 interface IIcons {
   name: string;
@@ -135,6 +136,10 @@ const icons: IIcons[] = [
   {
     "name": 'electrotechnik',
     "img": chip
+  },
+  {
+    "name": 'menuArrow',
+    "img": menuArrow
   }
 ];
 
