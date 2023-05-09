@@ -66,7 +66,7 @@ const Fields: React.FC<IFields> = ({
         if (id === downButton.index) {
           name = 'arrow down';
           img = downButton.img;
-          fn = { scrollToId, id: 'overview' };
+          fn = { scrollToId, id: 'projects' };
           isLicensed = isLicensedLogo(name);
         }
 
