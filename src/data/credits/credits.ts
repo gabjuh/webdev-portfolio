@@ -313,6 +313,16 @@ const credits: ICredits[] = [
     changes: 'none',
     fieldName: 'Graph'
   },
+  {
+    name: 'Arrow Right 392 SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/511429/arrow-right-392',
+    uploader: 'SVG Repo',
+    uploaderLink: 'https://www.svgrepo.com/',
+    license: 'CC0 License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#CC0',
+    changes: 'none',
+    fieldName: 'Arrow Right 392'
+  },
 
 ];
 
