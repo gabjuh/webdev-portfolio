@@ -17,7 +17,7 @@ const BusinessCard = () => {
 
   return (
     <div 
-      className={`h-[550px] mb-[250px] -translate-y-[300px] pt-[300px]`}
+      className={`h-[800px] -mt-[200px] -translate-y-[300px] pt-[400px] pb-[250px]`}
       id="businesscard"
     >
       <div 
