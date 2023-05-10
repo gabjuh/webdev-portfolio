@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 // Components
 import Fields from './Fields';
-import Hero from './Hero';
 import Prompt from './Prompt';
 import Title from './Title';
 
@@ -224,15 +223,11 @@ const Stack: React.FC = () => {
 
   return (
     <>
-      <div className="container lg:h-[800px] mx-auto lg:py-16]">
-        {viewWidth < 1024 &&
-          <Hero scrollToId={scrollToId} />
-        }
+      <div className="container mx-auto">
         <div className="lg:pt-16" id="stack">
-        {viewWidth < 1024 && <Title text="Stack" level={3} />}
+          <Title text="Stack" level={3} />
           <div className={`relative max-w-[1020px] mx-auto stacks-transform`}>
             <div className="relative">
-              <div className="grid grid-cols-8">
                 <div className={`grid lg:col-span-6 col-span-8 max-w-[770px] mx-auto`} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: `${gap}px` }}>
                   <Fields
                     fieldArray={fieldArray}
@@ -250,14 +245,12 @@ const Stack: React.FC = () => {
                     setActiveField={setActiveField}
                     scrollToId={scrollToId}
                   />
-                </div>
-                {viewWidth > 1024 && <Hero scrollToId={scrollToId} />}
+              </div>
               </div>
               <Prompt
                 prompt={getNameOfActiveField(activeField)}
                 activeField={activeField}
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
