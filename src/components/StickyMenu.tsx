@@ -51,7 +51,7 @@ const MenuItem: React.FC<IMenuItem> = ({
 
 const StickyMenu = () => {
 
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(getViewWidth() > 1024);
 
   const [selectedMenuItem, setSelectedMenuItem] = useState<string>(menuItems[0].id);
 
@@ -113,10 +113,10 @@ const StickyMenu = () => {
 
 
   return (
-    <div className={`fixed top-[50vh] right-0 -translate-y-[50%] z-[999]`}>
-      <div className={`group relative py-7 float-right z-50 w-[160px] rounded-l-3xl backdrop-blur-md bg-[#ddd2] ${!isMenuOpen ? 'translate-x-[150px]' : ''} transition-all duration-[.5s] ease-in-out`}>
+    <div className={`fixed top-[50vh] right-0 -translate-y-[50%] z-[999] ${!isMenuOpen ? 'translate-x-[150px]' : ''} transition-all duration-[.5s] ease-in-out`}>
+      <div className={`group relative py-7 float-right z-50 w-[160px] rounded-l-3xl backdrop-blur-md bg-[#eeeb] `}>
         {/* {menu ico} */}
-        <div className="group absolute top-[50%] -translate-y-[50%] -left-[30px] py-4 pl-4 cursor-pointer rounded-l-[50px] bg-[#ddd2] backdrop-blur-md transition-all duration-[.5s] ease-in-ou z-[999]" onClick={(handleOnclick)}>
+        <div className="group absolute top-[50%] -translate-y-[50%] -left-[30px] py-4 pl-4 cursor-pointer rounded-l-[50px] bg-[#eeeb] backdrop-blur-md transition-all duration-[.5s] ease-in-ou z-[999]" onClick={(handleOnclick)}>
           {menuIco && <img src={menuIco} alt="Menu" className={`w-[18px] h-[18px] ${isMenuOpen ? 'translate-x-[1.5px]' : '-translate-x-[3.5px]'} group-hover:opacity-90 opacity-50 transition-all duration-[.5s] ease-in-out ${isMenuOpen ? 'rotate-[-180deg]' : ''}`} />}
         </div>
 
