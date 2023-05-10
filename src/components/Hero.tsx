@@ -7,8 +7,8 @@ interface IHero {
 
 const Hero: React.FC<IHero> = ({ }) => {
   return (
-    <div className="mb-[200px] mt-[50px]" id="profile">
-      <div className="relative h-[100%] top-[50%]">
+    <div className="mb-[200px] pt-5" id="profile">
+      <div className="relative h-[100%]">
         <div className="hero-content flex-col mx-auto">
           <img src={profil_img} className="rounded-xl shadow-md brightness-[1.2]" />
           <div className="text-center">
