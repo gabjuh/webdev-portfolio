@@ -1,36 +1,36 @@
 interface IMenuItems {
   name: string;
-  link: string;
+  id: string;
 }
 
 const menuItems: IMenuItems[] = [
   {
     "name": "Profil",
-    "link": "#profile"
+    "id": "profile"
   },
   {
     "name": "Stack",
-    "link": "#stack"
+    "id": "stack"
   },
   {
     "name": "Projekte",
-    "link": "#projects"
+    "id": "projects"
   },
   {
     "name": "Ausbildung",
-    "link": "#schools"
+    "id": "schools"
   },
   {
     "name": "Visitenkarte",
-    "link": "#businesscard"
+    "id": "businesscard"
   },
   {
     "name": "CV Tree",
-    "link": "#cvtree"
+    "id": "cvtree"
   },
   {
     "name": "KI über mich",
-    "link": "#chat"
+    "id": "chat"
   }
 
 ];
