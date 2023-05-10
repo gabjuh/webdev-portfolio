@@ -32,6 +32,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász 2023</p>
+      <p className="text-center w-[100%] text-sm text-[#999]">Mai 10. Version</p>
     </footer>
   );
 };
