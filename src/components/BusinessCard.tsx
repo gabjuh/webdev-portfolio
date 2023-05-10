@@ -17,7 +17,7 @@ const BusinessCard = () => {
 
   return (
     <div 
-      className={`h-[800px] -mt-[200px] -translate-y-[300px] pt-[400px] pb-[250px]`}
+      className={`h-[100vh] border border-blue-500 -mt-[200px]`}
       id="businesscard"
     >
       <div 
@@ -26,7 +26,7 @@ const BusinessCard = () => {
       // onMouseLeave={handleMouseLeave}
       >
         <div
-          className={`mt-[100px] flip-card mx-auto md:-rotate-[28deg] w-[350px] h-[232px] md:hover:w-[502px] md:hover:h-[325px] ease-in-out md:hover:rotate-[0deg] md:hover:-translate-y-[90px] transiton-all duration-[1200ms]`}
+          className={`flip-card mt-[30vh] mx-auto md:-rotate-[28deg] w-[350px] h-[232px] md:hover:w-[502px] md:hover:h-[325px] ease-in-out md:hover:rotate-[0deg] md:hover:-translate-y-[90px] transiton-all duration-[1200ms]`}
 
 
           //  className={`flip-card mx-auto -rotate-[28deg] w-[256px] h-[167.5px] hover:w-[502px] hover:h-[325px] ease-in-out hover:rotate-[0deg] transiton-all duration-[300ms] hover:-translate-y-[22%] border border-blue-500 ${isCardHovered ? 'card-transform border border-red-500' : ''}`}
