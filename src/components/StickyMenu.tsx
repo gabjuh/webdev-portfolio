@@ -51,7 +51,7 @@ const MenuItem: React.FC<IMenuItem> = ({
 
 const StickyMenu = () => {
 
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(getViewWidth() > 1024);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(getViewWidth() > 1280);
 
   const [selectedMenuItem, setSelectedMenuItem] = useState<string>(menuItems[0].id);
 
