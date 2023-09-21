@@ -57,6 +57,7 @@ export interface ILayout {
   newBranchOn?: INewBranchOn;
   end?: number;
   canceled?: boolean;
+  isEndLower?: boolean;
 }
 
 export interface IItem {
