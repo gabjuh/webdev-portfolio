@@ -323,7 +323,66 @@ const credits: ICredits[] = [
     changes: 'none',
     fieldName: 'Arrow Right 392'
   },
-
+  {
+    name: 'C# icon by Icons8',
+    nameLink: 'https://icons8.com/icons/set/csharp',
+    uploader: 'Icons 8',
+    uploaderLink: '',
+    license: 'MIT License',
+    licenseLink: '',
+    changes: 'Size changed',
+    fieldName: 'C#'
+  },
+  {
+    name: '.NET Grafik',
+    nameLink: 'https://seeklogo.com/vector-logo/168315/microsoft-net',
+    uploader: 'Web Skills Flat Vectors',
+    uploaderLink: 'https://www.svgrepo.com/collection/web-skills-flat-vectors/',
+    license: 'MIT License',
+    licenseLink: '',
+    changes: 'Border removed',
+    fieldName: 'SSH'
+  },
+  {
+    name: 'SSH SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/438984/ssh',
+    uploader: 'seeklogo.com',
+    uploaderLink: '',
+    license: 'MIT License',
+    licenseLink: '',
+    changes: 'Removed Icon and Text, removed background',
+    fieldName: '.NET'
+  },
+  {
+    name: 'Unit icon by Icons8',
+    nameLink: 'https://icons8.com/icon/4527/unit',
+    uploader: 'Icons 8',
+    uploaderLink: 'https://icons8.com',
+    license: 'MIT License',
+    licenseLink: '',
+    changes: 'none',
+    fieldName: 'Unit Testing'
+  },
+  {
+    name: 'NextJS icon by Icons8',
+    nameLink: 'https://icons8.com/icon/MWiBjkuHeMVq/next.js',
+    uploader: 'Icons 8',
+    uploaderLink: 'https://icons8.com',
+    license: 'MIT License',
+    licenseLink: '',
+    changes: 'none',
+    fieldName: 'NextJS'
+  },
+  {
+    name: 'Scrum SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/443400/brand-scrum',
+    author: 'Diemen Design',
+    authorLink: 'https://www.svgrepo.com/author/Diemen%20Design/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Scrum'
+  },
 ];
 
 export default credits;
