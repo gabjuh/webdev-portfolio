@@ -481,17 +481,23 @@
         ],
         "year": 2017,
         "showYear": true,
-        "description": "Zeitnah übernahm ich in der Lübecker Musikschule die Pflege und Betreuung der Website (Joomla). Außerdem aufrüstete ich die PCs und Notebooks der Musikschule, Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.|Diese Arbeit nimmt weniger als 2 Stunden pro Woche in Anspruch.",
+        "description": "Zeitnah übernahm ich in der Lübecker Musikschule die Pflege und Betreuung der Website (Joomla). Außerdem aufrüstete ich die PCs und Notebooks der Musikschule, Software aktualisiert, und viele heufig vorkommene Schritte mithilfe von JavaScript und Python automatisiert.",
         "link": "https://luebeckermusikschule.de/",
         "recommendations": [
           "arbeitszeugnis-luebeck-cms"
-        ]
+        ],
+        "end": 2023
       },
       "layout": {
         "level": 1,
         "startingLevel": 0,
         "branch": "stock",
-        "side": "left"
+        "side": "left",
+        "newBranchOn": {
+          "start": 0,
+          "end": 1
+        },
+        "isEndLower": true
       }
     },
     {
@@ -702,6 +708,54 @@
           "start": 3,
           "end": 2
         }
+      }
+    },
+    {
+      "content": {
+        "slug": "umschulung_fachinformatik_anwendungsentwicklung",
+        "name": "Fachinformatik Anwendungsentwicklung",
+        "typeOfActivity": "Umschulung",
+        "categories": [
+          "education",
+          "coding"
+        ],
+        "institute": "HEC Bremen",
+        "tech": [
+          "C#",
+          "Java",
+          "Unit Testing",
+          "SCRUM"
+        ],
+        "year": 2023,
+        "showYear": true,
+        "description": "Bei der HEC Bremen werde ich eine Umschulung zum Fachinformatiker für Anwendungsentwicklung mit einer IHK Prüfung absolvieren. Die Ausbildung umfasst Themen wie C#, Java, Unit Testing und SCRUM.",
+        "link": "https://hec.de"
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "side": "left",
+        "newStartWithPause": true,
+        "heightTillTop": 1
+      }
+    },
+    {
+      "content": {
+        "slug": "praktikum",
+        "name": "Praktikum",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "year": 2023,
+        "showYear": false
+      },
+      "layout": {
+        "level": 1,
+        "startingLevel": 0,
+        "side": "left",
+        "open": "both"
       }
     }
   ]
