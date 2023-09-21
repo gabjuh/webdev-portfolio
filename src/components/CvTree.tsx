@@ -445,6 +445,7 @@ const CvTree: React.FC = ({ }) => {
                         pointSize={pointSize}
                         end={end}
                         canceled={layout.canceled}
+                      isEndLower={layout.isEndLower}
                       />
                     }
 
