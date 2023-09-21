@@ -20,6 +20,7 @@ interface IBranch {
   pointSize: number;
   end?: number;
   canceled?: boolean;
+  isEndLower?: boolean;
 }
 
 export default IBranch;
