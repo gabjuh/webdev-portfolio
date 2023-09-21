@@ -20,7 +20,8 @@ const Branch: React.FC<IBranch> = ({
   pointStrokeWidth,
   pointSize,
   end,
-  canceled
+  canceled,
+  isEndLower,
 }) => {
 
   // DRAWING ELEMENTS
@@ -54,7 +55,7 @@ const Branch: React.FC<IBranch> = ({
 
   // Vertical line from the bottom to the top in the given height
   const straightLineVertical: string = `
-    l 0 ${height ? (height * step + step) : step}
+    l 0 ${height ? (height * step + step + (isEndLower ? + 30 : 0)) : step}
   `;
 
   // Draw a curve to the right
@@ -154,9 +155,9 @@ const Branch: React.FC<IBranch> = ({
         className="transition-all duration-[800ms] ease-in-out"
         d={`
           ${getPosition()}
-          ${open === 'both' ? '' : side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size}`}
+          ${open === 'both' ? '' : side === 'right' ? open !== 'start' ? curveRight : `q 0 0 0 -${step - size}` : open !== 'start' ? curveLeft : `q 0 0 0 -${step - size - size}`}
           ${heightTillTop ? open === 'both' ? '' : !canceled && lineIfNotEndedYet :
-            openBranchIndexes ? `q 0 0 0 -${(step + 5 - size) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
+          openBranchIndexes ? `q 0 0 0 -${(step + 3) * lineLengthToJoinOpenedBranches + size}` : ifEnds}
         `}
         stroke={color ? color : 'lightgray'}
         strokeWidth={strokeWidth}
