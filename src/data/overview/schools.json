@@ -99,7 +99,7 @@
     {
       "content": {
         "slug": "webmasters_fernakademie_php_mysql",
-        "name": "PHP & MySQL",
+        "name": "PHP, Laravel & MySQL",
         "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
@@ -242,6 +242,40 @@
           "TypeScript",
           "React",
           "Tailwind CSS"
+        ]
+      },
+      "layout": {
+        "level": 3,
+        "startingLevel": 2,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 2
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "umschulung",
+        "name": "Umschulung bei dem IT-Bildungshaus, Bremen",
+        "typeOfActivity": "",
+        "categories": [
+          "education",
+          "it",
+          "coding"
+        ],
+        "institute": "Intensive Umschulung zum Fachinformatiker für Anwendungsentwicklung",
+        "year": 2023,
+        "end": " ",
+        "showYear": true,
+        "description": "",
+        "image": "memory_2",
+        "icons": [
+          "C#",
+          ".NET",
+          "Unit Testing",
+          "Scrum"
         ]
       },
       "layout": {
