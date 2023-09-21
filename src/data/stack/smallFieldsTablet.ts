@@ -18,6 +18,12 @@ import copilotLogo from '../../assets/logos/copilot_mc.svg';
 import stackOverflowLogo from '../../assets/logos/stack_overflow_mc.svg';
 import githubLogo from '../../assets/logos/github_mc.svg';
 import chatGptLogo from '../../assets/logos/chatgpt.svg';
+import cSharpLogo from '../../assets/logos/c-sharp_mc.svg';
+import dotNet from '../../assets/logos/dotnet_mc.png';
+import ssh from '../../assets/logos/ssh_mc.svg';
+import unitTesting from '../../assets/logos/unit_mc.png';
+import scrum from '../../assets/logos/scrum_mc.svg';
+import nextJs from '../../assets/logos/nextjs_mc.svg';
 
 interface ISmallField {
   index: number;
@@ -125,6 +131,36 @@ const smallFields: ISmallField[] = [
     "index": 18,
     "name": 'Github',
     "img": githubLogo
+  },
+  {
+    "index": 44,
+    "name": 'C#',
+    "img": cSharpLogo
+  },
+  {
+    "index": 51,
+    "name": '.NET',
+    "img": dotNet
+  },
+  {
+    "index": 34,
+    "name": 'SSH',
+    "img": ssh
+  },
+  {
+    "index": 50,
+    "name": 'Unit Testing',
+    "img": unitTesting
+  },
+  {
+    "index": 49,
+    "name": 'Scrum',
+    "img": scrum
+  },
+  {
+    "index": 27,
+    "name": 'NextJS',
+    "img": nextJs
   }
 ];
 

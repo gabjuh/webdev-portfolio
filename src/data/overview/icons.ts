@@ -24,7 +24,11 @@ import chatGptLogo from '../../assets/logos/chatgpt.svg';
 import computer from '../../assets/logos/computer_mc.svg';
 import graph from '../../assets/logos/graph_mc.svg';
 import chip from '../../assets/logos/chip_mc.svg';
-import menuArrow from '../../assets/logos/menu_arrow_mc.svg'
+import menuArrow from '../../assets/logos/menu_arrow_mc.svg';
+import cSharp from '../../assets/logos/c-sharp_mc.svg';
+import dotNet from '../../assets/logos/dotnet_mc.png';
+import unitTesting from '../../assets/logos/unit_mc.png';
+import scrum from '../../assets/logos/scrum_mc.svg';
 
 interface IIcons {
   name: string;
@@ -140,6 +144,22 @@ const icons: IIcons[] = [
   {
     "name": 'menuArrow',
     "img": menuArrow
+  },
+  {
+    "name": 'C#',
+    "img": cSharp
+  },
+  {
+    "name": '.NET',
+    "img": dotNet
+  },
+  {
+    "name": 'Scrum',
+    "img": scrum
+  },
+  {
+    "name": 'Unit Testing',
+    "img": unitTesting
   }
 ];
 
