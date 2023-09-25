@@ -38,6 +38,7 @@ export interface IContent {
   hidden?: boolean;
   isMajor?: boolean;
   image?: string;
+  image2?: string;
   icons?: string[];
   gameLink?: string;
   githubLink?: string;
