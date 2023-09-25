@@ -254,13 +254,14 @@
         "description": "Das Projekt SheetCMS, entwickelt in Next.js, bietet Musikern eine benutzerfreundliche Portfolio-Seite. Dabei nutze ich eine Google Tabelle als Datenbank, die es den Website-Inhabern ermöglicht, Inhalte wie Texte, Konzerttermine, Bilder und Videos eigenständig zu verwalten, ohne die Notwendigkeit einer Backend-Oberfläche oder die Erlernung komplexer CMS-Systeme wie WordPress.",
         "recommendation": "#",
         "image": "sheet_cms_1",
-        "image2": "sheet_cms_2"
+        "image2": "sheet_cms_2",
+        "link": "https://franciskahajdu.de/"
       }
     },
     {
       "content": {
-        "slug": "portfolio2",
-        "name": "Portfolio v2",
+        "slug": "lebensbaum",
+        "name": "Lebensbaum",
         "typeOfActivity": "Projekt",
         "categories": [
           "job",
@@ -276,7 +277,7 @@
         ],
         "year": 2023,
         "showYear": true,
-        "description": "Meine innere Unzufriedenheit motivierte mich dazu, mein Portfolio von Grund auf neu zu gestalten und eine Darstellung zu schaffen, die meine vielfältigen Fähigkeiten angemessen repräsentiert. Früher war mein Lebenslauf oft unübersichtlich, da ich in verschiedenen Bereichen tätig war. Inspiriert von der Struktur von Git-Branches, entschied ich mich, Schulen und Projekte in einer Baumstruktur darzustellen. Dies ermöglicht es, die verschiedenen Bereiche mit einem einfachen Klick zu filtern, was einen klareren Überblick bietet.",
+        "description": "Meine innere Unzufriedenheit motivierte mich dazu, mein Portfolio von Grund auf neu zu gestalten und eine Darstellung zu schaffen, die meine vielfältigen Fähigkeiten angemessen repräsentiert. Früher war mein Lebenslauf unübersichtlich, da ich in verschiedenen Bereichen tätig war. Inspiriert von der Struktur von Git-Branches, entschied ich mich, Schulen und Projekte in einer Baumstruktur darzustellen. Dies ermöglicht es, die verschiedenen Bereiche mit einem einfachen Klick zu filtern, was einen klareren Überblick bietet.",
         "recommendation": "#",
         "image": "portfolio_2",
         "link": "https://gaborjuhasz.de/#buttons",
