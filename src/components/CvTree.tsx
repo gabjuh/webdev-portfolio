@@ -305,9 +305,24 @@ const CvTree: React.FC = ({ }) => {
   // Point
   const [hoveredElementSlugs, setHoveredElementSlugs] = useState<string[]>([]);
 
+  const [isCvTreeDescriptionVisible, setIsCvTreeDescriptionVisible] = useState<boolean>(false);
+
+  const handleOnClickCvTreeDescription = () => {
+    setIsCvTreeDescriptionVisible(!isCvTreeDescriptionVisible);
+  }
+
   return (
     <div className="pt-5" id="cvtree">
-      <Title text="Mein CV Tree" level={3} />
+      <Title text="Mein Lebensbaum" level={3} />
+      <p className="container text-center mx-auto mb-16 text-[#555] text-sm max-w-[1000px] cursor-pointer" onClick={handleOnClickCvTreeDescription}>In meinem Lebensbaum vereine ich meine beiden Leidenschaften, Informatik (links) und Musik (rechts), in einer einzigartigen Darstellung.<span className={!isCvTreeDescriptionVisible ? `inline` : `hidden`}>.. <button
+        className="cursor-pointer"
+      >
+        <div className="">
+          <img src={downArrow} alt="Arrow"
+            className=" w-[.85rem] -translate-y-[.1rem] group-hover:-translate-y-[.4rem] transition-all duration-150"
+          />
+        </div>
+      </button></span> <span className={isCvTreeDescriptionVisible ? `inline` : `hidden`}><br />Dieser Baum ermöglicht es, meine Lebensstationen aufzuklappen und detaillierte Einblicke in meine Entwicklung in den Bereichen Bildung, IT und Musik zu erhalten. Die Menüleiste erlaubt eine gezielte Filterung, um die Verbindungen zwischen diesen facettenreichen Interessen deutlicher zu erkennen.</span></p>
       <div className="relative hidden 2xs:block" id="cv"
       >
         {/* Buttons */}
@@ -335,7 +350,7 @@ const CvTree: React.FC = ({ }) => {
           ))}
 
             {/* Arrow up */}
-          <button
+            {/* <button
               onMouseUp={() => { scrollToId('home'); }}
             className="cursor-pointer"
           >
@@ -344,7 +359,7 @@ const CvTree: React.FC = ({ }) => {
                   className="rotate-180 w-[.85rem] -translate-y-[.1rem] group-hover:-translate-y-[.4rem] transition-all duration-150"
                 />
               </div>
-            </button>
+            </button> */}
 
             {/* Arrow down */}
             {/* <button
