@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import raw_schools_data from '../data/overview/schools.json';
 import raw_projects_data from '../data/overview/projects.json';
 import images from '../data/tree/images';
 import pdfs from '../data/pdfs/pdfs';
 import icons from '../data/overview/icons';
 import Title from './Title';
+import { scrollToId } from '../helpers/pageNavigation';
 
 import { ITree, IItem } from '../interfaces/Tree';
 
@@ -29,6 +30,20 @@ const Overview = () => {
     item.content.categories?.includes('project')
   );
 
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+
+  const projectLimit = 3;
+
+  const handleOnclickMoreProjectsButton = () => {
+    setIsProjectsOpen(!isProjectsOpen);
+  };
+
+  useEffect(() => {
+    if (!isProjectsOpen) {
+      scrollToId('projects');
+    }
+  }, [isProjectsOpen])
+
   return (
     <>
       <div className="container mx-auto py-5 mt-16" id="projects">
@@ -36,6 +51,10 @@ const Overview = () => {
         {/* Projects */}
         <Title text="Projekte" level={3} />
         {itProjectItems.map((item, index) => {
+          if (index >= projectLimit && !isProjectsOpen) {
+            return;
+          }
+
           return (
             <div className="mb-32" key={`projects-${index}`} >
               <div className="flex flex-wrap">
@@ -88,7 +107,14 @@ const Overview = () => {
 
               {/* Image */}
                 <div className="max-w-[540px] mx-auto xl:mx-0">
-                  <img className="max-h-[500px] xl:-translate-y-4" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                  {item.content.image2 ?
+                    <div className="h-[470px]" id="projects-with-two-images">
+                      <img className="max-h-[350px] xl:-translate-y-0 absolute" src={images.filter(img => img.name === item.content.image2)[0]?.img} alt={item.content.slug} />
+                      <img className="max-h-[350px] xl:translate-y-[60px] xl:translate-x-[40px] absolute" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                    </div>
+                    :
+                    <img className="max-h-[500px] xl:-translate-y-4" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                  }
                 </div>
               </div>
 
@@ -110,6 +136,9 @@ const Overview = () => {
             </div>
           );
         })}
+
+        <button id="toggleProjectsButton" className="btn btn-accent btn-sm mx-auto block" onClick={handleOnclickMoreProjectsButton}>{isProjectsOpen ? 'Weniger' : 'Mehr'} anzeigen</button>
+
 
         {/* Schools */}
         <div className="my-52 pt-5" id="schools">

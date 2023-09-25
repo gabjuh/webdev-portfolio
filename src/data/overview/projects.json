@@ -58,7 +58,7 @@
         ],
         "year": 2021,
         "showYear": true,
-        "description": "Dieses einfache Spiel war eine wunderbare Möglichkeit, um React sowie den komplexeren Umgang mit Komponenten und Zuständen zu erlernen und das Spielkonzept mithilfe von JavaScript umzusetzen.",
+        "description": "Die Entwicklung dieses Schiebepuzzles in React war nicht nur unterhaltsam, sondern auch eine wertvolle Gelegenheit, um tiefgehendes Verständnis für React-Komponenten und Zustandsmanagement zu erlangen. Das Projekt ermöglichte mir, die Konzepte der Spiellogik mit JavaScript in die Praxis umzusetzen und so meine Fähigkeiten im Bereich Frontend-Entwicklung weiter zu vertiefen.",
         "recommendation": "#",
         "image": "puzzle",
         "recommendations": [
@@ -98,47 +98,10 @@
         ],
         "year": 2022,
         "showYear": true,
-        "description": "Das Spiel Master-Logik habe ich mithilfe von React, JavaScript und CSS erstellt. React ermöglichte es mir, das Front-End der Anwendung zu erstellen und eine reaktionsfähige Benutzeroberfläche zu entwickeln, während JavaScript die Logik des Spiels implementierte, und mithilfe von CSS versuchte ich das Design möglichst realistisch zu gestalten. In Kombination ermöglichten diese Technologien die Erstellung einer unterhaltsamen und herausfordernden Master-Logik-Anwendung für Spieler jeden Niveaus.",
+        "description": "Mit React, JavaScript und CSS habe ich das Master-Logik-Spiel entwickelt. React ermöglichte mir die Erstellung einer reaktionsfähigen Benutzeroberfläche, während JavaScript die Spiellogik umsetzte. Das CSS-Design strebte eine realistische Darstellung an, und diese Kombination schuf eine unterhaltsame und anspruchsvolle Master-Logik-Anwendung für Spieler unterschiedlicher Niveaus.",
         "recommendation": "#",
         "image": "master_logic",
         "gameLink": "http://master-logic.gaborjuhasz.de/"
-      },
-      "layout": {
-        "level": 2,
-        "startingLevel": 1,
-        "branch": "stock",
-        "side": "left",
-        "open": "end",
-        "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
-      }
-    },
-    {
-      "content": {
-        "slug": "tommy-chords",
-        "name": "Tommy's Chords",
-        "typeOfActivity": "Projekt",
-        "categories": [
-          "job",
-          "project",
-          "it",
-          "coding"
-        ],
-        "institute": "Privates Projekt",
-        "tech": [
-          "TypeScript",
-          "React",
-          "TailwindCss"
-        ],
-        "year": 2023,
-        "end": " ",
-        "showYear": true,
-        "description": "\"Tommy's Chords\" is a new idea for a fun and interactive React game that aims to help players recognize and play guitar chords. With visual and audio representations and interactive exercises, players can practice and master a wide range of chords. The game is intended to be a valuable resource for beginners and intermediate players looking to improve their skills on the guitar. Stay tuned for updates on the development of Tommy's Chords!",
-        "recommendation": "#",
-        "image": "tommy_chords",
-        "githubLink": "https://github.com/gabjuh/tommychords"
       },
       "layout": {
         "level": 2,
@@ -171,7 +134,7 @@
         ],
         "year": 2022,
         "showYear": true,
-        "description": "Diese Webseite war mein erstes Portfolio ich veröffentlichte. Ich habe es mit React und TailwindCSS erstellt, um meine Fähigkeiten in diesen Technologien zu verbessern. Die Webseite ist vollständig responsive und ermöglicht es den Benutzern, die verschiedenen Projekte zu durchsuchen, die ich in der Vergangenheit gemacht habe.",
+        "description": "Diese Webseite markiert mein erstes veröffentlichtes Portfolio, das ich mithilfe von React und TailwindCSS entwickelt habe, um meine Fertigkeiten in diesen Technologien zu schärfen. Die Seite ist komplett responsiv gestaltet und bietet den Nutzern die Möglichkeit, meine bisherigen Projekte mühelos zu durchstöbern und kennenzulernen.",
         "recommendation": "#",
         "image": "portfolio_1",
         "githubLink": "https://github.com/gabjuh/portfolio"
@@ -249,7 +212,7 @@
         "year": 2021,
         "end": "2022",
         "showYear": true,
-        "description": "Ein kleiner Ausflug in die Welt des Backends war sehr spannend, als ich einen grundlegenden Instagram-Klon erstellt habe. Die Webseite ist vollständig responsiv und ermöglicht den Benutzern das Hochladen, Bearbeiten und Löschen von Bildern sowie das Suchen, Folgen und Liken von Bildern anderer Benutzer.",
+        "description": "Ich habe kürzlich einen aufregenden Ausflug in die Welt des Backends unternommen und dabei einen grundlegenden Instagram-Klon in Laravel erstellt. Diese Webseite ist vollständig responsiv und erlaubt es den Benutzern, Bilder hochzuladen, zu bearbeiten und zu löschen. Zusätzlich können sie nach anderen Benutzern suchen, diesen folgen und Bilder liken.",
         "recommendation": "#",
         "image": "stablegram",
         "link": "https://stablegram.portfolio.web4musicians.eu/",
@@ -265,6 +228,33 @@
           "start": 1,
           "end": 1
         }
+      }
+    },
+    {
+      "content": {
+        "slug": "SheetCMS",
+        "name": "SheetCMS",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Kundenprojekt",
+        "tech": [
+          "Typescript",
+          "React NextJS",
+          "TailwindCSS",
+          "Google Sheet"
+        ],
+        "year": 2023,
+        "end": "",
+        "showYear": true,
+        "description": "Das Projekt SheetCMS, entwickelt in Next.js, bietet Musikern eine benutzerfreundliche Portfolio-Seite. Dabei nutze ich eine Google Tabelle als Datenbank, die es den Website-Inhabern ermöglicht, Inhalte wie Texte, Konzerttermine, Bilder und Videos eigenständig zu verwalten, ohne die Notwendigkeit einer Backend-Oberfläche oder die Erlernung komplexer CMS-Systeme wie WordPress.",
+        "recommendation": "#",
+        "image": "sheet_cms_1",
+        "image2": "sheet_cms_2"
       }
     },
     {
@@ -286,7 +276,7 @@
         ],
         "year": 2023,
         "showYear": true,
-        "description": "Meine innere Unzufriedenheit führte mich dazu, mein Portfolio vollständig neu zu gestalten und etwas zu schaffen, das mich wirklich repräsentiert. Da ich in der Vergangenheit viele verschiedene Dinge gemacht habe, war mein Lebenslauf immer unübersichtlich. Ich ließ mich von der Gestaltung der Git-Branches inspirieren und versuchte die Schulen und Projekte in einer Baumstruktur darzustellen. Mit einem einfachen Klick können die Bereiche gefiltert werden, um einen besseren Überblick zu bekommen.",
+        "description": "Meine innere Unzufriedenheit motivierte mich dazu, mein Portfolio von Grund auf neu zu gestalten und eine Darstellung zu schaffen, die meine vielfältigen Fähigkeiten angemessen repräsentiert. Früher war mein Lebenslauf oft unübersichtlich, da ich in verschiedenen Bereichen tätig war. Inspiriert von der Struktur von Git-Branches, entschied ich mich, Schulen und Projekte in einer Baumstruktur darzustellen. Dies ermöglicht es, die verschiedenen Bereiche mit einem einfachen Klick zu filtern, was einen klareren Überblick bietet.",
         "recommendation": "#",
         "image": "portfolio_2",
         "link": "https://gaborjuhasz.de/#buttons",
@@ -324,9 +314,46 @@
         "year": 2021,
         "end": "2022",
         "showYear": true,
-        "description": "Ein Freund von mir, der Physiotherapeut ist, wollte eine Webseite von mir, womit er sein Geschäft mit online Präsenz erweitern kann.",
+        "description": "Für ein Kundenprojekt habe ich eine ansprechende Webseite für einen Psychotherapeuten entwickelt, um seine Online-Präsenz zu erweitern. Mithilfe von React und TailwindCSS wurde eine moderne und benutzerfreundliche Website geschaffen, die es dem Therapeuten ermöglicht, seine Dienstleistungen online professionell zu präsentieren.",
         "recommendation": "#",
         "image": "hat_rendben"
+      },
+      "layout": {
+        "level": 2,
+        "startingLevel": 1,
+        "branch": "stock",
+        "side": "left",
+        "open": "end",
+        "newBranchOn": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    },
+    {
+      "content": {
+        "slug": "tommy-chords",
+        "name": "Tommy's Chords",
+        "typeOfActivity": "Projekt",
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "institute": "Privates Projekt",
+        "tech": [
+          "TypeScript",
+          "React",
+          "TailwindCss"
+        ],
+        "year": 2023,
+        "end": "",
+        "showYear": true,
+        "description": "\"Tommy's Chords\" ist eine neue Idee für ein unterhaltsames und interaktives React-Spiel, das darauf abzielt, Spielern dabei zu helfen, Gitarrenakkorde zu erkennen und zu spielen. Mit visuellen und auditiven Darstellungen sowie interaktiven Übungen können Spieler eine breite Palette von Akkorden üben und beherrschen. Das Spiel soll eine wertvolle Ressource für Anfänger und fortgeschrittene Spieler sein, die ihre Fähigkeiten auf der Gitarre verbessern möchten.",
+        "recommendation": "#",
+        "image": "tommy_chords",
+        "githubLink": "https://github.com/gabjuh/tommychords"
       },
       "layout": {
         "level": 2,
