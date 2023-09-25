@@ -16,6 +16,8 @@ import portfolio1 from '../../assets/images/portfolio_1.png';
 import portfolio2 from '../../assets/images/portfolio_2.png';
 import agbm from '../../assets/images/agbm.png';
 import hatRendben from '../../assets/images/hat_rendben.png';
+import sheetCms1 from '../../assets/images/musiker_portfolio_extel_react.png';
+import sheetCms2 from '../../assets/images/musiker_database_sheet.png';
 
 interface IImages {
   name: string;
@@ -114,6 +116,16 @@ const images: IImages[] = [
     "img": hatRendben,
     "credits": "Hát Rendben"
   },
+  {
+    "name": "sheet_cms_1",
+    "img": sheetCms1,
+    "credits": "Sheet CMS 1"
+  },
+  {
+    "name": "sheet_cms_2",
+    "img": sheetCms2,
+    "credits": "Sheet CMS 2"
+  }
 ];
 
 export default images;
