@@ -38,11 +38,11 @@ const Overview = () => {
     setIsProjectsOpen(!isProjectsOpen);
   };
 
-  useEffect(() => {
-    if (!isProjectsOpen) {
-      scrollToId('projects');
-    }
-  }, [isProjectsOpen])
+  // useEffect(() => {
+  //   if (!isProjectsOpen) {
+  //     scrollToId('projects');
+  //   }
+  // }, [isProjectsOpen])
 
   return (
     <>
@@ -108,9 +108,9 @@ const Overview = () => {
               {/* Image */}
                 <div className="max-w-[540px] mx-auto xl:mx-0">
                   {item.content.image2 ?
-                    <div className="h-[470px]" id="projects-with-two-images">
-                      <img className="max-h-[350px] xl:-translate-y-0 absolute" src={images.filter(img => img.name === item.content.image2)[0]?.img} alt={item.content.slug} />
-                      <img className="max-h-[350px] xl:translate-y-[60px] xl:translate-x-[40px] absolute" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
+                    <div className="group xl:h-[470px] h-[370px] sm:w-[600px] w-[350px] relative xl:pt-9" id="projects-with-two-images">
+                      <img className="lg:max-h-[350px] sm:max-w-[510px] -translate-y-0 absolute group-hover:-translate-y-[70px] group-hover:-translate-x-[20px] transition-all ease-in-out duration-500" src={images.filter(img => img.name === item.content.image2)[0]?.img} alt={item.content.slug} />
+                      <img className="lg:max-h-[350px] sm:max-w-[510px] translate-y-[60px] translate-x-[40px] absolute group-hover:translate-y-[130px] group-hover:translate-x-[90px] transition-all ease-in-out duration-500" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
                     </div>
                     :
                     <img className="max-h-[500px] xl:-translate-y-4" src={images.filter(img => img.name === item.content.image)[0]?.img} alt={item.content.slug} />
