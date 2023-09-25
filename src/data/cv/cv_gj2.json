@@ -713,22 +713,22 @@
     {
       "content": {
         "slug": "umschulung_fachinformatik_anwendungsentwicklung",
-        "name": "Fachinformatik Anwendungsentwicklung",
+        "name": "C#, Java, .NET, Unit Testing, Scrum",
         "typeOfActivity": "Umschulung",
         "categories": [
           "education",
           "coding"
         ],
-        "institute": "HEC Bremen",
+        "institute": "Das IT-Bildungshaus Bremen",
         "tech": [
           "C#",
           "Java",
           "Unit Testing",
-          "SCRUM"
+          "Scrum"
         ],
         "year": 2023,
         "showYear": true,
-        "description": "Bei der HEC Bremen werde ich eine Umschulung zum Fachinformatiker für Anwendungsentwicklung mit einer IHK Prüfung absolvieren. Die Ausbildung umfasst Themen wie C#, Java, Unit Testing und SCRUM.",
+        "description": "Bei dem IT-Bildungshaus werde ich eine Umschulung zum Fachinformatiker für Anwendungsentwicklung mit einer IHK Prüfung absolvieren. Die Ausbildung umfasst Themen wie C#, Java, Unit Testing und SCRUM.",
         "link": "https://hec.de"
       },
       "layout": {
