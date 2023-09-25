@@ -25,7 +25,7 @@ const menuItems: IMenuItems[] = [
     "id": "businesscard"
   },
   {
-    "name": "CV Tree",
+    "name": "Lebensbaum",
     "id": "cvtree"
   },
   {
