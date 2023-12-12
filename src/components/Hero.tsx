@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import profil_img from '../assets/images/profile2.png';
 
 interface IHero {
 }
 
 const Hero: React.FC<IHero> = ({ }) => {
+
+  const [data, setData] = useState([]);
+  const [codeWarsPoints, setCodeWarsPoints] = useState(0);
+  const [stackOverflowPoints, setStackOverflowPoints] = useState(0);
+
+  // Fetch data from CodeWars API
+  const fetchCodeWars = async () => {
+    const res = await fetch('https://www.codewars.com/api/v1/users/gabjuh');
+    const data = await res.json();
+    setData(data);
+    await setCodeWarsPoints(data.honor);
+  }
+
+  // Fetch stackoverflow data
+  const fetchStackOverflow = async () => {
+    const res = await fetch('https://api.stackexchange.com/2.3/users/10944631/reputation?site=stackoverflow');
+    const data = await res.json();
+    setStackOverflowPoints(data.items[0].reputation_change + data.items[1].reputation_change); // upvotes - downvotes
+  }
+
+  useEffect(() => {
+    fetchCodeWars();
+    fetchStackOverflow();
+    // setCodeWarsPoints();
+  }, []);
+
   return (
     <div className="mb-[200px] pt-5" id="profile">
       <div className="relative h-[100%]">
@@ -16,14 +42,26 @@ const Hero: React.FC<IHero> = ({ }) => {
             <div className="-mt-3">
               <a
                 href="mailto:info@gaborjuhasz.de"
-                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px]"
+                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
               >Email</a>
 
               <a
                 href="https://github.com/gabjuh"
                 target="_blank"
-                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mx-3"
+                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
               >Github</a>
+
+              <a
+                href="https://www.codewars.com/users/gabjuh"
+                target="_blank"
+                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
+              >CodeWars ({codeWarsPoints})</a>
+
+              <a
+                href="https://stackoverflow.com/users/10944631/gabesz-juh%c3%a1sz"
+                target="_blank"
+                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
+              >StackOverflow ({stackOverflowPoints})</a>
 
               <a
                 href="https://www.linkedin.com/in/g%C3%A1bor-juh%C3%A1sz-5352935a/"
