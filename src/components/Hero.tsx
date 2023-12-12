@@ -1,6 +1,5 @@
 import React from 'react';
 import profil_img from '../assets/images/profile2.png';
-import downArrow from '../assets/logos/down-arrow.svg';
 
 interface IHero {
 }
@@ -34,14 +33,6 @@ const Hero: React.FC<IHero> = ({ }) => {
             </div>
           </div>
         </div>
-        {/* <div className="visible lg:invisible block absolute bottom-[10%] w-[100%] text-center">
-          <button
-            className="py-2 px-2 rounded-3xl shadow-md bg-[#28cbb7] transition-all duration-[150] hover:text-[#fff] hover:-translate-y-[.3rem] animate-bounce w-8"
-            onMouseUp={() => scrollToId('cv')}
-          >
-            <img src={downArrow} alt="arrow" />
-          </button>
-        </div> */}
       </div>
     </div>
 
