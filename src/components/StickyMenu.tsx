@@ -85,26 +85,27 @@ const StickyMenu = () => {
 
   // Set the current menu item id
   // useEffect(() => {
-  //   // setSelectedMenuItem(currentMenuItemId || '');
-  //   console.log(currentMenuItemId);
+  //   setSelectedMenuItem(currentMenuItemId || '');
+  //   console.log(scrollPos);
+
   // }, [scrollPos]);
 
 
   // Set the current menu item id
-  // useEffect(() => {
-  //   const scrollPos = window.scrollY;
-  //   const currentMenuItemId = menuItemsYPos.find(item => item.yPos > scrollPos)?.id;
-  //   console.log(currentMenuItemId);
-  //   setCurrentMenuItemId(currentMenuItemId || '');
-  // }, []);
+  useEffect(() => {
+    const scrollPos = window.scrollY;
+    const currentMenuItemId = menuItemsYPos.find(item => item.yPos > scrollPos)?.id;
+    console.log(currentMenuItemId);
+    setCurrentMenuItemId(currentMenuItemId || '');
+  }, []);
 
   // scroll eventlistener
   useEffect(() => {
     const handleScroll = () => {
-      // const scrollPos = window.scrollY;
-      // const currentMenuItemId = menuItemsYPos.find((item, i, arr) => arr[i + 1].yPos - 280 > scrollPos)?.id;
-      // console.log(currentMenuItemId);
-      // setSelectedMenuItem(currentMenuItemId || '');
+      const scrollPos = window.scrollY;
+      const currentMenuItemId = menuItemsYPos.find((item, i, arr) => item.yPos - 280 > scrollPos)?.id;
+      console.log(currentMenuItemId);
+      setSelectedMenuItem(currentMenuItemId || '');
       getViewWidth() < 1024 && setIsMenuOpen(false);
     };
     window.addEventListener('scroll', handleScroll);
