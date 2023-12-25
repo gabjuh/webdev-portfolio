@@ -741,15 +741,23 @@
     },
     {
       "content": {
-        "slug": "praktikum",
-        "name": "Praktikum",
+        "slug": "job_team_neusta_software_development",
+        "name": "React TypeScript Entwickler",
+        "description": "Nach dem erfolgreichen Vorstellungsgespräch für ein Praktikumplatz bei der team neusta software development GmbH, wurde mir ein Jobangebot als React TypeScript Entwickler gemacht. Ich habe mich sehr gefreut, dass ich die Möglichkeit bekommen habe, direkt als Frontend Entwickler einsteigen zu dürfen.",
         "categories": [
-          "education",
+          "job",
           "it",
           "coding"
         ],
-        "year": 2023,
-        "showYear": false
+        "institute": "team neusta software development GmbH",
+        "tech": [
+          "TypeScript",
+          "React",
+          "Angular",
+          "Scrum"
+        ],
+        "year": 2024,
+        "showYear": true
       },
       "layout": {
         "level": 1,
