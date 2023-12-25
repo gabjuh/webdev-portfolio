@@ -32,7 +32,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász</p>
-      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 25. September 2023</p>
+      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 25. Dezember 2023</p>
     </footer>
   );
 };
