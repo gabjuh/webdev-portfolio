@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import profil_img from '../assets/images/profile2.png';
-import profil_xmas_img from '../assets/images/profile2_xmas.png';
+import profil_xmas_img from '../assets/images/profile2_xmas_b.png';
 
 interface IHero {
 }
