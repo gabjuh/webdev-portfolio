@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import linkedIn from '../assets/logos/linkedin_mc.svg';
 import facebook from '../assets/logos/facebook_mc.svg';
 import github from '../assets/logos/github_mc.svg';
+import linkedIn from '../assets/logos/linkedin_mc.svg';
 import stackOverflow from '../assets/logos/stack_overflow_mc.svg';
-import cv from '../assets/pdfs/GaborJuhasz_CV_22.09.2023.pdf'
+import cv from '../assets/pdfs/GaborJuhasz_CV_22.09.2023.pdf';
 
 const Footer = () => {
   return (
@@ -32,7 +32,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász</p>
-      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 25. Dezember 2023</p>
+      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 3. April 2025</p>
     </footer>
   );
 };
