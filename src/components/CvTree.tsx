@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from 'react';
-
-//  Components
-import Branch from './Branch';
-import Timeline from './Timeline';
-import Point from './Point';
-import Button from './Button';
-import Popup from './Popup';
-import { Year, Text } from './Text';
-import Title from './Title';
+import React, { useEffect, useState } from 'react';
 
 //  Assets
 import downArrow from '../assets/logos/down-arrow.svg';
-
+import raw_categories from '../data/cv/categories.json';
 //  Data
 import raw_data from '../data/cv/cv_gj2.json';
-import raw_categories from '../data/cv/categories.json';
-import themes from '../themes.json';
-import { horisontalPositions, breakpoints } from '../data/positions/horisontalPositions';
+import { breakpoints, horisontalPositions } from '../data/positions/horisontalPositions';
 import images from '../data/tree/images';
-
-//  Interfaces
-import { ITree, IGeneral, IItem, IPoint, IContent, ITimeline } from '../interfaces/Tree';
-import ICategories from '../interfaces/Categories';
-
+import { getPosition } from '../helpers/getPosition';
+import { getViewWidth } from '../helpers/getViewWidth';
 //  Helpers
 import { scrollToId } from '../helpers/pageNavigation';
-import { getViewWidth } from '../helpers/getViewWidth';
-import { getPosition } from '../helpers/getPosition';
+import ICategories from '../interfaces/Categories';
+//  Interfaces
+import { IContent, IGeneral, IItem, IPoint, ITimeline, ITree } from '../interfaces/Tree';
+import themes from '../themes.json';
+//  Components
+import Branch from './Branch';
+import Button from './Button';
+import Point from './Point';
+import Popup from './Popup';
+import { Text, Year } from './Text';
+import Timeline from './Timeline';
+import Title from './Title';
 
 type IFilter = 'all' | 'education' | 'job' | 'music' | 'it' | 'private';
 
@@ -168,7 +164,7 @@ const CvTree: React.FC = ({ }) => {
   };
 
   const [showPopup, setShowPopup] = useState<string | undefined>();
-  const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 2);
+  const [selectedPopupIndex, setSelectedPopupIndex] = useState<number>(sortedPopupItems.length - 1);
   const [selectedPopupSlug, setSelectedPopupSlug] = useState<string>(sortedPopupItems[selectedPopupIndex].content.slug);
   const [changePopupDirection, setChangePopupDirection] = useState<'next' | 'prev' | undefined>(undefined);
 
