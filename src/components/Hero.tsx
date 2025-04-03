@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import profil_img from '../assets/images/profile2.png';
 import profil_xmas_img from '../assets/images/profile2_xmas_b.png';
 
@@ -47,7 +48,7 @@ const Hero: React.FC<IHero> = ({ }) => {
           <img src={isChristmasTime() ? profil_xmas_img : profil_img} className="rounded-xl shadow-md brightness-[1.2]" />
           <div className="text-center">
             <h1 className="text-2xl font-bold translate-y-1 mt-10">Gábor Juhász</h1>
-            <p className="pt-2 text-lg my-2 translate-y-0">Junior React-Frontend Entwickler</p>
+            <p className="pt-2 text-lg my-2 translate-y-0">TypeScript React Entwickler</p>
             <div className="-mt-3">
               <a
                 href="mailto:info@gaborjuhasz.de"
