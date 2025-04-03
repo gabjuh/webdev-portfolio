@@ -383,6 +383,26 @@ const credits: ICredits[] = [
     changes: 'none',
     fieldName: 'Scrum'
   },
+  {
+    name: 'Accessibility SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/446157/accessibility',
+    author: 'Denali Design',
+    authorLink: 'https://www.svgrepo.com/author/Denali%20Design/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Accessibility'
+  },
+  {
+    name: 'Angular SVG Vector',
+    nameLink: 'https://www.svgrepo.com/svg/445516/angular',
+    author: 'Denali Design',
+    authorLink: 'https://www.svgrepo.com/author/Denali%20Design/',
+    license: 'MIT License',
+    licenseLink: 'https://www.svgrepo.com/page/licensing#MIT',
+    changes: 'none',
+    fieldName: 'Angular 19'
+  },
 ];
 
 export default credits;
