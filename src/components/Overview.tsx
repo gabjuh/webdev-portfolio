@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import raw_schools_data from '../data/overview/schools.json';
-import raw_projects_data from '../data/overview/projects.json';
-import images from '../data/tree/images';
-import pdfs from '../data/pdfs/pdfs';
-import icons from '../data/overview/icons';
-import Title from './Title';
-import { scrollToId } from '../helpers/pageNavigation';
+import React, { useEffect, useState } from 'react';
 
-import { ITree, IItem } from '../interfaces/Tree';
+import newTabIcon from '../assets/logos/new-tab_mc.svg';
+import icons from '../data/overview/icons';
+import raw_projects_data from '../data/overview/projects.json';
+import raw_schools_data from '../data/overview/schools.json';
+import pdfs from '../data/pdfs/pdfs';
+import images from '../data/tree/images';
+import { scrollToId } from '../helpers/pageNavigation';
+import { IItem, IProjectInTable, ITree } from '../interfaces/Tree';
+import Title from './Title';
 
 const Overview = () => {
 
@@ -21,8 +22,8 @@ const Overview = () => {
   const sortedProjectItems: IItem[] = items_projects.sort((a, b) => b.content.year - a.content.year);
 
   const itSchoolItems: IItem[] = sortedSchoolItems.filter((item) =>
-    item.content.categories?.includes('it') &&
-    item.content.categories?.includes('education')
+    item.content.categories?.includes('it') 
+    // && item.content.categories?.includes('education')
   );
 
   const itProjectItems: IItem[] = sortedProjectItems.filter((item) =>
@@ -142,7 +143,7 @@ const Overview = () => {
 
         {/* Schools */}
         <div className="my-52 pt-5" id="schools">
-          <Title text="IT-Ausbildung und Selbstentwicklung" level={3} />
+          <Title text="IT-Jobs und Ausbildung" level={3} />
 
           {/* On Desktop */}
           <table className="hidden lg:block w-[80%] text-left text-sm font-light mx-auto">
@@ -151,19 +152,28 @@ const Overview = () => {
 
                 return (
                   <tr key={`schools-tr-${index}`} className={`border-b ${index % 2 ? 'bg-[#eee]' : 'bg-[#ddd5]'}`}>
+                    {/* Job/School Icos */}
+                    <td className="w-[80px] h-[50px] align-top whitespace-nowrap px-6 pt-8 font-semibold">
+                      {item.content.categories.includes('job') && 
+                        <img className="w-10 h-10 translate-y-[-12px]" src={icons.find((icon) => icon.name === 'Job')?.img} alt="job icon" title="Job" />
+                      }
+                      {item.content.categories.includes('education') && 
+                      <img className="w-9 h-9 translate-y-[-9px]" src={icons.find((icon) => icon.name === 'School')?.img} alt="job icon" title="Schulung" />}
+                    </td>
+
                     {/* Years */}
-                    <td className="whitespace-nowrap px-6 py-4 font-semibold">
+                    <td className="align-top whitespace-nowrap pt-8 py-4 font-semibold">
                       {item.content.year}{item.content.end ? typeof item.content.end === 'string' && item.content.end === ' ' ? ' bis heute' : ' - ' + item.content.end : ''}
                     </td>
 
                     {/* Icon */}
-                    <td className="whitespace-nowrap px-6 py-4 w-[170px]">
+                    <td className="align-top whitespace-nowrap px-8 pt-7 min-w-[170px]">
                       {item.content.icons?.map((icon: string, index: number) => {
                         const ico = icons.filter(i => i.name === icon);
                         return (
                           <React.Fragment key={`icon-${index}`}>
                             {ico ?
-                              <img src={ico[0]?.img} alt={ico[0]?.name} className="inline-block w-8 h-8 pr-1" />
+                              <img src={ico[0]?.img} alt={ico[0]?.name} className="inline-block w-auto h-7 pr-1" title={item.content.icons ? item.content.icons[index] : ''} />
                               : ''}
                           </React.Fragment>
                         );
@@ -171,7 +181,7 @@ const Overview = () => {
                       )}
                     </td>
 
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="align-top whitespace-nowrap px-8 py-6">
                       {/* Kursname */}
                       <span className="block font-semibold">
                         {item.content.name}
@@ -181,15 +191,42 @@ const Overview = () => {
                       <span className="inline-block text-[.85rem] italic whitespace-pre-wrap lg:max-w-[90%]">
                         {item.content.institute}
                       </span>
+
+                      {/* Projects */}
+                      {item.projects && 
+                        <>
+                          <p className="font-bold mt-2">Projekte:</p>
+                          <ul className="cursor-default">
+                            {item.projects.map((project: IProjectInTable, index: number) => (
+                              <li className="relative group list-disc mt-1 ml-10" key={index}>
+                                {project.url ? (
+                                  <a target="_blank" href={project.url}>
+                                  {project.name} 
+                                  <img className="w-5 h-auto inline-block ml-2 translate-y-[-2px]" src={newTabIcon} alt="Open in new Tab" />
+                                </a>
+                                ): (
+                                  project.name
+                                )}
+                                <div className="absolute inline z-[100] group-hover:visible invisible w-[300px]">
+                                  {project.stack.map((s: string, index: number) => (
+                                    <span className="inline text-white bg-slate-400 rounded-full px-2 py-0.1 mx-0.5 text-xs" key={index}>{s}</span>
+                                  ))}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      }
                     </td>
 
                     {/* Certificate button */}
-                    <td className="whitespace-nowrap px-6 py-4">
+                    <td className="align-top whitespace-nowrap px-6 pt-8">
                       {item.content.certificate && !item.content.certificate?.includes('abitur') &&
                         <a
                           href={item.content.certificate ? pdfs.find(pdf => pdf.id === item.content.certificate)?.url : ''}
                           className="btn-sm btn-accent py-1 rounded font-normal transition-all duration-300"
                           target="_blank"
+                          title="Zertifikat herunterladen"
                         >Zertifikat</a>
                       }
                     </td>

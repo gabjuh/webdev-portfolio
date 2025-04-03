@@ -2,152 +2,259 @@
   "items": [
     {
       "content": {
-        "slug": "elektrotechnik",
-        "name": "Elektrotechnik, Abitur",
-        "typeOfActivity": "Schulische Ausbildung",
+        "categories": [
+          "job",
+          "it",
+          "coding"
+        ],
+        "description": "",
+        "end": " ",
+        "icons": [
+          "TypeScript",
+          "React",
+          "Angular 19",
+          "Scrum",
+          "Jira",
+          "Accessibility"
+        ],
+        "image": "",
+        "institute": "neusta GmbH - Software Development",
+        "name": "TypeScript React/Angular Entwickler, Qualitätssicherung",
+        "showYear": true,
+        "slug": "job",
+        "typeOfActivity": "",
+        "year": 2024
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 3,
+        "newBranchOn": {
+          "start": 2
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
+      },
+      "projects": [
+        {
+          "name": "Pokemon APP (Labor Projekt)",
+          "stack": [
+            "Next.js",
+            "React Toolkit",
+            "Tailwind CSS",
+            "Angular",
+            "Gitlab",
+            "Pokemon API"
+          ]
+        },
+        {
+          "name": "Metabo Relaunch",
+          "stack": [
+            "pimcore",
+            "storybook",
+            "nuxt.js",
+            "jira"
+          ],
+          "url": "https://www.metabo.com/de/de"
+        },
+        {
+          "name": "EASE Virtual Research Building",
+          "stack": [
+            "Jira",
+            "Browserstack",
+            "Wave",
+            "axe",
+            "ARC Toolkit"
+          ]
+        },
+        {
+          "name": "SOI Smart Logistics TI",
+          "stack": [
+            "Jira",
+            "Browserstack",
+            "Wave",
+            "axe",
+            "ARC Toolkit"
+          ]
+        },
+        {
+          "name": "Angelreisen",
+          "stack": [
+            "Jira",
+            "Browserstack",
+            "Wave",
+            "axe",
+            "ARC Toolkit"
+          ]
+        },
+        {
+          "name": "Krombacher",
+          "stack": [
+            "Jira",
+            "Browserstack",
+            "Wave",
+            "axe",
+            "ARC Toolkit"
+          ]
+        }
+      ]
+    },
+    {
+      "content": {
         "categories": [
           "education",
           "et",
           "it"
         ],
-        "institute": "500.sz. Angster J. Fachmittelschule",
-        "year": 2000,
-        "end": 2004,
         "description": "Elektrotechnik und Informatik (mit Schwerpunkt ET) lernte ich hier, und nach vier Jahren erhielt ich das Abitur.",
-        "showYear": true,
+        "end": 2004,
         "icons": [
           "electrotechnik"
-        ]
+        ],
+        "institute": "500.sz. Angster J. Fachmittelschule",
+        "name": "Elektrotechnik, Abitur",
+        "showYear": true,
+        "slug": "elektrotechnik",
+        "typeOfActivity": "Schulische Ausbildung",
+        "year": 2000
       },
       "layout": {
-        "level": 1,
-        "startingLevel": 0,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 1,
         "newBranchOn": {
           "start": 0
-        }
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 0
       }
     },
     {
       "content": {
-        "slug": "wirtschaftsinformatik",
-        "name": "Wirtschaftsinformatik, Technikum",
-        "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
           "it",
           "wirtschaft",
           "marketing"
         ],
-        "institute": "Czipernovsky Fachmittelschule",
-        "year": 2004,
-        "showYear": true,
         "certificate": "software_operator_technikum",
         "description": "In dieser Ausbildung wurde ich in die Grundlagen der Informatik, der Wirtschaft und des Marketings eingeführt. Ich erhielt den Technikum Zertifikat.",
         "end": 2005,
         "icons": [
           "IT",
           "wirtschaft"
-        ]
+        ],
+        "institute": "Czipernovsky Fachmittelschule",
+        "name": "Wirtschaftsinformatik, Technikum",
+        "showYear": true,
+        "slug": "wirtschaftsinformatik",
+        "typeOfActivity": "Ausbildung",
+        "year": 2004
       },
       "layout": {
-        "level": 1,
-        "startingLevel": 0,
         "branch": "stock",
+        "level": 1,
+        "open": "start",
         "side": "left",
-        "open": "start"
+        "startingLevel": 0
       }
     },
     {
       "content": {
-        "slug": "sgd_fernschule_php_mysql",
-        "name": "PHP & MySQL",
-        "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
           "it",
           "coding"
         ],
+        "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
+        "icons": [
+          "PHP8",
+          "MySQL"
+        ],
         "institute": "sgd Fernschule",
+        "name": "PHP & MySQL",
+        "showYear": true,
+        "slug": "sgd_fernschule_php_mysql",
         "tech": [
           "PHP8",
           "SQL",
           "OOP"
         ],
-        "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
-        "year": 2020,
-        "showYear": true,
-        "icons": [
-          "PHP8",
-          "MySQL"
-        ]
+        "typeOfActivity": "Ausbildung",
+        "year": 2020
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "canceled": 2021,
+        "level": 3,
         "newBranchOn": {
           "start": 2
         },
-        "canceled": 2021
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "webmasters_fernakademie_php_mysql",
-        "name": "PHP, Laravel & MySQL",
-        "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
           "it",
           "coding"
         ],
+        "certificate": "moderne-webanwendungen-mit-php-mysql-certificate",
+        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
+        "end": 2022,
+        "icons": [
+          "PHP8",
+          "MySQL",
+          "Laravel 8"
+        ],
+        "image": "stablegram",
         "institute": "Webmasters Europe e.V.",
+        "name": "PHP, Laravel & MySQL",
+        "showYear": true,
+        "slug": "webmasters_fernakademie_php_mysql",
         "tech": [
           "PHP8",
           "SQL",
           "OOP",
           "Laravel"
         ],
-        "year": 2021,
-        "showYear": true,
-        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
-        "certificate": "moderne-webanwendungen-mit-php-mysql-certificate",
-        "end": 2022,
-        "image": "stablegram",
-        "icons": [
-          "PHP8",
-          "MySQL",
-          "Laravel 8"
-        ]
+        "typeOfActivity": "Ausbildung",
+        "year": 2021
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "start",
+        "level": 3,
         "newBranchOn": {
-          "start": 3,
-          "end": 2
-        }
+          "end": 2,
+          "start": 3
+        },
+        "open": "start",
+        "side": "left",
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "webmasters_fernakademie_javascript_react",
-        "name": "JavaScript & React",
-        "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
           "it",
           "coding"
         ],
+        "certificate": "moderne-webanwendungen-mit-javascript-certificate",
+        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
+        "icons": [
+          "JavaScript",
+          "React"
+        ],
+        "image": "puzzle",
         "institute": "Webmasters Europe e.V.",
+        "link": "https://puzzle.gaborjuhasz.de/",
+        "name": "JavaScript & React",
+        "showYear": true,
+        "slug": "webmasters_fernakademie_javascript_react",
         "tech": [
           "JavaScript ES6",
           "React",
@@ -157,252 +264,277 @@
           "ExpressJS",
           "SocketIO"
         ],
-        "year": 2021,
-        "showYear": true,
-        "description": "Während meiner Ausbildung lernte ich u.a. JavaScript ES6, DOM, NodeJS und das React-Framework kennen.|Mir hat besonders gut gefallen, dass JavaScript sehr vielseitig einsetzbar ist und die Syntax logisch aufgebaut und unkompliziert ist – vergleich mit anderen Sprachen.",
-        "certificate": "moderne-webanwendungen-mit-javascript-certificate",
-        "image": "puzzle",
-        "link": "https://puzzle.gaborjuhasz.de/",
-        "icons": [
-          "JavaScript",
-          "React"
-        ]
+        "typeOfActivity": "Ausbildung",
+        "year": 2021
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
+        "level": 3,
+        "open": "both",
         "side": "left",
-        "open": "both"
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "webmasters_fernakademie_webdesign_usability",
-        "name": "Webdesign & Usability",
-        "typeOfActivity": "Ausbildung",
         "categories": [
           "education",
           "it",
           "coding"
         ],
-        "institute": "Webmasters Europe e.V.",
-        "tech": [
-          "HTML5",
-          "CSS4",
-          "SCSS",
-          "Bootstrap4"
-        ],
-        "year": 2021,
-        "showYear": true,
-        "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
         "certificate": "webdesign-usability-certificate",
-        "image": "memory_2",
+        "description": "In diesem Kurs wurden mir die Prinzipien von UX und UI vermittelt, außerdem erlernte ich die Grundlagen von HTML5, CSS3 sowie SCSS und Bootstrap4.",
         "icons": [
           "HTML5",
           "CSS4",
           "Sass",
           "Bootstrap 4"
-        ]
-      },
-      "layout": {
-        "level": 3,
-        "startingLevel": 2,
-        "branch": "stock",
-        "side": "left",
-        "open": "end",
-        "newBranchOn": {
-          "start": 2
-        }
-      }
-    },
-    {
-      "content": {
-        "slug": "typescript_react_tailwindcss",
-        "name": "TypeScript, React & TailwindCSS",
-        "typeOfActivity": "",
-        "categories": [
-          "education",
-          "it",
-          "coding"
         ],
-        "institute": "Intensives Selbststudium und praktische Anwendung in eigenen Projekten",
+        "image": "memory_2",
+        "institute": "Webmasters Europe e.V.",
+        "name": "Webdesign & Usability",
+        "showYear": true,
+        "slug": "webmasters_fernakademie_webdesign_usability",
         "tech": [
           "HTML5",
           "CSS4",
           "SCSS",
           "Bootstrap4"
         ],
-        "year": 2022,
-        "end": " ",
-        "showYear": true,
-        "description": "",
-        "image": "memory_2",
-        "icons": [
-          "TypeScript",
-          "React",
-          "Tailwind CSS"
-        ]
+        "typeOfActivity": "Ausbildung",
+        "year": 2021
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 3,
         "newBranchOn": {
           "start": 2
-        }
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "umschulung",
-        "name": "Umschulung bei dem IT-Bildungshaus, Bremen",
+        "categories": [
+          "job",
+          "it",
+          "coding"
+        ],
+        "description": "",
+        "end": " ",
+        "icons": [
+          "TypeScript",
+          "React",
+          "Tailwind CSS"
+        ],
+        "image": "memory_2",
+        "institute": "Anwendung in privaten sowie in Kundenprojekten",
+        "name": "TypeScript, React & TailwindCSS",
+        "showYear": true,
+        "slug": "typescript_react_tailwindcss",
         "typeOfActivity": "",
+        "year": 2022
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 3,
+        "newBranchOn": {
+          "start": 2
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
+      }
+    },
+    {
+      "content": {
         "categories": [
           "education",
           "it",
           "coding"
         ],
-        "institute": "Intensive Umschulung zum Fachinformatiker für Anwendungsentwicklung",
-        "year": 2023,
-        "end": " ",
-        "showYear": true,
         "description": "",
-        "image": "memory_2",
+        "end": "",
         "icons": [
           "C#",
           ".NET",
           "Unit Testing",
           "Scrum"
-        ]
+        ],
+        "image": "memory_2",
+        "institute": "Intensive Umschulung zum Fachinformatiker für Anwendungsentwicklung",
+        "name": "Umschulung bei dem IT-Bildungshaus, Bremen",
+        "showYear": true,
+        "slug": "umschulung",
+        "typeOfActivity": "",
+        "year": 2023
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 3,
         "newBranchOn": {
           "start": 2
-        }
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "html_css_php",
-        "name": "HTML5, CSS3, PHP7",
-        "typeOfActivity": "",
         "categories": [
-          "education",
+          "job",
           "it",
           "coding"
         ],
-        "institute": "Intensives Selbststudium und praktische Anwendung im Projekt für inline Kurier Hamburg.",
-        "tech": [
-          "HTML5",
-          "CSS4",
-          "SCSS",
-          "Bootstrap4"
-        ],
-        "year": 2018,
-        "end": "2019",
-        "showYear": true,
         "description": "",
-        "image": "memory_2",
+        "end": "2019",
         "icons": [
           "HTML5",
           "CSS4",
           "PHP8"
-        ]
-      },
-      "layout": {
-        "level": 3,
-        "startingLevel": 2,
-        "branch": "stock",
-        "side": "left",
-        "open": "end",
-        "newBranchOn": {
-          "start": 2
-        }
-      }
-    },
-    {
-      "content": {
-        "slug": "cms",
-        "name": "Content Management (Wordpress, Joomla)",
-        "typeOfActivity": "",
-        "categories": [
-          "education",
-          "it",
-          "coding"
         ],
-        "institute": "Intensives Selbststudium und praktische Anwendung für die Webseite der Lübecker Musikschule und Portfolios für Künstler.",
+        "image": "memory_2",
+        "institute": "Projekt für inline Kurier Hamburg.",
+        "name": "Internes Benutzerhandbuch mit responsiven Design",
+        "showYear": true,
+        "slug": "html_css_php",
         "tech": [
           "HTML5",
           "CSS4",
           "SCSS",
           "Bootstrap4"
         ],
-        "year": 2017,
-        "end": "2019",
-        "showYear": true,
-        "description": "",
-        "image": "memory_2",
-        "icons": [
-          "Wordpress",
-          "Joomla"
-        ]
+        "typeOfActivity": "",
+        "year": 2018
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 3,
         "newBranchOn": {
           "start": 2
-        }
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
       }
     },
     {
       "content": {
-        "slug": "git_github",
-        "name": "Git & GitHub",
-        "typeOfActivity": "Ausbildung",
+        "categories": [
+          "job",
+          "it",
+          "coding"
+        ],
+        "description": "",
+        "end": "2022",
+        "icons": [
+          "Joomla",
+          "JavaScript"
+        ],
+        "image": "memory_2",
+        "institute": "Lübecker Musikschule der Gemeinnützigen",
+        "name": "Content Management (Joomla, JavaSript, Python)",
+        "showYear": true,
+        "slug": "cms",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "typeOfActivity": "",
+        "year": 2017
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 3,
+        "newBranchOn": {
+          "start": 2
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
+      }
+    },
+    {
+      "content": {
+        "categories": [
+          "job",
+          "it",
+          "coding"
+        ],
+        "description": "",
+        "end": "2023",
+        "icons": [
+          "Wordpress",
+          "JavaScript",
+          "PHP8"
+        ],
+        "image": "memory_2",
+        "institute": "Private sowie Kundenprojekte",
+        "name": "Erstellung und Betreuung von Wordpress Webseiten",
+        "showYear": true,
+        "slug": "cms",
+        "tech": [
+          "HTML5",
+          "CSS4",
+          "SCSS",
+          "Bootstrap4"
+        ],
+        "typeOfActivity": "",
+        "year": 2018
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 3,
+        "newBranchOn": {
+          "start": 2
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 2
+      }
+    },
+    {
+      "content": {
         "categories": [
           "education",
           "it",
           "coding"
         ],
+        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
+        "end": " ",
+        "icons": [
+          "git",
+          "Github"
+        ],
+        "image": "stablegram",
         "institute": "Intensives Selbststudium und praktische Anwendung in allen meinen laufenden Projekten.",
+        "name": "Git & GitHub",
+        "showYear": true,
+        "slug": "git_github",
         "tech": [
           "PHP8",
           "SQL",
           "OOP",
           "Laravel"
         ],
-        "year": 2021,
-        "showYear": true,
-        "description": "Die Ausbildung umfasste Themen wie PHP, MySQL und Objektorientierte Programmierung und hat mir geholfen, meine ersten Schritte mit dem Laravel Framework zu machen.",
-        "end": " ",
-        "image": "stablegram",
-        "icons": [
-          "git",
-          "Github"
-        ]
+        "typeOfActivity": "Ausbildung",
+        "year": 2021
       },
       "layout": {
-        "level": 3,
-        "startingLevel": 2,
         "branch": "stock",
-        "side": "left",
-        "open": "start",
+        "level": 3,
         "newBranchOn": {
-          "start": 3,
-          "end": 2
-        }
+          "end": 2,
+          "start": 3
+        },
+        "open": "start",
+        "side": "left",
+        "startingLevel": 2
       }
     }
   ]

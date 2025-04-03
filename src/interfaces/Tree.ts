@@ -64,6 +64,7 @@ export interface ILayout {
 export interface IItem {
   content: IContent;
   layout?: ILayout;
+  projects?: IProjectInTable[];
 }
 
 export interface ITree {
@@ -71,4 +72,10 @@ export interface ITree {
   timeline: ITimeline;
   point: IPoint;
   items: IItem[];
+}
+
+export interface IProjectInTable {
+  name: string;
+  stack: string[];
+  url?: string;
 }

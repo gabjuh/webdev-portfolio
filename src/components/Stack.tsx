@@ -40,7 +40,7 @@ const Stack: React.FC = () => {
   const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
 
   // Show indexes in order to able to identify and change fields
-  const [showIndexes, setShowIndexes] = useState<boolean>(true);
+  const [showIndexes, setShowIndexes] = useState<boolean>(false);
 
   // The active field is the field that is hovered or clicked
   const [activeField, setActiveField] = useState<number | null>(null);
