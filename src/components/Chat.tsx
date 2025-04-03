@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { IQuestionButton, IAnswerMessage, IQuestionMessage, IDot } from '../interfaces/Chat';
-import questions from '../data/chat/questions';
-import themes from '../themes.json';
+
 import chatgtp from '../assets/logos/chatgpt.svg';
+import questions from '../data/chat/questions';
+import { IAnswerMessage, IDot, IQuestionButton, IQuestionMessage } from '../interfaces/Chat';
+import themes from '../themes.json';
 import Title from './Title';
 
 const theme = themes[2];

@@ -17,7 +17,7 @@ const menuItems: IMenuItems[] = [
     "id": "projects"
   },
   {
-    "name": "Jobs / Ausbildung",
+    "name": "Ausbildung",
     "id": "schools"
   },
   {

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, FC } from 'react';
-import icons from '../data/overview/icons';
+import React, { FC, useEffect, useState } from 'react';
+
 import menuItems from '../data/menu/menuItems';
-import { scrollToId } from '../helpers/pageNavigation';
+import icons from '../data/overview/icons';
 import { getViewWidth } from '../helpers/getViewWidth';
+import { scrollToId } from '../helpers/pageNavigation';
 
 interface IMenuItem {
   id: string,
@@ -15,18 +16,9 @@ interface IMenuItem {
 }
 
 const MenuItem: React.FC<IMenuItem> = ({
-  id, name, selectedMenuItem, setSelectedMenuItem, handleMenuItemSelect, isClicked, setIsClicked
+  id, name, selectedMenuItem, setSelectedMenuItem
 }) => {
-
-  const [isSelected, setIsSelected] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (selectedMenuItem === id) {
-      setIsSelected(true);
-    } else {
-      setIsSelected(false);
-    }
-  }, [selectedMenuItem]);
+  const isSelected = selectedMenuItem === id;
 
   const handleOnclick = () => {
     setSelectedMenuItem(id);
@@ -35,19 +27,18 @@ const MenuItem: React.FC<IMenuItem> = ({
 
   return (
     <div className="text-right">
-      <p
-        className="cursor-pointer"
-        onClick={
-          handleOnclick
-        }
-      >
-        <span className={`block pr-4 h-[100%] w-[100%] text-[#444a] hover:text-[#2ea18c] transition-all duration-[.4s] ease-in-out ${isSelected ? 'text-[#2ea18c] font-semibold text-[1.2rem] py-[.7rem]' : 'font-light text-[.85rem]'}`}>
+      <p className="cursor-pointer" onClick={handleOnclick}>
+        <span
+          className={`block pr-4 w-full h-full transition-all duration-[0.3s] delay-[50ms] ease-in-out
+            ${isSelected ? 'text-[#2ea18c] font-semibold text-[1.2rem] py-[.7rem]' : 'text-[#444a] hover:text-[#2ea18c] font-light text-[.85rem]'}`}
+        >
           {name}
         </span>
       </p>
     </div>
   );
-}
+};
+
 
 const StickyMenu = () => {
 
@@ -69,12 +60,23 @@ const StickyMenu = () => {
   const menuArrowObj = icons.find(icon => icon.name === 'menuArrow');
   const menuIco = menuArrowObj?.img;
 
-  // Create an object of menuitem ids and their y positions
-  const menuItemsYPos = menuItems.map(item => {
-    const el = document.querySelector(`#${item.id}`);
-    const yPos = el instanceof HTMLElement ? el.offsetTop : 0;
-    return { id: item.id, yPos: yPos };
-  });
+  const [menuItemsYPos, setMenuItemsYPos] = useState<{ id: string, yPos: number }[]>([]);
+
+  useEffect(() => {
+    const positions = menuItems.map(item => {
+      const el = document.querySelector(`#${item.id}`);
+      const yPos = el instanceof HTMLElement ? el.offsetTop : 0;
+      return { id: item.id, yPos };
+    });
+    setMenuItemsYPos(positions);
+  }, []);
+
+  // // Create an object of menuitem ids and their y positions
+  // const menuItemsYPos = menuItems.map(item => {
+  //   const el = document.querySelector(`#${item.id}`);
+  //   const yPos = el instanceof HTMLElement ? el.offsetTop : 0;
+  //   return { id: item.id, yPos: yPos };
+  // });
 
   // Get the current scroll position
   const scrollPos = window.scrollY;
@@ -100,17 +102,42 @@ const StickyMenu = () => {
   }, []);
 
   // scroll eventlistener
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPos = window.scrollY;
+  //     const currentMenuItemId = menuItemsYPos.find((item, i, arr) => item.yPos - 280 > scrollPos)?.id;
+  //     console.log(currentMenuItemId);
+  //     setSelectedMenuItem(currentMenuItemId || '');
+  //     getViewWidth() < 1024 && setIsMenuOpen(false);
+  //   };
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
+
   useEffect(() => {
     const handleScroll = () => {
+      // if (menuItemsYPos.length === 0) return;
+  
+      // const scrollPos = window.scrollY;
+      // const currentMenuItemId = menuItemsYPos.find((item, i, arr) =>
+      //   item.yPos - 280 > scrollPos
+      // )?.id;
+  
+      // setSelectedMenuItem(currentMenuItemId || '');
+      // if (getViewWidth() < 1024) setIsMenuOpen(false);
       const scrollPos = window.scrollY;
-      const currentMenuItemId = menuItemsYPos.find((item, i, arr) => item.yPos - 280 > scrollPos)?.id;
-      console.log(currentMenuItemId);
+      const viewportOffset = window.innerHeight / 3;
+      const currentMenuItemId = [...menuItemsYPos]
+        .reverse()
+        .find(item => scrollPos + viewportOffset >= item.yPos)?.id;
+
       setSelectedMenuItem(currentMenuItemId || '');
-      getViewWidth() < 1024 && setIsMenuOpen(false);
     };
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [menuItemsYPos]);
+  
 
 
   return (
@@ -141,3 +168,4 @@ const StickyMenu = () => {
 };
 
 export default StickyMenu;
+
