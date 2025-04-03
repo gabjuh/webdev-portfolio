@@ -1,45 +1,38 @@
 import React, { useEffect, useState } from 'react';
 
-// Components
-import Fields from './Fields';
-import Prompt from './Prompt';
-import Title from './Title';
-
-// Data Desktop
-import bigFields from '../data/stack/bigFields';
-import smallFields from '../data/stack/smallFields';
-import hiddenFields from '../data/stack/hiddenFields';
-import downButton from '../data/stack/downButton';
-
-// Data Tablet
-import bigFieldsTablet from '../data/stack/bigFieldsTablet';
-import smallFieldsTablet from '../data/stack/smallFieldsTablet';
-import hiddenFieldsTablet from '../data/stack/hiddenFieldsTablet';
-// import downButtonTablet from '../data/stack/downButtonTablet';
-
-// Data Mobile
-import bigFieldsMobile from '../data/stack/bigFieldsMobile';
-import smallFieldsMobile from '../data/stack/smallFieldsMobile';
-import hiddenFieldsMobile from '../data/stack/hiddenFieldsMobile';
 // import downButtonMobile from '../data/stack/downButtonMobile';
-
 // Config
 import fieldConfig from '../configs/field.conf';
-import fieldConfigTablet from '../configs/fieldTablet.conf';
 import fieldConfigMobile from '../configs/fieldMobile.conf';
 import fieldsConfig from '../configs/fields.conf';
+import fieldsConfigMobile from '../configs/fieldsMobile.conf';
 import fieldsConfigTablet from '../configs/fieldsTablet.conf';
-import fieldsConfigMobile from '../configs/fieldsMobile.conf'
-
+import fieldConfigTablet from '../configs/fieldTablet.conf';
+// Data Desktop
+import bigFields from '../data/stack/bigFields';
+// import downButtonTablet from '../data/stack/downButtonTablet';
+// Data Mobile
+import bigFieldsMobile from '../data/stack/bigFieldsMobile';
+// Data Tablet
+import bigFieldsTablet from '../data/stack/bigFieldsTablet';
+import downButton from '../data/stack/downButton';
+import hiddenFields from '../data/stack/hiddenFields';
+import hiddenFieldsMobile from '../data/stack/hiddenFieldsMobile';
+import hiddenFieldsTablet from '../data/stack/hiddenFieldsTablet';
+import smallFields from '../data/stack/smallFields';
+import smallFieldsMobile from '../data/stack/smallFieldsMobile';
+import smallFieldsTablet from '../data/stack/smallFieldsTablet';
+import { getViewWidth } from '../helpers/getViewWidth';
+// Helpers
+import { scrollToId } from '../helpers/pageNavigation';
 // Interfaces
 // import FieldConfig from '../interfaces/FieldConfig';
 // import FieldsConfig from '../interfaces/FieldsConfig';
 import IBigField from '../interfaces/BigField';
-
-
-// Helpers
-import { scrollToId } from '../helpers/pageNavigation';
-import { getViewWidth } from '../helpers/getViewWidth';
+// Components
+import Fields from './Fields';
+import Prompt from './Prompt';
+import Title from './Title';
 
 const Stack: React.FC = () => {
 
@@ -47,7 +40,7 @@ const Stack: React.FC = () => {
   const [viewWidth, setViewWidth] = useState<number>(getViewWidth());
 
   // Show indexes in order to able to identify and change fields
-  const [showIndexes, setShowIndexes] = useState<boolean>(false);
+  const [showIndexes, setShowIndexes] = useState<boolean>(true);
 
   // The active field is the field that is hovered or clicked
   const [activeField, setActiveField] = useState<number | null>(null);
