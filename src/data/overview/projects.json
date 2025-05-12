@@ -2,167 +2,293 @@
   "items": [
     {
       "content": {
-        "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
-        "name": "Digitales Benutzerhandbuch",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "",
+        "end": "",
+        "githubLink": "https://github.com/gabjuh/hammerschmidt-react",
+        "image": "hammerschmidt",
+        "institute": "Privates Projekt",
+        "link": "https://hammerschmidt-consort.com/",
+        "name": "Entwicklung und Hosting der Website des Hammerschmidt Consorts",
+        "recommendation": "#",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ],
+        "showYear": true,
+        "slug": "jam-out-project",
+        "tech": [
+          "React",
+          "TypeScript",
+          "TailwindCSS",
+          "SheetCSM"
+        ],
+        "typeOfActivity": "Projekt",
+        "year": 2025
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 2,
+        "newBranchOn": {
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
+      }
+    },
+    {
+      "content": {
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "description": "In einem privaten Projekt habe ich mit React, TypeScript und Tailwind CSS ein Logikspiel namens Jam-Out entwickelt, bei dem Autos aus einer Verkehrssituation befreit werden müssen – mit Fokus auf OOP-Prinzipien und Unit Testing.",
+        "end": "",
+        "image": "jam-out",
+        "institute": "Privates Projekt",
+        "name": "Jam-Out Logik Spiel",
+        "recommendation": "#",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ],
+        "showYear": true,
+        "slug": "jam-out-project",
+        "tech": [
+          "React",
+          "TypeScript",
+          "TailwindCSS",
+          "OOP",
+          "Unit Testing"
+        ],
+        "typeOfActivity": "Projekt",
+        "year": 2024
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 2,
+        "newBranchOn": {
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
+      }
+    },
+    {
+      "content": {
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "description": "Im Rahmen eines Schulprojekts beim IT Bildungshaus habe ich ein hochwertig gestaltetes UI für ein Schachspiel entwickelt, während ein Mitschüler für das Backend zuständig war.",
+        "end": "",
+        "image": "chess",
+        "institute": "IT Bildungshaus - Schulprojekt",
+        "name": "Chess UI in React",
+        "recommendation": "#",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ],
+        "showYear": true,
+        "slug": "chess-ui-in-react",
+        "tech": [
+          "React",
+          "TypeScript",
+          "TailwindCSS"
+        ],
+        "typeOfActivity": "Projekt",
+        "year": 2024
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 2,
+        "newBranchOn": {
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
+      }
+    },
+    {
+      "content": {
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt ist vollständig responsive.",
+        "end": 2019,
+        "image": "inline_preview",
         "institute": "inline Kuriere Hamburg",
+        "name": "Digitales Benutzerhandbuch",
+        "recommendation": "#",
+        "recommendations": [
+          "empfehlung-inline-kurier"
+        ],
+        "showYear": true,
+        "slug": "inline_kurier_hamburg_digitales_benutzerhandbuch",
         "tech": [
           "PHP7",
           "HTML5",
           "CSS3"
         ],
-        "year": 2018,
-        "showYear": true,
-        "description": "Ein digitales Benutzerhandbuch erstellte ich für die internen Online-Plattform des Unternehmens inline Kuriere Hamburg. Das Projekt ist vollständig responsive.",
-        "recommendation": "#",
-        "end": 2019,
-        "image": "inline_preview",
-        "recommendations": [
-          "empfehlung-inline-kurier"
-        ]
+        "typeOfActivity": "Projekt",
+        "year": 2018
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "push-puzzle",
-        "name": "Schiebe-Puzzle",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
-        "institute": "Privates Projekt",
-        "tech": [
-          "JavaScript",
-          "React",
-          "CSS3"
-        ],
-        "year": 2021,
-        "showYear": true,
         "description": "Die Entwicklung dieses Schiebepuzzles in React war nicht nur unterhaltsam, sondern auch eine wertvolle Gelegenheit, um tiefgehendes Verständnis für React-Komponenten und Zustandsmanagement zu erlangen. Das Projekt ermöglichte mir, die Konzepte der Spiellogik mit JavaScript in die Praxis umzusetzen und so meine Fähigkeiten im Bereich Frontend-Entwicklung weiter zu vertiefen.",
-        "recommendation": "#",
+        "gameLink": "https://puzzle.gaborjuhasz.de/",
+        "githubLink": "https://github.com/gabjuh/puzzle",
         "image": "puzzle",
+        "institute": "Privates Projekt",
+        "name": "Schiebe-Puzzle",
+        "recommendation": "#",
         "recommendations": [
           "empfehlung-inline-kurier"
         ],
-        "gameLink": "https://puzzle.gaborjuhasz.de/",
-        "githubLink": "https://github.com/gabjuh/puzzle"
-      },
-      "layout": {
-        "level": 2,
-        "startingLevel": 1,
-        "branch": "stock",
-        "side": "left",
-        "open": "end",
-        "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
-      }
-    },
-    {
-      "content": {
-        "slug": "master-logic-game",
-        "name": "Master-Logic Game",
-        "typeOfActivity": "Projekt",
-        "categories": [
-          "job",
-          "project",
-          "it",
-          "coding"
-        ],
-        "institute": "Privates Projekt",
+        "showYear": true,
+        "slug": "push-puzzle",
         "tech": [
           "JavaScript",
           "React",
           "CSS3"
         ],
-        "year": 2022,
-        "showYear": true,
-        "description": "Mit React, JavaScript und CSS habe ich das Master-Logik-Spiel entwickelt. React ermöglichte mir die Erstellung einer reaktionsfähigen Benutzeroberfläche, während JavaScript die Spiellogik umsetzte. Das CSS-Design strebte eine realistische Darstellung an, und diese Kombination schuf eine unterhaltsame und anspruchsvolle Master-Logik-Anwendung für Spieler unterschiedlicher Niveaus.",
-        "recommendation": "#",
-        "image": "master_logic",
-        "gameLink": "http://master-logic.gaborjuhasz.de/"
+        "typeOfActivity": "Projekt",
+        "year": 2021
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "personal-portfolio",
-        "name": "Personal Portfolio v.1",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Mit React, JavaScript und CSS habe ich das Master-Logik-Spiel entwickelt. React ermöglichte mir die Erstellung einer reaktionsfähigen Benutzeroberfläche, während JavaScript die Spiellogik umsetzte. Das CSS-Design strebte eine realistische Darstellung an, und diese Kombination schuf eine unterhaltsame und anspruchsvolle Master-Logik-Anwendung für Spieler unterschiedlicher Niveaus.",
+        "gameLink": "http://master-logic.gaborjuhasz.de/",
+        "image": "master_logic",
         "institute": "Privates Projekt",
+        "name": "Master-Logic Game",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "master-logic-game",
+        "tech": [
+          "JavaScript",
+          "React",
+          "CSS3"
+        ],
+        "typeOfActivity": "Projekt",
+        "year": 2022
+      },
+      "layout": {
+        "branch": "stock",
+        "level": 2,
+        "newBranchOn": {
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
+      }
+    },
+    {
+      "content": {
+        "categories": [
+          "job",
+          "project",
+          "it",
+          "coding"
+        ],
+        "description": "Diese Webseite markiert mein erstes veröffentlichtes Portfolio, das ich mithilfe von React und TailwindCSS entwickelt habe, um meine Fertigkeiten in diesen Technologien zu schärfen. Die Seite ist komplett responsiv gestaltet und bietet den Nutzern die Möglichkeit, meine bisherigen Projekte mühelos zu durchstöbern und kennenzulernen.",
+        "githubLink": "https://github.com/gabjuh/portfolio",
+        "image": "portfolio_1",
+        "institute": "Privates Projekt",
+        "name": "Personal Portfolio v.1",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "personal-portfolio",
         "tech": [
           "TypeScript",
           "React",
           "TailwindCss"
         ],
-        "year": 2022,
-        "showYear": true,
-        "description": "Diese Webseite markiert mein erstes veröffentlichtes Portfolio, das ich mithilfe von React und TailwindCSS entwickelt habe, um meine Fertigkeiten in diesen Technologien zu schärfen. Die Seite ist komplett responsiv gestaltet und bietet den Nutzern die Möglichkeit, meine bisherigen Projekte mühelos zu durchstöbern und kennenzulernen.",
-        "recommendation": "#",
-        "image": "portfolio_1",
-        "githubLink": "https://github.com/gabjuh/portfolio"
+        "typeOfActivity": "Projekt",
+        "year": 2022
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "adventgemeinde_bremen_mitte",
-        "name": "Online Mediathek",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Für die Adventgemeinde Bremen-Mitte habe ich die Webseite der Mediathek erstellt, und gleich mit eine Admin Seite erweitert, womit sie die Seite selbst pflegen können. Die Webseite ist vollständig responsive und ermöglicht es den Benutzern, die Predigten der Gemeinde zu durchsuchen und anzuhören.",
+        "end": "2021",
+        "image": "agbm",
         "institute": "Beauftragt von der Adventgemeinde Bremen-Mitte",
+        "name": "Online Mediathek",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "adventgemeinde_bremen_mitte",
         "tech": [
           "HTML5",
           "CSS4",
@@ -170,37 +296,39 @@
           "PHP7",
           "MySQL"
         ],
-        "year": 2020,
-        "end": "2021",
-        "showYear": true,
-        "description": "Für die Adventgemeinde Bremen-Mitte habe ich die Webseite der Mediathek erstellt, und gleich mit eine Admin Seite erweitert, womit sie die Seite selbst pflegen können. Die Webseite ist vollständig responsive und ermöglicht es den Benutzern, die Predigten der Gemeinde zu durchsuchen und anzuhören.",
-        "recommendation": "#",
-        "image": "agbm"
+        "typeOfActivity": "Projekt",
+        "year": 2020
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "stablegram",
-        "name": "Stablegram",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Ich habe kürzlich einen aufregenden Ausflug in die Welt des Backends unternommen und dabei einen grundlegenden Instagram-Klon in Laravel erstellt. Diese Webseite ist vollständig responsiv und erlaubt es den Benutzern, Bilder hochzuladen, zu bearbeiten und zu löschen. Zusätzlich können sie nach anderen Benutzern suchen, diesen folgen und Bilder liken.",
+        "end": "2022",
+        "githubLink": "https://github.com/gabjuh/stablegram",
+        "image": "stablegram",
         "institute": "Privates Projekt",
+        "link": "https://stablegram.portfolio.web4musicians.eu/",
+        "name": "Stablegram",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "stablegram",
         "tech": [
           "HTML5",
           "CSS4",
@@ -209,164 +337,158 @@
           "Laravel",
           "SQLite"
         ],
-        "year": 2021,
-        "end": "2022",
-        "showYear": true,
-        "description": "Ich habe kürzlich einen aufregenden Ausflug in die Welt des Backends unternommen und dabei einen grundlegenden Instagram-Klon in Laravel erstellt. Diese Webseite ist vollständig responsiv und erlaubt es den Benutzern, Bilder hochzuladen, zu bearbeiten und zu löschen. Zusätzlich können sie nach anderen Benutzern suchen, diesen folgen und Bilder liken.",
-        "recommendation": "#",
-        "image": "stablegram",
-        "link": "https://stablegram.portfolio.web4musicians.eu/",
-        "githubLink": "https://github.com/gabjuh/stablegram"
+        "typeOfActivity": "Projekt",
+        "year": 2021
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "SheetCMS",
-        "name": "SheetCMS",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Das Projekt SheetCMS, entwickelt in Next.js, bietet Musikern eine benutzerfreundliche Portfolio-Seite. Dabei nutze ich eine Google Tabelle als Datenbank, die es den Website-Inhabern ermöglicht, Inhalte wie Texte, Konzerttermine, Bilder und Videos eigenständig zu verwalten, ohne die Notwendigkeit einer Backend-Oberfläche oder die Erlernung komplexer CMS-Systeme wie WordPress.",
+        "end": "",
+        "githubLink": "https://github.com/gabjuh/fani-portfolio",
+        "image": "sheet_cms_1",
+        "image2": "sheet_cms_2",
         "institute": "Kundenprojekt",
+        "link": "https://franciskahajdu.de/",
+        "name": "SheetCMS",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "SheetCMS",
         "tech": [
           "Typescript",
           "React NextJS",
           "TailwindCSS",
           "Google Sheet"
         ],
-        "year": 2023,
-        "end": "",
-        "showYear": true,
-        "description": "Das Projekt SheetCMS, entwickelt in Next.js, bietet Musikern eine benutzerfreundliche Portfolio-Seite. Dabei nutze ich eine Google Tabelle als Datenbank, die es den Website-Inhabern ermöglicht, Inhalte wie Texte, Konzerttermine, Bilder und Videos eigenständig zu verwalten, ohne die Notwendigkeit einer Backend-Oberfläche oder die Erlernung komplexer CMS-Systeme wie WordPress.",
-        "recommendation": "#",
-        "image": "sheet_cms_1",
-        "image2": "sheet_cms_2",
-        "link": "https://franciskahajdu.de/",
-        "githubLink": "https://github.com/gabjuh/fani-portfolio"
+        "typeOfActivity": "Projekt",
+        "year": 2023
       }
     },
     {
       "content": {
-        "slug": "lebensbaum",
-        "name": "Lebensbaum",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Meine innere Unzufriedenheit motivierte mich dazu, mein Portfolio von Grund auf neu zu gestalten und eine Darstellung zu schaffen, die meine vielfältigen Fähigkeiten angemessen repräsentiert. Früher war mein Lebenslauf unübersichtlich, da ich in verschiedenen Bereichen tätig war. Inspiriert von der Struktur von Git-Branches, entschied ich mich, Schulen und Projekte in einer Baumstruktur darzustellen. Dies ermöglicht es, die verschiedenen Bereiche mit einem einfachen Klick zu filtern, was einen klareren Überblick bietet.",
+        "githubLink": "https://github.com/gabjuh/webdev-portfolio",
+        "image": "portfolio_2",
         "institute": "Privates Projekt",
+        "link": "https://gaborjuhasz.de/#buttons",
+        "name": "Lebensbaum",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "lebensbaum",
         "tech": [
           "TypeScript",
           "React",
           "TailwindCSS"
         ],
-        "year": 2023,
-        "showYear": true,
-        "description": "Meine innere Unzufriedenheit motivierte mich dazu, mein Portfolio von Grund auf neu zu gestalten und eine Darstellung zu schaffen, die meine vielfältigen Fähigkeiten angemessen repräsentiert. Früher war mein Lebenslauf unübersichtlich, da ich in verschiedenen Bereichen tätig war. Inspiriert von der Struktur von Git-Branches, entschied ich mich, Schulen und Projekte in einer Baumstruktur darzustellen. Dies ermöglicht es, die verschiedenen Bereiche mit einem einfachen Klick zu filtern, was einen klareren Überblick bietet.",
-        "recommendation": "#",
-        "image": "portfolio_2",
-        "link": "https://gaborjuhasz.de/#buttons",
-        "githubLink": "https://github.com/gabjuh/webdev-portfolio"
+        "typeOfActivity": "Projekt",
+        "year": 2023
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "hat_rendben",
-        "name": "Hát. Rendben.",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "Für ein Kundenprojekt habe ich eine ansprechende Webseite für einen Psychotherapeuten entwickelt, um seine Online-Präsenz zu erweitern. Mithilfe von React und TailwindCSS wurde eine moderne und benutzerfreundliche Website geschaffen, die es dem Therapeuten ermöglicht, seine Dienstleistungen online professionell zu präsentieren.",
+        "end": "2022",
+        "image": "hat_rendben",
         "institute": "Kundenprojekt",
+        "name": "Hát. Rendben.",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "hat_rendben",
         "tech": [
           "JavaScript",
           "React",
           "TailwindCSS"
         ],
-        "year": 2021,
-        "end": "2022",
-        "showYear": true,
-        "description": "Für ein Kundenprojekt habe ich eine ansprechende Webseite für einen Psychotherapeuten entwickelt, um seine Online-Präsenz zu erweitern. Mithilfe von React und TailwindCSS wurde eine moderne und benutzerfreundliche Website geschaffen, die es dem Therapeuten ermöglicht, seine Dienstleistungen online professionell zu präsentieren.",
-        "recommendation": "#",
-        "image": "hat_rendben"
+        "typeOfActivity": "Projekt",
+        "year": 2021
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     },
     {
       "content": {
-        "slug": "tommy-chords",
-        "name": "Tommy's Chords",
-        "typeOfActivity": "Projekt",
         "categories": [
           "job",
           "project",
           "it",
           "coding"
         ],
+        "description": "\"Tommy's Chords\" ist eine neue Idee für ein unterhaltsames und interaktives React-Spiel, das darauf abzielt, Spielern dabei zu helfen, Gitarrenakkorde zu erkennen und zu spielen. Mit visuellen und auditiven Darstellungen sowie interaktiven Übungen können Spieler eine breite Palette von Akkorden üben und beherrschen. Das Spiel soll eine wertvolle Ressource für Anfänger und fortgeschrittene Spieler sein, die ihre Fähigkeiten auf der Gitarre verbessern möchten.",
+        "end": "",
+        "githubLink": "https://github.com/gabjuh/tommychords",
+        "image": "tommy_chords",
         "institute": "Privates Projekt",
+        "name": "Tommy's Chords",
+        "recommendation": "#",
+        "showYear": true,
+        "slug": "tommy-chords",
         "tech": [
           "TypeScript",
           "React",
           "TailwindCss"
         ],
-        "year": 2023,
-        "end": "",
-        "showYear": true,
-        "description": "\"Tommy's Chords\" ist eine neue Idee für ein unterhaltsames und interaktives React-Spiel, das darauf abzielt, Spielern dabei zu helfen, Gitarrenakkorde zu erkennen und zu spielen. Mit visuellen und auditiven Darstellungen sowie interaktiven Übungen können Spieler eine breite Palette von Akkorden üben und beherrschen. Das Spiel soll eine wertvolle Ressource für Anfänger und fortgeschrittene Spieler sein, die ihre Fähigkeiten auf der Gitarre verbessern möchten.",
-        "recommendation": "#",
-        "image": "tommy_chords",
-        "githubLink": "https://github.com/gabjuh/tommychords"
+        "typeOfActivity": "Projekt",
+        "year": 2023
       },
       "layout": {
-        "level": 2,
-        "startingLevel": 1,
         "branch": "stock",
-        "side": "left",
-        "open": "end",
+        "level": 2,
         "newBranchOn": {
-          "start": 1,
-          "end": 1
-        }
+          "end": 1,
+          "start": 1
+        },
+        "open": "end",
+        "side": "left",
+        "startingLevel": 1
       }
     }
   ]

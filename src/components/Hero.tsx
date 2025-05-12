@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import profil_img from '../assets/images/profile2.png';
 import profil_xmas_img from '../assets/images/profile2_xmas_b.png';
+import cv from '../assets/pdfs/CV-GaborJuhasz.pdf';
 
 interface IHero {
 }
@@ -50,34 +51,43 @@ const Hero: React.FC<IHero> = ({ }) => {
             <h1 className="text-2xl font-bold translate-y-1 mt-10">Gábor Juhász</h1>
             <p className="pt-2 text-lg my-2 translate-y-0">TypeScript React Entwickler</p>
             <div className="-mt-3">
+
+              <a
+                href={cv}
+                target="_blank"
+                className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
+              >CV</a>
+
               <a
                 href="mailto:info@gaborjuhasz.de"
                 className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
               >Email</a>
 
-              <a
+              {/* <a
                 href="https://github.com/gabjuh"
                 target="_blank"
                 className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
-              >Github</a>
+              >Github</a> */}
 
-              <a
+              {/* <a
                 href="https://www.codewars.com/users/gabjuh"
                 target="_blank"
                 className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
-              >CodeWars ({codeWarsPoints})</a>
+              >CodeWars ({codeWarsPoints})</a> */}
 
-              <a
+              {/* <a
                 href="https://stackoverflow.com/users/10944631/gabesz-juh%c3%a1sz"
                 target="_blank"
                 className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px] mr-3"
-              >StackOverflow ({stackOverflowPoints})</a>
+              >StackOverflow ({stackOverflowPoints})</a> */}
 
-              <a
+              
+
+              {/* <a
                 href="https://www.linkedin.com/in/g%C3%A1bor-juh%C3%A1sz-5352935a/"
                 target="_blank"
                 className="btn btn-sm bg-[#c6ded8] hover:bg-[#eee] text-[#222] border-none text-xs px-3 hover:text-[#333] mt-7 shadow-md border-[.5px]"
-              >LinkedIn</a>
+              >LinkedIn</a> */}
             </div>
           </div>
         </div>

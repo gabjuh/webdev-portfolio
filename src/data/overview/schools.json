@@ -172,7 +172,7 @@
           "MySQL"
         ],
         "institute": "sgd Fernschule",
-        "name": "PHP & MySQL",
+        "name": "Ausbildung: PHP & MySQL",
         "showYear": true,
         "slug": "sgd_fernschule_php_mysql",
         "tech": [
@@ -212,7 +212,7 @@
         ],
         "image": "stablegram",
         "institute": "Webmasters Europe e.V.",
-        "name": "PHP, Laravel & MySQL",
+        "name": "Ausbildung: PHP, Laravel & MySQL",
         "showYear": true,
         "slug": "webmasters_fernakademie_php_mysql",
         "tech": [
@@ -252,7 +252,7 @@
         "image": "puzzle",
         "institute": "Webmasters Europe e.V.",
         "link": "https://puzzle.gaborjuhasz.de/",
-        "name": "JavaScript & React",
+        "name": "Ausbildung: JavaScript & React",
         "showYear": true,
         "slug": "webmasters_fernakademie_javascript_react",
         "tech": [
@@ -292,7 +292,7 @@
         ],
         "image": "memory_2",
         "institute": "Webmasters Europe e.V.",
-        "name": "Webdesign & Usability",
+        "name": "Ausbildung: Webdesign & Usability",
         "showYear": true,
         "slug": "webmasters_fernakademie_webdesign_usability",
         "tech": [
@@ -365,7 +365,7 @@
         ],
         "image": "memory_2",
         "institute": "Intensive Umschulung zum Fachinformatiker für Anwendungsentwicklung",
-        "name": "Umschulung bei dem IT-Bildungshaus, Bremen",
+        "name": "Umschulung: IT-Bildungshaus, Bremen",
         "showYear": true,
         "slug": "umschulung",
         "typeOfActivity": "",

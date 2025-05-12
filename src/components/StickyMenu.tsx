@@ -114,29 +114,30 @@ const StickyMenu = () => {
   //   return () => window.removeEventListener('scroll', handleScroll);
   // }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // if (menuItemsYPos.length === 0) return;
+  // EZ ITT A JO!
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // if (menuItemsYPos.length === 0) return;
   
-      // const scrollPos = window.scrollY;
-      // const currentMenuItemId = menuItemsYPos.find((item, i, arr) =>
-      //   item.yPos - 280 > scrollPos
-      // )?.id;
+  //     // const scrollPos = window.scrollY;
+  //     // const currentMenuItemId = menuItemsYPos.find((item, i, arr) =>
+  //     //   item.yPos - 280 > scrollPos
+  //     // )?.id;
   
-      // setSelectedMenuItem(currentMenuItemId || '');
-      // if (getViewWidth() < 1024) setIsMenuOpen(false);
-      const scrollPos = window.scrollY;
-      const viewportOffset = window.innerHeight / 3;
-      const currentMenuItemId = [...menuItemsYPos]
-        .reverse()
-        .find(item => scrollPos + viewportOffset >= item.yPos)?.id;
+  //     // setSelectedMenuItem(currentMenuItemId || '');
+  //     // if (getViewWidth() < 1024) setIsMenuOpen(false);
+  //     const scrollPos = window.scrollY;
+  //     const viewportOffset = window.innerHeight / 3;
+  //     const currentMenuItemId = [...menuItemsYPos]
+  //       .reverse()
+  //       .find(item => scrollPos + viewportOffset >= item.yPos)?.id;
 
-      setSelectedMenuItem(currentMenuItemId || '');
-    };
+  //     setSelectedMenuItem(currentMenuItemId || '');
+  //   };
   
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [menuItemsYPos]);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, [menuItemsYPos]);
   
 
 

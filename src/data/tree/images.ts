@@ -1,23 +1,26 @@
+import agbm from '../../assets/images/agbm.png';
+import drive from '../../assets/images/auto_driving.png';
 import boy from '../../assets/images/baby-sculptur-boy.png';
 import girl from '../../assets/images/baby-sculptur-girl.png';
-import wedding from '../../assets/images/wedding5.png';
-import drive from '../../assets/images/auto_driving.png';
 import baby from '../../assets/images/baby3.png';
-import transilvano from '../../assets/images/prisma_il_transilvano.jpg';
-import inline from '../../assets/images/inline_preview_2.png';
-import musikerPortfolio from '../../assets/images/musiker_portfolio_2.png';
+import chess from '../../assets/images/chess.png';
+import hammerschmidt from '../../assets/images/hammerschmidt.png';
+import hatRendben from '../../assets/images/hat_rendben.png';
 import inDialogo from '../../assets/images/in_dialogo_2.png';
-import memory from '../../assets/images/memory_2.png';
-import puzzle from '../../assets/images/puzzle_2.png';
-import stablegram from '../../assets/images/stablegram_2.png';
+import inline from '../../assets/images/inline_preview_2.png';
+import jamOut from '../../assets/images/jam-out.png';
 import masterLogic from '../../assets/images/master_logic.png';
-import tommyChords from '../../assets/images/tommyChords2.png';
+import memory from '../../assets/images/memory_2.png';
+import sheetCms2 from '../../assets/images/musiker_database_sheet.png';
+import musikerPortfolio from '../../assets/images/musiker_portfolio_2.png';
+import sheetCms1 from '../../assets/images/musiker_portfolio_extel_react.png';
 import portfolio1 from '../../assets/images/portfolio_1.png';
 import portfolio2 from '../../assets/images/portfolio_2.png';
-import agbm from '../../assets/images/agbm.png';
-import hatRendben from '../../assets/images/hat_rendben.png';
-import sheetCms1 from '../../assets/images/musiker_portfolio_extel_react.png';
-import sheetCms2 from '../../assets/images/musiker_database_sheet.png';
+import transilvano from '../../assets/images/prisma_il_transilvano.jpg';
+import puzzle from '../../assets/images/puzzle_2.png';
+import stablegram from '../../assets/images/stablegram_2.png';
+import tommyChords from '../../assets/images/tommyChords2.png';
+import wedding from '../../assets/images/wedding5.png';
 
 interface IImages {
   name: string;
@@ -59,6 +62,21 @@ const images: IImages[] = [
   {
     "name": "inline_preview",
     "img": inline,
+    "credits": ""
+  },
+  {
+    "name": "chess",
+    "img": chess,
+    "credits": ""
+  },
+  {
+    "name": "jam-out",
+    "img": jamOut,
+    "credits": ""
+  },
+  {
+    "name": "hammerschmidt",
+    "img": hammerschmidt,
     "credits": ""
   },
   {

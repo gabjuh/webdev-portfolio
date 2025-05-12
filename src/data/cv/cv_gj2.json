@@ -573,7 +573,7 @@
         ],
         "description": "Den Kurs musste ich leider nach 6 Monaten aus finanziellen Gründen abbrechen. Trotzdem konnte ich das Erlernte in meinem weiteren Ausbildung erfolgreich anwenden.",
         "institute": "sgd Fernschule",
-        "name": "PHP & MySQL",
+        "name": "Ausbildung: PHP & MySQL",
         "showYear": true,
         "slug": "sgd_fernschule_php_mysql",
         "tech": [
@@ -608,7 +608,7 @@
         "end": 2021,
         "image": "memory_2",
         "institute": "Webmasters Europe e.V.",
-        "name": "Webdesign & Usability",
+        "name": "Ausbildung: Webdesign & Usability",
         "showYear": true,
         "slug": "webmasters_fernakademie_webdesign_usability",
         "tech": [
@@ -643,7 +643,7 @@
         "image": "puzzle",
         "institute": "Webmasters Europe e.V.",
         "link": "https://puzzle.gaborjuhasz.de/",
-        "name": "JavaScript & React",
+        "name": "Ausbildung: JavaScript & React",
         "showYear": true,
         "slug": "webmasters_fernakademie_javascript_react",
         "tech": [
@@ -678,7 +678,7 @@
         "end": 2022,
         "image": "stablegram",
         "institute": "Webmasters Europe e.V.",
-        "name": "PHP & MySQL",
+        "name": "Ausbildung: PHP & MySQL",
         "showYear": true,
         "slug": "webmasters_fernakademie_php_mysql",
         "tech": [
@@ -711,7 +711,7 @@
         "description": "Bei dem IT-Bildungshaus werde ich eine Umschulung zum Fachinformatiker für Anwendungsentwicklung mit einer IHK Prüfung absolvieren. Die Ausbildung umfasst Themen wie C#, Java, Unit Testing und SCRUM.",
         "institute": "Das IT-Bildungshaus Bremen",
         "link": "https://hec.de",
-        "name": "C#, Java, .NET, Unit Testing, Scrum",
+        "name": "Umschulung: C#, Java, .NET, Unit Testing, Scrum",
         "showYear": true,
         "slug": "umschulung_fachinformatik_anwendungsentwicklung",
         "tech": [
