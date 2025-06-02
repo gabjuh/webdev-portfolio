@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import profil_img from '../assets/images/profile2.png';
 import profil_xmas_img from '../assets/images/profile2_xmas_b.png';
-import cv from '../assets/pdfs/CV-GaborJuhasz.pdf';
+import cv from '../assets/pdfs/CV-GaborJuhasz_v3.pdf';
 
 interface IHero {
 }

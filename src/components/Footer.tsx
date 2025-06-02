@@ -5,7 +5,7 @@ import facebook from '../assets/logos/facebook_mc.svg';
 import github from '../assets/logos/github_mc.svg';
 import linkedIn from '../assets/logos/linkedin_mc.svg';
 import stackOverflow from '../assets/logos/stack_overflow_mc.svg';
-import cv from '../assets/pdfs/CV-GaborJuhasz.pdf';
+import cv from '../assets/pdfs/CV-GaborJuhasz_v3.pdf';
 
 const Footer = () => {
   return (
@@ -32,7 +32,7 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-center w-[100%] text-sm">Ⓒ Gábor Juhász</p>
-      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 12. Mai 2025</p>
+      <p className="text-center w-[100%] text-sm text-[#999]">Stand: 2. Juni 2025</p>
     </footer>
   );
 };
